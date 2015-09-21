@@ -3,11 +3,11 @@
     * Fraunhofer:  Marc EMMELMANN (marc.emmelmann@fokus.fraunhofer.de)
     * Orange:
     * PTIN: Paulo Chainho (paulo-g-chainho@telecom.pt)
-    * DTAG:
+    * DTAG: Steffen Drüsedow (steffen.druesedow@telekom.de)
 
 * Emergency contacts in case you detect security breaches etc.
 **Attn.:** Contact the following people _only_ if you discover severe security issues with the testbeds, e.g. if a node is hijacked / hacked etc.
     * Fraunhofer: Marc EMMELMANN (marc.emmelmann@fokus.fraunhofer.de) & Florian Ermisch (florian.ermisch@fokus.fraunhofer.de)
     * Orange:
     * PTIN: Miguel Mesquita (mesquita@telecom.pt)
-    * DTAG:
+    * DTAG: Steffen Drüsedow (steffen.druesedow@telekom.de), Kay Hänsge (kay.haensge@telekom.de)
