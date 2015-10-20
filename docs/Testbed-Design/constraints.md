@@ -22,15 +22,15 @@ a starting point.*
 
 ### Orange node / deployment constrains
 
-* Will the testbed be accessible from outside the node premises via public IP?:  yes/no
-* Number of available public IP-addresses:  xxx
+* Will the testbed be accessible from outside the node premises via public IP?:  yes
+* Number of available public IP-addresses:  at least 2, plus virtual hosts and DNS.
 * Access to the node:
-    * Who will be allowed to have root-access to the node?:  local admins of node partner / reThink partner / hackatron users
-    * How can the node be accessed?:  please specify
+    * Who will be allowed to have root-access to the node?:  local admins of node partner
+    * How can the node be accessed?:  personalized (public key based) login for reThink project partners only
     * Responsibilities / leagal constrains:
-        * please specify or say _none_
+        * Project partner is responsible for deployed components und his/her account
     * Other 
-        * please specify or say _n/a_
+        * The testbed will be accessible throught a DNS, reverse proxyfied with an instance of OSA (https://github.com/zorglub42/OSA/ ) based on apache 2.4 (possibility to proxyfy websockets)
 
 
 
