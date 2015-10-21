@@ -23,7 +23,7 @@ a starting point.*
 ### Orange node / deployment constrains
 
 * Will the testbed be accessible from outside the node premises via public IP?:  yes
-* Number of available public IP-addresses:  at least 2, plus virtual hosts and DNS.
+* Number of available public IP-addresses:  3, plus virtual hosts and DNS.
 * Access to the node:
     * Who will be allowed to have root-access to the node?:  local admins of node partner
     * How can the node be accessed?:  personalized (public key based) login for reThink project partners only
