@@ -1,4 +1,4 @@
-FROM leshan
+FROM rthink/example-leshan
 MAINTAINER marc.emmelmann@fokus.fraunhofer.de
 
 #
