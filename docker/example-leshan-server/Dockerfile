@@ -19,6 +19,7 @@ CMD cd /opt/reTHINK/leshan/leshan-standalone && java -jar target/leshan-standalo
 
 #
 #
+#
 # you man run the docker image with
 #	docker run -it --net=host --name=leshan-server-container leshan-server
 #
