@@ -8,4 +8,10 @@
 FROM ubuntu:14.04
 MAINTAINER marc.emmelmann@fokus.fraunhofer.de
 
+# Create a /opt/reTHINK dir
+# all project specific stuff should be put in subdirectories (!!!)
+# below this path
+
+RUN mkdir /opt/reTHINK
+
 
