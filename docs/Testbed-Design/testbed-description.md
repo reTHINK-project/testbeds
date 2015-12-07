@@ -14,8 +14,14 @@
 So far deployed:
  * IdP based on Node.js http://idp.rethink.orange-labs.fr/ (sources in https://github.com/reTHINK-project/dev-IdPServer)
    * proxy accessible http://idp.rethink.orange-labs.fr/.well-known/idp-proxy/rethink-oidc
- * IdP based on php (sources in https://github.com/reTHINK-project/dev-IdPServer-phpOIDC)
- * 
-
+   * Dockerfile available
+   * Available test accounts
+    *
+ * IdP based on php https://oidc-ns.kermit.orange-labs.fr (sources in https://github.com/reTHINK-project/dev-IdPServer-phpOIDC)
+   * No idp proxy available
+   * No docker file
+ * Domain Registry available on http://service1.registry.rethink.orange-labs.fr (sources https://github.com/reTHINK-project/dev-registry-domain)
+  * 
+  
 ### Description of DTAG node
 *add text and figures here*
