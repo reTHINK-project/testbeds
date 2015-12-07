@@ -25,13 +25,13 @@ a starting point.*
 * Will the testbed be accessible from outside the node premises via public IP?:  yes
 * Number of available public IP-addresses:  3, plus virtual hosts and DNS.
 * Access to the node:
-    * Who will be allowed to have root-access to the node?:  local admins of node partner
-    * How can the node be accessed?:  personalized (public key based) login for reThink project partners only
+    * Who will be allowed to have root-access to the node?:  local admins only
+    * How can the node be accessed?: No ssh access from Internet, but the proxy to virtualized nodes can be personalized for reThink project partners only.
+     * Access throught http is possible althought all ports are not available (80, 8080, 443 are ok, others are subject to test/validation). The use of Apache Virtual Nodes allows to use the same IP with the same port for diffrent containers as long as the FQDN is different.
     * Responsibilities / leagal constrains:
         * Project partner is responsible for deployed components und his/her account
     * Other 
-        * The testbed will be accessible throught a DNS, reverse proxyfied with an instance of OSA (https://github.com/zorglub42/OSA/ ) based on apache 2.4 (possibility to proxyfy websockets)
-
+        * The testbed will be accessible through a DNS, reverse proxyfied with an instance of OSA (https://github.com/zorglub42/OSA/ ) based on apache 2.4 (possibility to proxyfy websockets)
 
 
 ### DTAG node / deployment constrains
