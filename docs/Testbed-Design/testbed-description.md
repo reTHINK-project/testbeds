@@ -24,7 +24,7 @@ So far deployed:
   
 #### on 4th VM - OIDC ServerInstance
  * IdP based on php https://oidc-ns.kermit.orange-labs.fr (sources in https://github.com/reTHINK-project/dev-IdPServer-phpOIDC)
-   * No idp proxy available
+   * proxy accessible https://oidc-ns.kermit.orange-labs.fr/.well-known/idp-proxy/rethink-oidc-ns
    * No docker file
  
 ### Description of DTAG node
