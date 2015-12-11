@@ -19,8 +19,10 @@ So far deployed:
    * Available test accounts
     *  
 
- * Domain Registry available on https://coolapp.rethink.orange-labs.fr (sources https://github.com/reTHINK-project/dev-registry-domain)
+ * Domain Registry available on https://coolapp.registry.rethink.orange-labs.fr (sources https://github.com/reTHINK-project/dev-registry-domain)
   *  
+  
+* Demo client available https://coolapp.rethink.orange-labs.fr 
   
 #### on 4th VM - OIDC ServerInstance
  * IdP based on php https://oidc-ns.kermit.orange-labs.fr (sources in https://github.com/reTHINK-project/dev-IdPServer-phpOIDC)
