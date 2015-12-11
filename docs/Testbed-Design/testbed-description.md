@@ -19,7 +19,7 @@ So far deployed:
    * Available test accounts
     *  
 
- * Domain Registry available on https://coolapp.registry.rethink.orange-labs.fr (sources https://github.com/reTHINK-project/dev-registry-domain)
+ * Domain Registry available on https://coolapp.rethink.orange-labs.fr (sources https://github.com/reTHINK-project/dev-registry-domain)
   *  
   
 #### on 4th VM - OIDC ServerInstance
