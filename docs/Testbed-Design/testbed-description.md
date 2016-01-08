@@ -79,19 +79,39 @@ Following servers (and associated sub-domains) should be provided:
  * at least one node of Global Registry
  * at least one CSP with a catalog
 
-### Domain entries required
-*.rethink.ptinovacao.pt  
-Application:  
-hybroker: CSP and IdP (port 80 and 443)  
+### Domain entries required, and applications provided on each
+We consider that generally a CSP provides specific features that are hosted on the same place and provide sub domains:
+ * node, 
+ * domaine registry,
+ * catalogue,
+ * identity management (not to be mixed with IdP)
+
+####*.rethink.ptinovacao.pt  
+Applications:  
+* hybroker: CSP and IdP (port 80 and 443)  
 The different features of the CSP are provided in a subdomain (node.hybroker, registry.hybroker, catalogue.hybroker, idm.hybroker).  
 hysmart is providing Hyperties related with IoT: CSP (probably port 443)  
-iHacker is an IdP (port 443)  
+* iHacker is an IdP (port 443)  
 
-My City domain : to be determined, Fokus or DT hosting  
+####My City domain : to be determined, Fokus or DT hosting  
 
-*.rethink.xxx.de: to be determined, Fokus or DT hosting  
+####*.rethink.xxx.de: to be determined, Fokus or DT hosting  
 
-*.rethink.orange-labs.fr  
+####*.rethink.orange-labs.fr  
+Applications:  
+ * CSP powercommunication (ports 80, 443)
+ * CSP energyq (ports 80, 443)
+ * MCU Server -to be determined-
+
+####*.rethink2.orange-labs.fr  
+Applications:  
+ * TURN/STUN server (ports 443, 3478, 3479, 5349, 5350, to be confirmed)
+ * Global registry node (port 443).
+
+####*.rethink3.orange-labs.fr  
+Applications :  
+ * QoS Service broker
+ * netall
 
 ####Global registry
 The global registry is dispatched on different domains (probably on orange-labs.fr, ptinovacao.pt, xxx.de). It can be independent of the CSPs or included. Each global registry node is linked in a way or another to the others, a CSP should be provided with at least one GR address (by configuration).
