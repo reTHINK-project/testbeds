@@ -15,7 +15,8 @@ HyBroker should provide the following servers (and associated sub-domains):
  * TURN/STUN server
 
 #### Hotel Guest
-The testbed should have at least 3 virtual machines available for the Catalogue, the LWM2M Message Node and the Identity Manager Server/Identity Management Subsystem. The number of docker images depends on the implementation of these components. All 3 services should be accessible via public IP, be it only one that is shared and then NAT-ed, or reverse proxyfied towards the docker instances running the services or having a separate public IP for each service. A DNS server with SRV entries is needed in order that the setup can be replicated on several testbeds.
+__The testbed should have at least 3 virtual machines available for the Catalogue, the LWM2M Message Node and the Identity Manager Server/Identity Management Subsystem.__ 
+Implementation is to be determined (wheater it is deployed on 3 VMs or in 3 docker images in a VM with reverse proxyfication
 
 #### My City
 A <My City domain> is required for My City implementation.  
@@ -80,12 +81,20 @@ Following servers (and associated sub-domains) should be provided:
 
 ### Domain entries required
 *.rethink.ptinovacao.pt
+Application:
+hybroker: CSP and IdP (port 80 and 443)
+The different features of the CSP are provided in a subdomain (node.hybroker, registry.hybroker, catalogue.hybroker, idm.hybroker).
+hysmart is providing Hyperties related with IoT: CSP (probably port 443)
+iHacker is an IdP (port 443)
 
-<Mycity domain> : to be determined, Fokus or DT hosting
+My City domain : to be determined, Fokus or DT hosting
 
 *.rethink.xxx.de: to be determined, Fokus or DT hosting
 
 *.rethink.orange-labs.fr
+
+####Global registry
+The global registry is dispatched on different domains (probably on orange-labs.fr, ptinovacao.pt, xxx.de). It can be independent of the CSPs or included. Each global registry node is linked in a way or another to the others, a CSP should be provided with at least one GR address (by configuration).
 
 ## Testbed Description
 
