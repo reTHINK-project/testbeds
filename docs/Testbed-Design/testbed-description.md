@@ -38,7 +38,7 @@ So far deployed:
 The following domains should be provided:
  * hybroker.rethink.ptinovacao.pt
  * hysmart.rethink.ptinovacao.pt
- * iHacker.rethink.ptinovacao.pt
+ * iHacker.rethink.ptinovacao.pt  
 HyBroker should provide the following servers (and associated sub-domains):  
  * Vertx messaging node (node.broker.rethink.ptinovacao.pt)
  * Domain registry (registry.broker.rethink.ptinovacao.pt)
@@ -78,16 +78,16 @@ Participate should provide the following servers (and associated sub-domains):
 * Domain Registry (dreg.participate.rethink.xxx.de)
 * Catalogue server (catalogue.participate.rethink.xxx.de)
 * Stub Server (stub. participate.rethink.xxx.de)
-* Global Registry (greg. participate.rethink.xxx.de)
+* Global Registry (greg. participate.rethink.xxx.de)  
 The TalkNow domain should provide the following servers (and associated sub-domains):  
 * TalkNow Webserverhosting the TalkNow App (talknow.rethink.xxx.de)
 * Matrix Messaging Node (msg-node.talknow.rethink.xxx.de)
 * Domain Registry (dreg.talknow.rethink.xxx.de)
 * Catalogue server (catalogue.talknow.rethink.xxx.de)
 * Stub Server (stub.talknow.rethink.xxx.de)
-* Global Registry (greg.talknow .rethink.xxx.de)
+* Global Registry (greg.talknow .rethink.xxx.de)  
 The global domain should provide the following servers (and associated sub-domains):  
-* Identity provider (ideasy.rethink.xxx.de)
+* Identity provider (ideasy.rethink.xxx.de)  
 Phase 2  
  * Media Server for conferences
 
@@ -95,7 +95,7 @@ Phase 2
 The following domains should be provided:  
 * powercommunication.rethink.orange-labs.fr
 * energyq.rethink.orange-labs.fr
-* netall.rethink.orange-labs.fr
+* netall.rethink.orange-labs.fr  
 Following servers (and associated sub-domains) should be provided:  
 * nodejs Messaging Node (node.powercommunication.rethink.orange-labs.fr)
 * Domain Registry (registry.powercommunication.rethink.orange-labs.fr)
