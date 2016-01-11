@@ -116,6 +116,9 @@ Applications :
 ####Global registry
 The global registry is dispatched on different domains (probably on orange-labs.fr, ptinovacao.pt, xxx.de). It can be independent of the CSPs or included. Each global registry node is linked in a way or another to the others, a CSP should be provided with at least one GR address (by configuration).
 
+
+![applis](https://cloud.githubusercontent.com/assets/10738516/12231896/10c13b70-b85b-11e5-838f-4c996d6361fc.png)
+
 ## Testbed Description
 
 *Please provide a description of the testbed per node per partner.  Include a figure for your node as well.*
