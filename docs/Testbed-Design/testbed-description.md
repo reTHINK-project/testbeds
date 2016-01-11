@@ -4,13 +4,13 @@
 #### Smart Contextual assistance:
 The following domains should be provided:
  * hybroker.rethink.ptinovacao.pt
+HyBroker should provide the following servers (and associated sub-domains):  
+  * Vertx messaging node (node.broker.rethink.ptinovacao.pt)
+  * Domain registry (registry.broker.rethink.ptinovacao.pt)
+  * Catalogue server (catalogue.broker.rethink.ptinovacao.pt)
+  * IdM server (idm.broker.rethink.ptinovacao.pt)
  * hysmart.rethink.ptinovacao.pt
  * iHacker.rethink.ptinovacao.pt  
-HyBroker should provide the following servers (and associated sub-domains):  
- * Vertx messaging node (node.broker.rethink.ptinovacao.pt)
- * Domain registry (registry.broker.rethink.ptinovacao.pt)
- * Catalogue server (catalogue.broker.rethink.ptinovacao.pt)
- * IdM server (idm.broker.rethink.ptinovacao.pt)
  * Global registry
  * TURN/STUN server
 
