@@ -41,19 +41,19 @@ The following domains/network should be provided:
 * talknow.rethink.xxx.de
 * participate.rethink.xxx.de  
 Participate should provide the following servers (and associated sub-domains):  
-* Participate Webserver hosting the Participate App (participate.rethink.xxx.de)
-* Matrix Messaging Node (msg-node.participate.rethink.xxx.de)
-* Domain Registry (dreg.participate.rethink.xxx.de)
-* Catalogue server (catalogue.participate.rethink.xxx.de)
-* Stub Server (stub. participate.rethink.xxx.de)
-* Global Registry (greg. participate.rethink.xxx.de)  
+ * Participate Webserver hosting the Participate App (participate.rethink.xxx.de)
+ * Matrix Messaging Node (msg-node.participate.rethink.xxx.de)
+ * Domain Registry (dreg.participate.rethink.xxx.de)
+ * Catalogue server (catalogue.participate.rethink.xxx.de)
+ * Stub Server (stub.participate.rethink.xxx.de)
+* Global Registry (greg.participate.rethink.xxx.de) - Note that the Global Registry can be provided by a CSP but is functionaly independant from the applications. I would suggest greg.participate.rethink.xxx.de -  
 The TalkNow domain should provide the following servers (and associated sub-domains):  
 * TalkNow Webserverhosting the TalkNow App (talknow.rethink.xxx.de)
-* Matrix Messaging Node (msg-node.talknow.rethink.xxx.de)
-* Domain Registry (dreg.talknow.rethink.xxx.de)
-* Catalogue server (catalogue.talknow.rethink.xxx.de)
-* Stub Server (stub.talknow.rethink.xxx.de)
-* Global Registry (greg.talknow .rethink.xxx.de)  
+ * Matrix Messaging Node (msg-node.talknow.rethink.xxx.de)
+ * Domain Registry (dreg.talknow.rethink.xxx.de)
+ * Catalogue server (catalogue.talknow.rethink.xxx.de)
+ * Stub Server (stub.talknow.rethink.xxx.de)
+* Global Registry (greg.talknow .rethink.xxx.de) - Same remark-   
 The global domain should provide the following servers (and associated sub-domains):  
 * Identity provider (ideasy.rethink.xxx.de)  
 Phase 2  
@@ -62,12 +62,12 @@ Phase 2
 #### Enterprise conversational 
 The following domains should be provided:  
 * powercommunication.rethink.orange-labs.fr
+Following servers (and associated sub-domains) should be provided:  
+ * nodejs Messaging Node (node.powercommunication.rethink.orange-labs.fr)
+ * Domain Registry (registry.powercommunication.rethink.orange-labs.fr)
+ * Catalogue server (catalogue.rethink.orange-labs.fr)
 * energyq.rethink.orange-labs.fr
 * netall.rethink.orange-labs.fr  
-Following servers (and associated sub-domains) should be provided:  
-* nodejs Messaging Node (node.powercommunication.rethink.orange-labs.fr)
-* Domain Registry (registry.powercommunication.rethink.orange-labs.fr)
-* Catalogue server (catalogue.rethink.orange-labs.fr)
 * IdM Server (energyq.rethink.orange-labs.fr)
 * QoS Service Broker Service (broker.netall.rethink.orange-labs.fr)
 * Global Registry
