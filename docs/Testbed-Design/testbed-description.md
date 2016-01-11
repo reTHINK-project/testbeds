@@ -63,17 +63,17 @@ Phase 2
 The following domains should be provided:  
 * powercommunication.rethink.orange-labs.fr
 Following servers (and associated sub-domains) should be provided:  
+ * Application server (app.powercommunication.rethink.orange-labs.fr)
  * nodejs Messaging Node (node.powercommunication.rethink.orange-labs.fr)
  * Domain Registry (registry.powercommunication.rethink.orange-labs.fr)
  * Catalogue server (catalogue.rethink.orange-labs.fr)
 * energyq.rethink.orange-labs.fr
-* netall.rethink.orange-labs.fr  
 * IdM Server (energyq.rethink.orange-labs.fr)
+* netall.rethink.orange-labs.fr  
 * QoS Service Broker Service (broker.netall.rethink.orange-labs.fr)
 * Global Registry
 * TURN/STUN server
 * Nodejs runtime + MCU server
-* Application server (app.powercommunication.rethink.orange-labs.fr)
 
 #### Address book
  * at least one node of Global Registry
