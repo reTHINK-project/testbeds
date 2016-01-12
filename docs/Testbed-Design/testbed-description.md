@@ -101,6 +101,7 @@ Following servers (and associated sub-domains) should be provided:
 * Global Registry
 * TURN/STUN server
 * Nodejs runtime + MCU server
+* HyDev IdP
 
 ##### Address book
  * at least one node of Global Registry
