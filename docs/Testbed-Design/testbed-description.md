@@ -161,6 +161,7 @@ The global registry is dispatched on different domains (probably on orange-labs.
 
 So far deployed:
 #### 1st VM - p-rethink1
+![Orange Testbed](https://github.com/reTHINK-project/testbeds/blob/master/docs/Testbed-Design/figures/orangeLabsNode1.png)
  * IdP based on Node.js http://idp.rethink.orange-labs.fr/ (sources in https://github.com/reTHINK-project/dev-IdPServer)
    * proxy accessible http://idp.rethink.orange-labs.fr/.well-known/idp-proxy/rethink-oidc
    * Dockerfile available
