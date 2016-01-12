@@ -1,6 +1,31 @@
 
 ##Testbed requirements
 ### Requirements from D5.1
+
+#### List of applications
+ * Smart Contextual Assistance
+  * Responsible: PT 
+ * Hotel Guest
+  * Responsible: Quobis 
+ * Hotel Administrator
+  * Responsible: Quobis 
+ * Mycity
+  * Responsible: DT 
+ * Mycity (Manager?)
+  * Responsible: DT 
+ * Tourism
+  * Responsible: DT 
+ * Participate
+  * Responsible: DT 
+ * Enterprise
+  * Responsible: APIZee 
+ * Enterprise Customer
+  * Responsible: APIZee 
+ * AddressBook
+  * Responsible: TUB? 
+ * Voice Call
+  * Responsible: PT
+
 #### Smart Contextual assistance:
 The following domains should be provided:
  * hybroker.rethink.ptinovacao.pt
