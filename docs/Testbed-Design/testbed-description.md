@@ -18,9 +18,9 @@ Requirements have been gathered from scenarios point of view. We first list the 
   * Responsible: DT 
  * Participate
   * Responsible: DT 
- * Enterprise
+ * SmartBusinessApp
   * Responsible: APIZee 
- * Enterprise Customer
+ * SmartBusinessApp Customer
   * Responsible: APIZee 
  * AddressBook
   * Responsible: TUB? 
@@ -87,6 +87,7 @@ Phase 2
  * Media Server for conferences
 
 ##### Enterprise conversational 
+This scenario provides two apps (SmartBusinessApp, and SmartBusinessApp Customer) and several IdPs (EnergyQ, HyDev)
 The following domains should be provided:  
 * powercommunication.rethink.orange-labs.fr
 Following servers (and associated sub-domains) should be provided:  
@@ -94,14 +95,12 @@ Following servers (and associated sub-domains) should be provided:
  * nodejs Messaging Node (node.powercommunication.rethink.orange-labs.fr)
  * Domain Registry (registry.powercommunication.rethink.orange-labs.fr)
  * Catalogue server (catalogue.rethink.orange-labs.fr)
-* energyq.rethink.orange-labs.fr
-* IdM Server (energyq.rethink.orange-labs.fr)
+* IdP Server (energyq.rethink.orange-labs.fr, hydev.rethink.orange-labs.fr, )
 * netall.rethink.orange-labs.fr  
 * QoS Service Broker Service (broker.netall.rethink.orange-labs.fr)
 * Global Registry
 * TURN/STUN server
 * Nodejs runtime + MCU server
-* HyDev IdP
 
 ##### Address book
  * at least one node of Global Registry
