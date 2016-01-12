@@ -1,6 +1,7 @@
 
 ##Testbed requirements
 ### Requirements from D5.1
+Requirements have been gathered from scenarios point of view. We first list the applications that will finally be available.
 
 #### List of applications
  * Smart Contextual Assistance
@@ -26,7 +27,8 @@
  * Voice Call
   * Responsible: PT
 
-#### Smart Contextual assistance:
+#### List of scenarios
+##### Smart Contextual assistance:
 The following domains should be provided:
  * hybroker.rethink.ptinovacao.pt
 HyBroker should provide the following servers (and associated sub-domains):  
@@ -39,11 +41,11 @@ HyBroker should provide the following servers (and associated sub-domains):
  * Global registry
  * TURN/STUN server
 
-#### Hotel Guest
+##### Hotel Guest
 _The testbed should have at least 3 virtual machines available for the Catalogue, the LWM2M Message Node and the Identity Manager Server/Identity Management Subsystem._  
 Implementation is to be determined (wheater it is deployed on 3 VMs or in 3 docker images in a VM with reverse proxyfication
 
-#### My City
+##### My City
 A <My City domain> is required for My City implementation.  
 DT lab should provide the following servers (and associated sub-domains):  
  * Node.js Messaging Node (node.< My City domain >)
@@ -53,13 +55,13 @@ DT lab should provide the following servers (and associated sub-domains):
  * Web server (web.< My City domain >)
  * Global Registry
 
-#### Tourism in a smartcity
+##### Tourism in a smartcity
   * At least one messaging node 
   * At least one Domain Registry
   * At least one node of the Global Registry
   * At least one Catalog
   
-#### Neigbourhood
+##### Neigbourhood
 Phase 1  
 The following domains/network should be provided:  
 * rethink.xxx.de (as global domain) for global registry, TURN server, …
@@ -84,7 +86,7 @@ The global domain should provide the following servers (and associated sub-domai
 Phase 2  
  * Media Server for conferences
 
-#### Enterprise conversational 
+##### Enterprise conversational 
 The following domains should be provided:  
 * powercommunication.rethink.orange-labs.fr
 Following servers (and associated sub-domains) should be provided:  
@@ -100,7 +102,7 @@ Following servers (and associated sub-domains) should be provided:
 * TURN/STUN server
 * Nodejs runtime + MCU server
 
-#### Address book
+##### Address book
  * at least one node of Global Registry
  * at least one CSP with a catalog
 
