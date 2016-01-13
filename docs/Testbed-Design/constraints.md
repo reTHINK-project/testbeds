@@ -50,11 +50,12 @@ a starting point.*
 
 ###PTIN node / deployment constrains
 
-* Number of available public IP-addresses:  xxx
-* Access to the node:
-    * Who will be allowed to have root-access to the node?:  local admins of node partner / reThink partner / hackatron users
-    * How can the node be accessed?:  please specify
+* Will the testbed be accessible from outside the node premises via public IP?: yes
+* Number of available public IP-addresses:  2 public IPv4-addresses
+** Access to the node:
+    * Who will be allowed to have root-access to the node?:  local admins of node partner only, local sudo configuration available on demand via request from reThink partners only
+    * How can the node be accessed?:  personalized (public key based) login for reThink project partners only
+    * Access throught http/https is possible using standard ports 80 and 443, other ports will have access denied. 
     * Responsibilities / leagal constrains:
-        * please specify or say _none_
+        * Project partner is responsible for deployed components in its provided account
     * Other 
-        * please specify or say _n/a_
