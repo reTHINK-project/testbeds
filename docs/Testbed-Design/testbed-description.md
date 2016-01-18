@@ -177,6 +177,7 @@ So far deployed:
  * IdP based on php https://oidc-ns.kermit.orange-labs.fr (sources in https://github.com/reTHINK-project/dev-IdPServer-phpOIDC)
    * proxy accessible https://oidc-ns.kermit.orange-labs.fr/.well-known/idp-proxy/rethink-oidc-ns
    * No docker file
+   * Generation of GUID: https://oidc-ns.kermit.orange-labs.fr/GUID-demo/  
  
 ### Description of DTAG node
 *add text and figures here*
