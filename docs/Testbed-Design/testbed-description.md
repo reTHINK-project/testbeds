@@ -162,16 +162,16 @@ The global registry is dispatched on different domains (probably on orange-labs.
 So far deployed:
 #### 1st VM - p-rethink1
 ![Orange Testbed](https://github.com/reTHINK-project/testbeds/blob/master/docs/Testbed-Design/figures/orangeLabsNode1.png)
- * IdP based on Node.js https://energyq.rethink.orange-labs.fr/ (sources in https://github.com/reTHINK-project/dev-IdPServer)
-   * proxy accessible https://energyq.rethink.orange-labs.fr/.well-known/idp-proxy/rethink-oidc
+ * IdP based on Node.js https://energyq.idp.rethink.orange-labs.fr/ (sources in https://github.com/reTHINK-project/dev-IdPServer)
+   * proxy accessible https://energyq.idp.rethink.orange-labs.fr/.well-known/idp-proxy/rethink-oidc
    * Dockerfile available
    * Available test accounts
     *  
 
- * Domain Registry available on https://registry.powercomm.rethink.orange-labs.fr (sources https://github.com/reTHINK-project/dev-registry-domain)
+ * Domain Registry available on https://registry.powercommunication.rethink.orange-labs.fr (sources https://github.com/reTHINK-project/dev-registry-domain) 
   *  
   
-* Demo client available https://powercommunication.rethink.orange-labs.fr 
+* Demo client available https://powercommunication.rethink.orange-labs.fr and https://energyq.rethink.orange-labs.fr
   
 #### on 4th VM - OIDC ServerInstance
  * IdP based on php https://oidc-ns.kermit.orange-labs.fr (sources in https://github.com/reTHINK-project/dev-IdPServer-phpOIDC)
