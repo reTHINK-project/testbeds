@@ -152,7 +152,7 @@ The global registry is dispatched on different domains (probably on orange-labs.
 
 ### Description of Fraunhofer node
 *add text and figures here*
-
+![](https://github.com/reTHINK-project/testbeds/blob/master/docs/Testbed-Design/figures/reThinkTestbed-Fokus-Node1.png)
 ### Description of PTIN node
 *add text and figures here*
 ![PTIN](https://github.com/reTHINK-project/testbeds/blob/master/docs/Testbed-Design/figures/rethink_PTIN_Node.png)
