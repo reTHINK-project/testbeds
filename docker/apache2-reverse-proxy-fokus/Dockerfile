@@ -5,7 +5,7 @@
 # of the actual reverse proxying (virtual hosts config)
 #
 
-FROM rethink/apache2-reverse-proxy-baseline
+FROM rethink/testbed-apache2-reverse-proxy-baseline
 
 MAINTAINER marc.emmelmann@fokus.fraunhofer.de
 
@@ -17,8 +17,7 @@ RUN a2ensite 010-reThink-fokusNode.conf
 
 
 
-RUN cd /opt/reTHINK && echo "/opt/reTHINK provided by rethink/testbed-baseline docker image ... yes"
-
-ENTRYPOINT /etc/init.d/apache2 restart && echo "Started apache2 deamon for reverse proxing in the background\n String bash now" && /bin/bash
-
+# Note: the ENTRYPOINT is inherited from the baseline image, i.e.,
+# the apache2 deamon is (re)started automatically when the image is started.
+# 
 
