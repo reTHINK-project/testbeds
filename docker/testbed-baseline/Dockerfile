@@ -15,5 +15,3 @@ MAINTAINER marc.emmelmann@fokus.fraunhofer.de
 RUN apt-get update -y
 
 RUN mkdir /opt/reTHINK
-
-
