@@ -12,6 +12,8 @@ MAINTAINER marc.emmelmann@fokus.fraunhofer.de
 # all project specific stuff should be put in subdirectories (!!!)
 # below this path
 
+RUN apt-get update -y
+
 RUN mkdir /opt/reTHINK
 
 
