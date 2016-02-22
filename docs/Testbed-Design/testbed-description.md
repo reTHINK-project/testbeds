@@ -152,9 +152,10 @@ The global registry is dispatched on different domains (probably on orange-labs.
 
 ### Description of Fraunhofer node
 *add text and figures here*
-
+![](https://github.com/reTHINK-project/testbeds/blob/master/docs/Testbed-Design/figures/reThinkTestbed-Fokus-Node1.png)
 ### Description of PTIN node
 *add text and figures here*
+![PTIN](https://github.com/reTHINK-project/testbeds/blob/master/docs/Testbed-Design/figures/rethink_PTIN_Node.png)
 
 ### Description of Orange node
 ![Orange Testbed](https://cloud.githubusercontent.com/assets/10738516/11059983/8ed924c6-879d-11e5-8e1c-03b218465d88.png)
@@ -173,6 +174,13 @@ So far deployed:
   
 * Demo client available https://powercommunication.rethink.orange-labs.fr and https://energyq.rethink.orange-labs.fr
   
+
+#### on 2nd VM
+
+* QoS broker (in progress) broker.netall.rethink.orange-labs.fr
+
+#### on 3rd VM
+
 #### on 4th VM - OIDC ServerInstance
  * IdP based on php https://oidc-ns.kermit.orange-labs.fr (sources in https://github.com/reTHINK-project/dev-IdPServer-phpOIDC)
    * proxy accessible https://oidc-ns.kermit.orange-labs.fr/.well-known/idp-proxy/rethink-oidc-ns
