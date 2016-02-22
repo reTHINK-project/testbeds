@@ -174,6 +174,13 @@ So far deployed:
   
 * Demo client available https://powercommunication.rethink.orange-labs.fr and https://energyq.rethink.orange-labs.fr
   
+
+#### on 2nd VM
+
+* QoS broker (in progress) broker.netall.rethink.orange-labs.fr
+
+#### on 3rd VM
+
 #### on 4th VM - OIDC ServerInstance
  * IdP based on php https://oidc-ns.kermit.orange-labs.fr (sources in https://github.com/reTHINK-project/dev-IdPServer-phpOIDC)
    * proxy accessible https://oidc-ns.kermit.orange-labs.fr/.well-known/idp-proxy/rethink-oidc-ns
