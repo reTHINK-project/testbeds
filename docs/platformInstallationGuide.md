@@ -1,7 +1,7 @@
 # Quick installation guide of the reThink Platform.
 For dummies :-)
 
-This page is dedicated to summurize in an single and simple document the necessary information to install a complete communication platform of the reThink framework with all the developped platform that can acheive one on only goal: setup a trusted communication between Alice and Bob.
+This page is dedicated to summurize in an single and simple document the necessary information to install a complete communication platform of the reThink framework with all the developped platform that can acheive one and only one goal: setup a trusted communication between Alice and Bob.
 
 ## Components to install
 To simplify the first installation, we will consider that: Alice and Bob use the same Communication Service Provider, and the same Identity Provider.
