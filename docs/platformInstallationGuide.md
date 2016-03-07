@@ -22,5 +22,5 @@ To simplify the first installation, we will consider that: Alice and Bob use the
 
 Q: Is this so simple?  
 A: Well Not yet but we're working on it.  
-![](https://github.com/reTHINK-project/testbeds/blob/master/docs/Testbed-Design/figures/pfTechView.png)
+![](https://github.com/reTHINK-project/testbeds/blob/master/docs/Testbed-Design/figures/pfTechView.png =50%)
 
