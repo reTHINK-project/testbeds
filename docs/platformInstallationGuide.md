@@ -19,3 +19,7 @@ To simplify the first installation, we will consider that: Alice and Bob use the
 
 ### Client side components
 * The client side components are included in the runtime. This runtime is downloaded in the browser when the user connects to an application based on the runtime server. Thus, nothing has to be manually installed.
+
+Q: Is this so simple?  
+A: Well Not yet but we're working on it.  
+
