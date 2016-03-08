@@ -26,7 +26,15 @@ A: Well Not yet but we're working on it.
 
 ###Identity Provider
 
+ReThink provides two identity providers available here https://github.com/reTHINK-project/dev-IdPServer and https://github.com/reTHINK-project/dev-IdPServer-phpOIDC .
+These two IdPs are providing OIDC (installation guide is provided in README) and we have implemented IdP Proxy as specified in https://tools.ietf.org/html/draft-ietf-rtcweb-security-arch-11 . After installing one of these two IdPs, at least two users, Alice and Bob have to be created in the database.
+
 ###Communication Service Provider
+
+As mentionned above, the communication service providers consists in three services.
+
+####Messaging node
+This is the first platform to install (core plateform). ReTHINK has provided three implementations: [VertX](https://github.com/reTHINK-project/dev-msg-node-vertx), [Matrix](https://github.com/reTHINK-project/dev-msg-node-matrix) and [NodeJS](https://github.com/reTHINK-project/dev-msg-node-nodejs).
 
 ###Support Services
 
