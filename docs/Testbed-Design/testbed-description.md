@@ -129,11 +129,11 @@ Applications:
  * CSP powercommunication (ports 80, 443)
  * CSP energyq (ports 80, 443)
  * MCU Server -to be determined-
+ * Global registry node (port 443).
 
 ####*.rethink2.orange-labs.fr  
 Applications:  
  * TURN/STUN server (ports 443, 3478, 3479, 5349, 5350, to be confirmed)
- * Global registry node (port 443).
 
 ####*.rethink3.orange-labs.fr  
 Applications :  
@@ -172,6 +172,8 @@ So far deployed:
  * Domain Registry available on https://registry.powercommunication.rethink.orange-labs.fr (sources https://github.com/reTHINK-project/dev-registry-domain) 
   *  
   
+ * Global registry node available on https://greg.rethink.orange-labs.fr (sources https://github.com/reTHINK-project/dev-registry-global)
+
 * Demo client available https://powercommunication.rethink.orange-labs.fr and https://energyq.rethink.orange-labs.fr
   
 
