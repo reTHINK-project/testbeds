@@ -5,7 +5,7 @@ This page is dedicated to summurize in an single and simple document the necessa
 Platforms provided are focused on the functional part. It is recommended that the platforms are deployed behind a reverse proxy to add security features and also https (free full trusted certificates can be obtained on [let's encrypt](https://letsencrypt.org/)) site.
 
 ## Components to install
-To simplify the first installation, we will consider that: Alice and Bob use the same Communication Service Provider, and the same Identity Provider.
+To simplify the first installation, we will consider that: Alice and Bob use the same Communication Service Provider, and the same Identity Provider.  
 Q: Is this so simple?  
 A: Well Not yet but we're working on it.  
 <img src="https://github.com/reTHINK-project/testbeds/blob/master/docs/Testbed-Design/figures/pfTechView.png" width="400">
