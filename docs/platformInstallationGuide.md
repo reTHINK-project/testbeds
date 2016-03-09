@@ -35,10 +35,18 @@ These two IdPs are providing OIDC (installation guide is provided in README) and
 As mentionned above, the communication service providers consists in three services.
 
 ####Messaging node
-This is the first platform to install (core plateform). ReTHINK has provided three implementations: [VertX](https://github.com/reTHINK-project/dev-msg-node-vertx), [Matrix](https://github.com/reTHINK-project/dev-msg-node-matrix) and [NodeJS](https://github.com/reTHINK-project/dev-msg-node-nodejs).
+This is the first platform to install (core plateform). ReTHINK has provided three implementations: [VertX](https://github.com/reTHINK-project/dev-msg-node-vertx), [Matrix](https://github.com/reTHINK-project/dev-msg-node-matrix) and [NodeJS](https://github.com/reTHINK-project/dev-msg-node-nodejs).  
+
+####Domain Registry 
+
+####Catalogue
 
 ###Support Services
 
-###My first call
+####Global Registry
+
+###Application Deployment
+
+####Hello World
 
 
