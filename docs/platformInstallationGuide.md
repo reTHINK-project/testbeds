@@ -1,8 +1,9 @@
 # Quick installation guide of the reThink Platform.
 For dummies :-)
 
-This page is dedicated to summurize in an single and simple document the necessary information to install a complete communication platform of the reThink framework with all the developped platform that can acheive one and only one goal: setup a trusted communication between Alice and Bob.  
-Platforms provided are focused on the functional part. It is recommended that the platforms are deployed behind a reverse proxy to add security features and also https (free full trusted certificates can be obtained on [let's encrypt](https://letsencrypt.org/)) site.
+This page summurizes in an single document the minimum information to install a complete communication platform of the reThink framework.
+After doing it you will be able to run a Hello World communication between Alice and Bob.  
+It is recommended that the platforms are deployed behind a reverse proxy to add security features and also https (free full trusted certificates can be obtained on [let's encrypt](https://letsencrypt.org/)) site.
 
 ## Components to install
 To simplify the first installation, we will consider that: Alice and Bob use the same Communication Service Provider, and the same Identity Provider.  
