@@ -44,6 +44,9 @@ Only one is necessary to be installed (currently [VertX](https://github.com/reTH
 
 ####Catalogue
 
+####Configuration and tests of the CSP
+
+
 ###Support Services
 
 ####Global Registry
