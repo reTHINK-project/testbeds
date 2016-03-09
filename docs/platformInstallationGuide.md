@@ -27,8 +27,9 @@ A: Well Not yet but we're working on it.
 ##Let's rock
 ###Identity Provider
 
-ReThink provides two identity providers available here https://github.com/reTHINK-project/dev-IdPServer and https://github.com/reTHINK-project/dev-IdPServer-phpOIDC .
-These two IdPs are providing OIDC (installation guide is provided in README) and we have implemented IdP Proxy as specified in https://tools.ietf.org/html/draft-ietf-rtcweb-security-arch-11 . After installing one of these two IdPs, at least two users, Alice and Bob have to be created in the database.
+ReThink provides two identity providers available: a [Node.js](https://github.com/reTHINK-project/dev-IdPServer) and a [php](https://github.com/reTHINK-project/dev-IdPServer-phpOIDC) one. First one is recommanded (and dockerized).
+These two IdPs are providing OIDC (installation guide is provided in README) and we have implemented IdP Proxy as specified in [ietf WebRTC Security draft](https://tools.ietf.org/html/draft-ietf-rtcweb-security-arch-11).  
+After installing one of these two IdPs, at least two users, Alice and Bob have to be created in the database.
 
 ###Communication Service Provider
 
