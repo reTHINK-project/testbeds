@@ -38,7 +38,7 @@ As mentionned above, the communication service providers consists in three servi
 
 ####Messaging node
 This is the first platform to install (core plateform). ReTHINK has provided three implementations: [VertX](https://github.com/reTHINK-project/dev-msg-node-vertx), [Matrix](https://github.com/reTHINK-project/dev-msg-node-matrix) and [NodeJS](https://github.com/reTHINK-project/dev-msg-node-nodejs).  
-Only one is necessary to be installed.
+Only one is necessary to be installed (currently [VertX](https://github.com/reTHINK-project/dev-msg-node-vertx) is prefered).
 
 ####Domain Registry 
 
