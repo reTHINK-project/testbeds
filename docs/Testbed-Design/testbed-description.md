@@ -179,7 +179,7 @@ So far deployed:
 
 #### on 2nd VM
 
-* QoS broker is available [here](https://broker.rethink2.orange-labs.fr) (sources https://github.com/reTHINK-project/dev-qos-broker).
+* QoS broker is available [here](https://broker.rethink2.orange-labs.fr/dashboard.html) (sources https://github.com/reTHINK-project/dev-qos-broker). A login and password are required to administrate this platform (brokeradmin/BrokerAdmin).
 
 #### on 3rd VM
 
