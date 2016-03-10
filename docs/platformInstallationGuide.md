@@ -3,7 +3,7 @@ For dummies :-)
 
 This page summurizes in an single document the minimum information to install a complete communication platform of the reThink framework.
 After doing it you will be able to run a Hello World communication between Alice and Bob.  
-It is recommended that the platforms are deployed behind a reverse proxy to add security features and also https (free full trusted certificates can be obtained on [let's encrypt](https://letsencrypt.org/)) site.
+It is recommended that the platforms are deployed behind a reverse proxy to add security features and also https (free trusted certificates can be obtained on [let's encrypt](https://letsencrypt.org/) see [Quick guide](letsencrypt.md)  ) .
 
 ## Components to install
 To simplify the first installation, we will consider that: Alice and Bob use the same Communication Service Provider, and the same Identity Provider.  
