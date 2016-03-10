@@ -97,7 +97,7 @@ Following servers (and associated sub-domains) should be provided:
  * Catalogue server (catalogue.rethink.orange-labs.fr)
 * IdP Server (energyq.rethink.orange-labs.fr, hydev.rethink.orange-labs.fr, )
 * netall.rethink.orange-labs.fr  
-* QoS Service Broker Service (broker.netall.rethink.orange-labs.fr)
+* QoS Service Broker Service (broker.rethink2.orange-labs.fr)
 * Global Registry
 * TURN/STUN server
 * Nodejs runtime + MCU server
@@ -179,7 +179,7 @@ So far deployed:
 
 #### on 2nd VM
 
-* QoS broker (in progress) broker.netall.rethink.orange-labs.fr
+* QoS broker is available [here](https://broker.rethink2.orange-labs.fr) (sources https://github.com/reTHINK-project/dev-qos-broker).
 
 #### on 3rd VM
 
