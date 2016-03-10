@@ -3,7 +3,7 @@ For dummies :-)
 
 This page summurizes in an single document the minimum information to install a complete communication platform of the reThink framework.
 After doing it you will be able to run a Hello World communication between Alice and Bob.  
-It is recommended that the platforms are deployed behind a reverse proxy to add security features and also https (free trusted certificates can be obtained on [let's encrypt](https://letsencrypt.org/) see [Quick guide](letsencrypt.md)  ) .
+Platforms are available in Docker images. The prefered host is an ubuntu 14.04. It is recommended that the containers are deployed behind a reverse proxy to add security features ([nude apache2](https://github.com/reTHINK-project/testbeds/tree/master/docker/apache2-reverse-proxy-baseline) or [Managed OSA](https://github.com/zorglub42/OSA/)) and also https (free trusted certificates can be obtained on [let's encrypt](https://letsencrypt.org/) see [Quick guide](letsencrypt.md)  ) .
 
 ## Components to install
 To simplify the first installation, we will consider that: Alice and Bob use the same Communication Service Provider, and the same Identity Provider.  
