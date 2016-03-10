@@ -19,7 +19,7 @@ A: Well Not yet but we're working on it.
 * Web application server: A minimum demo is provided by the CSP, and relies on the 3 previous nodes.
 
 * Global Registry (optional)
-* QoS broker and TURN Servers (FFS)
+* QoS broker and TURN Servers (Optional)
 * Discovery Service (FFS)
 
 ### Client side components
