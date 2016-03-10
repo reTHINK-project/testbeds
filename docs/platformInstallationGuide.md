@@ -49,7 +49,12 @@ Only one is necessary to be installed (currently [VertX](https://github.com/reTH
 
 ###Support Services
 
-####Global Registry
+####Global Registry (Optional)
+The [Global Registry](https://github.com/reTHINK-project/dev-registry-global).
+
+####QoS Broker (Optional)
+The Qod broker is usable by the service provider. The plateform and Installation Guide is available here  [Qos](https://github.com/reTHINK-project/dev-qos-support/broker)  
+QoS Broker necessitates to be installed with TURN servers and some configuration. To be used, a CSP has to be referenced in the administration interface of the Broker.
 
 ###Application Deployment
 
