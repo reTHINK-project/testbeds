@@ -38,7 +38,9 @@ As mentionned above, the communication service providers consists in three servi
 
 ####Messaging node
 This is the first platform to install (core plateform). ReTHINK has provided three implementations: [VertX](https://github.com/reTHINK-project/dev-msg-node-vertx), [Matrix](https://github.com/reTHINK-project/dev-msg-node-matrix) and [NodeJS](https://github.com/reTHINK-project/dev-msg-node-nodejs).  
-Only one is necessary to be installed (currently [VertX](https://github.com/reTHINK-project/dev-msg-node-vertx) is prefered).
+Only one is necessary to be installed (currently [VertX](https://github.com/reTHINK-project/dev-msg-node-vertx) is prefered).  
+Configuration of the Messaging node:  
+Domain Registry and Catalogue have to be accessed by the messaging node.  
 
 ####Domain Registry 
 
@@ -50,7 +52,7 @@ Only one is necessary to be installed (currently [VertX](https://github.com/reTH
 ###Support Services
 
 ####Global Registry (Optional)
-The [Global Registry](https://github.com/reTHINK-project/dev-registry-global).
+The [Global Registry](https://github.com/reTHINK-project/dev-registry-global) is an optional module allowing access to the GUID of users in order to find the services where they are registered.
 
 ####QoS Broker (Optional)
 The Qod broker is usable by the service provider. The plateform and Installation Guide is available here  [Qos](https://github.com/reTHINK-project/dev-qos-support/broker)  
