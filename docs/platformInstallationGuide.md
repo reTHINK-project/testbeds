@@ -60,6 +60,7 @@ Domain Registry and Catalogue have to be accessed by the messaging node.
 
 ####Global Registry (Optional)
 The [Global Registry](https://github.com/reTHINK-project/dev-registry-global) is an optional module allowing access to the GUID of users in order to find the services where they are registered.
+Global Registry is exposing two ports: one for the REST insterface, and one for the P2P connections (this second one should be let to 5002).  
 
 ####QoS Broker (Optional)
 The Qod broker is usable by the service provider. The plateform and Installation Guide is available here  [Qos](https://github.com/reTHINK-project/dev-qos-support/broker)  
