@@ -11,7 +11,7 @@ Q: Is this so simple?
 A (marc):  No, the goal here is to teach the reader on how to set-up a working platform.  The most simplest example is sufficient.  It can be the basis for a developer to create a "stand alone environment" in which he can develop additional hyperties.  I would leave it exactly as it is.  I would rather (if we want to) add an additional section after this one entitled "Expanding the Testbed".  In this section, we can then describe what to do to build a multi-operator platform within one testbed or involving several distributed testbeds.
 
 A: Well Not yet but we're working on it.  
-<img src="https://github.com/reTHINK-project/testbeds/blob/master/docs/Testbed-Design/figures/pfTechView.png" width="400">
+<img src="https://github.com/reTHINK-project/testbeds/blob/master/docs/Testbed-Design/figures/pfTechView.png" width="350">
 
 ### Server side components
 
