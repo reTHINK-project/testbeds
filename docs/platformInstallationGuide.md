@@ -8,6 +8,8 @@ Platforms are available in Docker images. The prefered host is an ubuntu 14.04. 
 ## Components to install
 To simplify the first installation, we will consider that: Alice and Bob use the same Communication Service Provider, and the same Identity Provider.  
 Q: Is this so simple?  
+A (marc):  No, the goal here is to teach the reader on how to set-up a working platform.  The most simplest example is sufficient.  It can be the basis for a developer to create a "stand alone environment" in which he can develop additional hyperties.  I would leave it exactly as it is.  I would rather (if we want to) add an additional section after this one entitled "Expanding the Testbed".  In this section, we can then describe what to do to build a multi-operator platform within one testbed or involving several distributed testbeds.
+
 A: Well Not yet but we're working on it.  
 <img src="https://github.com/reTHINK-project/testbeds/blob/master/docs/Testbed-Design/figures/pfTechView.png" width="400">
 
@@ -16,6 +18,9 @@ A: Well Not yet but we're working on it.
 * Identity provider (optional).
 
 * Communication service provider (CSP). A CSP contains normally 3 building blocks, a Messaging Node, managing signaling part, a registry (called domain registry) and a catalogue. Whether these nodes can be independent or not is not the purpose of this guide. We consider them as a whole for a service provider.
+
+**comment Marc:**  The catalogue will actually consist (at least) of two parts.  The catalogue-brocker and the catalogue-database.  For testing, one might also consider the catalogue-test-client, but the latter one is optional.  From the figure, I guess that each component will likely resemble a docker image.  If this is the intend of the image, I would "blow up" the catalogue box a bit and include within it two sub-boxes, namely the catalogue-brocker and the catalogue-database.
+
 * Web application server: A minimum demo is provided by the CSP, and relies on the 3 previous nodes.
 
 * Global Registry (optional)
