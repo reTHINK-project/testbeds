@@ -5,7 +5,7 @@
 IF=eth0                         #Update OSA with IP of this interface
 OSA_URL=https://localhost:6443  #OSA Admin service base URI
 #OSA Admin user (has to be configured in the reverse proxu)
-OSA_USER=<user_name>
+OSA_USER=<user_name>                    
 OSA_PASS=<user_pass>
 
 #Get IP for specified interface
@@ -39,7 +39,13 @@ function updateOSA(){
 	fi
 }
 
+
 #Here we call the services configured as in this example 
 #for : use %3A for / use %2F, the IP is retreived from the container name. 
 #for http://172.17.0.3:8080/toto enter only %3A8080%2Ftoto as URL_END parameter
 #updateOSA CONTAINER_NAME OSA_SERVICE_NAME URL_END 
+updateOSA demoService Service1 %2Fdemo%2F
+updateOSA devidpserver_oidc-node_1 IdP %3A8080%2F
+updateOSA domainRegistry domainregistry %3A4567%2F
+updateOSA gReg GlobalRegistry %3A5002%2F
+updateOSA msgNode msgnode %3A9090%2F 

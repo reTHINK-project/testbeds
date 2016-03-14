@@ -1,13 +1,11 @@
 #!/bin/bash
 
-docker start domainRegistry
-docker start devidpserver_redis_1
-docker start devidpserver_oidc-node_1
-docker start demoService
-docker start gReg
-docker start msgNode
+# Start docker containers installed in the pf
+# Example:
+#docker start CONTAINER_NAME
 
-# This is a patch. When the actual service will replace this one we can suppress this.
-docker exec -it demoService service apache2 start
-docker exec -it demoService service mysql start
+# Example of command line that can be run after the container is launched
+#docker exec -it CONTAINER_NAME service SERVICE_NAME start
+
+
 
