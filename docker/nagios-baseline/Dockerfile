@@ -6,11 +6,11 @@ FROM rethink/testbed-baseline
 MAINTAINER marc.emmelmann@fokus.fraunhofer.de
 
 
-RUN apt-get update -y && apt-get install apache2
-RUN apt-get update -y && apt-get install libapache2-mod-php5
-RUN apt-get update -y && apt-get install build-essential
+RUN apt-get update -y && apt-get install -y apache2
+RUN apt-get update -y && apt-get install -y libapache2-mod-php5
+RUN apt-get update -y && apt-get install -y build-essential
 
-RUN apt-get update -y && apt-get install libgd2-xpm-dev
+RUN apt-get update -y && apt-get install -y libgd2-xpm-dev
 
 /usr/sbin/useradd -m -s /bin/bash --password ENCRYPTEDPASSWORD  nagios
 
