@@ -35,14 +35,15 @@ MAINTAINER marc.emmelmann@fokus.fraunhofer.de
 # RUN cd /opt/downloads/nagios-4.1.1 && make install-commandmode
 
 
-RUN apt-get update -y && apt-get install nagios3 nagios-nrpe-plugin
+RUN apt-get update -y && apt-get install -y nagios3 nagios-nrpe-plugin
 
 
 
 
 
-RUN cd /opt/nagios && echo "/opt/nagius provided by rethink/nagios-baseline docker image ... yes"
+RUN echo "/opt/nagius provided by rethink/nagios-baseline docker image ... yes"
 
-ENTRYPOINT /etc/init.d/apache2 restart && echo "Started apache2 deamon for reverse proxing in the background\n String bash now" && /bin/bash
+# ENTRYPOINT /etc/init.d/apache2 restart && echo "Started apache2 deamon for reverse proxing in the background\n String bash now" && /bin/bash
 
+ENTRYPOINT /etc/init.d/apache2 restart && echo "Started apache2 deamon for nagios in the background\n String bash now" && /bin/bash
 
