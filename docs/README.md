@@ -1,3 +1,3 @@
 
 
-[Plateform Installation Guide](platformInstallationGuide.md)
+[Plattform Installation Guide](platformInstallationGuide.md)
