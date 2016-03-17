@@ -17,7 +17,7 @@ MAINTAINER marc.emmelmann@fokus.fraunhofer.de
 #
 # Install required packages
 #
-RUN apt-get update -y && apt-get install -y apache2 build-essential libgd2-xpm-dev apache2-utils unzip wget
+RUN apt-get update -y && apt-get install -y apache2 build-essential libgd2-xpm-dev apache2-utils unzip wget libapache2-mod-php5
 
 #
 # Add nagios user and group
@@ -56,6 +56,8 @@ RUN cd /opt/downloads/nagios-4.1.1 && make install-commandmode
 
 RUN cd /opt/downloads/nagios-4.1.1 && make install-webconf
 RUN ln -s /etc/apache2/conf-available/nagios.conf /etc/apache2/sites-enabled/nagios.conf
+
+# sudo htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin
 
 #
 # install nagios-plugins
