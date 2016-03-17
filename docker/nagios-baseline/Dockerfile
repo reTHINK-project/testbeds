@@ -57,6 +57,14 @@ RUN cd /opt/downloads/nagios-4.1.1 && make install-commandmode
 RUN cd /opt/downloads/nagios-4.1.1 && make install-webconf
 RUN ln -s /etc/apache2/conf-available/nagios.conf /etc/apache2/sites-enabled/nagios.conf
 
+#
+# install nagios-plugins
+#
+RUN cd /opt/downloads && tar xvf nagios-plugins-2.1.1.tar
+RUN cd /opt/downloads/nagios-plugins-2.1.1 && ./configure --prefix=/opt/nagios --with-nagios-user=nagios --with-nagios-group=nagios
+RUN cd /opt/downloads/nagios-plugins-2.1.1 && make
+RUN cd /opt/downloads/nagios-plugins-2.1.1 && make install
+
 
 RUN echo "/opt/nagius provided by rethink/nagios-baseline docker image ... yes"
 
