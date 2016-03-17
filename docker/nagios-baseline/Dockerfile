@@ -45,7 +45,8 @@ RUN cd /opt/downloads && gunzip nagios-plugins-2.1.1.tar.gz
 # install nagios core
 #
 RUN cd /opt/downloads && tar xvf nagios-4.1.1.tar
-RUN cd /opt/downloads/nagios-4.1.1 && ./configure --prefix=/opt/nagios --with-httpd-conf=/etc/apache2/conf-available  --with-command-group=nagcmd
+#RUN cd /opt/downloads/nagios-4.1.1 && ./configure --prefix=/opt/nagios --with-httpd-conf=/etc/apache2/conf-available  --with-command-group=nagcmd
+RUN cd /opt/downloads/nagios-4.1.1 && ./configure  --with-httpd-conf=/etc/apache2/conf-available  --with-command-group=nagcmd
 
 RUN cd /opt/downloads/nagios-4.1.1 && make all
 RUN cd /opt/downloads/nagios-4.1.1 && make install
@@ -63,7 +64,8 @@ RUN ln -s /etc/apache2/conf-available/nagios.conf /etc/apache2/sites-enabled/nag
 # install nagios-plugins
 #
 RUN cd /opt/downloads && tar xvf nagios-plugins-2.1.1.tar
-RUN cd /opt/downloads/nagios-plugins-2.1.1 && ./configure --prefix=/opt/nagios --with-nagios-user=nagios --with-nagios-group=nagios
+#RUN cd /opt/downloads/nagios-plugins-2.1.1 && ./configure --prefix=/opt/nagios --with-nagios-user=nagios --with-nagios-group=nagios
+RUN cd /opt/downloads/nagios-plugins-2.1.1 && ./configure --with-nagios-user=nagios --with-nagios-group=nagios
 RUN cd /opt/downloads/nagios-plugins-2.1.1 && make
 RUN cd /opt/downloads/nagios-plugins-2.1.1 && make install
 
