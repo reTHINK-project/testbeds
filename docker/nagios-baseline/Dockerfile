@@ -17,7 +17,7 @@ MAINTAINER marc.emmelmann@fokus.fraunhofer.de
 #
 # Install required packages
 #
-RUN apt-get update -y && apt-get install -y build-essential libgd2-xpm-dev apache2-utils unzip wget
+RUN apt-get update -y && apt-get install -y apache2 build-essential libgd2-xpm-dev apache2-utils unzip wget
 
 #
 # Add nagios user and group
