@@ -12,7 +12,7 @@ RUN apt-get update -y && apt-get install -y build-essential
 
 RUN apt-get update -y && apt-get install -y libgd2-xpm-dev
 
-/usr/sbin/useradd -m -s /bin/bash --password ENCRYPTEDPASSWORD  nagios
+RUN /usr/sbin/useradd -m -s /bin/bash --password ENCRYPTEDPASSWORD  nagios
 
 RUN /usr/sbin/groupadd nagcmd
 RUN /usr/sbin/usermod -a -G nagcmd nagios
