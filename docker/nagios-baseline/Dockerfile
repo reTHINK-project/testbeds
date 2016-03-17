@@ -17,7 +17,7 @@ MAINTAINER marc.emmelmann@fokus.fraunhofer.de
 #
 # Install required packages
 #
-RUN apt-get update -y && apt-get install build-essential libgd2-xpm-dev apache2-utils unzip
+RUN apt-get update -y && apt-get install -y build-essential libgd2-xpm-dev apache2-utils unzip wget
 
 #
 # Add nagios user and group
@@ -34,6 +34,8 @@ RUN /usr/sbin/usermod -a -G nagcmd www-data
 RUN cd /opt && mkdir downloads
 RUN cd /opt/downloads && wget https://assets.nagios.com/downloads/nagioscore/releases/nagios-4.1.1.tar.gz
 RUN cd /opt/downloads && wget http://www.nagios-plugins.org/download/nagios-plugins-2.1.1.tar.gz
+RUN cd /opt/downloads && gunzip nagios-4.1.1.tar.gz
+RUN cd /opt/downloads && gunzip nagios-plugins-2.1.1.tar.gz
 
 # alternatively, copy our backup of the tar balls
 # COPY ./downloads/nagios-4.1.1.tar /opt/downloads
