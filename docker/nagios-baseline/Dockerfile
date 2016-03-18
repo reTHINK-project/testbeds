@@ -92,5 +92,5 @@ RUN echo "/opt/nagius provided by rethink/nagios-baseline docker image ... yes"
 
 # ENTRYPOINT /etc/init.d/apache2 restart && echo "Started apache2 deamon for reverse proxing in the background\n String bash now" && /bin/bash
 
-ENTRYPOINT /etc/init.d/apache2 restart && echo "Started apache2 deamon for nagios in the background ... " && sleep 3; && echo "done\n" && /etc/init.d/nagios start echo "Starting nagios deamon in the background ... done\n" && echo "Starting bash now\n" && /bin/bash
+ENTRYPOINT /etc/init.d/apache2 restart && echo "Started apache2 deamon for nagios in the background ... " && sleep 3 && echo "done\n" && /etc/init.d/nagios start && echo "Starting nagios deamon in the background ... done\n" && echo "Starting bash now\n" && /bin/bash
 
