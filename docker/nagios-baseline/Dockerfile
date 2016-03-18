@@ -76,7 +76,7 @@ RUN cd /opt/downloads/nagios-4.1.1 && make install-webconf
 RUN ln -s /etc/apache2/conf-available/nagios.conf /etc/apache2/sites-enabled/nagios.conf
 
 # sudo htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin
-htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin PASSWORD
+RUN htpasswd -bc /usr/local/nagios/etc/htpasswd.users nagiosadmin PASSWORD
 
 #
 # install nagios-plugins
