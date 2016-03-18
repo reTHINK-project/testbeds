@@ -14,6 +14,9 @@ MAINTAINER marc.emmelmann@fokus.fraunhofer.de
 # all project specific stuff should be put in subdirectories (!!!)
 # below this path
 
-RUN apt-get update -y
+# just verify that nagios is there :-)
+RUN cd /opt/nagios
 
-RUN mkdir /opt/reTHINK
+# copy (recursively) the config files aside this Docker file to /
+COPY opt /
+
