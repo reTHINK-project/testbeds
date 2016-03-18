@@ -5,6 +5,17 @@
 FROM rethink/testbed-baseline
 MAINTAINER marc.emmelmann@fokus.fraunhofer.de
 
+#
+# General notes:  This docker file is based on the installation procedure as
+# found in the following two guides:
+#       https://help.ubuntu.com/lts/serverguide/nagios.html
+#       https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/quickstart-ubuntu.html
+#
+# The guides missed the following aspects:
+#       a) wget and libapache2-mod-php5 have to be installed via apt-get as well
+#       b) cgi and php5 support have to be enabled for apache (a2enmod cgi; a2enmod php5)
+
+
 
 # RUN apt-get update -y && apt-get install -y apache2
 # RUN apt-get update -y && apt-get install -y libapache2-mod-php5
@@ -18,6 +29,10 @@ MAINTAINER marc.emmelmann@fokus.fraunhofer.de
 # Install required packages
 #
 RUN apt-get update -y && apt-get install -y apache2 build-essential libgd2-xpm-dev apache2-utils unzip wget libapache2-mod-php5
+
+# enable cgi and php5 for apache (required for nagios)
+RUN a2enmod cgi
+RUN a2enmod php5
 
 #
 # Add nagios user and group
@@ -59,6 +74,7 @@ RUN cd /opt/downloads/nagios-4.1.1 && make install-webconf
 RUN ln -s /etc/apache2/conf-available/nagios.conf /etc/apache2/sites-enabled/nagios.conf
 
 # sudo htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin
+htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin PASSWORD
 
 #
 # install nagios-plugins
