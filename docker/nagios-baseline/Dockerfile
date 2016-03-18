@@ -62,8 +62,8 @@ RUN cd /opt/downloads && gunzip nagios-plugins-2.1.1.tar.gz
 # install nagios core
 #
 RUN cd /opt/downloads && tar xvf nagios-4.1.1.tar
-#RUN cd /opt/downloads/nagios-4.1.1 && ./configure --prefix=/opt/nagios --with-httpd-conf=/etc/apache2/conf-available  --with-command-group=nagcmd
-RUN cd /opt/downloads/nagios-4.1.1 && ./configure  --with-httpd-conf=/etc/apache2/conf-available  --with-command-group=nagcmd
+RUN cd /opt/downloads/nagios-4.1.1 && ./configure --prefix=/opt/nagios --with-httpd-conf=/etc/apache2/conf-available  --with-command-group=nagcmd
+#RUN cd /opt/downloads/nagios-4.1.1 && ./configure  --with-httpd-conf=/etc/apache2/conf-available  --with-command-group=nagcmd
 
 RUN cd /opt/downloads/nagios-4.1.1 && make all
 RUN cd /opt/downloads/nagios-4.1.1 && make install
@@ -92,5 +92,5 @@ RUN echo "/opt/nagius provided by rethink/nagios-baseline docker image ... yes"
 
 # ENTRYPOINT /etc/init.d/apache2 restart && echo "Started apache2 deamon for reverse proxing in the background\n String bash now" && /bin/bash
 
-ENTRYPOINT /etc/init.d/apache2 restart && echo "Started apache2 deamon for nagios in the background ... " && sleep 3 && echo "done\n" && /etc/init.d/nagios start && echo "Starting nagios deamon in the background ... done\n" && echo "Starting bash now\n" && /bin/bash
+ENTRYPOINT /etc/init.d/apache2 restart && echo "Started apache2 deamon for nagios in the background" && sleep 3 && echo "   ... done\n" && /etc/init.d/nagios start && echo "Starting nagios deamon in the background\n   ... done\n" && echo "Starting bash now\n" && /bin/bash
 
