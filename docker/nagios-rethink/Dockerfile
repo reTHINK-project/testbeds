@@ -18,5 +18,5 @@ MAINTAINER marc.emmelmann@fokus.fraunhofer.de
 RUN cd /opt/nagios
 
 # copy (recursively) the config files aside this Docker file to /
-COPY opt /
+COPY opt/ /opt/
 
