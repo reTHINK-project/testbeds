@@ -31,8 +31,10 @@ MAINTAINER marc.emmelmann@fokus.fraunhofer.de
 RUN apt-get update -y && apt-get install -y apache2 build-essential libgd2-xpm-dev apache2-utils unzip wget libapache2-mod-php5
 
 # enable cgi and php5 for apache (required for nagios)
+RUN service apache2 start
 RUN a2enmod cgi
 RUN a2enmod php5
+RUN service apache2 restart
 
 #
 # Add nagios user and group
@@ -90,5 +92,5 @@ RUN echo "/opt/nagius provided by rethink/nagios-baseline docker image ... yes"
 
 # ENTRYPOINT /etc/init.d/apache2 restart && echo "Started apache2 deamon for reverse proxing in the background\n String bash now" && /bin/bash
 
-ENTRYPOINT /etc/init.d/apache2 restart && echo "Started apache2 deamon for nagios in the background\n String bash now" && /bin/bash
+ENTRYPOINT /etc/init.d/apache2 restart && echo "Started apache2 deamon for nagios in the background ... " && sleep 3; && echo "done\n" && /etc/init.d/nagios start echo "Starting nagios deamon in the background ... done\n" && echo "Starting bash now\n" && /bin/bash
 
