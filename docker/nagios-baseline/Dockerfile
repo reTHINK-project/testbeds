@@ -83,7 +83,7 @@ RUN htpasswd -bc /opt/nagios/etc/htpasswd.users nagiosadmin PASSWORD
 #
 RUN cd /opt/downloads && tar xvf nagios-plugins-2.1.1.tar
 #RUN cd /opt/downloads/nagios-plugins-2.1.1 && ./configure --prefix=/opt/nagios --with-nagios-user=nagios --with-nagios-group=nagios
-RUN cd /opt/downloads/nagios-plugins-2.1.1 && ./configure --with-nagios-user=nagios --with-nagios-group=nagios
+RUN cd /opt/downloads/nagios-plugins-2.1.1 && ./configure --prefix=/opt/nagios --with-nagios-user=nagios --with-nagios-group=nagios
 RUN cd /opt/downloads/nagios-plugins-2.1.1 && make
 RUN cd /opt/downloads/nagios-plugins-2.1.1 && make install
 
