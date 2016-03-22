@@ -11,9 +11,6 @@ define service{
 }
 
 define service{
-  use                             generic-service         ; Name of service template to use
+  use                             catalogue-http-service         ; Name of service template to use
   host_name                       catalogue-rethink.fokus
-  service_description             HTTP
-  check_command                   check_http
-	notifications_enabled		0
 }
