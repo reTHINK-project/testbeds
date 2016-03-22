@@ -74,19 +74,26 @@ QoS Broker necessitates to be installed with TURN servers and some configuration
 
 ####Hello World
 The Hello World is installed in the repository [dev-service-framework](https://github.com/reTHINK-project/dev-service-framework)
-## Requirements:
-The service example is a deployed in a node "live-server" with a lot of dependencies. Then you can connect index.html using one of the two google accounts.  
+
+#### Requirements:
+To install an application using an Hyperty you must:
+* Develop the Hyperty. The Hyperty must reference a running Core Framework 
+Q: Where is this core framework available?
+
+* Deploy the Hyperty in a catalogue (see catalogue section).
+
+* Develop the application that uses the Hyperty
+* Deploy the application on a Web Server.
+
+To be able to run the new application, using Google ID or any OIDC serveur, you must register this application as a "client" of the IdP.
+
+Two google accounts are provided for test purpose:
 openidtest10@gmail.com / testOpenID10  
 openidtest20@gmail.com / testOpenID20  
 To use these accounts for authentication, one has to configure in the Google could platform the callback url of the service deployed (accessible throught Internet). URL must begin with ___msg-node.___  (e.g. msg-node.powercommunication.rethink.orange-labs.fr).   
 
 
-Installation of __node.js 5.4__ or more is necessary  
-Installation of jspm is necessary  
 
-## Installation guide
-
-To avoid a mess on the host, use a docker node container.
 
 ```
 docker run -d --name service-framework -it node:5.4 `  
