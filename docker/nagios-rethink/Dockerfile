@@ -10,11 +10,8 @@
 FROM rethink/nagios-baseline:dev
 MAINTAINER marc.emmelmann@fokus.fraunhofer.de
 
-# Create a /opt/reTHINK dir
-# all project specific stuff should be put in subdirectories (!!!)
-# below this path
 
-# just verify that nagios is there :-)
+# just verify that nagios is there
 RUN cd /opt/nagios
 
 # copy (recursively) the config files aside this Docker file to /
