@@ -20,6 +20,7 @@ A: Well Not yet but we're working on it.
 * Communication service provider (CSP). A CSP contains normally 3 building blocks, a Messaging Node, managing signaling part, a registry (called domain registry) and a catalogue. Whether these nodes can be independent or not is not the purpose of this guide. We consider them as a whole for a service provider.
 
 **comment Marc:**  The catalogue will actually consist (at least) of two parts.  The catalogue-brocker and the catalogue-database.  For testing, one might also consider the catalogue-test-client, but the latter one is optional.  From the figure, I guess that each component will likely resemble a docker image.  If this is the intend of the image, I would "blow up" the catalogue box a bit and include within it two sub-boxes, namely the catalogue-brocker and the catalogue-database.
+** Comment Simon:** I prefer not to blow up this component in the global view, which try to figure each exposed component used by the service itself, but we can add a more detailed image in the catalogue section.
 
 * Web application server: A minimum demo is provided by the CSP, and relies on the 3 previous nodes.
 
