@@ -77,8 +77,8 @@ The Hello World is installed in the repository [dev-service-framework](https://g
 
 #### Requirements:
 To install an application using an Hyperty you must:
-* Develop the Hyperty. The Hyperty must reference a running Core Framework 
-Q: Where is this core framework available?
+* Have a catalogue where a runtime is deployed, and a protostub to communicate with the corresponding messaging node. This means a complete and operational CSP platform.
+* Develop the Hyperty referencing this runtime. 
 
 * Deploy the Hyperty in a catalogue (see catalogue section).
 
