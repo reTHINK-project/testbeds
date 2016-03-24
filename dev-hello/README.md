@@ -4,7 +4,7 @@ This example is a standalone application that aims to illustrate the basics of H
 
 ## Prerequisite
 This application is based on the Hello World hyperty, that have to be already deployed in a catalogue.
-You just need a web server to install the complete application.
+You just need a web server to install the complete application (no node server or transpiler needed).
 
 ## Functions
 This Example will show you:
