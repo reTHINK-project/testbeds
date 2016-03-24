@@ -19,7 +19,7 @@ This example is written in ECMA5 and does not need any transformation to run on 
 This Example will show you:  
  * How to load a runtime (proviously deployed on a catalogue server)  
  * How to load an hyperty (Authentication mandatory)  
- * How to contact another Hyperty to send HelloWorld Service.   
+ * How to contact another Hyperty to send "HelloWorld" thanks to its Hyperty URL .   
   
 Files included:
 index.html :main page  
