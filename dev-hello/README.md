@@ -23,5 +23,6 @@ This Example will show you:
   
 Files included:
 index.html :main page  
-helloWorldHypertyClient.js : javascript that manage the Hyperties in the application
-system.config.json : configuration file that has to be modified to make the service run. It includes the domain name of the catalogue and the application.
+helloWorldHypertyClient.js : javascript that manage the Hyperties in the application  
+system.config.json : configuration file that has to be modified to make the service run. It includes the domain name of the catalogue and the application.  
+
