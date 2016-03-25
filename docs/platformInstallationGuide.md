@@ -54,7 +54,8 @@ Only one is necessary to be installed (currently [VertX](https://github.com/reTH
 
 ####Configuration and tests of the CSP
 Configuration of the Messaging node:  
-Domain Registry and Catalogue have to be accessed by the messaging node.  
+Domain Registry have to be accessed by the messaging node.  
+Catalogue is only refered by its URL.
 
 
 ###Support Services
@@ -73,17 +74,7 @@ QoS Broker necessitates to be installed with TURN servers and some configuration
 ###Application Deployment
 
 ####Hello World
-The Hello World is installed in the repository [dev-hello](https://github.com/reTHINK-project/testbeds/tree/dev/dev-hello)
-
-#### Requirements:
-To install an application using an Hyperty you must:
-* Have a catalogue where a runtime is deployed, and a protostub to communicate with the corresponding messaging node. This means a complete and operational CSP platform.
-* Develop the Hyperty referencing this runtime. 
-
-* Deploy the Hyperty in a catalogue (see catalogue section).
-
-* Develop the application that uses the Hyperty
-* Deploy the application on a Web Server.
+The Hello World is published in the repository [dev-hello](https://github.com/reTHINK-project/testbeds/tree/dev/dev-hello), and its installation manual is provided there.
 
 To be able to run the new application, using Google ID or any OIDC serveur, you must register this application as a "client" of the IdP.
 
@@ -93,32 +84,6 @@ openidtest20@gmail.com / testOpenID20
 To use these accounts for authentication, one has to configure in the Google could platform the callback url of the service deployed (accessible throught Internet). URL must begin with ___msg-node.___  (e.g. msg-node.powercommunication.rethink.orange-labs.fr).   
 
 
-
-
-```
-docker run -d --name service-framework -it node:5.4 `  
-apt-get update   
-npm install -g jspm   
-mkdir /usr/src/app   
-cd /usr/src/app   
-jspm install service-framework=github:reTHINK-project/dev-service-framework   
-cd /usr/src/app/jspm_packages/github/reTHINK-project/dev-service-framework@0.1.2   
-npm run init-setup  
-npm install   
-gulp encode  
-```
---> Only one file can be encoded (what is it for?)
-If you choose a Protostub configuration you have to provide the msg-node URL.  
-
-```
-apt-get install vim    
-vi system.config.json  
-```
---> Change the messagning node URL (don't put the prefix _msg-node._ )   
-```
-npm install -g live-server    
-npm start &   
-```
 
 
 
