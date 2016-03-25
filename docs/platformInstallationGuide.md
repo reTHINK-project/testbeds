@@ -55,7 +55,8 @@ __To be able to run an example, the catalogue database must provide:__ <b>
  * A reThink runtime  
  * One protostub that allow the usage of the installed messaging node  
  * The Hyperty code and datashema that will be used by the example.</b>    
- 
+A specific database is proposed to run the HelloWorld example.
+
 ####Configuration and tests of the CSP
 Configuration of the Messaging node:  
 Domain Registry have to be accessed by the messaging node.  
@@ -79,6 +80,7 @@ QoS Broker necessitates to be installed with TURN servers and some configuration
 
 ####Hello World
 The Hello World is published in the repository [dev-hello](https://github.com/reTHINK-project/testbeds/tree/dev/dev-hello), and its installation manual is provided there.
+The HelloWorld application is distinguished from the Hyperty HelloWorld which provides the real service.
 
 To be able to run the new application, using Google ID or any OIDC serveur, you must register this application as a "client" of the IdP.
 
