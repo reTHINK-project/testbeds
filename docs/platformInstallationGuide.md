@@ -42,16 +42,20 @@ After installing one of these two IdPs, at least two users, Alice and Bob have t
 
 As mentionned above, the communication service providers consists in three services.
 
+####Domain Registry 
+Domain registry is installable from [here](https://github.com/reTHINK-project/dev-registry-domain/server). As the Domain Registry is necessary to run the messaging node, it has to be installed first. The default port of the domain registry is 4567.
+
 ####Messaging node
 This is the first platform to install (core plateform). ReTHINK has provided three implementations: [VertX](https://github.com/reTHINK-project/dev-msg-node-vertx), [Matrix](https://github.com/reTHINK-project/dev-msg-node-matrix) and [NodeJS](https://github.com/reTHINK-project/dev-msg-node-nodejs).  
 Only one is necessary to be installed (currently [VertX](https://github.com/reTHINK-project/dev-msg-node-vertx) is prefered).  
 
-####Domain Registry 
-
-
 ####Catalogue
-
-
+The catalogue is made out of two main components. A broker, that is needed to access the different services, and one or more database. Documentation can be accessed [here](https://github.com/reTHINK-project/dev-catalogue/tree/master/doc).  
+__To be able to run an example, the catalogue database must provide:__ <b>  
+ * A reThink runtime  
+ * One protostub that allow the usage of the installed messaging node  
+ * The Hyperty code and datashema that will be used by the example.</b>    
+ 
 ####Configuration and tests of the CSP
 Configuration of the Messaging node:  
 Domain Registry have to be accessed by the messaging node.  
