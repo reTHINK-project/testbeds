@@ -73,7 +73,7 @@ QoS Broker necessitates to be installed with TURN servers and some configuration
 ###Application Deployment
 
 ####Hello World
-The Hello World is installed in the repository [dev-service-framework](https://github.com/reTHINK-project/dev-service-framework)
+The Hello World is installed in the repository [dev-hello](https://github.com/reTHINK-project/testbeds/tree/dev/dev-hello)
 
 #### Requirements:
 To install an application using an Hyperty you must:
