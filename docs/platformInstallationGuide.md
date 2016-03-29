@@ -72,7 +72,7 @@ QoS Broker necessitates to be installed with TURN servers and some configuration
 ###Application Deployment
 
 ####Hello World
-The Hello World is installed in the repository [dev-service-framework](https://github.com/reTHINK-project/dev-service-framework)
+The Hello World is installed in the repository [dev-hello](https://github.com/reTHINK-project/testbeds/blob/dev/dev-hello)
 ## Requirements:
 The service example is a deployed in a node "live-server" with a lot of dependencies. Then you can connect index.html using one of the two google accounts.  
 openidtest10@gmail.com / testOpenID10  
