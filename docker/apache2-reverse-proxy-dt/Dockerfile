@@ -17,6 +17,7 @@ COPY keys/server.key /opt/certs/server.key
 RUN a2ensite 010-reThink-DTNode.conf
 RUN a2enmod proxy_wstunnel
 RUN a2enmod ssl
+RUN a2enmod headers
 
 
 # Note: the ENTRYPOINT is inherited from the baseline image, i.e.,
