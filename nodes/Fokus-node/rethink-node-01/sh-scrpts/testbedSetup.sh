@@ -46,7 +46,7 @@ case $1 in
 		echo ------------------------------------------------------------------------
 		echo
 		sleep 1
-		docker run -it -d --net=host --name rethink-c-database rethink/catalogue-database
+		docker run -it -d --net=host --name rethink-c-database rethink/catalogue-database -h rethink-node-01.fokus.fraunhofer.de  -d catalogue-rethink.fokus.fraunhofer.de
 		sleep 3
 
 		echo
