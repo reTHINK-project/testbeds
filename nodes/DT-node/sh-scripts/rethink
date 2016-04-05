@@ -1,0 +1,46 @@
+#!/bin/sh
+# Start/stop the rethink testbed environment
+#
+### BEGIN INIT INFO
+# Provides:          rethink
+# Required-Start:    $docker
+# Required-Stop:     $docker
+# Should-Start:      $network
+# Should-Stop:       $network
+# Default-Start:     2 3 4 5
+# Default-Stop:
+# Short-Description: Management script for the reTHINK testbed
+# Description:       This script allows to start, stop and upgrade the reTHINK
+#		     testbed, including all required processes, docker containers etc. 
+# 		     in a central place.
+### END INIT INFO
+
+PATH=/bin:/usr/bin:/sbin:/usr/sbin
+SCRIPT_DIR=/opt/rethink/testbeds/nodes/DT-node/sh-scripts/
+
+. /lib/lsb/init-functions
+
+case "$1" in
+start)	echo "Starting reTHINK testbed "
+	start-stop-daemon -c 1000 --start --exec $SCRIPT_DIR/start.sh
+	;;
+stop)	echo "Stopping reTHINK testbed "
+	start-stop-daemon -c 1000 --start --exec $SCRIPT_DIR/stop.sh
+	;;
+restart) echo "Restarting reTHINK testbed"
+        $0 stop
+        $0 start
+        ;;
+reload|force-reload) echo "reload|force-reload are not implemented yet"
+        ;;
+status) echo "Status of reTHINK testbed:"
+	echo "running screens:"
+	start-stop-daemon -c 1000 --start --exec "screen -ls"
+	echo "running docker containers:" 
+	docker ps
+        ;;
+*)	log_action_msg "Usage: /etc/init.d/cron {start|stop|status|restart|reload|force-reload}"
+        exit 2
+        ;;
+esac
+exit 0
