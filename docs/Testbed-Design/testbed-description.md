@@ -158,7 +158,7 @@ The global registry is dispatched on different domains (probably on orange-labs.
 ![PTIN](https://github.com/reTHINK-project/testbeds/blob/master/docs/Testbed-Design/figures/rethink_PTIN_Node.png)
 
 ### Description of Orange node
-![Orange Testbed](https://cloud.githubusercontent.com/assets/10738516/11059983/8ed924c6-879d-11e5-8e1c-03b218465d88.png)
+![Orange Testbed](https://github.com/reTHINK-project/testbeds/blob/master/docs/Testbed-Design/figures/reThinkTestbed-Orange.png)
 
 So far deployed:
 #### 1st VM - v-rethink1
