@@ -144,7 +144,7 @@ Applications :
 The global registry is dispatched on different domains (probably on orange-labs.fr, ptinovacao.pt, xxx.de). It can be independent of the CSPs or included. Each global registry node is linked in a way or another to the others, a CSP should be provided with at least one GR address (by configuration).
 
 
-![applis](https://cloud.githubusercontent.com/assets/10738516/12231896/10c13b70-b85b-11e5-838f-4c996d6361fc.png)
+![applis](https://github.com/reTHINK-project/testbeds/blob/master/docs/Testbed-Design/figures/rethinkTestbed-GlobalView.png)
 
 ## Testbed Description
 
@@ -158,10 +158,10 @@ The global registry is dispatched on different domains (probably on orange-labs.
 ![PTIN](https://github.com/reTHINK-project/testbeds/blob/master/docs/Testbed-Design/figures/rethink_PTIN_Node.png)
 
 ### Description of Orange node
-![Orange Testbed](https://cloud.githubusercontent.com/assets/10738516/11059983/8ed924c6-879d-11e5-8e1c-03b218465d88.png)
+![Orange Testbed](https://github.com/reTHINK-project/testbeds/blob/master/docs/Testbed-Design/figures/reThinkTestbed-Orange.png)
 
 So far deployed:
-#### 1st VM - p-rethink1
+#### 1st VM - v-rethink1
 ![Orange Testbed](https://github.com/reTHINK-project/testbeds/blob/master/docs/Testbed-Design/figures/orangeLabsNode1.png)
  * IdP based on Node.js https://energyq.idp.rethink.orange-labs.fr/ (sources in https://github.com/reTHINK-project/dev-IdPServer)
    * proxy accessible https://energyq.idp.rethink.orange-labs.fr/.well-known/idp-proxy/rethink-oidc
