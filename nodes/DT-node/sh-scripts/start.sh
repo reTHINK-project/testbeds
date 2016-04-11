@@ -7,7 +7,8 @@ cd ${0%/*}
 ./registry/start.sh
 ./matrix/start.sh
 ./proxy/start.sh
-./framework/start.sh
+#./framework/start.sh
+./toolkit/start.sh
 
 screen -ls
 sleep 2
