@@ -10,9 +10,9 @@ FROM rethink/testbed-apache2-reverse-proxy-baseline
 MAINTAINER steffen.druesedow@telekom.de
 
 COPY apache-sites-available/010-reThink-DTNode.conf /etc/apache2/sites-available/010-reThink-DTNode.conf
-RUN mkdir -p /opt/certs
-COPY keys/server.crt /opt/certs/server.crt
-COPY keys/server.key /opt/certs/server.key
+#RUN mkdir -p /opt/certs
+#COPY keys/server.crt /opt/certs/server.crt
+#COPY keys/server.key /opt/certs/server.key
 
 RUN a2ensite 010-reThink-DTNode.conf
 RUN a2enmod proxy_wstunnel
