@@ -1,3 +1,3 @@
 #!/bin/sh
 docker rm toolkit
-docker run --name toolkit --net=rethink -p 8080:8080 -p 3001:3001 hyperty-toolkit /start.sh
+docker run -it --name toolkit --net=rethink -p 8080:8080 -p 3001:3001 -v /opt/rethink/dev-hyperty-toolkit:/hyperty-toolkit hyperty-toolkit 

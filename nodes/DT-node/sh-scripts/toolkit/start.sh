@@ -1,6 +1,7 @@
 #!/bin/sh
 
-DIR=${0%/*}
+cd ${0%/*}
+DIR=`pwd`
 echo "DIR is " $DIR
 
 echo "starting hyperty toolkit ..."
