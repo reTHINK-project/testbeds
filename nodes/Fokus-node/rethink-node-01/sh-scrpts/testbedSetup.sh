@@ -24,15 +24,6 @@ case $1 in
 
 		echo
 		echo ------------------------------------------------------------------------
-		echo starting reverse proxy docker image as a DETACHED docker process
-		echo ------------------------------------------------------------------------
-		echo
-		sleep 1
-		docker run -it -d --net=host --name rethink-rproxy fokus-rproxy
-		sleep 3
-
-		echo
-		echo ------------------------------------------------------------------------
 		echo starting catalogue brocker docker image as a DETACHED docker process
 		echo ------------------------------------------------------------------------
 		echo
@@ -57,6 +48,16 @@ case $1 in
 		sleep 1
 		docker run -it -d --net=host --name rethink-c-testclient rethink/catalogue-test-client 9041
 		sleep 3
+
+    echo
+    echo ------------------------------------------------------------------------
+    echo starting reverse proxy docker image as a DETACHED docker process
+    echo ------------------------------------------------------------------------
+    echo
+    sleep 1
+    docker run -it -d --net=host --name rethink-rproxy fokus-rproxy
+    sleep 3
+
 	;;
 	stop)
 		echo
