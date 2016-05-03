@@ -49,6 +49,14 @@ case $1 in
 		docker run -it -d --net=host --name rethink-c-database rethink/catalogue-database
 		sleep 3
 
+    echo
+    echo ------------------------------------------------------------------------
+    echo starting catalogue default database docker image as a DETACHED docker process
+    echo ------------------------------------------------------------------------
+    echo
+    sleep 1
+    docker run -it -d --net=host --name rethink-c-def-database rethink/catalogue-database-rethinkdefault
+
 		echo
 		echo ------------------------------------------------------------------------
 		echo starting catalogue testpage docker image as a DETACHED docker process
