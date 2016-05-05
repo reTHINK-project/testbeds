@@ -1,6 +1,9 @@
 # Altice Labs setup configuration
 
-I don't use any shell script to setup the testbed;
+**NOTE**
+  - is not ready to deploy in the testbed, we are waiting for some repositories are available on the docker hub, like:
+    - domain-registry
+    - msg-node-vertx
 
 **TODO**
   - Add the configuration and setup apache reverse proxy to a Dockerfile;
