@@ -1,0 +1,13 @@
+{
+  "cguid": "40001",
+  "version": "1.0",
+  "objectName": "default",
+  "description": "This is a protostub",
+  "language": "Javascript ECMA6",
+  "dataObjects": [],
+  "configuration": {
+      "url": "wss://msg-node.vitor.dev:9090/ws"
+  },
+  "constraints": [],
+  "messageSchemas": []
+}
