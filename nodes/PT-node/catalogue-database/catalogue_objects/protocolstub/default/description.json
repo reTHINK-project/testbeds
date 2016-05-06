@@ -6,7 +6,7 @@
   "language": "Javascript ECMA6",
   "dataObjects": [],
   "configuration": {
-      "url": "wss://msg-node.vitor.dev:9090/ws"
+      "url": "wss://msg-node.hybroker.rethink.ptinovacao.pt/ws"
   },
   "constraints": [],
   "messageSchemas": []
