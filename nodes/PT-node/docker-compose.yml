@@ -1,7 +1,7 @@
 version: '2'
 services:
   'msg-node-vertx':
-    build: 'rethink/msg-node-vertx'
+    image: 'rethink/msg-node-vertx'
     container_name: 'msg-node-vertx'
     environment:
       - MSG_NODE_CONFIG=env
@@ -17,7 +17,7 @@ services:
       - '9090'
 
   'domain-registry':
-    build: './dev-registry-domain/server'
+    image: rethink/registry-domain-server
     container_name: 'domain-registry'
     networks:
       rethink:
@@ -40,9 +40,17 @@ services:
       - '443'
       - '5683'
 
+  'catalogue-database':
+    image: rethink/catalogue-database-rethinkdefault
+    container_name: 'catalogue-database'
+    network_mode: "service:catalogue-broker"
+    command: [-d, catalogue.hybroker.rethink.ptinovacao.pt]
+    depends_on:
+      - 'catalogue-broker'
+
   'catalogue-database-ptinovacao':
     build: "./catalogue-database"
-    container_name: 'catalogue-database'
+    container_name: 'catalogue-database-ptinovacao'
     network_mode: "service:catalogue-broker"
     command: [-d, catalogue.hybroker.rethink.ptinovacao.pt]
     depends_on:
