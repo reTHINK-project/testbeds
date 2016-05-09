@@ -12,8 +12,8 @@ The following plan is proposed including required input from other WPs or Tasks:
 
 * WP4: Support Services logs with data required for the assessment
 
-* WP5: Questionaire to be answered by WP5 Developers
+* WP5: Questionnaire to be answered by WP5 Developers
 
 * T6.2: Perform tests, collect and store logs
 
-* WP7: reuse WP5 questionaire in the pre-hackathon. Questionaire for scenario users
+* WP7: reuse WP5 Questionnaire in the pre-hackathon. Questionnaire for scenario users
