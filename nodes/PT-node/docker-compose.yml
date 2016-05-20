@@ -5,7 +5,7 @@ services:
     container_name: 'msg-node-vertx'
     environment:
       - MSG_NODE_CONFIG=env
-      - NODE_DOMAIN=hybroker.rethink.ptinovacao.pt
+      - NODE_DOMAIN=vitor.dev
       - NODE_PORT=9090
       - NODE_REGISTRY_URL=http://172.18.0.4:4567
       - NODE_GLOBAL_REGISTRY_URL=http://130.149.22.133:5002
@@ -35,7 +35,7 @@ services:
     networks:
       rethink:
         ipv4_address: 172.18.0.8
-    hostname: 'catalogue.hybroker.rethink.ptinovacao.pt'
+    hostname: 'catalogue.vitor.dev'
     expose:
       - '443'
       - '5683'
@@ -44,7 +44,7 @@ services:
     build: "./catalogue-database"
     container_name: 'catalogue-database-ptinovacao'
     network_mode: "service:catalogue-broker"
-    command: [-d, catalogue.hybroker.rethink.ptinovacao.pt]
+    command: [-d, catalogue.vitor.dev]
     depends_on:
       - 'catalogue-broker'
 
@@ -73,6 +73,9 @@ services:
     container_name: 'hyperty-toolkit'
     environment:
       - MODE=production
+      - DEVELOPMENT=false
+      - RUNTIME_URL=hyperty-catalogue://catalogue.hybroker.rethink.ptinovacao.pt/.well-known/runtime/Runtime
+      - DOMAIN=hybroker.rethink.ptinovacao.pt
     networks:
       rethink:
         ipv4_address: 172.18.0.32
