@@ -1,15 +1,12 @@
-FROM debian:jessie
+FROM debian-nodejs-base:latest
+
+# Maintainer
 MAINTAINER Steffen Drüsedow <steffen.druesedow@telekom.de>
 
-RUN export DEBIAN_FRONTEND=noninteractive \
-    && apt-get update -y \
-    && apt-get upgrade -y \
-    && apt-get install -y \
-    curl vim \
-    && apt-get clean
+RUN echo "#!/bin/sh \n cd /hyperty-toolkit && npm start || /bin/bash" > /start.sh
+RUN chmod +x /start.sh
 
-# add nodejs repo
-RUN curl -sL https://deb.nodesource.com/setup_5.x | bash -
-
-RUN apt-get install -y nodejs
+# startup configuration
+ENTRYPOINT ["/start.sh"]
+VOLUME ["/hyperty-toolkit"]
 

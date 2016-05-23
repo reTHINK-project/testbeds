@@ -46,8 +46,16 @@ case $1 in
 		echo ------------------------------------------------------------------------
 		echo
 		sleep 1
-		docker run -it -d --net=host --name rethink-c-database rethink/catalogue-database -h rethink-node-01.fokus.fraunhofer.de  -d catalogue-rethink.fokus.fraunhofer.de
+		docker run -it -d --net=host --name rethink-c-database rethink/catalogue-database
 		sleep 3
+
+    echo
+    echo ------------------------------------------------------------------------
+    echo starting catalogue default database docker image as a DETACHED docker process
+    echo ------------------------------------------------------------------------
+    echo
+    sleep 1
+    docker run -it -d --net=host --name rethink-c-def-database rethink/catalogue-database-rethinkdefault
 
 		echo
 		echo ------------------------------------------------------------------------

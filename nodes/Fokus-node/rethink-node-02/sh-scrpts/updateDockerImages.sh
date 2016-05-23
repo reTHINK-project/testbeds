@@ -5,6 +5,6 @@
 docker pull rethink/catalogue-broker
 docker pull rethink/catalogue-database
 docker pull rethink/catalogue-test-client
-
+docker pull rethink/catalogue-database-rethinkdefault
 
 
