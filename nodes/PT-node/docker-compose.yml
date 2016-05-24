@@ -73,6 +73,9 @@ services:
     container_name: 'hyperty-toolkit'
     environment:
       - MODE=production
+      - DEVELOPMENT=false
+      - RUNTIME_URL=hyperty-catalogue://catalogue.hybroker.rethink.ptinovacao.pt/.well-known/runtime/Runtime
+      - DOMAIN=hybroker.rethink.ptinovacao.pt
     networks:
       rethink:
         ipv4_address: 172.18.0.32
