@@ -10,28 +10,6 @@ var babel = require('babelify');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 
-gulp.task('buildMatrix', function() {
-
-  var stubBundler = browserify('./src/stub/MatrixProtoStub.js',
-  {
-    standalone: 'Stub',
-    debug: false
-  }).transform(babel,{
-    presets: ['es2015']
-  });
-
-  function rebundle() {
-    stubBundler.bundle()
-      .on('error', function(err) {
-        console.error(err);
-        this.emit('end');
-      })
-      .pipe(fs.createWriteStream("./test/stub/Stub.js"));
-  }
-
-  rebundle();
-});
-
 gulp.task('testmatrix', [], shell.task([
   'karma start matrix.conf.js'
 ]));
