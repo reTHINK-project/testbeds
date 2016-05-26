@@ -21,15 +21,8 @@ export default class Bus {
     this.send(msg);
   }
 
-  enableLog() {
-    this.doLog = true;
-  }
-
-  disableLog() {
-    this.doLog = false;
-  }
-
-  setStubMsgHandler(newHandler) {
+  setStubMsgHandler(newHandler, doLog) {
     this.onStubMessage = newHandler;
+    this.doLog = doLog;
   }
 }

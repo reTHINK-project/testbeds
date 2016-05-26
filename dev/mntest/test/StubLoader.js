@@ -2,8 +2,8 @@ import matrixActivate   from '../src/stub/MatrixProtoStub.js';
 import matrixConfig     from "../src/stub/matrix.conf.js";
 import vertxActivate    from '../src/stub/VertxProtoStub.js';
 import vertxConfig      from "../src/stub/vertx.conf.js";
-//import nodejsActivate   from './src/stub/NodeJSProtoStub.js';
-//import nodejsConfig     from "../src/stub/nodejs.conf.js";
+import nodejsActivate   from '../src/stub/NodejsProtoStub.js';
+import nodejsConfig     from "../src/stub/nodejs.conf.js";
 
 
 export default class StubLoader {

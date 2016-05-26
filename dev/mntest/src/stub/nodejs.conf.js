@@ -1,7 +1,7 @@
 
-const configuration = {
+let configuration = {
   domain: "localhost",
-  ws : "ws://localhost/ws"
+  url : "ws://localhost:9091"
 }
 
-export { configuration };
+export default configuration;

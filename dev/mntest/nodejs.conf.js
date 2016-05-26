@@ -8,7 +8,7 @@ module.exports = function(config) {
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
     client: {
-       args: ['vertx']
+       args: ['nodejs']
     },
 
     // frameworks to use
@@ -18,11 +18,12 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'src/stub/**/*.js',
-      'test/**/*.spec.js',
-      // 'test/**/object-allocation.spec.js',
+      // 'test/**/*.spec.js',
+      // 'test/**/connect.spec.js',
       // 'test/**/hyperty-allocation.spec.js',
+      // 'test/**/object-allocation.spec.js',
       // 'test/**/registration.spec.js',
-      // 'test/**/subscription.spec.js'
+      'test/**/subscription.spec.js'
     ],
 
     proxies: {
