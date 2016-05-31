@@ -18,12 +18,14 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'src/stub/**/*.js',
-      // 'test/**/*.spec.js',
+      'test/**/*.spec.js',
       // 'test/**/connect.spec.js',
       // 'test/**/hyperty-allocation.spec.js',
       // 'test/**/object-allocation.spec.js',
       // 'test/**/registration.spec.js',
-      'test/**/subscription.spec.js'
+      // 'test/**/subscription.spec.js'
+      // 'test/**/performance1.spec.js'
+      // 'test/**/performance2.spec.js'
     ],
 
     proxies: {
@@ -82,7 +84,7 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false
+    singleRun: true
   });
 
 };
