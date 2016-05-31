@@ -48,15 +48,6 @@ services:
     depends_on:
       - 'catalogue-broker'
 
-  'catalogue-test-client':
-    image: rethink/catalogue-test-client
-    container_name: 'catalogue-client'
-    networks:
-      rethink:
-        ipv4_address: 172.18.0.10
-    expose:
-      - '8090'
-
 #  'global-registry'
 #    build: 'rethink/global-registry'
 #    container_name: 'global-registry'
