@@ -66,7 +66,7 @@ describe('messaging performance for different message sizes and iterations', fun
           case 1:
             util.expectConnected(m, runtimeStubURL2);
 
-            // delete the allocation of address from tc 1
+            // allocate address
             msg = MessageFactory.createCreateMessageRequest(
               runtimeStubURL1 + "/registry/allocation", // from
               msgNodeAddress, // to

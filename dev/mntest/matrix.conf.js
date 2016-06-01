@@ -18,11 +18,12 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'src/stub/**/*.js',
-      'test/**/*.spec.js',
+      // 'test/**/*.spec.js',
       // 'test/**/registration.spec.js',
       // 'test/**/subscription.spec.js'
-      // 'test/**/performance1.spec.js'
       // 'test/**/performance2.spec.js'
+      'test/**/performance-alloc-hyperties.spec.js',
+      'test/**/performance-alloc-objects.spec.js'
     ],
 
     proxies: {
