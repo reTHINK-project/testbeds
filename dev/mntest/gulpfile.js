@@ -11,15 +11,15 @@ var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 
 gulp.task('testmatrix', [], shell.task([
-  'karma start matrix.conf.js'
+  'karma start matrix.karma.js'
 ]));
 
 gulp.task('testvertx', [], shell.task([
-  'karma start vertx.conf.js'
+  'karma start vertx.karma.js'
 ]));
 
 gulp.task('testnodejs', [], shell.task([
-  'karma start nodejs.conf.js'
+  'karma start nodejs.karma.js'
 ]));
 
 gulp.task('help', function() {
