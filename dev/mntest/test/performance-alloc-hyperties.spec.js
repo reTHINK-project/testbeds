@@ -21,23 +21,23 @@ describe('allocation message performance for different numbers of addresses', fu
     allocUtil.deallocLoop( "hyperty", done);
   });
 
-  // it('1000 hyperty address allocation requests for 1 address each ', function(done) {
-  //   allocUtil.allocLoop( "hyperty", 1000, 1, done);
-  // });
-  //
-  // it('1000 hyperty address de-allocation requests for 1 address each ', function(done) {
-  //   allocUtil.deallocLoop( "hyperty", done);
-  // });
-  //
-  // it('10000 hyperty address allocation requests for 1 address each ', function(done) {
-  //   allocUtil.allocLoop( "hyperty", 10000, 1, done);
-  // });
-  //
-  // it('10000 hyperty address de-allocation requests for 1 address each ', function(done) {
-  //   allocUtil.deallocLoop( "hyperty", done);
-  // });
-  //
-  //
+  it('1000 hyperty address allocation requests for 1 address each ', function(done) {
+    allocUtil.allocLoop( "hyperty", 1000, 1, done);
+  });
+
+  it('1000 hyperty address de-allocation requests for 1 address each ', function(done) {
+    allocUtil.deallocLoop( "hyperty", done);
+  });
+
+  it('10000 hyperty address allocation requests for 1 address each ', function(done) {
+    allocUtil.allocLoop( "hyperty", 10000, 1, done);
+  });
+
+  it('10000 hyperty address de-allocation requests for 1 address each ', function(done) {
+    allocUtil.deallocLoop( "hyperty", done);
+  });
+
+
   /********** block of hyperty addresses  ********************/
 
   it('100 hyperty address allocation requests for 3 addresses each ', function(done) {

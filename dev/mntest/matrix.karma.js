@@ -21,8 +21,8 @@ module.exports = function(config) {
       // 'test/**/*.spec.js',
       // 'test/**/registration.spec.js',
       // 'test/**/subscription.spec.js'
-      'test/**/performance-hyp-messages.spec.js',
-      // 'test/**/performance-alloc-hyperties.spec.js',
+      // 'test/**/performance-hyp-messages.spec.js',
+      'test/**/performance-alloc-hyperties.spec.js',
       // 'test/**/performance-alloc-objects.spec.js'
     ],
 
