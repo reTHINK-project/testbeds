@@ -15,9 +15,10 @@ As the Catalogue Service merely stores  information and in particular does not n
   * "The catalogue service shall allow discovering the information it stores."
   * "The catalogue service should provide fast response times. As querying the Catalogue occurs before an end-to-end communication is established, response times have no immediate impact on an established end-to-end communication."
 
-As the Catalogue offers in general a purely request-based service, the KPIs *request (and response) rate* and *response time* are suitable indicators to assess those non-functional requirements.  Note that populating the Catalogue with new entires--comparable to updating the contents of a web site or within an app store as compared to retirieving the content--is a relativly rare event which the initial tests do not assess seperately.
+As the Catalogue offers in general a purely request-based service, the KPIs *request (and response) rate* and *response time* are suitable indicators to assess those non-functional requirements.  In addition, the number of *errors* per experiment are recorded.
 
-In addition, the number of *errors* per experiment are recorded.
+Note that populating the Catalogue with new entires--comparable to updating the contents of a web site or within an app store as compared to retirieving the content--is a relativly rare event which the initial tests do not assess seperately.
+
 
 **Average Request and Response Rate**
 
@@ -49,8 +50,12 @@ For purely assessing the performance of the SUT, the numbers of errors should be
 
 
 ###### Tests
-Description of test set up, may be a single set up or multiple set ups depending on the component under test and the metric being tested.
-If you have a single test set-up, describe the test set up first and then include one sub-section per metric being tested.  If you need several different test set ups, use a "strucutre by metric", i.e., have one subsection per metric which in turn includes the description of the test set up for that metric and the results.
+~~Description of test set up, may be a single set up or multiple set ups depending on the component under test and the metric being tested.
+If you have a single test set-up, describe the test set up first and then include one sub-section per metric being tested.  If you need several different test set ups, use a "strucutre by metric", i.e., have one subsection per metric which in turn includes the description of the test set up for that metric and the results.~~
+
+**System under Test**
+
+
 
 ###### References
 **Please decide if references are to be included per section or if these references need to be moved into a dedicated section when integrating the contributions**
