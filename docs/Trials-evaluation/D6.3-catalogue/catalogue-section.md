@@ -55,14 +55,34 @@ If you have a single test set-up, describe the test set up first and then includ
 
 **System under Test**
 
-![Image System Under Test (SUT) for the Catalogue Performance Evaluaton](./catalogue-fokus-performance-test-setup.png)
+The system under test (SUT) comprises set-up of the catalogue as found in the reTHINK testbed deployment.  The goal of the performance assessment is not to obtain theoretically achievable performance numbers as could be achieved in a "clean room environment", i.e., connecting the testing devices immediately to a catalouge instance; but instead to assess the catalogue in an environment which will be faced by users during the upcoming hackathon event. Besides that this setup assures that a positive performance assessment indicates the catalogue's ability to provide sufficient performance for reTHINK-specific events and tests, the chosen setup is close to a real world deployment anticipated in operators' commercial networks.
 
+Figure **XXX-01** visualizes the test setup.  It distinguishes between the SUT (i.e. the catalgue-specific set-up) and the testing devices (i.e., the machines running the test tools). 
+
+![Image System Under Test (SUT) for the Catalogue Performance Evaluaton](./catalogue-fokus-performance-test-setup.png)
+**Figure XXX-01: System under test (SUT) for the Catalogue performance assessment**
+
+The testing devices are unix-based computers running autobench [autobench] and httperf [httperf].  The number of testing devices varies per experiment.  The testing devices are connected via Ethernet towards the SUT via an internal network, i.e., the public Internet is not included in the communication path.
+
+Regarding the catalogue, the SUT comprises of:
+  * one catalogue-broker;
+  * one catalouge-database that contains example catalogue objects used for testing; 
+  * two apache proxies, one being responsible for providing reverse-proxing while accessing the catalogue, and the other being responsible for securly hosting any certificates required for https-based access to the catalouge; and
+  * one firewall.
+
+For a detailed description of each component and how to set them up, please refer to [D6.1].
 
 
 ###### References
 **Please decide if references are to be included per section or if these references need to be moved into a dedicated section when integrating the contributions**
 
+[autobench]  Autobench GitHub Repository.  Available online: https://github.com/menavaur/Autobench; last accessed June 2016.
+
 [D4.1] Management and Security features specifications, reTHINK Deliverable D4.1.  reTHINK consortium, September 2015.
+
+[D6.1] Testbed specification, reTHINK Deliverable D6.1.  reTHINK consortium, April 2016.
+
+[httperf]  Httperf GitHub Repository.  Available online: https://github.com/httperf/httperf; last accessed June 2016.
 
 [httperf-man] Httperf Man Page.  Available online: http://www.labs.hpe.com/research/linux/httperf/httperf-man-0.9.ps; last accessed June 2016.
 
