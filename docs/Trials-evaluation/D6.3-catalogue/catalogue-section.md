@@ -46,6 +46,9 @@ The number of erros is recorded for each experiment in order to verify that repo
 
 For purely assessing the performance of the SUT, the numbers of errors should be zero for each test.
 
+**Request load imposed on SUT**
+
+In every experiment, each testing device imposes a load on the SUT by issuing http(s)-get-requests frequently.
 
 
 
