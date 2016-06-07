@@ -14,7 +14,10 @@ The Catalogue provides the service to store descriptors of Hyperties available f
 As the Catalogue Service merely stores  information and in particular does not need to manipulate any of the stored records, [D4.1] identifies the following two non-functional requirements which yield to measureable key performance indicators (KPIs):
   * "The catalogue service shall allow discovering the information it stores."
   * "The catalogue service should provide fast response times. As querying the Catalogue occurs before an end-to-end communication is established, response times have no immediate impact on an established end-to-end communication."
+
 As the Catalogue offers in general a purely request-based service, the KPIs *request (and response) rate* and *response time* are suitable indicators to assess those non-functional requirements.  Note that populating the Catalogue with new entires--comparable to updating the contents of a web site or within an app store as compared to retirieving the content--is a relativly rare event which the initial tests do not assess seperately.
+
+In addition, the number of *errors* per experiment are recorded.
 
 **Average Request and Response Rate**
 
@@ -26,6 +29,23 @@ The *demanded request rate* reflects the rate at which the testing device is dem
 
 **Average Response Time**
 
+The **average response time** allows to assess how fast a reThink device may retrieve a response from the catalogue.  This metric directly reflects the user experience as accessing Catalogue service might cause the application or hyperty accessing it to wait for the response.  In order to mitigte the effects of the network delay on the reported response time, reported results should mention the round-trip-time between SUT and the testing device as, e.g., measured via ping.
+
+**Errors**
+
+The number of erros is recorded for each experiment in order to verify that reported measurements are not biased by any irregularities in the SUT, the testing device, or the communication between the latter two.  Errors checked for by the used testing tools consider [httperf-man]:
+  * The number of times a session, connection, or call failed due to a client timeout.
+  * The number of times a TCP connection failed with a socket−level timeout (ETIMEDOUT).
+  * The number of times a TCP connection attempt failed with a "connection refused by server" error (ECONNREFUSED).
+  * The number of times a TCP connection failed due to a RESET from the server. 
+  * The number of times the httperf process was out of file descriptors. Whenever this count is non−zero, the test results are meaningless because the client was overloaded.
+  * The number of times the client was out of TCP port numbers (EADDRNOTAVAIL). This error should never occur. If it does, the results should be discarded.
+  * The number of times the system’s file descriptor table is full. Again, this error should never occur. If it does, the results should be discarded.
+
+For purely assessing the performance of the SUT, the numbers of errors should be zero for each test.
+
+
+
 
 ###### Tests
 Description of test set up, may be a single set up or multiple set ups depending on the component under test and the metric being tested.
@@ -35,4 +55,6 @@ If you have a single test set-up, describe the test set up first and then includ
 **Please decide if references are to be included per section or if these references need to be moved into a dedicated section when integrating the contributions**
 
 [D4.1] Management and Security features specifications, reTHINK Deliverable D4.1.  reTHINK consortium, September 2015.
+
+[httperf-man] Httperf Man Page.  Available online: http://www.labs.hpe.com/research/linux/httperf/httperf-man-0.9.ps; last accessed June 2016.
 
