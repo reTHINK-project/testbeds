@@ -55,6 +55,8 @@ If you have a single test set-up, describe the test set up first and then includ
 
 **System under Test**
 
+![Image System Under Test (SUT) for the Catalogue Performance Evaluaton](./catalogue-fokus-performance-test-setup.png)
+
 
 
 ###### References
