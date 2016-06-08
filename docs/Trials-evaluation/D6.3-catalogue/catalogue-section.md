@@ -75,6 +75,21 @@ Regarding the catalogue, the SUT comprises of:
 
 For a detailed description of each component and how to set them up, please refer to [D6.1].
 
+**Experiment Blueprint**
+
+The basic experiment which is used to impose load on the SUT consist of a "testing device" that runs httperf [httperf] to send http-requests to the Catalouge.  The following parameters of httperf as considered in the experiment influcence the load imposed on the SUT:
+  * rate -- the rate at which (persistent) http connections are invoked;
+  * number of connections -- the number of connections to invoke per experiment; and
+  * number of calls -- the number of http requests send for each connection.
+  * 
+  
+Figure **XXX-02** illustrates a single connection issues by httperf.  
+
+![Illustration of a single httperf connection](./httperf-single-connection.png)
+**Figure XXX-02: Illustration of a single httperf connection**
+
+
+As a concluding remark, it should be noted that httperf is not run immediately but is invoced by autobench [autobench] which allows to run several httperf-based experiments in a row where each experiment is invoked with a different connection rate.
 
 ###### References
 **Please decide if references are to be included per section or if these references need to be moved into a dedicated section when integrating the contributions**
