@@ -91,6 +91,8 @@ In conclusion, for assing the performance of the Catalogue, one has to set the c
 
 Besides, it should be noted that httperf is not run immediately but is invoced by autobench [autobench] which allows to run several httperf-based experiments in a row where each experiment is invoked with a different connection rate.
 
+For all experiments, the Catalogue is provisioned with catalogue objects as contained in the default database available as part of the "rethink/default-database" docker image.  The catalogue objects contain a descriptor and associated code for the "HelloWorldObserver" hyperty.  This hyperty descriptor is used in the http-request queries for all experiments.
+
 ###### References
 **Please decide if references are to be included per section or if these references need to be moved into a dedicated section when integrating the contributions**
 
