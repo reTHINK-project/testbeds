@@ -83,10 +83,19 @@ The basic experiment which is used to impose load on the SUT consist of a "testi
   * number of calls -- the number of http requests send for each connection.
   * 
   
-Figure **XXX-02** illustrates a single connection issues by httperf.  For that connection, httperf issues N calls, i.e., http-requests.  Calls are issued sequentially, i.e., httperf waits for the response corresponding to REQ_0_x before it issues the following request, i.e., REQ_0_x+1.  The time at the testing device between issuing a request and receiving the corresponding response is denoted as *Response Time*.  The figure accounts as well for a potential processing time between receiving a response (e.g.: RES_0_x) and issuing the following request (e.g.: REQ_0_x+1); this time is refered to *rho_0*.  Accordingly, the *Inter-Request Time* is given by *rho_0* + *Response Time*; and the *Call Duration* is given by *N* * *Inter-Request Time* where *N* refers to the number of calls (i.e., issued http-requests) per connection.  For this example, the resulting (average) request and response rate should be equal, i.e.: *N* / *Call Duration*.
+Figure **XXX-02** illustrates a single connection issues by httperf.  For that connection, httperf issues N calls, i.e., http-requests.  Calls are issued sequentially, i.e., httperf waits for the response corresponding to REQ_0_x before it issues the following request, i.e., REQ_0_x+1.  The time at the testing device between issuing a request and receiving the corresponding response is denoted as *Response Time*.  The figure accounts as well for a potential processing time between receiving a response (e.g.: RES_0_x) and issuing the following request (e.g.: REQ_0_x+1); this time is refered to *rho_0*.  Accordingly, the *Inter-Request Time* is given by *rho_0* + *Response Time*; and the *Call Duration* is given by *N* * *Inter-Request Time* where *N* refers to the number of calls (i.e., issued http-requests) per connection.  As the number of calls per connection is given as a parameter
+
+For this example, the resulting (average) request and response rate should be equal, i.e.: *N* / *Call Duration*.
 
 ![Illustration of a single httperf connection](./httperf-single-connection.png)
 **Figure XXX-02: Illustration of a single httperf connection**
+
+
+Figure **XXX-03** illustrates the situation for multiple connections issued by httperf per experiment.  The top part of Figure **XXX-03** shows the case in which the **Connection Duration**
+
+
+![Illustration of a multiple httperf connections](./httperf-multiple-connections.png)
+**Figure XXX-03: Illustration of a multiple httperf connections**
 
 
 As a concluding remark, it should be noted that httperf is not run immediately but is invoced by autobench [autobench] which allows to run several httperf-based experiments in a row where each experiment is invoked with a different connection rate.
