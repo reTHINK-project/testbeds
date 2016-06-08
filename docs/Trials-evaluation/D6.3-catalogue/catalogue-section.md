@@ -93,6 +93,10 @@ Besides, it should be noted that httperf is not run immediately but is invoced b
 
 For all experiments, the Catalogue is provisioned with catalogue objects as contained in the default database available as part of the "rethink/default-database" docker image.  The catalogue objects contain a descriptor and associated code for the "HelloWorldObserver" hyperty.  This hyperty descriptor is used in the http-request queries for all experiments.
 
+Also, all experiments are repeated **XXXX TIMES** in order to obtain confidence intervals for the reported results.
+
+
+
 ###### References
 **Please decide if references are to be included per section or if these references need to be moved into a dedicated section when integrating the contributions**
 
