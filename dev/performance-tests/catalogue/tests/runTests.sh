@@ -21,7 +21,7 @@ ulimit -n 2048
 
 # now run the actual tests
 
-# num_conn = number of connections (in parallel).
+# num_conn = number of connections.
 # in EACH connection, we have num_call number of calls at a rate of x_rate
 
 URI=/
@@ -30,8 +30,8 @@ URI=/
 # requests.
 
 autobench --single_host --host1 ${CATALOGUE_URL} --uri1 ${URI}      \
---low_rate 1 --high_rate 20 --rate_step 1 \
---num_call 10 --num_conn 200 \
+--low_rate 400 --high_rate 500 --rate_step 100 \
+--num_call 10 --num_conn 25 \
 --timeout 5 \
 --output_fmt tsv --port1 80 \
 --file results.tab
