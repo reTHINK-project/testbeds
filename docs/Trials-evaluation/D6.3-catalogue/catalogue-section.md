@@ -1,16 +1,8 @@
 ##### Catalogue (Marc, Fokus)
 ###### Description of Component
-~~Short description (1 paragraph, approx. 5-8 lines) describing the component under test~~
-
 The Catalogue provides the service to store descriptors of Hyperties available for use. It also provides the means for the runtime to obtain (download) the implementation of a Hyperty and ProtocolStubs required for SigOFly after learning about a Hyperty from the Registry Service. [D4.1]
 
 ###### Metrics
-~~Description of metrics used to test the components.  Should include:~~
-  * ~~What is tested (i.e. metric description)~~
-  * ~~For each metric:~~
-    * ~~reasoning why this metric matters for the component under test~~
-    * ~~expected performance (based on use cases under consideration, e.g. number of parallen interacting end-nodes, requests per second, delay of a querry-response, size of data exchanged etc; target values based on real-world deployments).~~
-
 As the Catalogue Service merely stores  information and in particular does not need to manipulate any of the stored records, [D4.1] identifies the following two non-functional requirements which yield to measureable key performance indicators (KPIs):
   * "The catalogue service shall allow discovering the information it stores."
   * "The catalogue service should provide fast response times. As querying the Catalogue occurs before an end-to-end communication is established, response times have no immediate impact on an established end-to-end communication."
@@ -53,9 +45,6 @@ In every experiment, each testing device imposes a load on the SUT by issuing ht
 
 
 ###### Tests
-~~Description of test set up, may be a single set up or multiple set ups depending on the component under test and the metric being tested.
-If you have a single test set-up, describe the test set up first and then include one sub-section per metric being tested.  If you need several different test set ups, use a "strucutre by metric", i.e., have one subsection per metric which in turn includes the description of the test set up for that metric and the results.~~
-
 **System under Test**
 
 The system under test (SUT) comprises set-up of the catalogue as found in the reTHINK testbed deployment.  The goal of the performance assessment is not to obtain theoretically achievable performance numbers as could be achieved in a "clean room environment", i.e., connecting the testing devices immediately to a catalouge instance; but instead to assess the catalogue in an environment which will be faced by users during the upcoming hackathon event. Besides that this setup assures that a positive performance assessment indicates the catalogue's ability to provide sufficient performance for reTHINK-specific events and tests, the chosen setup is close to a real world deployment anticipated in operators' commercial networks.
