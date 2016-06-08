@@ -91,14 +91,16 @@ For this example, the resulting (average) request and response rate should be eq
 **Figure XXX-02: Illustration of a single httperf connection**
 
 
-Figure **XXX-03** illustrates the situation for multiple connections issued by httperf per experiment.  The top part of Figure **XXX-03** shows the case in which the **Connection Duration** is shorter than the **Inter-Connection Time**, the latter being configured via the connection **rate** ( **Inter-Connection Time** = 1 / **rate**).  Assuming *M* refers to the number of connections per experiment (which can be configured upon invokation of httperf), and *M* beeing sufficiently large, the average request rate for the depicted experiment can be approximated by *N* / *Inter-Connection Time*  or alternatively by *N* * *M* / *Experiment Duration*.  (Note tha in Figure **XXX-03**, *M* = 2.)
-
+Figure **XXX-03** illustrates the situation for multiple connections issued by httperf per experiment.  The top part of Figure **XXX-03** shows the case in which the *Connection Duration* is shorter than the *Inter-Connection Time*, the latter being configured via the connection *rate* ( *Inter-Connection Time* = 1 / *rate*).  Assuming *M* refers to the number of connections per experiment (which can be configured upon invokation of httperf), and *M* beeing sufficiently large, the average request rate for the depicted experiment can be approximated by *N* / *Inter-Connection Time*  or alternatively by *N* * *M* / *Experiment Duration*.  (Note that in Figure **XXX-03**, *M* = 2.)
 
 ![Illustration of a multiple httperf connections](./httperf-multiple-connections.png)
 **Figure XXX-03: Illustration of a multiple httperf connections**
 
+The bottom part of Fiugre **XXX-03** shows the case in which the *Response Time* is so long that the resulting *Connection Duration* is longer than the *Inter-Connection Time*, i.e., due to the configured *rate*, a new connection is started before the previous connection finishes.  Due to the overlapping connections, we see periods in which http-requests are issued simultaneously from several connections; the *experiment duration* as shorter as compared to the situation illusted in the upper part of the figure.  Hence, the average request (and response) rate reported for the experiment shown in the bottom part of Figure **XXX-03** is higher. 
 
-As a concluding remark, it should be noted that httperf is not run immediately but is invoced by autobench [autobench] which allows to run several httperf-based experiments in a row where each experiment is invoked with a different connection rate.
+In conclusion, for assing the performance of the Catalogue, one has to set the connection *rate* to a rather high number in order to enforce the parallization of conections which in turn steers the number of calls (i.e. requests) per second.  Therein, the request rate can be controlled via the number of connections *M*.
+
+Besides, it should be noted that httperf is not run immediately but is invoced by autobench [autobench] which allows to run several httperf-based experiments in a row where each experiment is invoked with a different connection rate.
 
 ###### References
 **Please decide if references are to be included per section or if these references need to be moved into a dedicated section when integrating the contributions**
