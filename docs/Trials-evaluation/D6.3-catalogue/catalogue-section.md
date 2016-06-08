@@ -91,7 +91,7 @@ For this example, the resulting (average) request and response rate should be eq
 **Figure XXX-02: Illustration of a single httperf connection**
 
 
-Figure **XXX-03** illustrates the situation for multiple connections issued by httperf per experiment.  The top part of Figure **XXX-03** shows the case in which the **Connection Duration**
+Figure **XXX-03** illustrates the situation for multiple connections issued by httperf per experiment.  The top part of Figure **XXX-03** shows the case in which the **Connection Duration** is shorter than the **Inter-Connection Time**, the latter being configured via the connection **rate** ( **Inter-Connection Time** = 1 / **rate**).  Assuming *M* refers to the number of connections per experiment (which can be configured upon invokation of httperf), and *M* beeing sufficiently large, the average request rate for the depicted experiment can be approximated by *N* / *Inter-Connection Time*  or alternatively by *N* * *M* / *Experiment Duration*.  (Note tha in Figure **XXX-03**, *M* = 2.)
 
 
 ![Illustration of a multiple httperf connections](./httperf-multiple-connections.png)
