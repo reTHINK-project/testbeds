@@ -93,8 +93,18 @@ Besides, it should be noted that httperf is not run immediately but is invoced b
 
 For all experiments, the Catalogue is provisioned with catalogue objects as contained in the default database available as part of the "rethink/default-database" docker image.  The catalogue objects contain a descriptor and associated code for the "HelloWorldObserver" hyperty.  This hyperty descriptor is used in the http-request queries for all experiments.
 
-Also, all experiments are repeated **XXXX TIMES** in order to obtain confidence intervals for the reported results.
+Each experiment is repeated 25 times to calculate statistic significance of the the results, i.e., to obtain confidence values for the reported averages.
 
+**Catalogue Response Time**
+
+The first assessment aims at determining the Catalogue's response time to a single request.  The load in terms of demanded requests per second is constantly increased. Figure **XXX-04** shows the average response time as a function of the demanded request rate. Figure **XXX-05**  illustates the the actual (i.e., measured) request rate over the demanded request rate (i.e., the one configured in the experiment).
+
+
+! [Catalogue Assessment: Response Time over Demanded Request Rate] (./httperf-multiple-connections.png)
+**Figure XXX-04: Catalogue Assessment: Response Time over Demanded Request Rate**
+
+![Catalogue Assessment:Measured Request Rate over Demanded Request Rate](./httperf-multiple-connections.png)
+**Figure XXX-05: Catalogue Assessment:Measured Request Rate over Demanded Request Rate**
 
 
 ###### References
