@@ -111,6 +111,32 @@ MessageFactory issue:
 The MessageFactory does not support the "body.scheme" attribute. Therefore some allocation messages are created manually.
 ```
 
+##### subscription.spec.js
+
+The purpose of this test is to ensure the Conformance of the MN operations with the Specification at [data-sync-messages.md](https://github.com/reTHINK-project/dev-service-framework/blob/master/docs/specs/messages/data-sync-messages.md)
+
+It checks the subscription and un-susubscription for given object addresses at the MN as well as the correct publication of object update events to the subscribers.
+It includes following sub-tests:
+
+- subscription for an object address with a given body.source attribute
+- subscription for an object address without a body.source attribute
+- update of the subscribed object by the reporter and expect update events on both subscribers
+- unsubscription of both subscribers
+- another update of the subscribed object and ensure that no events are received by the (now unsubscribed) subscribers
+
+##### registration.spec.js
+
+The purpose of this test is to ensure the Conformance of the MN operations with the Specification at [registration-messages.md](https://github.com/reTHINK-project/dev-service-framework/blob/master/docs/specs/messages/registration-messages.md)
+
+It checks the registration of ...
+subscription and un-susubscription for given object addresses at the MN as well as the correct publication of object update events to the subscribers.
+It includes following sub-tests:
+
+- subscription for an object address with a given body.source attribute
+- subscription for an object address without a body.source attribute
+- update of the subscribed object by the reporter and expect update events on both subscribers
+- unsubscription of both subscribers
+- another update of the subscribed object and ensure that no events are received by the (now unsubscribed) subscribers
 
 #### Performance tests
 
