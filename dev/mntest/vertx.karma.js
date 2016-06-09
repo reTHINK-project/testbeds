@@ -23,8 +23,9 @@ module.exports = function(config) {
       // 'test/**/hyperty-allocation.spec.js',
       // 'test/**/registration.spec.js',
       // 'test/**/subscription.spec.js'
-      'test/**/performance-alloc-hyperties.spec.js',
-      'test/**/performance-alloc-objects.spec.js'
+      // 'test/**/performance-alloc-hyperties.spec.js',
+      // 'test/**/performance-alloc-objects.spec.js'
+      'test/**/performance-publish.spec.js'
     ],
 
     proxies: {

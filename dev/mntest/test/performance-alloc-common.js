@@ -9,7 +9,7 @@ export default class AllocCommon {
   constructor () {
     this.stubLoader = new StubLoader();
     this.domain = this.stubLoader.config.domain;
-    this.util = new Util();
+    this.util = new Util(this.stubLoader.stubType);
     this.bus;
     this.stub;
     this.addresses = [];
@@ -27,6 +27,7 @@ export default class AllocCommon {
         switch (num) {
           case 1:
             this.util.expectConnected(m, this.runtimeStubRegistryURL);
+            console.timeEnd("prepare");
             done();
           default:
         }
@@ -34,6 +35,7 @@ export default class AllocCommon {
       // enable / disable log of received messages
       false);
 
+      console.time("prepare");
     this.stub = this.stubLoader.activateStub(this.runtimeStubRegistryURL, this.bus, this.runtimeURL);
     this.stub.connect();
   }
@@ -56,6 +58,8 @@ export default class AllocCommon {
     let count = 0;
     let start = Date.now();
     let mnAddress = (type === "hyperty") ? this.hypertyAllocationAddress : this.objectAllocationAddress;
+    //console.time(type + "," + max + "," + numberOfAddressesPerRequest + "," + withKey);
+    console.time("test");
 
     this.bus.setStubMsgHandler((m, num) => {
         count++;
@@ -71,10 +75,15 @@ export default class AllocCommon {
         if ((count % 1000) == 0)
           console.log(count);
         if (count == max) {
+          // console.timeEnd(type + "," + max + "," + numberOfAddressesPerRequest + "," + withKey);
+          console.timeEnd("test");
           let stop = Date.now();
-          console.log("Duration for allocation of " + max + " x " + numberOfAddressesPerRequest + " addresses " +
-            (withKey ? "with allocationKey: " : ":") + (stop - start) + " msecs");
-          done();
+          // console.log("Duration for allocation of " + max + " x " + numberOfAddressesPerRequest + " addresses " +
+          //   (withKey ? "with allocationKey: " : ":") + (stop - start) + " msecs");
+
+          this.util.log("Duration for allocation of " + max + " x " + numberOfAddressesPerRequest + " addresses " +
+            (withKey ? "with allocationKey" : ""), (stop - start));
+            done();
           return;
         }
       },

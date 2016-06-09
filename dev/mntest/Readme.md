@@ -58,9 +58,11 @@ Each task starts the Karma tests with an individual configuration file named "ma
 
 #### Conformance tests
 
+These tests evaluate the conformance of the MNs with the specified message request/response patterns.
+
 ##### connect.spec.js
 
-The purpose of this test is to ensure that the Stub exposes the "status" events as specified in [deploy-protostub.md](https://github.com/reTHINK-project/dev-service-framework/blob/master/docs/specs/dynamic-view/basics/deploy-protostub.md)
+The purpose of this test is to ensure that the Stub exposes the "status" events as specified in [ProtoStub Deployment Specification](https://github.com/reTHINK-project/dev-service-framework/blob/master/docs/specs/dynamic-view/basics/deploy-protostub.md)
 
 It instantiats a stub and performs a connection and then a disconnection of the stub to the corresponding MN.
 
@@ -72,7 +74,7 @@ The factual implementation in the Vertx stub introduced "connected" and "disconn
 
 ##### hyperty-allocation.spec.js
 
-The purpose of this test is to ensure the Conformance of the MN operations with the Specification at [address-allocation-messages.md](https://github.com/reTHINK-project/dev-service-framework/blob/master/docs/specs/messages/address-allocation-messages.md)
+The purpose of this test is to ensure the Conformance of the MN operations with the [Address Allocation Messages Specification](https://github.com/reTHINK-project/dev-service-framework/blob/master/docs/specs/messages/address-allocation-messages.md)
 
 It checks the allocation and de-allocation of hyperty addresses by the MNs.
 It includes following sub-tests:
@@ -93,7 +95,7 @@ The MessageFactory does not support the "body.scheme" attribute. Therefore some 
 
 ##### object-allocation.spec.js
 
-The purpose of this test is to ensure the Conformance of the MN operations with the Specification at [address-allocation-messages.md](https://github.com/reTHINK-project/dev-service-framework/blob/master/docs/specs/messages/address-allocation-messages.md)
+The purpose of this test is to ensure the Conformance of the MN operations with the  [Address Allocation Messages Specification](https://github.com/reTHINK-project/dev-service-framework/blob/master/docs/specs/messages/address-allocation-messages.md)
 
 It checks the allocation and de-allocation of object addresses by the MNs.
 It includes following sub-tests:
@@ -113,7 +115,7 @@ The MessageFactory does not support the "body.scheme" attribute. Therefore some 
 
 ##### subscription.spec.js
 
-The purpose of this test is to ensure the Conformance of the MN operations with the Specification at [data-sync-messages.md](https://github.com/reTHINK-project/dev-service-framework/blob/master/docs/specs/messages/data-sync-messages.md)
+The purpose of this test is to ensure the Conformance of the MN operations with the [Data Synchronization Message Specification](https://github.com/reTHINK-project/dev-service-framework/blob/master/docs/specs/messages/data-sync-messages.md)
 
 It checks the subscription and un-susubscription for given object addresses at the MN as well as the correct publication of object update events to the subscribers.
 It includes following sub-tests:
@@ -126,24 +128,45 @@ It includes following sub-tests:
 
 ##### registration.spec.js
 
-The purpose of this test is to ensure the Conformance of the MN operations with the Specification at [registration-messages.md](https://github.com/reTHINK-project/dev-service-framework/blob/master/docs/specs/messages/registration-messages.md)
+The purpose of this test is to ensure the Conformance of the MN operations with the   [Registration Messages Specification](https://github.com/reTHINK-project/dev-service-framework/blob/master/docs/specs/messages/registration-messages.md)
 
-It checks the registration of ...
-subscription and un-susubscription for given object addresses at the MN as well as the correct publication of object update events to the subscribers.
 It includes following sub-tests:
 
-- subscription for an object address with a given body.source attribute
-- subscription for an object address without a body.source attribute
-- update of the subscribed object by the reporter and expect update events on both subscribers
-- unsubscription of both subscribers
-- another update of the subscribed object and ensure that no events are received by the (now unsubscribed) subscribers
+- registration of an allocated hyperty address for a given userid
+- retrieval of a hyperty address by given userid
+- retrieval of a hyperty address by given type and userid
+- retrieval of a hyperty address by given object scheme and userid
+- keep-alive message for an active registration
+- unregistration of a hyperty address
 
 #### Performance tests
+These tests evaluate the performance and robustness of the MNs in forced situations of increased load. Therefore requests are sent in loops of increasing iteration counts and with differing message sizes. For each of these tests, the duration is measured and used as metric for the evaluation.
 
-### Test results
+##### performance-alloc-hyperties.spec.js
 
-#### MatrixMN
+These tests create and send an increasing number of allocation and de-allocation messages for Hyperty addresses to the MNs and expect a correct 200 OK response. The sizes of these messages are defined by the specification therefore they are not varied.
 
-#### VertxMN
+Following measurements are performed :
 
-#### NodejsMN
+- Hyperty address allocation requests for 1 address each for 100, 1000 and 10000 iterations
+- Hyperty address allocation requests for a block of 3 address each (without an allocation key) for 100, 1000 and 10000 iterations
+- Hyperty address allocation requests for a block of 3 address each with an allocation key for 100, 1000 and 10000 iterations
+
+##### performance-alloc-objects.spec.js
+
+These tests create and send an increasing number of allocation and de-allocation messages for DataObject addresses to the MNs and expect a correct 200 OK response. The sizes of these messages are defined by the specification therefore they are not varied.
+
+Following measurements are performed :
+
+- Object address allocation requests for 1 address each for 100, 1000 and 10000 iterations
+- Object address allocation requests for a block of 3 address each (without an allocation key) for 100, 1000 and 10000 iterations
+- Objects address allocation requests for a block of 3 address each with an allocation key for 100, 1000 and 10000 iterations
+
+##### performance-hyp-messages.spec.js
+These tests send an increasing number of messages from one allocated Hyperty to a second allocated Hyperty, which is connected via a different stub. During the tests also the payload sizes are increased from 100B over 1kB to 10kB.
+The measured time span starts when sending the first message from Hyperty 1 via Stub 1 and stops when receiving the last message by Hyperty 2 via Stub 2.
+
+Following measurements are performed:
+- Message with payload of 100B for 100, 1000 and 10000 iterations
+- Message with payload of 1kB for 100, 1000 and 10000 iterations
+- Message with payload of 10kB for 100, 1000 and 10000 iterations

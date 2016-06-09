@@ -11,7 +11,7 @@ describe('messaging object update performance for different number of subscriber
 
   let stubLoader = new StubLoader();
   let stubConfig = stubLoader.config;
-  let util = new Util();
+  let util = new Util(stubLoader.stubType);
 
   let msgNodeAddress = "domain://msg-node." + stubConfig.domain;
   let address;
@@ -23,6 +23,24 @@ describe('messaging object update performance for different number of subscriber
 
   let runtimeURLSubscriber     = "runtime://" + stubConfig.domain + "/Subscriber";
   let runtimeStubURLSubscriber = 'hyperty-runtime://' + stubConfig.domain + '/protostub/Subscriber';
+
+  // credits for stringFill3 go to: http://www.webreference.com/programming/javascript/jkm3/3.html
+  let stringFill3 = (x, n) => {
+    var s = '';
+    for (;;) {
+      if (n & 1) s += x;
+      n >>= 1;
+      if (n) x += x;
+      else break;
+    }
+    return s;
+  }
+
+  let msg100B = stringFill3("x", 100);
+  let msg1kB = stringFill3("x", 1024);
+  let msg10kB = stringFill3("x", 10240);
+
+
 
   it('prepare: allocate object address', function(done) {
 
@@ -126,7 +144,7 @@ describe('messaging object update performance for different number of subscriber
   }
 
 
-  let checkEvent = (stub, bus, index) => {
+  let checkEvent = (stub, bus, index, payload) => {
     return new Promise((resolve, reject) => {
       bus.setStubMsgHandler((m, num) => {
         switch (num) {
@@ -137,7 +155,7 @@ describe('messaging object update performance for different number of subscriber
             expect(m.from).to.eql(address);
             expect(m.to).to.eql(address + "/changes");
             expect(m.body.attribute).to.eql("changedAttribute");
-            expect(m.body.value).to.eql("new Value");
+            expect(m.body.value).to.eql(payload);
 
             stub.disconnect();
             resolve();
@@ -149,7 +167,7 @@ describe('messaging object update performance for different number of subscriber
     });
   }
 
-  let testNSubscribers = (n, done) => {
+  let testNSubscribers = (n, done, payload) => {
     let subscribePromises = [];
     let eventPromises = [];
     let start, end;
@@ -166,13 +184,13 @@ describe('messaging object update performance for different number of subscriber
 
       // install event-checker in each subscriber --> receive promise for each
       for (var i = 0; i < subscribeResults.length; i++) {
-        eventPromises.push( checkEvent(subscribeResults[i].stub, subscribeResults[i].bus, i ) );
+        eventPromises.push( checkEvent(subscribeResults[i].stub, subscribeResults[i].bus, i, payload) );
       }
 
       // test OK, if all eventCheckers resolve
       Promise.all( eventPromises ).then(() => {
         end = Date.now();
-        console.log("TIME between sending of update-message and retrieval in all subscribers: " + (end - start) + " msecs");
+        util.log("Duration for " + n + " subscribers and payload-size of " + payload.length, (end - start));
 
         // disconnecting all stubs now
         let disconnectPromises = [];
@@ -193,7 +211,7 @@ describe('messaging object update performance for different number of subscriber
       let msg = MessageFactory.createUpdateMessageRequest(
         address,
         address + "/changes", // to
-        "new Value",  // attribute value
+        payload,  // attribute value
         null,
         "changedAttribute" // attribute name
       );
@@ -204,11 +222,37 @@ describe('messaging object update performance for different number of subscriber
     });
   }
 
-  it('subscribe and publish event with 100 listeners', function(done) {
-      testNSubscribers(100, done);
+  // ############### 100 iterations
+  it('subscribe and publish event with 100 listeners and 100B size', function(done) {
+      testNSubscribers(100, done, msg100B);
+  });
+  it('subscribe and publish event with 100 listeners and 1kB size', function(done) {
+      testNSubscribers(100, done, msg1kB);
+  });
+  it('subscribe and publish event with 100 listeners and 10kB size', function(done) {
+      testNSubscribers(100, done, msg10kB);
   });
 
-  it('subscribe and publish event with 200 listeners', function(done) {
-      testNSubscribers(200, done);
+
+  // ############### 200 iterations
+  it('subscribe and publish event with 200 listeners and 1kB size', function(done) {
+      testNSubscribers(200, done, msg1kB);
+  });
+  it('subscribe and publish event with 200 listeners and 100B size', function(done) {
+      testNSubscribers(200, done, msg100B);
+  });
+  it('subscribe and publish event with 200 listeners and 10kB size', function(done) {
+      testNSubscribers(200, done, msg10kB);
+  });
+
+  // ############### 1000 iterations
+  it('subscribe and publish event with 1000 listeners and 100B size', function(done) {
+      testNSubscribers(1000, done, msg100B);
+  });
+  it('subscribe and publish event with 1000 listeners and 1kB size', function(done) {
+      testNSubscribers(1000, done, msg1kB);
+  });
+  it('subscribe and publish event with 1000 listeners and 10kB size', function(done) {
+      testNSubscribers(1000, done, msg10kB);
   });
 });

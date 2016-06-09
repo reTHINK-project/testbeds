@@ -11,7 +11,7 @@ describe('messaging performance for different message sizes and iterations', fun
 
   let stubLoader = new StubLoader();
   let stubConfig = stubLoader.config;
-  let util = new Util();
+  let util = new Util(stubLoader.stubType);
 
   let msgNodeAddress = "domain://msg-node." + stubConfig.domain + "/hyperty-address-allocation";
   let address2;
@@ -99,7 +99,6 @@ describe('messaging performance for different message sizes and iterations', fun
     stub2.connect();
   });
 
-
   let messageLoop = (max, payload, done) => {
     let msg;
     let count = 0;
@@ -118,7 +117,7 @@ describe('messaging performance for different message sizes and iterations', fun
           console.log(count);
         if (count >= max) {
           stop = Date.now();
-          console.log("Duration: " + (stop - start) + " msecs");
+          util.log("Duration for "+max+" messages of size " + payload.length + ": ", (stop - start));
           done();
         }
       },
@@ -160,34 +159,34 @@ describe('messaging performance for different message sizes and iterations', fun
     messageLoop(100, msg100B, done);
   });
 
-  it('send 100B x 1000 times', function(done) {
-    messageLoop(1000, msg100B, done);
-  });
-
-  it('send 100B x 10000 times', function(done) {
-    messageLoop(10000, msg100B, done);
-  });
-
-
   it('send 1kB x 100 times', function(done) {
     messageLoop(100, msg1kB, done);
+  });
+
+  it('send 10kB x 100 times', function(done) {
+    messageLoop(100, msg10kB, done);
+  });
+
+
+  it('send 100B x 1000 times', function(done) {
+    messageLoop(1000, msg100B, done);
   });
 
   it('send 1kB x 1000 times', function(done) {
     messageLoop(1000, msg1kB, done);
   });
 
-  it('send 1kB x 10000 times', function(done) {
-    messageLoop(10000, msg1kB, done);
-  });
-
-
-  it('send 10kB x 100 times', function(done) {
-    messageLoop(100, msg10kB, done);
-  });
-
   it('send 10kB x 1000 times', function(done) {
     messageLoop(1000, msg10kB, done);
+  });
+
+
+  it('send 100B x 10000 times', function(done) {
+    messageLoop(10000, msg100B, done);
+  });
+
+  it('send 1kB x 10000 times', function(done) {
+    messageLoop(10000, msg1kB, done);
   });
 
   it('send 10kB x 10000 times', function(done) {
