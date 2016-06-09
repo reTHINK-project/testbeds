@@ -103,7 +103,7 @@ The first assessment aims at determining the Catalogue's response time to a sing
 ! [Catalogue Assessment: Response Time over Demanded Request Rate] (./httperf-multiple-connections.png)
 **Figure XXX-04: Catalogue Assessment: Response Time over Demanded Request Rate**
 
-![Catalogue Assessment:Measured Request Rate over Demanded Request Rate](./httperf-multiple-connections.png)
+! [Catalogue Assessment:Measured Request Rate over Demanded Request Rate] (./httperf-multiple-connections.png)
 **Figure XXX-05: Catalogue Assessment:Measured Request Rate over Demanded Request Rate**
 
 
