@@ -149,7 +149,7 @@ describe('messaging object update performance for different number of subscriber
       bus.setStubMsgHandler((m, num) => {
         switch (num) {
           case 3:
-            if ((index % 10) == 0 )
+            if ((index % 100) == 0 )
               console.log("event: " + index + " from: " + m.from);
             expect(m.type.toLowerCase()).to.eql("update");
             expect(m.from).to.eql(address);
@@ -175,7 +175,7 @@ describe('messaging object update performance for different number of subscriber
     // subscribe N listeners --> receive promise for each
     for (var i = 0; i < n; i++) {
       // add console output to keep the test alive
-      if ( (i % 10) == 0 )
+      if ( (i % 100) == 0 )
         console.log("subscription: " + i);
       subscribePromises.push( subscribe(i) );
     }
@@ -224,6 +224,9 @@ describe('messaging object update performance for different number of subscriber
 
   // ############### 100 iterations
   it('subscribe and publish event with 100 listeners and 100B size', function(done) {
+      testNSubscribers(10, done, msg100B);
+  });
+  it('subscribe and publish event with 100 listeners and 100B size', function(done) {
       testNSubscribers(100, done, msg100B);
   });
   it('subscribe and publish event with 100 listeners and 1kB size', function(done) {
@@ -235,11 +238,11 @@ describe('messaging object update performance for different number of subscriber
 
 
   // ############### 200 iterations
-  it('subscribe and publish event with 200 listeners and 1kB size', function(done) {
-      testNSubscribers(200, done, msg1kB);
-  });
   it('subscribe and publish event with 200 listeners and 100B size', function(done) {
       testNSubscribers(200, done, msg100B);
+  });
+  it('subscribe and publish event with 200 listeners and 1kB size', function(done) {
+      testNSubscribers(200, done, msg1kB);
   });
   it('subscribe and publish event with 200 listeners and 10kB size', function(done) {
       testNSubscribers(200, done, msg10kB);

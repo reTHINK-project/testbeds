@@ -19,12 +19,17 @@ module.exports = function(config) {
     files: [
       'src/stub/**/*.js',
       // 'test/**/*.spec.js',
+      // ******* conformance tests
+      // 'test/**/connect.spec.js',
+      // 'test/**/hyperty-allocation.spec.js',
+      // 'test/**/object-allocation.spec.js',
+      // 'test/**/subscription.spec.js',
       // 'test/**/registration.spec.js',
-      // 'test/**/subscription.spec.js'
-      // 'test/**/performance-alloc-hyperties.spec.js',
-      // 'test/**/performance-alloc-objects.spec.js',
-      // 'test/**/performance-hyp-messages.spec.js',
-      'test/**/performance-publish.spec.js'
+      // ******* performance tests
+      'test/**/performance-alloc-hyperties.spec.js',
+      'test/**/performance-alloc-objects.spec.js',
+      'test/**/performance-hyp-messages.spec.js',
+      'test/**/performance-publish.spec.js',
     ],
 
     proxies: {
@@ -80,6 +85,8 @@ module.exports = function(config) {
         ]
       }
     },
+    // set the inactivity timout to 100 seconds
+    browserNoActivityTimeout: 100000,
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits

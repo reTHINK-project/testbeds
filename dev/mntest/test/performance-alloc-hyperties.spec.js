@@ -2,7 +2,7 @@ import expect from 'expect.js';
 import AllocUtil from './performance-alloc-common.js';
 
 
-describe('allocation message performance for different numbers of addresses', function() {
+describe('Hyperty address allocation performance for different numbers of addresses', function() {
   this.timeout(100000);
 
   let allocUtil = new AllocUtil();
@@ -35,8 +35,7 @@ describe('allocation message performance for different numbers of addresses', fu
 
   it('100 hyperty address de-allocation requests for 3 addresses each with allocationKey', function(done) {
     allocUtil.deallocLoop( "hyperty", done, true);
-  });
-
+  });  
 
   /********** 1000 iterations ********************/
 

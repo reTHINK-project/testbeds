@@ -2,7 +2,7 @@ import expect from 'expect.js';
 import AllocUtil from './performance-alloc-common.js';
 
 
-describe('allocation message performance for different numbers of addresses', function() {
+describe('Object address allocation performance for different numbers of addresses', function() {
   this.timeout(100000);
 
   let allocUtil = new AllocUtil();
