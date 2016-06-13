@@ -98,27 +98,31 @@ Each experiment is repeated 200 times to calculate statistic significance of the
 
 The first assessment aims at determining the Catalogue's response time to a single request. A single testing device is used to impose load on the SUT. The load in terms of demanded requests per second is constantly increased by enlarging the (connection) *rate*; each connection consist of one call.  Hence, each request is sent via a newly established TCP connection. 
 
-Figure **XXX-04** shows the average response time as a function of the demanded request rate for having one call per connection. For loads up to 500 requests per second, the system stablely response on average within **XXX** ms.  Starting at 500 reqquests per second, the average response time as well as its variation increases.  The average response time saturates at **XXX** ms for an imposed load larger than **XXX** requests per second.  
+Figure **XXX-04** shows the average response time as a function of the demanded request rate for having one call per connection. For loads up to 500 requests per second, the system stablely response on average within 3.0 ms.  Starting at 500 reqquests per second, the average response time as well as its variation increases.  The average response time saturates at 10.4 ms for an imposed load larger than 2500 requests per second.  
 
 ![Catalogue Assessment: Response Time over Demanded Request Rate] (./response_time_numcalls_1.png)
 **Figure XXX-04: Catalogue Assessment: Response Time over Demanded Request Rate**
 
 
-Figure **XXX-04a** plots for lower rates the average response time as well as the corresponging 95-percent confidence levels.  For rates lower than *XXX**, confidence levels do not overlap with conficendence levels at higher rater; hence we may deduct at 95% certainity that for rates lower than **XXX** the expected mean response time is **XXX** ms.
+Figure **XXX-04a** plots for lower rates the average response time as well as the corresponging 95-percent confidence levels.  For rates lower than 450 requests per second, confidence levels do not overlap with conficendence levels at higher rates for which the SUT is saturated; hence we may deduct at 95% certainity that for rates lower than 450 requests per second, the expected mean response time is 3.0 ms and is constant with respect to the imposed load.
 
 ![Catalogue Assessment: Response Time over Demanded Request Rate (unsaturated system, showing 95% confidence values)] (./response_time_zoom_in_numcalls_1.png)
 **Figure XXX-04a: Catalogue Assessment: Response Time over Demanded Request Rate  (unsaturated system, showing 95% confidence values)**
 
 
 
-The increase of the average response time at loads higher than **XXX** corresponds to the measured (i.e., actual) request rate vs. the imposed request rate as seen in Figure **XXX-05**.
+The increase of the average response time at loads higher than 500 requests per second corresponds to the behavior of the measured (i.e., actual) request rate vs. the imposed request rate as seen in Figure **XXX-05**.
+
+! [Catalogue Assessment: Illustates the the actual (i.e., measured) request rate over the demanded request rate] (./measured_request_rate_numcalls_1.png)
+Figure **XXX-05**  Catalogue Assessment: Illustates the the actual (i.e., measured) request rate over the demanded request rate
+
 
 Possible cause for the increasing standard mean error (SEM) are performance issues at the testing device or at the SUT; processess swapping as well as input/ouput preformance of the systems at either side may cause the response time to saturate.
 
 
 
 
-Figure **XXX-05**  illustates the the actual (i.e., measured) request rate over the demanded request rate (i.e., the one configured in the experiment).
+
 
 ! [Catalogue Assessment:Measured Request Rate over Demanded Request Rate] (./httperf-multiple-connections.png)
 **Figure XXX-05: Catalogue Assessment:Measured Request Rate over Demanded Request Rate**
