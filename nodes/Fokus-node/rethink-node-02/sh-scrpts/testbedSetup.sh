@@ -24,10 +24,7 @@ case $1 in
 
     `direname $0`/testbedSetup.sh restart
     ;;
-
-
   restart)
-
 		echo
 		echo ------------------------------------------------------------------------
 		echo starting reverse proxy docker image as a DETACHED docker process
