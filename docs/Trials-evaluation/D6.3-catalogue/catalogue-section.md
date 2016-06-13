@@ -36,7 +36,7 @@ The number of erros is recorded for each experiment in order to verify that repo
   * The number of times the client was out of TCP port numbers (EADDRNOTAVAIL). This error should never occur. If it does, the results should be discarded.
   * The number of times the system’s file descriptor table is full. Again, this error should never occur. If it does, the results should be discarded.
 
-For purely assessing the performance of the SUT, the numbers of errors should be zero for each test.
+The number of errors give an indication if the SUT, the testing device, or the network connecting the SUT and the testing device experience any overload situations.
 
 **Request load imposed on SUT**
 
@@ -70,7 +70,6 @@ The basic experiment which is used to impose load on the SUT consist of a "testi
   * rate -- the rate at which (persistent) http connections are invoked;
   * number of connections -- the number of connections to invoke per experiment; and
   * number of calls -- the number of http requests send for each connection.
-  * 
   
 Figure **XXX-02** illustrates a single connection issues by httperf.  For that connection, httperf issues N calls, i.e., http-requests.  Calls are issued sequentially, i.e., httperf waits for the response corresponding to REQ_0_x before it issues the following request, i.e., REQ_0_x+1.  The time at the testing device between issuing a request and receiving the corresponding response is denoted as *Response Time*.  The figure accounts as well for a potential processing time between receiving a response (e.g.: RES_0_x) and issuing the following request (e.g.: REQ_0_x+1); this time is refered to *rho_0*.  Accordingly, the *Inter-Request Time* is given by *rho_0* + *Response Time*; and the *Call Duration* is given by *N* * *Inter-Request Time* where *N* refers to the number of calls (i.e., issued http-requests) per connection.  As the number of calls per connection is given as a parameter
 
@@ -97,7 +96,9 @@ Each experiment is repeated 200 times to calculate statistic significance of the
 
 **Catalogue Response Time**
 
-The first assessment aims at determining the Catalogue's response time to a single request.  The load in terms of demanded requests per second is constantly increased. Figure **XXX-04** shows the average response time as a function of the demanded request rate. Figure **XXX-05**  illustates the the actual (i.e., measured) request rate over the demanded request rate (i.e., the one configured in the experiment).
+The first assessment aims at determining the Catalogue's response time to a single request. A single testing device is used to impose load on the SUT. The load in terms of demanded requests per second is constantly increased by enlarging the (connection) *rate*; each connection consist of one call.  Hence, each request is sent via a newly established TCP connection. 
+
+Figure **XXX-04** shows the average response time as a function of the demanded request rate. Figure **XXX-05**  illustates the the actual (i.e., measured) request rate over the demanded request rate (i.e., the one configured in the experiment).
 
 
 ! [Catalogue Assessment: Response Time over Demanded Request Rate] (./httperf-multiple-connections.png)
