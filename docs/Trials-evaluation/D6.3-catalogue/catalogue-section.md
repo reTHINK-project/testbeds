@@ -113,7 +113,7 @@ Figure **XXX-04a** plots for lower rates the average response time as well as th
 
 The increase of the average response time at loads higher than 500 requests per second corresponds to the behavior of the measured (i.e., actual) request rate vs. the imposed request rate as seen in Figure **XXX-05**.
 
-! [Catalogue Assessment: Illustates the the actual (i.e., measured) request rate over the demanded request rate] (./measured_request_rate_numcalls_1.png)
+![Catalogue Assessment: Illustates the the actual (i.e., measured) request rate over the demanded request rate] (./measured_request_rate_numcalls_1.png)
 Figure **XXX-05**  Catalogue Assessment: Illustates the the actual (i.e., measured) request rate over the demanded request rate
 
 
