@@ -111,7 +111,7 @@ Figure **XXX-04a** plots for lower rates the average response time as well as th
 
 
 
-The increase of the average response time at loads higher than 500 requests per second corresponds to the behavior of the measured (i.e., actual) request rate vs. the imposed request rate as seen in Figure **XXX-05**.
+The increase of the average response time at loads higher than 500 requests per second corresponds to the behavior of the measured (i.e., actual) request rate vs. the imposed request rate as seen in Figure **XXX-05**. For demanded request rates less than 400 requests per second, the measured request rate matches the demanded rate and 95-percent conficence intervals are so small that they are hardly distinguishable from the reported mean.  Starting at approximately 500 requests per second, we see initial impacts of the SUT, the testing device, or the intermediate network on the number of requests that can successfully be issued:  the measured request rate drops below the demanded rate.  Saturation occurs at 1000 (measured) requests per second onwards from an imposed rate of 2500 requests per second.
 
 ![Catalogue Assessment: Illustates the the actual (i.e., measured) request rate over the demanded request rate] (./measured_request_rate_numcalls_1.png)
 Figure **XXX-05**  Catalogue Assessment: Illustates the the actual (i.e., measured) request rate over the demanded request rate
