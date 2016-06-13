@@ -22,6 +22,9 @@ case $1 in
 		`dirname $0`/updateDockerImages.sh
 		sleep 3
 
+    `direname $0`/testbedSetup.sh restart
+    ;;
+  restart)
 		echo
 		echo ------------------------------------------------------------------------
 		echo starting reverse proxy docker image as a DETACHED docker process
@@ -78,8 +81,9 @@ case $1 in
 
 	;;
 	*)
-		echo $0 start
-		echo $0 stop
+		echo $0 start   ---  remove all docker images and start the system
+    echo $0 restart ---  start the system, existing docker images are kept
+		echo $0 stop    ---  stop the system
 	;;
 esac
 

@@ -1,0 +1,6 @@
+# dir containing measurement results
+results
+
+# MatLab backup files
+*.m~
+
