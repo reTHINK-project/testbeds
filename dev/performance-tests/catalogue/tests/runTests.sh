@@ -70,7 +70,7 @@ fi
 
 if [ 1 -eq 1 ];  # set one value to 0 to skip this experiment, to 1 to run it
 then
-i=1;
+i=3;
 while [ $i -le $replicas ]; do
 echo =======================================
 echo Experiment 2: RUNNING Replica $i of $replicas

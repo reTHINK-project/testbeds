@@ -1,3 +1,0 @@
-dem_req_rate	req_rate_apple.de	con_rate_apple.de	min_rep_rate_apple.de	avg_rep_rate_apple.de	max_rep_rate_apple.de	stddev_rep_rate_apple.de	resp_time_apple.de	net_io_apple.de	errors_apple.de
-4000	172.0	17.2	0.0	0.0	0.0	0.0	124.0	83.3	0
-5000	160.1	16.0	0.0	0.0	0.0	0.0	130.9	77.5	0
