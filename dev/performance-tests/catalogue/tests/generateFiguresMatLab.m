@@ -88,45 +88,66 @@ ci_bm_errors = [  bm_errors - ts * sem_bm_errors; ...
 
 
 % one figure with all graphs
-figure
-plot(bm_dem_req_rate,bm_avg_rep_rate,'DisplayName','avg rep rate');
-hold all;
-plot(bm_dem_req_rate,bm_con_rate,'DisplayName','con rate');
-plot(bm_dem_req_rate,bm_errors,'DisplayName','errors');
-plot(bm_dem_req_rate,bm_max_rep_rate,'DisplayName','max rep rate');
-plot(bm_dem_req_rate,bm_min_rep_rate,'DisplayName','min rep rate');
-plot(bm_dem_req_rate,bm_net_io,'DisplayName','net io');
-plot(bm_dem_req_rate,bm_req_rate,'DisplayName','req rate');
-plot(bm_dem_req_rate,bm_resp_time,'DisplayName','resp time');
-plot(bm_dem_req_rate,bm_stddev_rep_rate,'DisplayName','stddev rep rate');
-hold off;
-figname = {'all in one figure', strcat('(',paraExplenation, ')') };
-title(figname)
-
+% figure
+% plot(bm_dem_req_rate,bm_avg_rep_rate,'DisplayName','avg rep rate');
+% hold all;
+% plot(bm_dem_req_rate,bm_con_rate,'DisplayName','con rate');
+% plot(bm_dem_req_rate,bm_errors,'DisplayName','errors');
+% plot(bm_dem_req_rate,bm_max_rep_rate,'DisplayName','max rep rate');
+% plot(bm_dem_req_rate,bm_min_rep_rate,'DisplayName','min rep rate');
+% plot(bm_dem_req_rate,bm_net_io,'DisplayName','net io');
+% plot(bm_dem_req_rate,bm_req_rate,'DisplayName','req rate');
+% plot(bm_dem_req_rate,bm_resp_time,'DisplayName','resp time');
+% plot(bm_dem_req_rate,bm_stddev_rep_rate,'DisplayName','stddev rep rate');
+% hold off;
+% figname = {'all in one figure', strcat('(',paraExplenation, ')') };
+% title(figname)
 
 figure
 xlabel('Demanded Request Rate (per autobench) [Hz]')
 ylabel('Frequency [Hz]')
 hold all
-plot(bm_dem_req_rate,bm_con_rate,'DisplayName','Measured Connection Rate');
+%plot(bm_dem_req_rate,bm_con_rate,'DisplayName','Measured Connection Rate');
 plot(bm_dem_req_rate,bm_req_rate,'DisplayName','Measured Request Rate');
-plot(bm_dem_req_rate,bm_avg_rep_rate,'DisplayName','Measured Avg. Response Rate');
-plot(bm_dem_req_rate,bm_dem_req_rate,'DisplayName','Linear Progression (y=x)');
+%plot(bm_dem_req_rate,ci_bm_req_rate(1,:), 'm:', 'DisplayName',strcat(num2str(conlevel*100), '% Confidence Interval'));
+%plot(bm_dem_req_rate,ci_bm_req_rate(2,:), 'm:', 'DisplayName',strcat(num2str(conlevel*100), '% Confidence Interval'));
+%plot(bm_dem_req_rate,bm_avg_rep_rate,'DisplayName','Measured Avg. Response Rate');
+plot(bm_dem_req_rate,bm_dem_req_rate, 'k--','DisplayName','Linear Progression: f(x)=x');
+saturationValue = mean(bm_req_rate(1, length(bm_req_rate)-ceil(0.2*length(bm_req_rate)):length(bm_req_rate)));
+plot(bm_dem_req_rate, saturationValue * ones([length(bm_dem_req_rate), 1])  , 'k--','DisplayName', strcat('Saturation at ', num2str(saturationValue), ' Hz'));
 hold off
 figname = {'Connection / Request vs. Response Rate', strcat('(',paraExplenation, ')') };
 title(figname)
 
 
+
 figure
 xlabel('Demanded Request Rate (per autobench) [Hz]')
 ylabel('Frequency [Hz]')
 hold all
-plot(bm_dem_req_rate,bm_dem_req_rate - bm_req_rate,'DisplayName','Measured Request Rate');
-plot(bm_dem_req_rate,bm_dem_req_rate - bm_avg_rep_rate,'DisplayName','Measured Avg. Response Rate');
-plot(bm_dem_req_rate, 0.05 * bm_dem_req_rate,'DisplayName','5% cut-off line');
+%plot(bm_dem_req_rate,bm_con_rate,'DisplayName','Measured Connection Rate');
+plot(bm_dem_req_rate,bm_req_rate,'DisplayName','Measured Request Rate');
+plot(bm_dem_req_rate,ci_bm_req_rate(1,:), 'm:', 'DisplayName',strcat(num2str(conlevel*100), '% Confidence Interval'));
+plot(bm_dem_req_rate,ci_bm_req_rate(2,:), 'm:', 'DisplayName',strcat(num2str(conlevel*100), '% Confidence Interval'));
+%plot(bm_dem_req_rate,bm_avg_rep_rate,'DisplayName','Measured Avg. Response Rate');
+plot(bm_dem_req_rate,bm_dem_req_rate, 'k--','DisplayName','Linear Progression: f(x)=x');
+saturationValue = mean(bm_req_rate(1, length(bm_req_rate)-ceil(0.2*length(bm_req_rate)):length(bm_req_rate)));
+plot(bm_dem_req_rate, saturationValue * ones([length(bm_dem_req_rate), 1])  , 'k--','DisplayName', strcat('Saturation at ', num2str(saturationValue), ' Hz'));
 hold off
-figname = {'Difference demanded request rate to acutal request (response) rate', strcat('(',paraExplenation, ')') };
+figname = {'Connection / Request vs. Response Rate', strcat('(',paraExplenation, ')') };
 title(figname)
+
+
+% figure
+% xlabel('Demanded Request Rate (per autobench) [Hz]')
+% ylabel('Frequency [Hz]')
+% hold all
+% plot(bm_dem_req_rate,bm_dem_req_rate - bm_req_rate,'DisplayName','Measured Request Rate');
+% plot(bm_dem_req_rate,bm_dem_req_rate - bm_avg_rep_rate,'DisplayName','Measured Avg. Response Rate');
+% plot(bm_dem_req_rate, 0.05 * bm_dem_req_rate,'DisplayName','5% cut-off line');
+% hold off
+% figname = {'Difference demanded request rate to acutal request (response) rate', strcat('(',paraExplenation, ')') };
+% title(figname)
 
 
 figure
@@ -134,7 +155,29 @@ xlabel('Demanded Request Rate (per autobench) [Hz]')
 ylabel('Time [ms]')
 hold all
 plot(bm_dem_req_rate,bm_resp_time,'DisplayName','Response Time');
-plot(bm_dem_req_rate,ci_bm_resp_time,'DisplayName',strcat(conlevel*100, '% Confidence Interval'));
+%plot(bm_dem_req_rate,ci_bm_resp_time,'DisplayName',strcat(conlevel*100, '% Confidence Interval'));
+plot(bm_dem_req_rate,ci_bm_resp_time(1,:), 'm--', 'DisplayName',strcat(num2str(conlevel*100), '% Confidence Interval') )
+plot(bm_dem_req_rate,ci_bm_resp_time(2,:), 'm--', 'DisplayName',strcat(num2str(conlevel*100), '% Confidence Interval') )
+hold off
+figname = {'Catalogue Response time', strcat('(',paraExplenation, ')') };
+title(figname)
+
+figure
+xlabel('Demanded Request Rate (per autobench) [Hz]')
+ylabel('Time [ms]')
+hold all
+plot(bm_dem_req_rate,bm_resp_time,'DisplayName','Response Time');
+%plot(bm_dem_req_rate,ci_bm_resp_time,'DisplayName',strcat(conlevel*100, '% Confidence Interval'));
+%plot(bm_dem_req_rate,ci_bm_resp_time(1,:), 'm--', 'DisplayName',strcat(num2str(conlevel*100), '% Confidence Interval') )
+%plot(bm_dem_req_rate,ci_bm_resp_time(2,:), 'm--', 'DisplayName',strcat(num2str(conlevel*100), '% Confidence Interval') )
+
+saturationValue = mean(bm_resp_time(1, 1:50));
+plot(bm_dem_req_rate, saturationValue * ones([length(bm_resp_time), 1])  , 'k--','DisplayName', strcat('Low Load: Avg. Response time at ', num2str(saturationValue), ' ms'));
+
+
+saturationValue = mean(bm_resp_time(1, 300:length(bm_resp_time)));
+plot(bm_dem_req_rate, saturationValue * ones([length(bm_resp_time), 1])  , 'k--','DisplayName', strcat('Saturation: Avg. Response time at ', num2str(saturationValue), ' ms'));
+
 
 hold off
 figname = {'Catalogue Response time', strcat('(',paraExplenation, ')') };
