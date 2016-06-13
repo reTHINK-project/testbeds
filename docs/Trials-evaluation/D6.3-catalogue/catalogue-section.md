@@ -98,27 +98,27 @@ Each experiment is repeated 200 times to calculate statistic significance of the
 
 The first assessment aims at determining the Catalogue's response time to a single request. A single testing device is used to impose load on the SUT. The load in terms of demanded requests per second is constantly increased by enlarging the (connection) *rate*; each connection consist of one call.  Hence, each request is sent via a newly established TCP connection. 
 
-Figure **XXX-04** shows the average response time as a function of the demanded request rate for having one call per connection. For loads up to 500 requests per second, the system stablely response on average within **XXX** ms.  Starting at 500 reqquests per second, the average response time as well as its variation increases.  The average response time saturates at **XXX** ms for an imposed load larger than **XXX** requests per second.  Figure **XXX-04a** plots for lower rates the average response time as well as the corresponging 95-percent confidence levels.  For rates lower than *XXX**, confidence levels do not overlap with conficendence levels at higher rater; hence we may deduct at 95% certainity that for rates lower than **XXX** the expected mean response time is **XXX** ms.
+Figure **XXX-04** shows the average response time as a function of the demanded request rate for having one call per connection. For loads up to 500 requests per second, the system stablely response on average within 3.0 ms.  Starting at 500 reqquests per second, the average response time as well as its variation increases.  The average response time saturates at 10.4 ms for an imposed load larger than 2500 requests per second.  Note that the round trip time measured via *ping* between the testing device and the Catalouge for these measrurements is 0.42 ms on average; and that this RTT is included in the reported response times.
 
-
-! [Catalogue Assessment: Response Time over Demanded Request Rate] (./httperf-multiple-connections.png)
+![Catalogue Assessment: Response Time over Demanded Request Rate] (./response_time_numcalls_1.png)
 **Figure XXX-04: Catalogue Assessment: Response Time over Demanded Request Rate**
 
-The increase of the average response time at loads higher than **XXX** corresponds to the measured (i.e., actual) request rate vs. the imposed request rate as seen in Figure **XXX-05**.
 
-Possible cause for the increasing standard mean error (SEM) are performance issues at the testing device or at the SUT; processess swapping as well as input/ouput preformance of the systems at either side may cause the response time to saturate.
+Figure **XXX-05** plots for lower rates the average response time as well as the corresponging 95-percent confidence levels.  For rates lower than 450 requests per second, confidence levels do not overlap with conficendence levels at higher rates for which the SUT is saturated; hence we may deduct at 95% certainity that for rates lower than 450 requests per second, the expected mean response time is 3.0 ms and is constant with respect to the imposed load.
 
+![Catalogue Assessment: Response Time over Demanded Request Rate (unsaturated system, showing 95% confidence values)] (./response_time_zoom_in_numcalls_1.png)
+**Figure XXX-05: Catalogue Assessment: Response Time over Demanded Request Rate  (unsaturated system, showing 95% confidence values)**
 
-
-
-Figure **XXX-05**  illustates the the actual (i.e., measured) request rate over the demanded request rate (i.e., the one configured in the experiment).
-
-! [Catalogue Assessment:Measured Request Rate over Demanded Request Rate] (./httperf-multiple-connections.png)
-**Figure XXX-05: Catalogue Assessment:Measured Request Rate over Demanded Request Rate**
+From the reported mean response rate of 3 ms for demanded rates of less than 500 requests per second, we may deduce that one connection -- which consists of one call, i.e., request -- last for approximately this amount of time.  Hence, starting at about 330 requests per second, the experiment causes paralell connections to the catalogue to be established (c.f. Figure **XXX-03** illustrating the relation between response time, connection duration, and rate).
 
 
+The increase of the average response time at loads higher than 500 requests per second corresponds to the behavior of the measured (i.e., actual) request rate vs. the imposed request rate as seen in Figure **XXX-06**. For demanded request rates less than 400 requests per second, the measured request rate matches the demanded rate and 95-percent conficence intervals are so small that they are hardly distinguishable from the reported mean.  Starting at approximately 500 requests per second, we see initial impacts of the SUT, the testing device, or the intermediate network on the number of requests that can successfully be issued:  the measured request rate drops below the demanded rate.  Saturation occurs at 1000 (measured) requests per second onwards from an imposed rate of 2500 requests per second.
 
-Note that the round trip time between the testing device and the Catalouge for these measrurements is 0.42 ms on average; and that this RTT is included in the reported response times.
+![Catalogue Assessment: Illustates the the actual (i.e., measured) request rate over the demanded request rate] (./measured_request_rate_numcalls_1.png)
+Figure **XXX-06**  Catalogue Assessment: Illustates the the actual (i.e., measured) request rate over the demanded request rate
+
+Finally, looking at reported errors during the experiment (c.f. Figure **XXX-07**), all experiments having an imposed rate of less than 380 requests per second run without any reported error.  All reported errors are time-out errors which is triggered if either a TCP connection could not be established for 5 seconds, or if a response is not received within that timeframe.
+
 
 ###### References
 **Please decide if references are to be included per section or if these references need to be moved into a dedicated section when integrating the contributions**
