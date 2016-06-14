@@ -115,9 +115,14 @@ From the reported mean response rate of 3 ms for demanded rates of less than 500
 The increase of the average response time at loads higher than 500 requests per second corresponds to the behavior of the measured (i.e., actual) request rate vs. the imposed request rate as seen in Figure **XXX-06**. For demanded request rates less than 400 requests per second, the measured request rate matches the demanded rate and 95-percent conficence intervals are so small that they are hardly distinguishable from the reported mean.  Starting at approximately 500 requests per second, we see initial impacts of the SUT, the testing device, or the intermediate network on the number of requests that can successfully be issued:  the measured request rate drops below the demanded rate.  Saturation occurs at 1000 (measured) requests per second onwards from an imposed rate of 2500 requests per second.
 
 ![Catalogue Assessment: Illustates the the actual (i.e., measured) request rate over the demanded request rate] (./measured_request_rate_numcalls_1.png)
-Figure **XXX-06**  Catalogue Assessment: Illustates the the actual (i.e., measured) request rate over the demanded request rate
+**Figure XXX-06  Catalogue Assessment: Illustates the the actual (i.e., measured) request rate over the demanded request rate**
 
-Finally, looking at reported errors during the experiment (c.f. Figure **XXX-07**), all experiments having an imposed rate of less than 380 requests per second run without any reported error.  All reported errors are time-out errors which is triggered if either a TCP connection could not be established for 5 seconds, or if a response is not received within that timeframe.
+Finally, looking at reported errors during the experiment (c.f. Figure **XXX-07**), all experiments having an imposed rate of less than 380 requests per second run without any reported error.  All reported errors are time-out errors; a time-out is triggered by httperf if either a TCP connection could not be established for 5 seconds, or if a response is not received within that timeframe.
+
+![Catalogue Assessment: Reported Errors] (./errors_numcalls_1.png)
+**Figure XXX-07  Catalogue Assessment: Reported errors**
+
+As the main intend of the catalogue implementation is to provide a proof-of-concept suitable to evaluate the reTHINK concept at a hackathon, in summary, one can assess that such an evaluation at a hackathon is well possible.  The anticipated number of participants at a hackathon that will simultaneously querry the catalogue is expected well below 500 (simultaneous) users; as such, the catalogue's performance is well suitable for assuring the goals of the project.
 
 
 ###### References
