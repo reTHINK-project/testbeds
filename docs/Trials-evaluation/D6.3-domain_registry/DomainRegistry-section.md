@@ -23,7 +23,8 @@ This section describes the test setup.
 The Domain Registry was deployed on [Google Cloud Plataform](https://cloud.google.com/compute/) [St. Ghislain, Belgium](https://cloud.google.com/about/locations/#locations) datacenter, using 8 VM with 1vCPU and 2GB RAM each. The VMs were assigned the roles described in Figure 1: 4 Cassandra DB nodes, 3 application servers and a single load balancer. Figure 1 presents 2 Load Balancers for redundancy purposes, but as a single one is active at any given time, only one was used for the performance tests.
 All request are sent to the load balancer, that distributes them in round-robin through the 3 application servers. Application servers query the 4 database servers also using round-robin.
 
-The Operating System used as [Ubuntu 14.04 64bit](http://releases.ubuntu.com/14.04/) and the software was deployed using [Docker](https://www.docker.com/) 1.6.2. 
+The Operating System used as [Ubuntu 14.04 64bit](http://releases.ubuntu.com/14.04/) and the software was deployed using [Docker](https://www.docker.com/) 1.6.2.
+The load balancer uses [haproxy](http://www.haproxy.org/) 1.5.
 The [Cassandra DB](http://cassandra.apache.org/) was deployed using version 3.5 with a replication factor of 3.
 The application server was deployed using the [Spark micro framework](http://sparkjava.com/) 2.2. The Domain Registry version used was [R 0.2.0](https://github.com/reTHINK-project/dev-registry-domain/releases/tag/R0.2.0).
 
@@ -46,15 +47,19 @@ The following autobench command was used for these tests:
 
 [Figure 2 - Test scenarios](test_scenarios.pdf)
 
-The application server failure test was conducted using a scenario with 3 application servers, where one of them was 
+The application server failure test was conducted using a scenario with 3 application servers, where one of them was disabled (with a *docker rm -f*) and latter restarted. The goal was to measure the impact of the node leaving (including failure detection) and rejoining the set of nodes used by the haproxy load balancer. This test is depicted in the top right part of Figure 2.
 
-
-
-
+Every test was repeated 50 times. Each data point is the average of all these runs.
+The tests are interleaved and were performed over the length of a few days to prevent eventual effects due to time of day network and VMs traffic.
 
 ##Response time
 
-[Figure 3 - ](req_performed_9june.pdf)
+Httperf presents some performance limitation that must be taken into account in order to understand the results obtained. In particular, httperf limits the number of concurrent connections (due to file descriptor limits). If the server is unable to keep up with the request rate, httperf will eventually run out of TCP connections and will be unable to sustain the request rate.
+Figure 3 presents the relation between the solicited request rate and the effective request rate. We can see that with 3 servers, httperf is capable of imposing a request rate close to the solicited rate up to 800 req/s. 
+
+
+
+[Figure 3 - Effective vs solicited request rate](req_performed_9june.pdf)
 
 [Figure 4 - Average response time](avg_times_9june.pdf)
 
@@ -70,7 +75,7 @@ não houve erros de não chegar resposta. apenas timeout > 5s mas resposta chego
 
 #Future work
 
-repetir estatisticamente significativo.manhã e noite evitar problemas de carga
+avaliar  estatisticamente significativo.
 
 BD falhas
 
