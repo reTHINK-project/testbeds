@@ -55,37 +55,41 @@ The tests are interleaved and were performed over the length of a few days to pr
 ##Response time
 
 Httperf presents some performance limitation that must be taken into account in order to understand the results obtained. In particular, httperf limits the number of concurrent connections (due to file descriptor limits). If the server is unable to keep up with the request rate, httperf will eventually run out of TCP connections and will be unable to sustain the request rate.
-Figure 3 presents the relation between the solicited request rate and the effective request rate. We can see that with 3 servers, httperf is capable of imposing a request rate close to the solicited rate up to 800 req/s. 
-
-
+Figure 3 presents the relation between the solicited request rate and the effective request rate. We can see that with 3 servers, httperf is capable of imposing a request rate close to the solicited rate up to 800 req/s. With higher rates, the effective rate falls behind the solicited rate. This effect is more pronounced when using 2 servers. With a single server, we can see that the effective rate lags behind the solicited rate from the very start.
 
 [Figure 3 - Effective vs solicited request rate](req_performed_9june.pdf)
 
+In the following graphs we will use the effective request rate instead of the solicited request rate.
+
+Figure 4 presents the average response rate for an increase request rate. 
+Considering the the client and server are separated by the Internet, a value below 50 ms was considered acceptable. 
+We can observe, that as single server can handle up to 700 req/s, while 2 are able to handle almost 1400 req/s and 3 servers are able to handle a little above 1700 req/s.
+
 [Figure 4 - Average response time](avg_times_9june.pdf)
 
-#Error rate
-não houve erros de não chegar resposta. apenas timeout > 5s mas resposta chegou
-[Figure 5 - Error rate](errors_9june.pdf)
+Going from 1 to 2 servers, we observe an almost linear increase in capacity. However, a third server does not provide the same increase in capacity. This is due to the increased load on the database servers, which will have to be analysed in the future.
 
 ##Failure recovery test
 
-[Figure 6 - ](failure_1_node_june.pdf)
+Figure 5 presents the evolution of the response time and error count in the event of a application server failure. During this test, the effective request rate is constant, at 500 req/s. One of the 3 servers fails at instante 120s and is put back online one minute later. The events are marked in the figure by red vertical lines.
 
+[Figure 5 - ](failure_1_node_june.pdf)
+
+We can observe that the failure of the node results in an increased average response time, as only two servers are left to handle the workload. A small number of failed requests is observer when the server fails. These are the requests being handled by the failled server. Haproxy detects the failure and stops using that server.
+
+When the server is put back online, following a *docker run*, haproxy detects the availability of the servers and adds it to the pool of available servers. However, the server is still booting up the Spark framework. As such, the JVM takes time to do the JIT compilation, load the required classes and open the database connections, leading to a high response time for the first requests. This impacts the response time and even causes some requests to timeout. After a while, the newly added server recovers and the response time drops to the initial value.
 
 
 #Future work
 
-avaliar  estatisticamente significativo.
+In this report, we present an initial performance evaluation of the Domain Registry. In the future we intend to perform more tests, namely:
+- Present and evaluation of the error rate. This is important to understand how much of the difference between the solicited and effective request rate is due to the server or to the client tool.
+- Assess the statistical significance of the results.
+- Improve charts to include minimum and maximum (or 5 a 95th percentil) instead of only the average value.
+- Evaluate the performance and scalability of the database servers.
+- Evaluate the time it takes for a redundant haproxy to detect a failure and recover from it.
+- Evaluate different mixes of reads and writes. Write performance was not yet evaluated, even though this is an important metric.
+- Perform the tests placing both client and servers in the same datacenter. This is important an the client for the Domain Registry is the Message Node and both components, being run by the same Service Provider, are expected to be in the same datacenter.
+- Evaluate the performance hit of using HTTPS.
+- Change the client behaviour to more closely match that of the Connector used by the Message Node. Currently the Connector issues one request per connection (these tests used 10 requests per connection), but we expected it to implement a connection pool for reusing them.
 
-BD falhas
-
-Haproxy e floating IP
-
-Misturar escritas e leituras
-e capable of fast updates
-
-1 pedido por ligação
-
-https
-
-tudo no mesmo datacenter
