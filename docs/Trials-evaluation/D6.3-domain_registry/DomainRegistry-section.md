@@ -39,7 +39,10 @@ These tools were run on a server with 2 Intel(R) Xeon(R) CPU E5-2640 v2 @ 2.00GH
 ##Test methodology
 Two types of tests were performed: performance and scalability tests, where the load is varied; failure recovery testes, where one of 3 servers is failed and then put back online.
 
-The performance and scalability tests were conducted using 1, 2 and 3 application servers (as depicted in the left side of Figure 2). The number of database servers was always 4 in order to maintain the data availability. For each number of servers, 10 httpperf tests were conducted (using autobench) varying the rate from 200 requests/s up to 2.000 request/s with a step of 200 requests/s. Each HTTP connection was used to issue 10 requests (*num_call*) and 2.000 connection (*num_conn*) were used, totalling 20.000 HTTP requests per test point.
+The performance and scalability tests were conducted using 1, 2 and 3 application servers (as depicted in the left side of Figure 2). The number of database servers was always 4 in order to maintain the data availability. For each number of servers, 10 httpperf tests were conducted (using autobench) varying the rate from 200 requests/s up to 2.000 request/s with a step of 200 requests/s. Each HTTP connection was used to issue 10 requests (*num_call*) and 2.000 connection (*num_conn*) were used, totalling 20.000 HTTP requests per test point. 
+
+The option to have each HTTP connection issue 10 requests was due to the fact that the Domain Registry's client, the Connector running on the Message Node, uses connection pooling and reuse with HTTP persistent connections.
+
 
 The following autobench command was used for these tests:
 
@@ -91,5 +94,5 @@ In this report, we present an initial performance evaluation of the Domain Regis
 - Evaluate different mixes of reads and writes. Write performance was not yet evaluated, even though this is an important metric.
 - Perform the tests placing both client and servers in the same datacenter. This is important an the client for the Domain Registry is the Message Node and both components, being run by the same Service Provider, are expected to be in the same datacenter.
 - Evaluate the performance hit of using HTTPS.
-- Change the client behaviour to more closely match that of the Connector used by the Message Node. Currently the Connector issues one request per connection (these tests used 10 requests per connection), but we expected it to implement a connection pool for reusing them.
+
 
