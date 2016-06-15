@@ -33,14 +33,28 @@ These tools were run on a server with 2 Intel(R) Xeon(R) CPU E5-2640 v2 @ 2.00GH
 
 [Figure 1 - Deployment architecture](app_db.pdf)
 
-[Figure 2 - Test scenarios](test_scenarios.pdf)
+
 
 ##Test methodology
+Two types of tests were performed: performance and scalability tests, where the load is varied; failure recovery testes, where one of 3 servers is failed and then put back online.
 
-[Figure 3 - ](req_performed_9june.pdf)
+The performance and scalability tests were conducted using 1, 2 and 3 application servers (as depicted in the left side of Figure 2). The number of database servers was always 4 in order to maintain the data availability. For each number of servers, 10 httpperf tests were conducted (using autobench) varying the rate from 200 requests/s up to 2.000 request/s with a step of 200 requests/s. Each HTTP connection was used to issue 10 requests (*num_call*) and 2.000 connection (*num_conn*) were used, totalling 20.000 HTTP requests per test point.
+
+The following autobench command was used for these tests:
+
+``` autobench --single_host --host1 my.server --port1 4567 --uri1 /hyperty/user/userid@inesc-id.pt --low_rate 20 --high_rate 200 --rate_step 20 --num_call 10 --num_conn 2000 --timeout 5 ```
+
+[Figure 2 - Test scenarios](test_scenarios.pdf)
+
+The application server failure test was conducted using a scenario with 3 application servers, where one of them was 
+
+
+
 
 
 ##Response time
+
+[Figure 3 - ](req_performed_9june.pdf)
 
 [Figure 4 - Average response time](avg_times_9june.pdf)
 
@@ -58,7 +72,7 @@ não houve erros de não chegar resposta. apenas timeout > 5s mas resposta chego
 
 repetir estatisticamente significativo.manhã e noite evitar problemas de carga
 
-BD
+BD falhas
 
 Haproxy e floating IP
 
