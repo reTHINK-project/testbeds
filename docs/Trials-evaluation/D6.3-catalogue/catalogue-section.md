@@ -54,10 +54,10 @@ Figure **XXX-01** visualizes the test setup.  It distinguishes between the SUT (
 ![Image System Under Test (SUT) for the Catalogue Performance Evaluaton](./catalogue-fokus-performance-test-setup.png)
 **Figure XXX-01: System under test (SUT) for the Catalogue performance assessment**
 
-The testing devices are unix-based computers running autobench [autobench] and httperf [httperf].  The number of testing devices varies per experiment.  The testing devices are connected via Ethernet towards the SUT via an internal network, i.e., the public Internet is not included in the communication path.
+The testing devices are unix-based computers running autobench (head of master branch, latest commit as of May 28, 2012 [autobench]) and httperf (head of master branch, latest commit as of Mar 11, 2016 [httperf]).  The number of testing devices varies per experiment.  The testing devices are connected via Ethernet towards the SUT via an internal network, i.e., the public Internet is not included in the communication path.
 
 Regarding the catalogue, the SUT comprises of:
-  * one catalogue-broker;
+  * one catalogue-broker (dockerized catalgoue-broker running under Ubuntu-14.4.1 host system, hosted on a Ubuntu-14.4.1 system on a XXX machine);
   * one catalouge-database that contains example catalogue objects used for testing; 
   * two apache proxies, one being responsible for providing reverse-proxing while accessing the catalogue, and the other being responsible for securly hosting any certificates required for https-based access to the catalouge; and
   * one firewall.
