@@ -3,7 +3,7 @@
 # number of repetitions per experiment
 
 replicas=200
-replicas=25
+replicas=8
 
 # url of catalogue;  assume catalogue is reachable by default ports for
 #   http and https
@@ -70,7 +70,7 @@ fi
 
 if [ 1 -eq 1 ];  # set one value to 0 to skip this experiment, to 1 to run it
 then
-i=3;
+i=6;
 while [ $i -le $replicas ]; do
 echo =======================================
 echo Experiment 2: RUNNING Replica $i of $replicas
@@ -83,6 +83,9 @@ autobench --single_host --host1 ${CATALOGUE_URL} --uri1 ${URI}      \
 --output_fmt tsv --port1 $PORT \
 --file response_time_numcalls_10_$i.tab 2>&1 | tee response_time_numcalls_10_$i.outputLog
 
+# allow system under test to settle down again in case we've driven it in
+# overload situations
+sleep 10;
 i=`expr $i + 1`
 done
 fi

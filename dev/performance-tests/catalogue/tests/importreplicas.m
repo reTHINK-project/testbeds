@@ -12,7 +12,7 @@ function [dem_req_rate,req_rate,con_rate,min_rep_rate,avg_rep_rate,max_rep_rate,
 
 for i = 1:numReplicas
     
-    fname = strcat(fileBaseName, num2str(i), '.tab');
+    fname = strcat(fileBaseName, num2str(i), '.tab')
     
     [dem_req_rate(i,:),req_rate(i,:),con_rate(i,:),min_rep_rate(i,:),avg_rep_rate(i,:),max_rep_rate(i,:),stddev_rep_rate(i,:),resp_time(i,:),net_io(i,:),errors(i,:)]= importfile(fname);
 

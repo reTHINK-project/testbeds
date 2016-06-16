@@ -187,7 +187,7 @@ title(figname)
 
 figure
 xlabel('Demanded Request Rate (per autobench) [Hz]')
-ylabel('Time [ms]')
+ylabel('Number of errors')
 hold all
 plot(bm_dem_req_rate,bm_errors,'DisplayName','Errors');
 hold off
