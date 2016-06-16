@@ -54,13 +54,16 @@ Figure **XXX-01** visualizes the test setup.  It distinguishes between the SUT (
 ![Image System Under Test (SUT) for the Catalogue Performance Evaluaton](./catalogue-fokus-performance-test-setup.png)
 **Figure XXX-01: System under test (SUT) for the Catalogue performance assessment**
 
-The testing devices are unix-based computers running autobench [autobench] and httperf [httperf].  The number of testing devices varies per experiment.  The testing devices are connected via Ethernet towards the SUT via an internal network, i.e., the public Internet is not included in the communication path.
+The testing devices are unix-based computers running autobench (head of master branch, latest commit as of May 28, 2012 [autobench]) and httperf (head of master branch, latest commit as of Mar 11, 2016 [httperf]).  The number of testing devices varies per experiment.  The testing devices are connected via Ethernet towards the SUT via an internal network, i.e., the public Internet is not included in the communication path.
 
 Regarding the catalogue, the SUT comprises of:
-  * one catalogue-broker;
+  * one catalogue-broker (dockerized catalgoue-broker running under Ubuntu-14.4.1 host system, hosted on a Ubuntu-14.4.1 system on a XXX machine);
   * one catalouge-database that contains example catalogue objects used for testing; 
   * two apache proxies, one being responsible for providing reverse-proxing while accessing the catalogue, and the other being responsible for securly hosting any certificates required for https-based access to the catalouge; and
   * one firewall.
+
+The catalogue-broker and the catalogue-database are dockerized deployments with a Ubuntu-14-4-1 operating system in the docker image.  The docker images as well as the apache rproxies are each hosted on a Ubuntu-14.4.1 system running on a blade in a dell M1000E Blade Center, providing in total 3TB RAM, 40TB hard-disk capacity, and 539 GHz accumulated CPU resources.  The individual blade assigned to run the deployment for this SUT is a Dell Power Edge M950 with 2 E7540 CEON processors and 256 GB RAM.
+As a testing device, a PowerMac under MacOS-x Version 10.9.5 with a 2.6GHz Intel Core i7 and 16 GB 1600 MHz DDR3 RAM was used.
 
 For a detailed description of each component and how to set them up, please refer to [D6.1].
 
@@ -92,7 +95,9 @@ Besides, it should be noted that httperf is not run immediately but is invoced b
 
 For all experiments, the Catalogue is provisioned with catalogue objects as contained in the default database available as part of the "rethink/default-database" docker image.  The catalogue objects contain a descriptor and associated code for the "HelloWorldObserver" hyperty.  This hyperty descriptor is used in the http-request queries for all experiments.
 
-Each experiment is repeated 200 times to calculate statistic significance of the the results, i.e., to obtain confidence values for the reported averages.
+Each experiment is repeated 200 times to calculate statistic significance of the the results, i.e., to obtain confidence values for the reported averages.  The corresponding autobench command is:
+
+```autobench --single_host --host1 ${CATALOGUE_URL} --uri1 ${URI} --low_rate 1 --high_rate 4000 --rate_step 5 --num_call 1 --num_conn 20 --timeout 5 --output_fmt tsv --port1 $PORT --file response_time_numcalls_1_$i.tab 2>&1 | tee response_time_numcalls_1_$i.outputLog ```
 
 **Catalogue Response Time**
 
