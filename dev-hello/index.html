@@ -4,7 +4,7 @@
 
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>Hello World</title>
-<p> <b>Wellcome to the first Hyperty example.</b>
+<p> <b>Welcome to the first Hyperty enabled application example.</b>
 </p>
 
   <!-- Compiled and minified CSS -->
@@ -14,22 +14,23 @@
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
 
+  <script src="https://powercommunication.rethink.orange-labs.fr/.well-known/runtime/rethink.js"></script>
   <script src="./helloWorldHypertyClient.js"></script>
 
  </head>
 <body>
-  <div class="progress"><div class="indeterminate"></div></div>
+  <!--<div class="progress"><div class="indeterminate"></div></div>-->
 	<div>
-	This Example will show you:
+	This Example will show you (please click on the link):
 	<ul class="collection">
 		<a onclick="loadRuntime();" class="collection-item">How to load a runtime (proviously deployed on a catalogue server)</a>
-		<a onclick="loadHyperty();" class="collection-item">How to load an hyperty (Authentication mandatory)</li>
+        <a onclick="loadHypertyObs();" class="collection-item">How to load an Observer hyperty (Authentication mandatory)</li>
+            <a onclick="loadHypertyRep();" class="collection-item">How to load a Reporter hyperty (Authentication mandatory)</li>
 		<a onclick="sayHelloToHyperty();"  class="collection-item">How to contact another Hyperty to send HelloWorld Service.</li>
 	</ul>
 	</div>
-      <div class="selection-panel">
+      <div class="runtime-panel">
       </div>
 
       <div class="hyperty-panel">
@@ -48,7 +49,10 @@
       </div>
 
     </div>
-
+<div>
+<br>
+<p></p>
+Last update 28/06/2016</div>
 <!--  <script src="../vendor/system.js"></script>
   <script src="../config.js"></script>  -->
 <!--  <script src="./helloReporter.js"></script> -->

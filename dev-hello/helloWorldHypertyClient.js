@@ -5,44 +5,57 @@
  */
 
 "use strict";
+var RUNTIME;
 
+let domain = 'powercommunication.rethink.orange-labs.fr';
+let hypertyObserver = null;
+let hypertyReporter = null;
+
+const hypertyURI = (domain, hyperty) => `hyperty-catalogue://catalogue.${domain}/.well-known/hyperty/${hyperty}`;
 /**
  * Loads Hyperty Runtime
  */
 function loadRuntime()
 {
-	// Here we should insert the content for getting Runtime from the catalogue
-	System.import("./core");
-	console.log("runtime loaded");
+     var start = new Date().getTime();
+    //Rethink runtime is included in index.html
+	rethink.default.install({
+        domain: domain,
+        development: false
+    })
+    .then((runtime) => {
+        RUNTIME = runtime
+	var time = (new Date().getTime()) - start;
+        $('.runtime-panel').append('<p>Runtime has been successfully launched in ' + time/1000 +' seconds</p>' )
+    })
 }
 
-function loadHyperty()
+function loadHypertyObs()
 {
-	
+    RUNTIME.requireHyperty(hypertyURI(domain, 'HelloWorldObserver'))
+    .then((hyperty) => {
+      hypertyObserver = hyperty;
+      $('.runtime-panel').append('<p>Hyperty '+hyperty.name+' is ON</p>')
+      hypertyDeployed(hypertyObserver)
+  });
+}
+
+function loadHypertyRep(){
+    RUNTIME.requireHyperty(hypertyURI(domain, 'HelloWorldReporter'))
+    .then((hyperty) => {
+      hypertyReporter = hyperty;
+      console.log(hyperty)
+      $('.runtime-panel').append('<p>Hyperty '+hyperty.name+' is ON</p>')
+      //hypertyDeployed(hypertyObserver)
+
+    });
 }
 
 function sayHelloToHyperty()
 {
-
-}
-
-		
-
-/**
- * Loads the Hyperty from the catalogue
- */
-function deployHyperty(runtimeLoader) {
-
-    let hypertyHolder = $('.hyperties');
-    hypertyHolder.removeClass('hide');
-
-    console.log(runtimeLoader);
-
-    let hypertyObserver = 'hyperty-catalogue://' + runtime.domain + '/.well-known/hyperty/HelloWorld';
-
-    // Load First Hyperty
-    runtimeLoader.requireHyperty(hypertyObserver).then(hypertyDeployed).catch(function(reason) {
-    errorMessage(reason);
+  hypertyReporter.instance.hello(hypertyObserver.runtimeHypertyURL)
+  .catch(function(reason) {
+    console.error(reason);
   });
 
 }
@@ -95,33 +108,5 @@ function hypertyDeployed(result) {
   });
 
   console.log('Observer Waiting for Hello!!');
-
-}
-
-
-
-Handlebars.getTemplate = function(name) {
-
-  return new Promise(function(resolve, reject) {
-
-    if (Handlebars.templates === undefined || Handlebars.templates[name] === undefined) {
-      Handlebars.templates = {};
-    } else {
-      resolve(Handlebars.templates[name]);
-    }
-
-    $.ajax({
-      url: 'templates/' + name + '.hbs',
-      success: function(data) {
-        Handlebars.templates[name] = Handlebars.compile(data);
-        resolve(Handlebars.templates[name]);
-      },
-
-      fail: function(reason) {
-        reject(reason);
-      }
-    });
-
-  });
 
 }
