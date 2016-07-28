@@ -1,7 +1,7 @@
 {
   "cguid": "40001",
   "version": "1.0",
-  "objectName": "default",
+  "objectName": "VertxProtoStub",
   "description": "This is a protostub",
   "language": "Javascript ECMA6",
   "dataObjects": [],
