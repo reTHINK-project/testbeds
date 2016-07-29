@@ -1,0 +1,16 @@
+{
+    "cguid": 10014,
+    "type": "Communicator",
+    "version": "0.1",
+    "objectName": "SurveyObserver",
+    "language": "Javascript ECMA6",
+    "description": "Hyperty with survey support",
+    "dataObjects": [
+        "https://catalogue.hybroker.rethink.ptinovacao.pt/.well-known/dataschema/Communication"
+    ],
+    "hypertyType": ["surveyObserver"],
+    "messageSchemas": "",
+    "configuration": {},
+    "constraints": {},
+    "policies": []
+  }
