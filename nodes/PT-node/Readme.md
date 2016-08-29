@@ -95,14 +95,16 @@ docker-compose down
 # example: https://github.com/reTHINK-project/testbeds/blob/master/nodes/PT-node/docker-compose.yml#L3
 docker-compose stop <service-name>
 
-# this command will remove all stopped containers
-docker-compose rm
+# this command will remove all stoped containers
+docker rm
 ```
 
 ##### Logs
 
+List all logs from all containers is **not recommended**
+
 ```shell
-# list all logs from all containers, not recommended
+# not recommended
 docker-compose logs
 
 # list all logs of specific container
@@ -114,5 +116,6 @@ docker-compose logs -f <service-name>
 
 # list and follow the last 20 lines of the logs
 # without the service-name, list all the logs of all services;
+# this is the best way to see the logs with or without the service-name
 docker-compose logs -f --tail=20 <service-name>
 ```
