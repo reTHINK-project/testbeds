@@ -95,8 +95,8 @@ docker-compose down
 # example: https://github.com/reTHINK-project/testbeds/blob/master/nodes/PT-node/docker-compose.yml#L3
 docker-compose stop <service-name>
 
-# this command will remove all stoped containers
-docker rm
+# this command will remove all stopped containers
+docker-compose rm
 ```
 
 ##### Logs
