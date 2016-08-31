@@ -38,6 +38,7 @@ ssh ptin_admin@192.168.89.95
 ### docker commands
 
 More information about the docker commands [here](https://docs.docker.com/engine/reference/commandline/);
+This commands need the sudo authorization like this `sudo docker-compose up -d`;
 
 ```shell
 
@@ -78,6 +79,17 @@ docker-compose up -d
 docker-compose up -d <service-name>
 ```
 
+##### Restart containers
+```shell
+# restart all containers
+docker-compose restart
+
+# restart one container
+docker-compose restart <service-name>
+
+# restart multiple containers
+docker-compose restart <service-name> <service-name>
+```
 
 ##### Stop containers
 ```shell
