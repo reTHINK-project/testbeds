@@ -2,9 +2,9 @@
 
 please mark all issues related to this deliverable and task in general with the "T6.3 -- Interoperability and Migration" label.
 
-1. Introduction
-2. Technology Analysis
-3. General Solution Design
-4. Service Migration Path
+* [Introduction](intro.md)
+* [Technology Analysis](techn_analysis.md)
+* [General Solution Design](gen_solution.md)
+* [Service Migration Path](service_migration_path.md)
 
 
