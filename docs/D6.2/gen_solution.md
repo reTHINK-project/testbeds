@@ -21,4 +21,9 @@ IMS identity, Runtime administration GUI to manage identities (Paulo will check 
 
 Anton: 3GPP: token based approach: protostub uses the token, cookie is sent back, session established at web level; 
 
-[Websocket protostub] ---access token in SIP header --> [Kamaillo WebSocket IMS Gateway + P-CSCF], S-CSCF does not send the Nonce; 
+[Websocket protostub] -- access token in SIP header --> [Kamaillo WebSocket IMS Gateway + P-CSCF], S-CSCF does not send the Nonce; 
+
+To be checked: how is the Access Token retrieved : provided by the Identity module in the Runtime
+
+* IMS Service ->reTHINK Service
+* reTHINK Service ->IMS Service
