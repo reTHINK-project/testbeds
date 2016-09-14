@@ -31,7 +31,9 @@ IMS identity, Runtime administration GUI to manage identities (Paulo will check 
 
 [ IdM ] <- returns token if successful - [ SIP Protostub ]
 
-[ Hyperty ] - send msg > [ bus ] - authorise -> [ policy engine ] - generateToken -> [ IdM  ]
+[ IMS Call Hyperty ] - send msg > [ bus ] - authorise -> [ policy engine ] - getIdToken -> [ IdM  ] 
+
+[ policy engine ] - authorised (msg with token) > [ bus ] - message sent with token -> [ SIP Protostub ] -  send SIP Message with token - > [IMS GW] - validate token [ IMS Token validator ] 
 
 
 
