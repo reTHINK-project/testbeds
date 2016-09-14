@@ -2,16 +2,14 @@
 
 2.3.1	Overall Functional requirements
 
-reTHINK Rich communication services	Scenarios	reTHINK Functional Requirements	IMS Functional Requirements	
-Chat	My City, Neighborhood	Message Passing,
-Discovery	Message delivery,
-Registration information	
-Audio, video calls	Smart Contextual Assistance, Enterprise Conversational	Authentication, Authorization, dynamic subscriber provisioning & discovery	Authentication, Authorization,
-SIP sessions	
-Mutiparty-calls				
-Presence	Smart Contextual Assistance			
-Emergency services			Authorize calls to well-known numbers/URNs, Location services	
-Smart Location			Location services	
+Rich communication services | Scenarios | reTHINK Functional Requirements | IMS Functional Requirements	
+----------------------------|-----------|---------------------------------|-----------------------------
+Chat|	My City, Neighborhood	| Message Passing, Discovery|	Message delivery, Registration information	
+Audio, video calls |	Smart Contextual Assistance, Enterprise Conversational | Authentication, Authorization, dynamic subscriber provisioning & discovery | Authentication, Authorization, SIP sessions	
+Mutiparty-calls	| |
+Presence | Smart Contextual Assistance	| |
+Emergency services | | |	Authorize calls to well-known numbers/URNs, Location services	
+Smart Location	| |	|	Location services	
 
 2.3.2	Functional equivalents
 
