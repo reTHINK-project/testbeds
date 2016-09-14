@@ -1,7 +1,7 @@
 
 2. Technology Analysis
 
-2.1	IMS (Fraunhofer)[ims.md]
+2.1	[IMS](ims.md) -Fraunhofer-
 2.2	reTHINK (Apizee?)[rethink.md]
 2.3	Technology Comparison (DT)[tech_comp.md]
 
