@@ -1,14 +1,22 @@
-2.1.1	IMS (Fraunhofer)
+
+2. Technology Analysis
+
+2.1	IMS (Fraunhofer)
+
 Architecture and main services
-2.1.1.1	Rich Communication Service X
-2.1.1.1.1	Required functionalities
+
+2.1.1	Rich Communication Service: Registration
+
+*	Required functionalities
+	
 Bind functionality to component (idm-> HSS); 
 IMS World Services to required functionality create table
 			
 			
 			
 
-2.1.1.1.2	Message Flows (?)
+*	Message Flows (?)
+
 2.1.2	reTHINK 
 Architecture and main services
 2.1.2.1	Rich Communication Service X (Registration, Chat, Presence, Call, Emergency, Location)
