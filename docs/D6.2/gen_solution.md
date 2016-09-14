@@ -19,14 +19,20 @@ SIP protostub: register to IMS. Identity module in Runtime to manage SIP identit
 
 ## Runtime Administrated Identities
 
-IMS identity, Runtime administration GUI to manage identities (Paulo will check how the admin GUI works); 
+IMS without WebRTC, IMS identity, Runtime administration GUI to manage identities (Paulo will check how the admin GUI works); 
+* SIP protostub implements Authentication algorithm
+* Identity of SIP protostub added to HSS (user, password)
 
 ## Token Based 
+For IMS infrastructure with support for WebRTC and Token based authentication
+
 Anton: 3GPP: token based approach: protostub uses the token, cookie is sent back, session established at web level; 
 
 [Websocket protostub] -- access token in SIP header --> [Kamaillo WebSocket IMS Gateway + P-CSCF], S-CSCF does not send the Nonce; 
 
 To be designed: how is the Access Token retrieved : provided by the Identity module in the Runtime
+
+## Hybrid Approach
 
 # IMS Service ->reTHINK Service
 # reTHINK Service ->IMS Service
