@@ -6,5 +6,6 @@ please mark all issues related to this deliverable and task in general with the 
 * [Technology Analysis](techn_analysis.md)
 * [General Solution Design](gen_solution.md)
 * [Service Migration Path](service_migration_path.md)
+* [Validation](validation.md)
 
 
