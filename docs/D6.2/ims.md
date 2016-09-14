@@ -3,7 +3,7 @@
 
 Architecture and main services
 
-2.1.1	Rich Communication Service: Registration
+2.1.1	Rich Communication Service:  (Registration, Chat, Presence, Call, Emergency, Location)
 
 *	Required functionalities
 	
