@@ -15,9 +15,9 @@ the overall communication scenarios.
 1.2. Methodology
 
 In order to achieve the objectives of this document, the following methodology was applied:
-•	Starting from a comparison of the architecture, enabled services from 3GPP IMS and reTHINK technology and extracting the key functional elements. As a result the equivalent of the functional elements in both the architectures is analysed
-•	Identify fundamental system migration requierements and design general solutions of migration in order to enable the services. 
-•	Key research aspects for reTHINK service endpoints to consume IMS services
-•	Theoretical validating the solutions for each selected service
+* Starting from a comparison of the architecture, enabled services from 3GPP IMS and reTHINK technology and extracting the key functional elements. As a result the equivalent of the functional elements in both the architectures is analysed
+* Identify fundamental system migration requierements and design general solutions of migration in order to enable the services. 
+* Key research aspects for reTHINK service endpoints to consume IMS services
+* Theoretical validating the solutions for each selected service
 
 
