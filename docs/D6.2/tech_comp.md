@@ -15,14 +15,14 @@ Smart Location	| |	|	Location services
 
 Components responsible for the common functional requirements (Maybe another way of visualizing it); Registration and Call Setup are procedures, AAA is functional requirement…
 
-Functional Requirement (Procedures)	IMS world	reTHINK world	Equivalent relationship	Comments
-	Component	Technology	Component	Technology		
-Registration						
-Call Setup	P-CSCF, I-CSCF, S-CSCF, E-CSCF	SIP	Message Node	Javascript		
-Authentication		Diameter				
-Authorization		Diameter				
-Accounting		Diameter?				
-Service Enablement	IFC in S-CSCF	SIP	Hyperties	Javascript		
-Location services	Server side: LRF, client side: ?	PDF-LO location objects				
+Functional Requirement (Procedures) |	IMS Component (Technology) | reTHINK Component (Technology) |	Equivalent relationship	Comments
+------------------------------------|------------------------------|--------------------------------|-----------------------------------
+Registration | 						
+Call Setup   |	P-CSCF, I-CSCF, S-CSCF, E-CSCF	(SIP) |	Message Node	(Javascript) |
+Authentication |	Diameter			|	|
+Authorization	|	Diameter			|	|	
+Accounting	|	Diameter?			|	|	
+Service Enablement |	IFC in S-CSCF	(SIP)|	Hyperties	(Javascript) |
+Location services  |	Server side: LRF, client side: ? (PDF-LO location objects in SIP body) | |				
 
 Functional requirements that are not in common: Emergency call recognition, considered for reTHINK follow-up projects.
