@@ -50,5 +50,21 @@ http://www.etsi.org/deliver/etsi_ts/124300_124399/124371/13.04.00_60/ts_124371v1
 
 page 33
 
+### Functional Components
+
+WIC = WebRTC IMS Client
+IMS UE with native WebRTC client or WebRTC enabled browser
+WWSF = WebRTC Web Server Function
+HTTP server for WebRTC IMS Client code
+eP-CSCF = P-CSCF enhanced for WebRTC 
+SIPoverWebSocket/XMPP/REST/JSON-RPC enabled P-CSCF
+IMS-ALF = IMS Access GateWay enhanced for WebRTC
+IMS Media interop node supporting SRTP/DTLS
+WAF = WebRTC Authorisation Function
+provides authentication tokens to WWSDF
+
+
+![eIMS](https://github.com/reTHINK-project/testbeds/blob/master/docs/D6.2/eIMS.png)
+
 # IMS Service ->reTHINK Service
 # reTHINK Service ->IMS Service
