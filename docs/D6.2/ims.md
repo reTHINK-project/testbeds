@@ -68,12 +68,17 @@ The 3 important types of CSCF exist: proxy, interrogating, serving
 
 ![ims_cscfs](https://github.com/reTHINK-project/testbeds/blob/master/docs/D6.2/ims_cscfs.png)
 
-
 2.2.2	Rich Communication Services:  
 
 (Registration, Chat, Presence, Call, Emergency, Location)
 
-2.2.2.1 Audio/Video Call
+2.2.2.1 Registration
+
+![ims_reg](https://github.com/reTHINK-project/testbeds/blob/master/docs/D6.2/ims_reg.png)
+
+2.2.2.2 Audio/Video Call
+
+![ims_call](https://github.com/reTHINK-project/testbeds/blob/master/docs/D6.2/ims_call.png)
 
 *	Required functionalities
 	
@@ -84,6 +89,8 @@ IMS World Services to required functionality create table
 			
 
 *	Message Flows (?)
-![ims_call](https://github.com/reTHINK-project/testbeds/blob/master/docs/D6.2/ims_call.png)
+![ims_call_flow](https://github.com/reTHINK-project/testbeds/blob/master/docs/D6.2/ims_call_flow.png)
 
-2.2.2.2 Messagin (Chat)
+2.2.2.3 Messaging (Chat)
+
+![ims_chat_flow](https://github.com/reTHINK-project/testbeds/blob/master/docs/D6.2/ims_chat_flow.png)
