@@ -53,14 +53,23 @@ page 33
 ### Functional Components
 
 WIC = WebRTC IMS Client
+
 IMS UE with native WebRTC client or WebRTC enabled browser
+
 WWSF = WebRTC Web Server Function
+
 HTTP server for WebRTC IMS Client code
+
 eP-CSCF = P-CSCF enhanced for WebRTC 
+
 SIPoverWebSocket/XMPP/REST/JSON-RPC enabled P-CSCF
-IMS-ALF = IMS Access GateWay enhanced for WebRTC
+
+IMS-ALG = IMS Access GateWay enhanced for WebRTC
+
 IMS Media interop node supporting SRTP/DTLS
+
 WAF = WebRTC Authorisation Function
+
 provides authentication tokens to WWSDF
 
 
