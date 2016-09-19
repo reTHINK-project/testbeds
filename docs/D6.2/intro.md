@@ -6,7 +6,7 @@ Migration Report D6.2
 1.1. Objectives
 
 This document aims to provide the design of the migration path that a IMS and reTHINK infrastructures have to undergo in order to be interoperable in the sense that an IMS User Endpoint can consume reTHINK services and the other way round. 
-Based on the use cases and user scenarios described in D5.1, this document describes a technology migration path for communication services, as the key services that are deployed on Telecom infrastructures targeted to be interoperable with reTHINK services.
+Based on the services scenarios described in D5.1 "Service Scenarios Specification", this document describes a technology migration path for communication services, as the key services that are deployed on Telecom infrastructures targeted to be interoperable with reTHINK services.
 
 ![Telecom Infrastructure](https://github.com/reTHINK-project/testbeds/blob/master/docs/D6.2/core_network.png)
 
