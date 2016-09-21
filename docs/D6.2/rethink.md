@@ -1,6 +1,7 @@
 2.2	reTHINK (Apizee?)
 
 Architecture and main services
+![RETHINK](https://github.com/reTHINK-project/testbeds/blob/master/docs/D6.2/rethink_architecture.png)
 
 2.2.1	Rich Communication Service X (Registration, Chat, Presence, Call, Emergency, Location)
 
