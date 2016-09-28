@@ -1,0 +1,9 @@
+{
+  "cguid": "20003",
+  "type": "DataSchema",
+  "version": "1.0",
+  "objectName": "Context",
+  "description": "Context DataSchema",
+  "language": "JSON Schema",
+  "accessControlPolicy": "somePolicy"
+}

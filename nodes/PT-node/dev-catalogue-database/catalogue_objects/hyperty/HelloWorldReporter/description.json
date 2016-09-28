@@ -1,0 +1,9 @@
+{
+  "cguid": "10003",
+  "hypertyType": "COMMUNICATOR",
+  "version": "1.0",
+  "objectName": "HelloWorldReporter",
+  "description": "This is an example hyperty that is written in an external file and contains a source package",
+  "language": "Javascript ECMA6",
+  "dataObjects": []
+}

@@ -1,0 +1,33 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+
+	"id": "HypertyResource",
+	"type": "object",
+	"required": ["type"],
+	"properties": {
+		"type": {
+			"$ref": "#/HypertyResourceType"
+		},
+		"direction": {
+			"$ref": "#/ResourceDirection"
+		}
+	},
+	"HypertyResourceType": {
+		"enum": [
+				"chat",
+				"audio",
+				"video",
+				"av",
+				"screen",
+				"file",
+				"midi"
+			]
+	},
+	"ResourceDirection": {
+		"enum": [
+				"in",
+				"out",
+				"inout"
+			]
+	}
+}
