@@ -122,7 +122,7 @@ var _Discovery2 = _interopRequireDefault(_Discovery);
 
 var _utils = require('../utils/utils');
 
-var _Search = require('./Search');
+var _Search = require('../utils/Search');
 
 var _Search2 = _interopRequireDefault(_Search);
 
@@ -157,7 +157,8 @@ var BraceletSensorObserver = function () {
     value: function discovery(email, domain) {
       var _this = this;
       return new Promise(function (resolve, reject) {
-        _this.search.users([email], domain).then(function (a) {
+        _this.search.users([email], [domain], ['context'], ['steps', 'battery']).then(function (a) {
+          console.log('result search users->', a);
           resolve(a);
         });
       });
@@ -210,7 +211,7 @@ function activate(hypertyURL, bus, configuration) {
 }
 module.exports = exports['default'];
 
-},{"../utils/utils":6,"./Search":5,"service-framework/dist/Discovery":1,"service-framework/dist/IdentityManager":2,"service-framework/dist/Syncher":3}],5:[function(require,module,exports){
+},{"../utils/Search":5,"../utils/utils":6,"service-framework/dist/Discovery":1,"service-framework/dist/IdentityManager":2,"service-framework/dist/Syncher":3}],5:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -220,9 +221,6 @@ Object.defineProperty(exports, "__esModule", {
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-// TODO: optimize this process
-var DOMAINS = ['hybroker.rethink.ptinovacao.pt', 'rethink.quobis.com'];
 
 var Search = function () {
   function Search(discovery, identityManager) {
@@ -260,39 +258,45 @@ var Search = function () {
 
   }, {
     key: 'users',
-    value: function users(usersURLs, providedDomain) {
+    value: function users(usersURLs, providedDomains, schemes, resources) {
 
-      if (!usersURLs) throw new Error('You need to provide a list of');
+      if (!usersURLs) throw new Error('You need to provide a list of users');
+      if (!providedDomains) throw new Error('You need to provide a list of domains');
+      if (!resources) throw new Error('You need to provide a list of resources');
+      if (!schemes) throw new Error('You need to provide a list of schemes');
 
       var _this = this;
 
       return new Promise(function (resolve) {
 
-        console.log(usersURLs, usersURLs.length);
+        console.log('Users: ', usersURLs, usersURLs.length);
+        console.log('Domains: ', providedDomains, providedDomains.length);
 
         if (usersURLs.length === 0) {
           console.info('Don\'t have users to discovery');
+
           resolve(usersURLs);
         } else {
           (function () {
-            console.log('Get all users');
             var getUsers = [];
 
-            usersURLs.forEach(function (userURL) {
-              if (providedDomain) {
-                console.log('Search for provided domain:', providedDomain);
-                getUsers.push(_this.discovery.discoverHyperty(userURL, ['context'], ['steps', 'battery'], providedDomain));
-              } else {
-                DOMAINS.forEach(function (domain) {
-                  getUsers.push(_this.discovery.discoverHyperty(userURL, ['context'], ['steps', 'battery'], domain));
-                });
-              }
+            usersURLs.forEach(function (userURL, index) {
+              var currentDomain = providedDomains[index];
+              console.log('Search user ' + userURL + ' for provided domain:', currentDomain);
+              getUsers.push(_this.discovery.discoverHyperty(userURL, schemes, resources, currentDomain));
             });
 
             console.info('Requests promises: ', getUsers);
-            Promise.all(getUsers).then(function (hyperties) {
 
-              console.log('Hyperties: ', hyperties);
+            Promise.all(getUsers.map(function (promise) {
+              return promise.then(function (hyperty) {
+                return hyperty;
+              }, function (error) {
+                return error;
+              });
+            })).then(function (hyperties) {
+
+              console.log('Hyperties', hyperties);
 
               var result = hyperties.map(function (hyperty) {
 
@@ -308,10 +312,11 @@ var Search = function () {
               });
 
               var clean = result.filter(function (hyperty) {
-                return hyperty;
+                return hyperty.hasOwnProperty('hypertyID');
               });
 
               console.info('Requests result: ', clean);
+
               resolve(clean);
             }).catch(function (reason) {
               console.error(reason);
