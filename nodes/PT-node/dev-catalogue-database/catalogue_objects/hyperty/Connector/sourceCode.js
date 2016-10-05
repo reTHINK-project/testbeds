@@ -23,7 +23,7 @@
 * limitations under the License.
 **/
 
-// Distribution file for Discovery.js 
+// Distribution file for Discovery.js
 // version: 0.4.0
 // Last build: Thu Aug 25 2016 15:28:54 GMT+0100 (WEST)
 
@@ -56,7 +56,7 @@
 * limitations under the License.
 **/
 
-// Distribution file for IdentityManager.js 
+// Distribution file for IdentityManager.js
 // version: 0.4.0
 // Last build: Thu Aug 25 2016 15:28:54 GMT+0100 (WEST)
 
@@ -89,7 +89,7 @@
 * limitations under the License.
 **/
 
-// Distribution file for Syncher.js 
+// Distribution file for Syncher.js
 // version: 0.4.0
 // Last build: Thu Aug 25 2016 15:29:04 GMT+0100 (WEST)
 
@@ -2584,14 +2584,11 @@ var Connector = function () {
         console.info('------------ Acknowledges the Reporter - Create ------------ \n');
         event.ack(200);
 
-        setTimeout(function () {
-
-          if (_this._controllers[event.from]) {
-            _this._autoSubscribe(event);
-          } else {
-            _this._autoAccept(event);
-          }
-        }, 1000);
+        if (_this._controllers[event.from]) {
+          _this._autoSubscribe(event);
+        } else {
+          _this._autoAccept(event);
+        }
 
         console.info('------------------------ End Create ---------------------- \n');
       }

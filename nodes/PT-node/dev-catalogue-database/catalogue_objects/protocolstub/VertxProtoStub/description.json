@@ -1,0 +1,13 @@
+{
+  "cguid": "40001",
+  "version": "1.0",
+  "objectName": "VertxProtoStub",
+  "description": "This is a protostub",
+  "language": "Javascript ECMA6",
+  "dataObjects": [],
+  "configuration": {
+      "url": "wss://hysmart.rethink.ptinovacao.pt/msg-node/ws"
+  },
+  "constraints": [],
+  "messageSchemas": []
+}

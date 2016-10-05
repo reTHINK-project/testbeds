@@ -5,12 +5,10 @@ Migration Report D6.2
 
 1.1. Objectives
 
-This document aims to provide the design of all service scenarios aspects to be implemented and deployed in testbeds. 
-Based on the use cases and user scenarios described in D1.1[2] from the “User Scenarios and Use Cases description” work, 
-this document describes a selection of usage scenarios that will showcase the reTHINK results detailing the features and 
-functionalities of the use cases and designing the hyperties and applications involved in them. 
-The result is the specification of all aspects of the use cases, covering the end-points, the core network services and 
-the overall communication scenarios. 
+This document aims to provide the design of the migration path that a IMS and reTHINK infrastructures have to undergo in order to be interoperable in the sense that an IMS User Endpoint can consume reTHINK services and the other way round. 
+Based on the services scenarios described in D5.1 "Service Scenarios Specification", this document describes a technology migration path for communication services, as the key services that are deployed on Telecom infrastructures targeted to be interoperable with reTHINK services.
+
+![Telecom Infrastructure](https://github.com/reTHINK-project/testbeds/blob/master/docs/D6.2/core_network.png)
 
 1.2. Methodology
 
