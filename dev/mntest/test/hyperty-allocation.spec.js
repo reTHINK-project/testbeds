@@ -170,7 +170,7 @@ describe('hyperty address-allocation spec', function() {
           msg = MessageFactory.createDeleteMessageRequest(
             runtimeStubURL + "/registry/allocation", // from
             msgNodeAddress, // to
-            [addresses], // body.childrenResources
+            addresses, // body.childrenResources
             "attribute" // attribute
           );
           bus.sendStubMsg(msg);

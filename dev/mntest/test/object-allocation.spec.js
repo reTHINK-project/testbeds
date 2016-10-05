@@ -150,6 +150,7 @@ describe('object address-allocation spec', function() {
           expect(m.body.code).to.eql(200);
           expect(m.body.value.allocated.length).to.be(3);
           addresses = m.body.value.allocated;
+          console.log("got addresses: ", addresses);
 
           stub.disconnect();
           done();
@@ -168,19 +169,17 @@ describe('object address-allocation spec', function() {
   it('de-allocate block of object addresses', function(done) {
     let stub;
     let msg;
-    let addresses;
 
     let bus = new Bus( (m, num) => {
       switch (num) {
         // NOTE: According to the spec, id should be a String, but at least Vertx breaks if it really is --> relaxing test
         case 1:
           util.expectConnected(m, runtimeStubURL);
-
           // delete the allocation of address block
           msg = MessageFactory.createDeleteMessageRequest(
             runtimeStubURL + "/registry/allocation", // from
             msgNodeAddress, // to
-            [addresses], // body.childrenResources
+            addresses, // body.childrenResources
             "attribute" // attribute
           );
           bus.sendStubMsg(msg);
