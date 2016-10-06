@@ -224,9 +224,6 @@ describe('messaging object update performance for different number of subscriber
 
   // ############### 100 iterations
   it('subscribe and publish event with 100 listeners and 100B size', function(done) {
-      testNSubscribers(10, done, msg100B);
-  });
-  it('subscribe and publish event with 100 listeners and 100B size', function(done) {
       testNSubscribers(100, done, msg100B);
   });
   it('subscribe and publish event with 100 listeners and 1kB size', function(done) {
