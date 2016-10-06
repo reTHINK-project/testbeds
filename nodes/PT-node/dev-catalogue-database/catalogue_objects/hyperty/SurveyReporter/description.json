@@ -6,7 +6,7 @@
     "language": "Javascript ECMA6",
     "description": "Hyperty with survey support",
     "dataObjects": [
-        "https://catalogue.hybroker.rethink.ptinovacao.pt/.well-known/dataschema/Communication"
+        "https://catalogue.hysmart.rethink.ptinovacao.pt/.well-known/dataschema/Communication"
     ],
     "hypertyType": ["surveyReporter"],
     "messageSchemas": "",
