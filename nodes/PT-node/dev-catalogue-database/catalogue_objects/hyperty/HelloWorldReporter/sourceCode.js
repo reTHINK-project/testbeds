@@ -126,12 +126,14 @@ var HelloWorldReporter = function () {
 
   }, {
     key: 'bye',
-    value: function bye() {
+    value: function bye(byeMsg) {
       var _this = this;
 
       console.log('bye:', _this.helloObjtReporter);
 
-      _this.helloObjtReporter.data.hello = "Bye, Bye!!";
+      if (byeMsg) _this.helloObjtReporter.data.hello = byeMsg;else {
+        _this.helloObjtReporter.data.hello = "bye, bye";
+      }
     }
   }]);
 
