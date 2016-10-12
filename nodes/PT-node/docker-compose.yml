@@ -45,7 +45,7 @@ services:
     build: "./catalogue-database"
     container_name: 'catalogue-database-ptinovacao'
     network_mode: "service:catalogue-broker"
-    command: [-d, catalogue.hybroker.rethink.ptinovacao.pt]
+    command: [-host, catalogue.hybroker.rethink.ptinovacao.pt]
     depends_on:
       - 'catalogue-broker'
 
