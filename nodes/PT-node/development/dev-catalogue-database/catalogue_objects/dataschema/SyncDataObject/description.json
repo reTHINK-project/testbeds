@@ -1,9 +1,9 @@
 {
-  "cguid": "20001",
+  "cguid": "23515",
   "type": "DataSchema",
   "version": "1.0",
-  "objectName": "Communication",
-  "description": "Communication data schema",
+  "objectName": "SyncDataObject",
+  "description": "SyncDataObject Data Schema",
   "language": "JSON Schema",
   "accessControlPolicy": "somePolicy"
 }

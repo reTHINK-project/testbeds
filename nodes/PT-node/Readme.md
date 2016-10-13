@@ -1,7 +1,14 @@
 # Altice Labs setup configuration
 
 **TODO**
-  - Add the configuration and setup apache reverse proxy to a Dockerfile;
+- Add the configuration and setup apache reverse proxy to a Dockerfile;
+
+
+
+**NOTE**
+
+We have two folder on for **production** and other for **development**
+
 
 
 ## docker-compose

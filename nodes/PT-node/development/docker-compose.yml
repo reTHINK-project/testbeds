@@ -1,0 +1,86 @@
+version: '2'
+services:
+  'msg-node-vertx':
+    image: 'rethink/msg-node-vertx'
+    container_name: 'msg-node-vertx'
+    environment:
+      - MSG_NODE_CONFIG=env
+      - NODE_DOMAIN=hysmart.rethink.ptinovacao.pt
+      - NODE_PORT=9090
+      - NODE_REGISTRY_URL=http://172.18.0.4:4567
+      - NODE_GLOBAL_REGISTRY_URL=http://130.149.22.133:5002
+    networks:
+      rethink:
+        ipv4_address: 172.18.0.2
+    expose:
+      - '443'
+      - '9090'
+
+  'domain-registry':
+    image: rethink/registry-domain-server
+    container_name: 'domain-registry'
+    networks:
+      rethink:
+        ipv4_address: 172.18.0.4
+    environment:
+      - STORAGE_TYPE=RAM
+      - EXPIRES=3600
+    expose:
+      - '4568'
+      - '4567'
+
+  'catalogue-broker':
+    image: rethink/catalogue-broker
+    container_name: 'catalogue-broker'
+    networks:
+      rethink:
+        ipv4_address: 172.18.0.8
+    hostname: 'catalogue.hysmart.rethink.ptinovacao.pt'
+    command: [-host, 'catalogue.hysmart.rethink.ptinovacao.pt', -default, protocolstub/VertxProtoStub]
+    expose:
+      - '443'
+      - '5683'
+
+  'catalogue-database-ptinovacao':
+    build: "./catalogue-database"
+    container_name: 'catalogue-database-ptinovacao'
+    network_mode: "service:catalogue-broker"
+    command: [-host, catalogue.hysmart.rethink.ptinovacao.pt]
+    depends_on:
+      - 'catalogue-broker'
+
+#  'global-registry'
+#    build: 'rethink/global-registry'
+#    container_name: 'global-registry'
+#    environment:
+#      - KEY=VALUE
+#    networks:
+#      rethink:
+#        ipv4_address: 172.18.0.16
+#    expose:
+#      - '443'
+
+  'hyperty-toolkit':
+    build: './dev-hyperty-toolkit'
+    container_name: 'hyperty-toolkit'
+    environment:
+      - DEVELOPMENT=false
+      - RUNTIME_URL=hyperty-catalogue://catalogue.hysmart.rethink.ptinovacao.pt/.well-known/runtime/Runtime
+      - DOMAIN=hysmart.rethink.ptinovacao.pt
+      - HYPERTY_REPO=/tmp/dev-hyperty
+    volumes:
+      - ./dev-hyperty:/tmp/dev-hyperty
+    networks:
+      rethink:
+        ipv4_address: 172.18.0.32
+    expose:
+      - '443'
+
+networks:
+  rethink:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.18.0.0/16
+          gateway: 172.18.0.1
