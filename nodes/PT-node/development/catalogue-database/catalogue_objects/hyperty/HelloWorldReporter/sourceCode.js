@@ -147,6 +147,7 @@ function activate(hypertyURL, bus, configuration) {
     instance: new HelloWorldReporter(hypertyURL, bus, configuration)
   };
 }
+module.exports = exports['default'];
 
 },{"../utils/utils":4,"./hello":3,"service-framework/dist/Syncher":1}],3:[function(require,module,exports){
 "use strict";
@@ -162,6 +163,7 @@ var hello = {
 };
 
 exports.default = hello;
+module.exports = exports["default"];
 
 },{}],4:[function(require,module,exports){
 'use strict';

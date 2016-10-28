@@ -450,6 +450,7 @@ var ChatController = function () {
 }();
 
 exports.default = ChatController;
+module.exports = exports['default'];
 
 },{}],5:[function(require,module,exports){
 'use strict';
@@ -701,6 +702,7 @@ function activate(hypertyURL, bus, configuration) {
     instance: new GroupChatManager(hypertyURL, bus, configuration)
   };
 }
+module.exports = exports['default'];
 
 },{"../utils/Search":7,"../utils/utils":8,"./ChatController":4,"./communication":6,"service-framework/dist/Discovery":1,"service-framework/dist/IdentityManager":2,"service-framework/dist/Syncher":3}],6:[function(require,module,exports){
 'use strict';
@@ -872,6 +874,7 @@ var Search = function () {
 }();
 
 exports.default = Search;
+module.exports = exports['default'];
 
 },{}],8:[function(require,module,exports){
 'use strict';

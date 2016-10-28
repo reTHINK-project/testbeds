@@ -3273,6 +3273,7 @@ function activate(hypertyURL, bus, config) {
         instance: NotificationsObserverFactory(hypertyURL, bus, config)
     };
 }
+module.exports = exports['default'];
 
 },{"service-framework/dist/Syncher":1,"urijs":4}]},{},[6])(6)
 });

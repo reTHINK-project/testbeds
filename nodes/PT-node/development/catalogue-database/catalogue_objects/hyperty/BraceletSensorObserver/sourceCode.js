@@ -209,6 +209,7 @@ function activate(hypertyURL, bus, configuration) {
     instance: new BraceletSensorObserver(hypertyURL, bus, configuration)
   };
 }
+module.exports = exports['default'];
 
 },{"../utils/Search":5,"../utils/utils":6,"service-framework/dist/Discovery":1,"service-framework/dist/IdentityManager":2,"service-framework/dist/Syncher":3}],5:[function(require,module,exports){
 'use strict';
@@ -331,6 +332,7 @@ var Search = function () {
 }();
 
 exports.default = Search;
+module.exports = exports['default'];
 
 },{}],6:[function(require,module,exports){
 'use strict';

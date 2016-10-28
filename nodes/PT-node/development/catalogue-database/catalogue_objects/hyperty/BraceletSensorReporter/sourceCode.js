@@ -415,6 +415,7 @@ function activate(hypertyURL, bus, configuration) {
     instance: new BraceletSensorReporter(hypertyURL, bus, configuration)
   };
 }
+module.exports = exports['default'];
 
 },{"../utils/utils":4,"service-framework/dist/PersistenceManager":1,"service-framework/dist/Syncher":2}],4:[function(require,module,exports){
 'use strict';

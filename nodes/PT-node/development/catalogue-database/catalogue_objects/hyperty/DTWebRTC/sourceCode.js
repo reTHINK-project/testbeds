@@ -2354,6 +2354,7 @@ function activate(hypertyURL, bus, configuration) {
     instance: new DTWebRTC(hypertyURL, bus, configuration)
   };
 }
+module.exports = exports['default'];
 
 },{"../../config.json":1,"../utils/EventEmitter":9,"../utils/utils":10,"./connection":7,"./stunTurnserverConfig":8,"service-framework/dist/Discovery":2,"service-framework/dist/IdentityManager":3,"service-framework/dist/Syncher":4,"webrtc-adapter-test":5}],7:[function(require,module,exports){
 'use strict';
@@ -2451,6 +2452,7 @@ var config = {
 };
 
 exports.default = config;
+module.exports = exports['default'];
 
 },{}],9:[function(require,module,exports){
 "use strict";
@@ -2547,6 +2549,7 @@ var EventEmitter = function () {
 }();
 
 exports.default = EventEmitter;
+module.exports = exports["default"];
 
 },{}],10:[function(require,module,exports){
 'use strict';

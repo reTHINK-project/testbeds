@@ -3299,6 +3299,7 @@ function activate(hypertyURL, bus, config) {
         instance: NotificationsReporterFactory(hypertyURL, bus, config)
     };
 }
+module.exports = exports['default'];
 
 },{"./notifications-trigger":8,"service-framework/dist/Discovery":1,"service-framework/dist/Syncher":2,"urijs":5}],8:[function(require,module,exports){
 'use strict';
@@ -3352,6 +3353,7 @@ var NotificationsTrigger = function NotificationsTrigger(domain, syncher, discov
 };
 
 exports.default = NotificationsTrigger;
+module.exports = exports['default'];
 
 },{}]},{},[7])(7)
 });

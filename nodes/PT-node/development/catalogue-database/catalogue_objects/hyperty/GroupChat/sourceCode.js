@@ -3416,6 +3416,7 @@ function activate(hypertyURL, bus, config) {
         instance: groupChatFactory(hypertyURL, bus, config)
     };
 }
+module.exports = exports['default'];
 
 },{"../notifications/notifications-trigger":13,"./GroupChat":9,"./communication":11,"service-framework/dist/Discovery":1,"service-framework/dist/IdentityManager":2,"service-framework/dist/Syncher":3,"urijs":6}],9:[function(require,module,exports){
 'use strict';
@@ -3484,6 +3485,8 @@ var GroupChat = {
     }
 };
 
+module.exports = exports['default'];
+
 },{"./GroupChatMessage":10,"./gps":12}],10:[function(require,module,exports){
 "use strict";
 
@@ -3509,6 +3512,8 @@ var GroupChatMessage = {
     }
 };
 
+module.exports = exports["default"];
+
 },{}],11:[function(require,module,exports){
 'use strict';
 
@@ -3533,6 +3538,7 @@ function communication(name, url, participants) {
         participants: participants
     };
 }
+module.exports = exports['default'];
 
 },{}],12:[function(require,module,exports){
 'use strict';
@@ -3639,6 +3645,7 @@ var NotificationsTrigger = function NotificationsTrigger(domain, syncher, discov
 };
 
 exports.default = NotificationsTrigger;
+module.exports = exports['default'];
 
 },{}]},{},[8])(8)
 });

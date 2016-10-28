@@ -145,6 +145,7 @@ function activate(hypertyURL, bus, configuration) {
     instance: new HelloWorldObserver(hypertyURL, bus, configuration)
   };
 }
+module.exports = exports['default'];
 
 },{"../utils/EventEmitter":3,"../utils/utils":4,"service-framework/dist/Syncher":1}],3:[function(require,module,exports){
 "use strict";
@@ -241,6 +242,7 @@ var EventEmitter = function () {
 }();
 
 exports.default = EventEmitter;
+module.exports = exports["default"];
 
 },{}],4:[function(require,module,exports){
 'use strict';

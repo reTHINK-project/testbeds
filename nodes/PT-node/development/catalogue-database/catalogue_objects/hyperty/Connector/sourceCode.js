@@ -3345,6 +3345,7 @@ var ConnectionController = function () {
 }();
 
 exports.default = ConnectionController;
+module.exports = exports['default'];
 
 },{"./peer":17,"webrtc-adapter":5}],15:[function(require,module,exports){
 'use strict';
@@ -3641,6 +3642,7 @@ function activate(hypertyURL, bus, configuration) {
     instance: new Connector(hypertyURL, bus, configuration)
   };
 }
+module.exports = exports['default'];
 
 },{"../utils/Search":18,"../utils/utils":19,"./ConnectionController":14,"./connection":16,"service-framework/dist/Discovery":2,"service-framework/dist/IdentityManager":3,"service-framework/dist/Syncher":4}],16:[function(require,module,exports){
 'use strict';
@@ -3750,6 +3752,7 @@ var peer = {
 };
 
 exports.default = peer;
+module.exports = exports['default'];
 
 },{}],18:[function(require,module,exports){
 'use strict';
@@ -3872,6 +3875,7 @@ var Search = function () {
 }();
 
 exports.default = Search;
+module.exports = exports['default'];
 
 },{}],19:[function(require,module,exports){
 'use strict';
