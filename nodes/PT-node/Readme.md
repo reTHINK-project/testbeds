@@ -47,6 +47,19 @@ ssh ptin_admin@192.168.89.95
 More information about the docker commands [here](https://docs.docker.com/engine/reference/commandline/);
 This commands need the sudo authorization like this `sudo docker-compose up -d`;
 
+Now we can support the localhost domain on our testbed:
+
+```shell
+# start all services on docker-compose.yml without the localhost support
+docker-compose up -d
+
+# start all services on docker-compose.yml and start also the localhost support
+# this will start the msg-node-vertx and domain-registry with the localhost domain configured
+docker-compose -f docker-compose.yml -f docker-compose.local.yml up -d
+# now in your protocolstub configuration url you can include
+# wss://msg-node.<domain>/localhost/ws
+```
+
 ```shell
 
 # list all images created by docker

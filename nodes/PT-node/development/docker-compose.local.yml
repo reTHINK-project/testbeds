@@ -1,0 +1,39 @@
+version: '2'
+services:
+  'msg-node-vertx-local':
+    image: 'rethink/msg-node-vertx:develop'
+    container_name: 'msg-node-vertx-local'
+    environment:
+      - MSG_NODE_CONFIG=env
+      - NODE_DOMAIN=localhost
+      - NODE_PORT=9090
+      - NODE_REGISTRY_URL=http://172.19.0.4:4567
+      - NODE_GLOBAL_REGISTRY_URL=http://130.149.22.133:5002
+    networks:
+      rethink-local:
+        ipv4_address: 172.19.0.2
+    expose:
+      - '443'
+      - '9090'
+
+  'domain-registry-local':
+    image: rethink/registry-domain-server
+    container_name: 'domain-registry-local'
+    networks:
+      rethink-local:
+        ipv4_address: 172.19.0.4
+    environment:
+      - STORAGE_TYPE=RAM
+      - EXPIRES=3600
+    expose:
+      - '4568'
+      - '4567'
+
+networks:
+  rethink-local:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.19.0.0/16
+          gateway: 172.19.0.1
