@@ -6,9 +6,10 @@ cd ${0%/*}
 
 ./registry/start.sh
 ./proxy/start.sh
-#./framework/start.sh
 ./toolkit/start.sh
-./matrix/start.sh
+./nomatrix/start.sh
+./catalogue-broker/start.sh
+./catalogue-database/start.sh
 
 screen -ls
 sleep 2
