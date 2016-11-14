@@ -1,9 +1,0 @@
-{
-  "cguid": "20002",
-  "type": "DataSchema",
-  "version": "1.0",
-  "objectName": "Connection",
-  "description": "Connection dataschema",
-  "language": "JSON Schema",
-  "accessControlPolicy": "somePolicy"
-}

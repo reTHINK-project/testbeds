@@ -1,0 +1,13 @@
+{
+  "cguid": "40002",
+  "version": "1.0",
+  "objectName": "NodejsProtoStub",
+  "description": "This is a protostub",
+  "language": "Javascript ECMA6",
+  "dataObjects": [],
+  "configuration": {
+      "url": "wss://msg-node.testbedhost/"
+  },
+  "constraints": [],
+  "messageSchemas": []
+}
