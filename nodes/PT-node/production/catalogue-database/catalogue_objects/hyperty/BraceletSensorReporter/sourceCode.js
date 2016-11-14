@@ -107,7 +107,7 @@ var BraceletSensorReporter = function () {
 
     console.log('Init BraceletSensorReporter: ', hypertyURL);
     _this._syncher = new _Syncher.Syncher(hypertyURL, bus, configuration);
-    _this._persistenceManager = _PersistenceManager2.default;
+    _this._persistenceManager = new _PersistenceManager2.default(window.localStorage);
     console.log('PM', _this._persistenceManager);
   }
 
