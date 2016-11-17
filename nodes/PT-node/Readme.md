@@ -10,6 +10,11 @@
 We have two folder on for **production** and other for **development**
 
 
+the **development** folder contain all catalogue_objects
+
+the **production** folder only contain the specific catalogue_objects for our testbed
+
+
 
 ## docker-compose
 

@@ -1,9 +1,0 @@
-{
-  "cguid": "20001",
-  "type": "DataSchema",
-  "version": "1.0",
-  "objectName": "Communication",
-  "description": "Communication data schema",
-  "language": "JSON Schema",
-  "accessControlPolicy": "somePolicy"
-}
