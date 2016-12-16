@@ -1,0 +1,37 @@
+# T6.3 Call  2016-12-16
+
+*Attn.: GoToMeeting (dial-in info below) -- used for BOTH, voice and screen sharing; dial-in info below*
+
+## Participants
+  * Fraunhofer:  Ancuta
+  * Quobis: Yudani, Anton, David
+  * Apizee: Arnaud (invited, not participated)
+  * DT: Steffen
+
+## Agenda 
+
+Meeting start: 13:00h CET
+
+(1) Assignment of writing responsibilities for sections in deliverable for sections 3-4-5.
+
+(2) Identify next steps in implementation and documentation.
+
+General note:  we are contractual obliged to document on the IMS-reTHINK integration,
+but we are not obliged to make the components of the IMS-reTHINK testbed available,
+especially not under the public domain license.  So it is well possible to use existing
+components at our companies for testing and demo purposes, to show that integration
+works / can be done and then document this outcome in the deliverable.
+
+## Discussed Topics
+what the migration path should contain
+added section on IMS-other services interop, in case IMS-rethink and reTHINK-slack are giving this possibility
+
+Items to clarify: authentication: opened an issue https://github.com/reTHINK-project/governance-security-implementation/issues/58
+
+Contributions for sections 1-2-3 are expected until 17th of January.
+Stub test for rethink to ims services to be provided by Quobis until 25th of January.
+Deadline for D6.2 is end of february. Final contributions, including sections 4-5-6 expected until 19th of February.
+
+
+Next call: Thursday 19.01 at 14:00.
+
