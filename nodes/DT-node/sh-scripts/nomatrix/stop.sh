@@ -1,3 +1,5 @@
 #!/bin/sh
 
-/opt/rethink/dev-msg-node-nomatrix/docker/stop.sh
+echo "stopping nomatrix MN ..."
+docker stop nomatrix
+echo DONE!
