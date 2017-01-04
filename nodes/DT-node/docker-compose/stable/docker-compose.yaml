@@ -45,9 +45,10 @@ services:
     depends_on:
       - 'catalogue-broker'
     volumes:
-      - '/opt/rethink/testbeds/nodes/DT-node/stable/catalogue_objects:/catalogue-database'
+      - '/opt/rethink/testbeds/nodes/DT-node/docker-compose/stable/catalogue_objects:/catalogue-database'
 
   'toolkit':
+    build: '/opt/rethink/testbeds/nodes/DT-node/docker-files/hyperty-toolkit'
     image: 'hyperty-toolkit'
     container_name: 'toolkit'
     environment:
