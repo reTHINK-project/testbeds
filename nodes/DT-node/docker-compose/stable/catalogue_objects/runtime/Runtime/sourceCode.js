@@ -16175,7 +16175,7 @@ var SyncherManager = function () {
       }
 
       //get schema from catalogue and parse -> (scheme, children)
-      _this._catalog.getDataSchemaDescriptor(msg.body.scheme).then(function (descriptor) {
+      _this._catalog.getDataSchemaDescriptor(msg.body.schema).then(function (descriptor) {
 
         var properties = descriptor.sourcePackage.sourceCode.properties;
         var scheme = properties.scheme ? properties.scheme.constant : 'resource';

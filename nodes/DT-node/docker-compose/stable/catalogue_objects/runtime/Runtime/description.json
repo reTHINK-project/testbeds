@@ -1,7 +1,7 @@
 {
   "cguid": "30002",
   "runtimeType": "browser",
-  "version": "1.0",
+  "version": "6.0",
   "objectName": "Runtime",
   "description": "This is a hyperty runtime descriptor",
   "language": "Javascript ECMA6",
