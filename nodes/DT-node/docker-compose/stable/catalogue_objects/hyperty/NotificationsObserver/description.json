@@ -1,0 +1,16 @@
+{
+    "cguid": 10012,
+    "type": "Communicator",
+    "version": "0.1",
+    "objectName": "NotificationsObserver",
+    "language": "Javascript ECMA6",
+    "description": "Hyperty with notifications support",
+    "dataObjects": [
+        "https://catalogue.hysmart.rethink.ptinovacao.pt/.well-known/dataschema/Communication"
+    ],
+    "hypertyType": ["notificationsObserver"],
+    "messageSchemas": "",
+    "configuration": {},
+    "constraints": {},
+    "policies": []
+  }

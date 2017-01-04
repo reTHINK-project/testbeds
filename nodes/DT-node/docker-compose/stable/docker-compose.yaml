@@ -1,0 +1,86 @@
+version: '2'
+services:
+  'nomatrix':
+    image: 'rethink/msg-node-nomatrix'
+    container_name: 'nomatrix'
+    environment:
+      - DOMAIN=rethink.tlabscloud.com
+      - PORT=8001
+      - REGISTRY=http://dev-registry-domain:4567
+      - GLOBALREGISTRY=http://130.149.22.133:5002
+    networks:
+      - rethink
+    expose:
+      - '8001'
+
+  'dev-registry-domain':
+    image: rethink/registry-domain-server
+    container_name: 'dev-registry-domain'
+    networks:
+      - rethink
+    environment:
+      - STORAGE_TYPE=RAM
+      - EXPIRES=3600
+    expose:
+      - '4568'
+      - '4567'
+
+  'catalogue-broker':
+    image: rethink/catalogue-broker
+    container_name: 'catalogue-broker'
+    networks:
+      - rethink
+    command: [-host, catalogue-broker, -sourcePackageURLHost, catalogue.rethink.tlabscloud.com, -ch, catalogue-broker]
+    expose:
+      - '80'
+      - '443'
+      - '5683'
+
+  'catalogue-database':
+    image: rethink/catalogue-database
+    container_name: 'catalogue-database'
+    networks:
+      - rethink
+    command: [-sourcePackageURLHost, catalogue.rethink.tlabscloud.com, -o, /catalogue-database, -ch, catalogue-database, -h, catalogue-broker/5683]
+    depends_on:
+      - 'catalogue-broker'
+    volumes:
+      - '/opt/rethink/testbeds/nodes/DT-node/stable/catalogue_objects:/catalogue-database'
+
+  'toolkit':
+    image: 'hyperty-toolkit'
+    container_name: 'toolkit'
+    environment:
+      - DEVELOPMENT=false
+      - RUNTIME_URL=hyperty-catalogue://catalogue.rethink.tlabscloud.com/.well-known/runtime/Runtime
+      - DOMAIN=rethink.tlabscloud.com
+      - HYPERTY_REPO=/hyperty
+    volumes:
+      - /opt/rethink/dev-hyperty-toolkit:/hyperty-toolkit
+      - /opt/rethink/dev-hyperty:/hyperty
+    networks:
+      - rethink
+    expose:
+      - '80'
+
+  'proxy':
+    build: '/opt/rethink/testbeds/nodes/DT-node/docker-files/apache2-reverse-proxy-dt'
+    image: 'apache2-reverse-proxy-dt'
+    container_name: 'proxy'
+    networks:
+      - rethink
+    ports:
+      - '443:443'
+    volumes:
+      - /opt/rethink/testbeds/nodes/DT-node/docker-files/apache2-reverse-proxy-dt/keys:/opt/certs
+
+
+networks:
+  rethink:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.18.0.0/16
+          gateway: 172.18.0.1
+

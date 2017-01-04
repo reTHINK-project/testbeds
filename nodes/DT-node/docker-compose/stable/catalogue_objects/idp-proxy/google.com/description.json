@@ -1,0 +1,11 @@
+{
+  "cguid": "53511",
+  "version": "1.0",
+  "objectName": "google.com",
+  "description": "Google IDP",
+  "language": "Javascript es2015",
+  "dataObjects": [],
+  "configuration": [],
+  "constraints": [],
+  "messageSchemas": []
+}

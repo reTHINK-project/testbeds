@@ -1,0 +1,14 @@
+{
+  "cguid": 1,
+  "type": "DataSchemas",
+  "version": "0.1",
+  "description": "Description of HelloWorldDataSchema",
+  "objectName": "HelloWorldDataSchema",
+  "configuration": {},
+  "sourcePackageURL": "/sourcePackage",
+  "language": "JSON-Schema",
+  "signature": "",
+  "messageSchemas": "",
+  "dataObjects": [],
+  "accessControlPolicy": "somePolicy"
+}
