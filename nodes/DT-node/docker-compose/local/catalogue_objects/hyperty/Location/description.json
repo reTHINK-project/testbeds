@@ -1,0 +1,16 @@
+{
+    "cguid": 10010,
+    "type": "Context",
+    "version": "0.1",
+    "objectName": "Location",
+    "language": "Javascript ECMA6",
+    "description": "Hyperty with location support",
+    "dataObjects": [
+        "https://catalogue.hysmart.rethink.ptinovacao.pt/.well-known/dataschema/Context"
+    ],
+    "hypertyType": ["location"],
+    "messageSchemas": "",
+    "configuration": {},
+    "constraints": {},
+    "policies": []
+  }

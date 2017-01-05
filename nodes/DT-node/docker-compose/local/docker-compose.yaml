@@ -1,0 +1,89 @@
+version: '2'
+services:
+  'nomatrix':
+    image: 'rethink/msg-node-nomatrix'
+    container_name: 'nomatrix'
+    environment:
+      - DOMAIN=matrix2.rethink.com
+      - PORT=8001
+      - REGISTRY=http://dev-registry-domain:4567
+      - GLOBALREGISTRY=http://130.149.22.133:5002
+    networks:
+      - rethink
+    expose:
+      - '8001'
+
+  'dev-registry-domain':
+    image: rethink/registry-domain-server
+    container_name: 'dev-registry-domain'
+    networks:
+      - rethink
+    environment:
+      - STORAGE_TYPE=RAM
+      - EXPIRES=3600
+    expose:
+      - '4568'
+      - '4567'
+
+  'catalogue-broker':
+    image: rethink/catalogue-broker
+    container_name: 'catalogue-broker'
+    networks:
+      - rethink
+    command: [-host, catalogue-broker, -sourcePackageURLHost, catalogue.matrix2.rethink.com, -ch, catalogue-broker, -default, protocolstub/MatrixProtoStub]
+    expose:
+      - '80'
+      - '443'
+      - '5683'
+
+  'catalogue-database':
+    image: rethink/catalogue-database
+    container_name: 'catalogue-database'
+    networks:
+      - rethink
+    command: [-sourcePackageURLHost, catalogue.matrix2.rethink.com, -o, /catalogue-database, -ch, catalogue-database, -h, catalogue-broker/5683]
+    depends_on:
+      - 'catalogue-broker'
+    volumes:
+      - ./catalogue_objects:/catalogue-database
+
+  'toolkit':
+    build: '../../docker-files/hyperty-toolkit'
+    image: 'hyperty-toolkit'
+    container_name: 'toolkit'
+    environment:
+      - DEVELOPMENT=false
+      - RUNTIME_URL=hyperty-catalogue://catalogue.matrix2.rethink.com/.well-known/runtime/Runtime
+      - DOMAIN=matrix2.rethink.com
+      - HYPERTY_REPO=/hyperty
+    volumes:
+      # adapt pathes to dev-hyperty and toolkit
+      #- ~/work/git/rethink/dev-callcenter-app:/hyperty-toolkit
+      - ~/work/git/rethink/dev-hyperty-toolkit:/hyperty-toolkit
+      - ~/work/git/rethink/dev-hyperty:/hyperty
+    networks:
+      - rethink
+    expose:
+      - '80'
+
+  'proxy':
+    build: '../../docker-files/apache2-reverse-proxy-dt-local'
+    image: 'apache2-reverse-proxy-dt'
+    container_name: 'proxy'
+    networks:
+      - rethink
+    ports:
+      - '443:443'
+    volumes:
+      - ../../docker-files/apache2-reverse-proxy-dt-local/keys:/opt/certs
+
+
+networks:
+  rethink:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.18.0.0/16
+          gateway: 172.18.0.1
+
