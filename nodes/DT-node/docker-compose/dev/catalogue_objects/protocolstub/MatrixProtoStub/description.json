@@ -1,0 +1,14 @@
+{
+  "cguid": "54001",
+  "version": "1.0",
+  "objectName": "default",
+  "description": "This is a default (No)Matrix protocolstub (w:orks for Matrix and NoMatrix MNs)",
+  "language": "Javascript ECMA6",
+  "dataObjects": [],
+  "configuration": {
+      "homeserver": "rethink-dev.tlabscloud.com",
+      "messagingnode": "wss://rethink-dev.tlabscloud.com/stub/connect"
+    },
+  "constraints": [],
+  "messageSchemas": []
+}
