@@ -1,8 +1,8 @@
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.activate = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 module.exports={
   "development": "false",
-  "runtimeURL": "hyperty-catalogue://catalogue.rethink.tlabscloud.com/.well-known/runtime/Runtime",
-  "domain": "rethink.tlabscloud.com"
+  "runtimeURL": "hyperty-catalogue://catalogue.matrix2.rethink.com/.well-known/runtime/Runtime",
+  "domain": "matrix2.rethink.com"
 }
 },{}],2:[function(require,module,exports){
 (function (global){
@@ -2133,20 +2133,24 @@ var DTWebRTC = function (_EventEmitter) {
         _this5.trigger('localvideo', stream);
         _this5.mediaStream = stream;
         _this5.pc.addStream(stream); // add the stream to the peer connection so the other peer can receive it later
-        _this5.pc.setRemoteDescription(new RTCSessionDescription(offer), function () {
-          // connect to the other hyperty now
-          _this5.connect(_this5.partner).then(function (objReporter) {
-            console.log("[DTWebRTC]: objReporter created successfully: ", objReporter);
-            _this5.objReporter = objReporter;
+        // this.pc.setRemoteDescription(new RTCSessionDescription(offer), () => {
+        // connect to the other hyperty now
+        _this5.connect(_this5.partner).then(function (objReporter) {
+          console.log("[DTWebRTC]: objReporter created successfully: ", objReporter);
+          _this5.objReporter = objReporter;
 
-            _this5.pc.createAnswer().then(function (answer) {
-              _this5.objReporter.data.connectionDescription = answer;
-              _this5.pc.setLocalDescription(new RTCSessionDescription(answer), function () {
-                console.log("[DTWebRTC]: localDescription (answer) successfully set: ", answer);
-              });
+          _this5.pc.createAnswer().then(function (answer) {
+            _this5.objReporter.data.connectionDescription = answer;
+            _this5.pc.setLocalDescription(new RTCSessionDescription(answer), function () {
+              console.log("[DTWebRTC]: localDescription (answer) successfully set: ", answer);
+            }, function (err) {
+              console.log("Error in setLocalDescription: " + err);
             });
           });
         });
+        // }, (err) => {
+        //   console.log("Error in setRemoteDescription: " + err);
+        // });
       });
     }
 
@@ -2249,8 +2253,8 @@ var DTWebRTC = function (_EventEmitter) {
         console.info('[DTWebRTC]: Process Connection Description: ', data);
         this.pc.setRemoteDescription(new RTCSessionDescription(data)).then(function () {
           console.log("[DTWebRTC]: remote success");
-        }).catch(function (e) {
-          console.log("[DTWebRTC]: remote error: ", e);
+        }, function (err) {
+          console.log("[DTWebRTC]: setRemoteDescription error: ", err);
         });
       }
 
@@ -2265,14 +2269,16 @@ var DTWebRTC = function (_EventEmitter) {
     key: 'cleanupPC',
     value: function cleanupPC() {
       this.sender = null;
-      if (this.mediaStream) {
+      if (this.mediaStream && this.pc) {
+        // removeStream is deprecated --> using removeTrack instead
         var tracks = this.mediaStream.getTracks();
         tracks.forEach(function (track) {
           track.stop();
+          // this.pc.removeTrack(track);
         });
-        if (this.pc) {
-          this.pc.removeStream(this.mediaStream);
-        }
+        // if ( this.pc ) {
+        //   this.pc.removeStream(this.mediaStream);
+        // }
       }
       if (this.pc) this.pc.close();
       this.pc = null;

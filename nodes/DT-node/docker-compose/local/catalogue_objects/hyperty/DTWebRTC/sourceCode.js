@@ -2133,24 +2133,24 @@ var DTWebRTC = function (_EventEmitter) {
         _this5.trigger('localvideo', stream);
         _this5.mediaStream = stream;
         _this5.pc.addStream(stream); // add the stream to the peer connection so the other peer can receive it later
-        _this5.pc.setRemoteDescription(new RTCSessionDescription(offer), function () {
-          // connect to the other hyperty now
-          _this5.connect(_this5.partner).then(function (objReporter) {
-            console.log("[DTWebRTC]: objReporter created successfully: ", objReporter);
-            _this5.objReporter = objReporter;
+        // this.pc.setRemoteDescription(new RTCSessionDescription(offer), () => {
+        // connect to the other hyperty now
+        _this5.connect(_this5.partner).then(function (objReporter) {
+          console.log("[DTWebRTC]: objReporter created successfully: ", objReporter);
+          _this5.objReporter = objReporter;
 
-            _this5.pc.createAnswer().then(function (answer) {
-              _this5.objReporter.data.connectionDescription = answer;
-              _this5.pc.setLocalDescription(new RTCSessionDescription(answer), function () {
-                console.log("[DTWebRTC]: localDescription (answer) successfully set: ", answer);
-              }, function (err) {
-                console.log("Error in setLocalDescription: " + err);
-              });
+          _this5.pc.createAnswer().then(function (answer) {
+            _this5.objReporter.data.connectionDescription = answer;
+            _this5.pc.setLocalDescription(new RTCSessionDescription(answer), function () {
+              console.log("[DTWebRTC]: localDescription (answer) successfully set: ", answer);
+            }, function (err) {
+              console.log("Error in setLocalDescription: " + err);
             });
           });
-        }, function (err) {
-          console.log("Error in setRemoteDescription: " + err);
         });
+        // }, (err) => {
+        //   console.log("Error in setRemoteDescription: " + err);
+        // });
       });
     }
 
@@ -2249,7 +2249,7 @@ var DTWebRTC = function (_EventEmitter) {
         return;
       }
 
-      if (data.type === 'answer') {
+      if (data.type === 'offer' || data.type === 'answer') {
         console.info('[DTWebRTC]: Process Connection Description: ', data);
         this.pc.setRemoteDescription(new RTCSessionDescription(data)).then(function () {
           console.log("[DTWebRTC]: remote success");
