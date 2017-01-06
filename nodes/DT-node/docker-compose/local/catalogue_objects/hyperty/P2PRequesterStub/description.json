@@ -1,0 +1,16 @@
+{
+  "cguid": "16518",
+  "type": "P2P",
+  "version": "1.0",
+  "objectName": "P2PRequesterStub",
+  "language": "Javascript ECMA6",
+  "description": "test-hyperty for P2P Requester stub",
+  "dataObjects": [
+    "https://catalogue.matrix2.rethink.com/.well-known/dataschema/Connection"
+  ],
+  "hypertyType": ["audio", "video"],
+  "messageSchema": "",
+  "configuration": {},
+  "constraints": {},
+  "policies": []
+}

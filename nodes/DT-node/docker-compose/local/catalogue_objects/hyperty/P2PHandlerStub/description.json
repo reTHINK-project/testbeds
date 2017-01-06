@@ -1,0 +1,16 @@
+{
+  "cguid": "16519",
+  "type": "P2P",
+  "version": "1.0",
+  "objectName": "P2PHandlerStub",
+  "language": "Javascript ECMA6",
+  "description": "test-hyperty for P2P Handler stub",
+  "dataObjects": [
+    "https://catalogue.matrix2.rethink.com/.well-known/dataschema/Connection"
+  ],
+  "hypertyType": ["audio", "video"],
+  "messageSchema": "",
+  "configuration": {},
+  "constraints": {},
+  "policies": []
+}
