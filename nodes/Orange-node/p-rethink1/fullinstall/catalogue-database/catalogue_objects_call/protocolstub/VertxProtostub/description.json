@@ -1,0 +1,13 @@
+{
+  "cguid": "40001",
+  "version": "1.0",
+  "objectName": "VertxProtoStub",
+  "description": "This is a protostub",
+  "language": "Javascript ECMA6",
+  "dataObjects": [],
+  "configuration": {
+      "url": "wss://msg-node.csp.rethink3.orange-labs.fr/ws"
+  },
+  "constraints": [],
+  "messageSchemas": []
+}

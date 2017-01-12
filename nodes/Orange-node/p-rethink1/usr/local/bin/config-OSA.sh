@@ -1,12 +1,10 @@
 #!/bin/bash
 
-#Dynamic configuration of the OSA WebService Gateway (https://github.com/zorglub42/OSA/) used as a reverse proxy
 #Configuration section
 IF=eth0                         #Update OSA with IP of this interface
 OSA_URL=https://localhost:6443  #OSA Admin service base URI
-#OSA Admin user (has to be configured in the reverse proxu)
-OSA_USER=<user_name>                    
-OSA_PASS=<user_pass>
+OSA_USER=container                    #OSA Admin user
+OSA_PASS=ContainerP4ss
 
 #Get IP for specified interface
 #MY_IP=`ifconfig $IF| grep inet | grep -v inet6|awk '{print $2}'|awk -F ":" '{print $2}'`
@@ -14,15 +12,17 @@ OSA_PASS=<user_pass>
 
 #End of configuration section
 
-# 3 parameters
+# 4 parameters
 # docker container name
 # OSA service name
-# backed port and URL (:XX/YYY)
+# protocol http or https
+# backed port and URL (:XX/
 function updateOSA(){
 	CONTAINER_NAME=$1
 	SERVICE=$2                    #OSA Service to update
 	MY_IP=`docker inspect --format "{{.NetworkSettings.IPAddress}}" $CONTAINER_NAME`
-	BACKEND_URL="http%3A%2F%2F$MY_IP$3"
+        MY_PROTOCOL=$3
+	BACKEND_URL="$MY_PROTOCOL%3A%2F%2F$MY_IP$4"
 
 
 	#Update OSA
@@ -40,12 +40,11 @@ function updateOSA(){
 }
 
 
-#Here we call the services configured as in this example 
-#for : use %3A for / use %2F, the IP is retreived from the container name. 
-#for http://172.17.0.3:8080/toto enter only %3A8080%2Ftoto as URL_END parameter
-#updateOSA CONTAINER_NAME OSA_SERVICE_NAME URL_END 
-updateOSA demoService Service1 %2Fdemo%2F
-updateOSA devidpserver_oidc-node_1 IdP %3A8080%2F
-updateOSA domainRegistry domainregistry %3A4567%2F
-updateOSA gReg GlobalRegistry %3A5002%2F
-updateOSA msgNode msgnode %3A9090%2F 
+#updateOSA demoService Service1 http %2Fdemo%2F
+#updateOSA oidc-node IdP https %3A8080%2F
+#updateOSA domainRegistry domainregistry http %3A4567%2F
+#updateOSA gReg GlobalRegistry http %3A5002%2F
+#updateOSA msgnode msgnode http %3A9090%2F
+#updateOSA catalogue-broker catalogue http %2F
+#updateOSA msgnode EnergyQWS http %3A8080%2Fexample%2F%2Fws
+updateOSA nostalgic_saha tk http %2F 
