@@ -4,7 +4,7 @@ services:
     image: 'rethink/msg-node-nomatrix'
     container_name: 'nomatrix'
     environment:
-      - DOMAIN=matrix2.rethink.com
+      - DOMAIN=${DOMAIN}
       - PORT=8001
       - REGISTRY=http://dev-registry-domain:4567
       - GLOBALREGISTRY=http://130.149.22.133:5002
@@ -30,7 +30,15 @@ services:
     container_name: 'catalogue-broker'
     networks:
       - rethink
-    command: [-host, catalogue-broker, -sourcePackageURLHost, catalogue.matrix2.rethink.com, -ch, catalogue-broker, -default, protocolstub/MatrixProtoStub]
+    command:
+      - -host
+      - catalogue-broker
+      - -sourcePackageURLHost
+      - catalogue.${DOMAIN}
+      - -ch
+      - catalogue-broker
+      - -default
+      - protocolstub/MatrixProtoStub
     expose:
       - '80'
       - '443'
@@ -41,7 +49,15 @@ services:
     container_name: 'catalogue-database'
     networks:
       - rethink
-    command: [-sourcePackageURLHost, catalogue.matrix2.rethink.com, -o, /catalogue-database, -ch, catalogue-database, -h, catalogue-broker/5683]
+    command:
+      - -sourcePackageURLHost
+      - catalogue.${DOMAIN}
+      - -o
+      - /catalogue-database
+      - -ch
+      - catalogue-database
+      - -h
+      - catalogue-broker/5683
     depends_on:
       - 'catalogue-broker'
     volumes:
@@ -53,14 +69,12 @@ services:
     container_name: 'toolkit'
     environment:
       - DEVELOPMENT=false
-      - RUNTIME_URL=hyperty-catalogue://catalogue.matrix2.rethink.com/.well-known/runtime/Runtime
-      - DOMAIN=matrix2.rethink.com
+      - RUNTIME_URL=hyperty-catalogue://catalogue.${DOMAIN}/.well-known/runtime/Runtime
+      - DOMAIN=${DOMAIN}
       - HYPERTY_REPO=/hyperty
     volumes:
-      # adapt pathes to dev-hyperty and toolkit
-      #- ~/work/git/rethink/dev-callcenter-app:/hyperty-toolkit
-      - ~/work/git/rethink/dev-hyperty-toolkit:/hyperty-toolkit
-      - ~/work/git/rethink/dev-hyperty:/hyperty
+      - ${TOOLKIT_PATH}:/hyperty-toolkit
+      - ${HYPERTY_PATH}:/hyperty
     networks:
       - rethink
     expose:
@@ -86,4 +100,3 @@ networks:
       config:
         - subnet: 172.18.0.0/16
           gateway: 172.18.0.1
-

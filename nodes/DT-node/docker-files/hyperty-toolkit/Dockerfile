@@ -16,6 +16,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
 
 RUN apt install -y nodejs
+RUN npm install -g live-server
 
 ADD input/start.sh /start.sh
 #RUN echo "#!/bin/sh \n export HYPERTY_REPO=hyperty \n cd /hyperty-toolkit && if [ -d ./node_modules ] then npm install; npm start; else npm start; fi || /bin/bash" > /start.sh

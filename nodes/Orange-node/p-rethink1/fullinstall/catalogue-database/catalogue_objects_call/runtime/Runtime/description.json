@@ -1,0 +1,23 @@
+{
+  "cguid": "30002",
+  "runtimeType": "browser",
+  "version": "6.0",
+  "objectName": "Runtime",
+  "description": "This is a hyperty runtime descriptor",
+  "language": "Javascript ECMA6",
+  "hypertyCapabilities": {
+    "mic": true,
+    "camera": true,
+    "sensor": false,
+    "webrtc": true,
+    "ortc": true
+  },
+  "protocolCapabilities": {
+    "http": true,
+    "https": true,
+    "ws": true,
+    "wss": true,
+    "coap": false,
+    "datachannel": false
+  }
+}

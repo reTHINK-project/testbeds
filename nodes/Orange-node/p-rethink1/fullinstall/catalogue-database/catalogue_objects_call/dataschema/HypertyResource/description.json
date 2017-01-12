@@ -1,0 +1,9 @@
+{
+  "cguid": "20004",
+  "type": "DataSchema",
+  "version": "1.0",
+  "objectName": "HypertyResource",
+  "description": "Hyperty Resource Data Schema",
+  "language": "JSON Schema",
+  "accessControlPolicy": "somePolicy"
+}

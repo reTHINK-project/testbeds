@@ -1,0 +1,16 @@
+{
+    "cguid": 10016,
+    "type": "Context",
+    "version": "0.1",
+    "objectName": "UserStatus",
+    "language": "Javascript ECMA6",
+    "description": "Hyperty with support for user presence state diffusion",
+    "dataObjects": [
+        ""
+    ],
+    "hypertyType": ["userStatus"],
+    "messageSchemas": "",
+    "configuration": {},
+    "constraints": {},
+    "policies": []
+  }

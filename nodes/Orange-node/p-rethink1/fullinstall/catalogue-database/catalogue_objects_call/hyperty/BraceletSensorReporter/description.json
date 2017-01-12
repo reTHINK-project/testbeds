@@ -1,0 +1,21 @@
+{
+  "cguid": "10017",
+  "type": "Hyperty",
+  "version": "1.0",
+  "objectName": "BraceletSensorReporter",
+  "language": "Javascript ECMA6",
+  "description": "Mi Band Reporter",
+  "dataObjects": [
+    "https://catalogue.hybroker.rethink.ptinovacao.pt/.well-known/dataschema/Context"
+  ],
+  "hypertyType": [
+      "steps",
+      "battery"
+    ],  
+  "messageSchema": "",
+  "configuration": {
+    
+  },
+  "constraints": {},
+  "policies": []
+}
