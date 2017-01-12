@@ -1,0 +1,16 @@
+{
+  "cguid": "10002",
+  "type": "Communicator",
+  "version": "1.0",
+  "objectName": "GroupChatManager",
+  "language": "Javascript ECMA6",
+  "description": "Hyperty with group chat support",
+  "dataObjects": [
+    "https://catalogue.hybroker.rethink.ptinovacao.pt/.well-known/dataschema/Communication"
+  ],
+  "hypertyType": ["chat"],
+  "messageSchema": "",
+  "configuration": {},
+  "constraints": {},
+  "policies": []
+}

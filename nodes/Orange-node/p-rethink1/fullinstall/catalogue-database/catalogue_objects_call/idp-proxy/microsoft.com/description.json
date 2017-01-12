@@ -1,0 +1,11 @@
+{
+  "cguid": "50002",
+  "version": "1.0",
+  "objectName": "microsoft.com",
+  "description": "Microsoft IDP",
+  "language": "Javascript es2015",
+  "dataObjects": [],
+  "configuration": [],
+  "constraints": [],
+  "messageSchemas": []
+}
