@@ -30,9 +30,8 @@
 
     <script src="./clientBootStrap.js"></script>
 
-    <!-- script src="./helloWorldHypertyClientBootStrap.js"></script -->
-    <script src="./WebRTCHypertyClient.js"></script>
-    <!-- script src="./connectorHypertyClientBootStrap.js"></script -->
+    <script src="./helloWorldHypertyClientBootStrap.js"></script>
+    <script src="./connectorHypertyClientBootStrap.js"></script>
 
     <!-- Le script qui crée la popup -->
     <script src="js/popup.js"></script>
@@ -61,7 +60,7 @@
         </div>
     </div>
 
- 
+
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -81,47 +80,10 @@
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
                     </li>
-					<li>
-						<button  class="btn btn-default"  onclick="toggleSettings(event);"><i  class="fa fa-cog fa-1x fa-fw"></i></button>
-					  <div id="navbar" class="collapse navbar-collapse ">
-						<div>
-						  <form class="form-horizontal" role="form" id="settings" style="display:none;" class="settings">
-							<div class="darktext form-group">
-							  <label class="col-sm-1 control-label">Stun</label>
-							  <div class="col-sm-4">
-								<input id="stun" class="form-control" value="stun.l.google.com:19302" placeholder="stun">
-							  </div>
-							  <label class="col-sm-1 control-label">Turn</label>
-							  <div class="col-sm-4">
-								<input id="turn" class="form-control" value="" size="20" placeholder="turn url">
-							  </div>
-							  <label>
-								<input type="checkbox" id="strictice">use strict</label>
-							</div>
-							<div class="darktext form-group">
-							  <label class="col-sm-1 control-label">user</label>
-							  <div class="col-sm-4">
-								<input id="turn_user" class="form-control" value="" size="10" placeholder="">
-							  </div>
-							  <label class="col-sm-1 control-label">pass</label>
-							  <div class="col-sm-4">
-								<input id="turn_pass" class="form-control" value="" size="10" type="password" />
-							  </div>
-							</div>
-							<div class="darktext form-group">
-							  <div class="col-sm-6"></div>
-							  <div class="col-sm-2">
-								<button type="submit" id="saveConfig" class="btn btn-default btn-sm">Save profile</button>
-							  </div>
-							</div>
-						  </form>
-						</div>
-					  </div>
-					</div>					
-					</li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
+        </div>
         <!-- /.container-fluid -->
     </nav>
 
@@ -252,7 +214,7 @@
     </aside>
 
     <section id="discover" class="hide">
-         <div class="container">
+        <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <h4 class="text-center">Connector Hyperty Loaded, you can now search for a correspondant or enter an Hyperty URL.</h4>
@@ -270,7 +232,7 @@
                             </div>
                             <div>
                                 <div class="input-field searchbtn">
-                                    <button id="gosearch" class="search waves-effect waves-light btn" type="submit">Search</button>
+                                    <button class="search waves-effect waves-light btn" type="submit">Search</button>
                                 </div>
                             </div>
 
@@ -278,7 +240,7 @@
                     </div>
                     <div class="input-field col-lg-6">
                         <label for="hyperty">Participant hyperty</label>
-                        <input id="input-hyperty" name="hyperty" type="text" >
+                        <input id="input-hyperty" name="hyperty" type="text" disabled="disabled">
                     </div>
                 </div>
                 <div class="loader"></div>
@@ -292,6 +254,7 @@
                 </div>
             </div>
         </div>
+    </section>
     <div id="call">
         <div class="container">
             <div class="row">
@@ -301,59 +264,28 @@
             </div>
         </div>
     </div>
+    <section id="video" class="hide">
+        <div class="container">
+            <div class="row">
+                <div class="video-holder col-lg-12">
+                    <video class="video responsive-video" autoplay></video>&nbsp;&nbsp;
+                    <video class="my-video responsive-video" muted autoplay></video>
+                    <div>
+                        <button class="camera waves-effect waves-light btn"><i class="material-icons left">videocam_off</i></button>
+                        <button class="mute waves-effect waves-light btn"><i class="material-icons left">volume_off</i></button>
+                        <button class="mic waves-effect waves-light btn"><i class="material-icons left">mic</i></button>
+                        <button class="hangout waves-effect waves-light btn"><i class="material-icons left">call_end</i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-   
-
-   <section>
-  <!-- Begin page content -->
-  <div class="main-content container">
-    <!-- <div class="main-content container-fluid"> -->
-    <div class="row">
-      <!--div class="col-sm-1"></div-->
-      <div id="content" class="content col-sm-12">
-        <div id="info">
-          <div class="hyperty-panel"></div>
-          <div class="send-panel"></div>
-          <div class="invitation-panel"></div>
-        </div>
-        <div id="video" class="row hide">
-          <div class="video-holder col-lg-12">
-            <video id="remoteVideo" class="smallVideo video responsive-video" autoplay poster="img/header.gif" ></video>
-            <video id="localVideo" class="fullVideo my-video responsive-video" muted autoplay poster="img/header.gif" ></video>
-          </div>
-          <div class="col-sm-2">
-            <fieldset class="form-fieldset">
-              <legend>local media</legend>
-              <div class="form-checkbox-set">
-                <label><input type="checkbox" id="local-video" value="1" class="form-checkbox" checked>video</label>
-              </div>
-              <div class="form-checkbox-set">
-                <label><input type="checkbox" id="local-audio" value="1" class="form-checkbox" checked>audio</label>
-              </div>
-            </fieldset>
-            <fieldset class="form-fieldset">
-              <legend>remote media</legend>
-              <div class="form-checkbox-set">
-                <label><input type="checkbox" id="remote-video" value="1" class="form-checkbox" checked>video</label>
-              </div>
-              <div class="form-checkbox-set">
-                <label><input type="checkbox" id="remote-audio" value="1" class="form-checkbox" checked>audio</label>
-              </div>
-              <button id="hangup"  class="btn btn-default btn-sm ">hangup</button>
-            </fieldset>
-          </div>
-        </div>
-      </div>
-      <!--div class="col-sm-1"></div-->
-    </div>
-  </div>
-      </section>
 
     <!-- Modal Structure -->
-    <div class="modal hide fade" id="AcceptCall">
-        <div class="modal-dialog modal-lg modal-content">
+    <div class="modal hide" id="AcceptCall">
+        <div class="modal-content">
             <h4>Call Incoming From</h4>
-            <div class="information row" id="modalinfo">
+            <div class="information row">
                 <div class="valign-wrapper">
                     <div class="col-lg-4">
                         <img src="" alt="" id="avatar" class="col-lg-12 circle">
@@ -380,8 +312,8 @@
             </div>
         </div>
         <div class="modal-footer">
-            <button  type="button" id="btn-reject" class="modal-action modal-close waves-effect waves-green btn-reject btn" data-dismiss="modal">Reject</button>
-            <button type="button" id="btn-accept" class="modal-action modal-close waves-effect waves-green btn-accept btn" data-dismiss="modal">Accept</button>
+            <button class="modal-action modal-close waves-effect waves-green btn-reject btn">Reject</button>
+            <button class="modal-action modal-close waves-effect waves-green btn-accept btn">Accept</button>
         </div>
     </div>
 
