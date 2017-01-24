@@ -2,18 +2,14 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <title>reThink - Hello World</title>
-
+    <title>reThink - Communication</title>
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom Fonts -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
@@ -23,46 +19,30 @@
 
     <!-- Plugin CSS -->
     <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
-
     <!-- Theme CSS -->
     <link href="less/creative.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
+	<!-- Rethink JS Files -->
     <script src="./clientBootStrap.js"></script>
 
-    <!-- script src="./helloWorldHypertyClientBootStrap.js"></script -->
     <script src="./WebRTCHypertyClient.js"></script>
-    <!-- script src="./connectorHypertyClientBootStrap.js"></script -->
 
-    <!-- Le script qui crée la popup -->
-    <script src="js/popup.js"></script>
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-
-
-</head>
+	<script>
+	// Load the runtime
+	registerDomain().then(function(result)
+	{
+		// if successful load hyperty Connector
+		loadHypertyConnector();
+	}).catch(function(err)
+	{
+	    console.log(err);
+	});
+	</script>
+ </head>
 
 <body id="page-top">
-    <div class="modal blur-effect" id="popup">
-        <div class="popup-content">
-            <h3>Enter the hyperty domain</h3>
-            <div>
-                <p class="para">The domain is use to host Hyerty Catalog </p>
-                <input type="text" id="domainUri" placeholder="domain url" value="call.rethink.orange-labs.fr"></input>
-                <input type="submit" id="domainOk" class="submit btn btn-default" value="ok" onclick="registerDomain()" />
-                <p class="need">You need enter domain url </p>
-                <div class="close"></div>
-            </div>
-        </div>
-    </div>
-
- 
-    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+       <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -75,9 +55,6 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a class="page-scroll" href="#portfolio">Portfolio</a>
-                    </li>
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
                     </li>
@@ -128,128 +105,13 @@
     <header>
         <div class="header-content">
             <div class="header-content-inner">
-                <h1 id="homeHeading">Welcome to the first Hyperty enabled application example</h1>
+                <h1 id="homeHeading">Welcome to the reThink communication center</h1>
                 <hr>
-                <p>Discover a sample of one use rethink </p>
-                <a href="#portfolio" class="btn btn-primary btn-xl page-scroll">Go try</a>
+                <p>WebRTC and Hyperty based application </p>
+                <a href="#discover" class="btn btn-primary btn-xl page-scroll">Go...</a>
             </div>
         </div>
     </header>
-
-
-    <section class="no-padding" id="portfolio">
-        <div class="container-fluid">
-            <div class="row no-gutter">
-                <!--  <div class="row no-gutter popup-gallery">-->
-                <div class="col-lg-4 col-sm-6">
-                    <a onclick="loadHypertyObs()" class="portfolio-box disable" id="LoadObserverHyperty">
-                        <!--  <img src="img/portfolio/thumbnails/1.jpg" class="img-responsive" alt=""> -->
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Step One
-                                </div>
-                                <div class="project-name">
-                                    Load an Observer Hyperty
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a onclick="loadHypertyRep()" class="portfolio-box" id="LoadReporterHyperty">
-                        <!-- <img src="img/portfolio/thumbnails/2.jpg" class="img-responsive" alt=""> -->
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Step Two
-                                </div>
-                                <div class="project-name">
-                                    Load a Reporter Hyperty
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a onclick="sayHelloToLocalHyperty()" class="portfolio-box disable" id="HelloToLocal">
-                        <!--<img src="img/portfolio/thumbnails/3.jpg" class="img-responsive" alt=""> -->
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Step Three
-                                </div>
-                                <div class="project-name">
-                                    Say "Hello" to a local Hyperty
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a onclick="fillSayHelloToRemoteHyperty()" class="portfolio-box disable">
-                        <!-- <img src="img/portfolio/thumbnails/4.jpg" class="img-responsive" alt=""> -->
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Step Four
-                                </div>
-                                <div class="project-name">
-                                    Say "Hello" to a remote Hyperty
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a onclick="sayByeToHyperty()" class="portfolio-box disable">
-                        <!--<img src="img/portfolio/thumbnails/5.jpg" class="img-responsive" alt="">-->
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Step Five
-                                </div>
-                                <div class="project-name">
-                                    Say "Bye" to a remote Hyperty
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a onclick="loadHypertyConnector()" class="portfolio-box disable" id="LoadConnectorHyperty">
-                        <!--  <img src="img/portfolio/thumbnails/1.jpg" class="img-responsive" alt=""> -->
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Extra Step
-                                </div>
-                                <div class="project-name">
-                                    Load a Connector Hyperty
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <aside class="bg-dark">
-        <div class="container text-center">
-            <div class="action-panel">
-                <h2>Actions </h2>
-                <div id="actiondown"> </div>
-            </div>
-        </div>
-        <br>
-        <div class="container text-center">
-            <div class="call-to-action">
-                <h2>Console Logs :</h2>
-
-            </div>
-        </div>
-    </aside>
 
     <section id="discover" class="hide">
          <div class="container">
@@ -302,7 +164,6 @@
         </div>
     </div>
     </section>
-   
 
    <section>
   <!-- Begin page content -->
@@ -348,6 +209,23 @@
     </div>
   </div>
       </section>
+ 
+    <aside class="bg-dark">
+        <div class="container text-center">
+            <div class="action-panel">
+                <h2>Actions </h2>
+                <div id="actiondown"> </div>
+            </div>
+        </div>
+        <br>
+        <div class="container text-center">
+            <div class="call-to-action">
+                <h2>Console Logs :</h2>
+
+            </div>
+        </div>
+    </aside>
+  
 
     <!-- Modal Structure -->
     <div class="modal hide fade" id="AcceptCall">
