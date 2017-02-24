@@ -5,7 +5,7 @@ services:
     container_name: 'msg-node-vertx'
     environment:
       - MSG_NODE_CONFIG=env
-      - NODE_DOMAIN=hysmart.rethink.ptinovacao.pt
+      - NODE_DOMAIN=localhost
       - NODE_PORT=9090
       - NODE_REGISTRY_URL=http://172.18.0.4:4567
       - NODE_GLOBAL_REGISTRY_URL=http://130.149.22.133:5002
@@ -17,7 +17,7 @@ services:
       - '9090'
 
   'domain-registry':
-    image: rethink/registry-domain-server
+    image: 'rethink/registry-domain-server:develop'
     container_name: 'domain-registry'
     networks:
       rethink:
@@ -35,8 +35,8 @@ services:
     networks:
       rethink:
         ipv4_address: 172.18.0.8
-    hostname: 'catalogue.hysmart.rethink.ptinovacao.pt'
-    command: [-host, 'catalogue.hysmart.rethink.ptinovacao.pt', -default, protocolstub/VertxProtoStub]
+    hostname: 'catalogue.localhost'
+    command: [-host, 'catalogue.localhost', -default, protocolstub/VertxProtoStub]
     expose:
       - '443'
       - '5683'
@@ -45,7 +45,7 @@ services:
     build: "./catalogue-database"
     container_name: 'catalogue-database-ptinovacao'
     network_mode: "service:catalogue-broker"
-    command: [-host, catalogue.hysmart.rethink.ptinovacao.pt]
+    command: [-host, catalogue.localhost]
     depends_on:
       - 'catalogue-broker'
 
@@ -65,8 +65,8 @@ services:
     container_name: 'hyperty-toolkit'
     environment:
       - DEVELOPMENT=false
-      - RUNTIME_URL=hyperty-catalogue://catalogue.hysmart.rethink.ptinovacao.pt/.well-known/runtime/Runtime
-      - DOMAIN=hysmart.rethink.ptinovacao.pt
+      - RUNTIME_URL=hyperty-catalogue://catalogue.localhost/.well-known/runtime/Runtime
+      - DOMAIN=localhost
       - HYPERTY_REPO=/tmp/dev-hyperty
     volumes:
       - ../dev-hyperty:/tmp/dev-hyperty
