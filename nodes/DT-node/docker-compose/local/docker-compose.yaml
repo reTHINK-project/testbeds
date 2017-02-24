@@ -12,9 +12,14 @@ services:
       - rethink
     expose:
       - '8001'
+    #volumes:
+    #  - /home/steffen/work/git/rethink/dev-msg-node-nomatrix:/opt/volume/nomatrix
+    #entrypoint: /bin/bash
+
 
   'dev-registry-domain':
     image: rethink/registry-domain-server
+    build: '~/work/git/rethink/dev-registry-domain/server'
     container_name: 'dev-registry-domain'
     networks:
       - rethink
@@ -71,7 +76,7 @@ services:
       - DEVELOPMENT=false
       - RUNTIME_URL=hyperty-catalogue://catalogue.${DOMAIN}/.well-known/runtime/Runtime
       - DOMAIN=${DOMAIN}
-      - HYPERTY_REPO=/hyperty
+      - HYPERTY_REPO=../hyperty
     volumes:
       - ${TOOLKIT_PATH}:/hyperty-toolkit
       - ${HYPERTY_PATH}:/hyperty
