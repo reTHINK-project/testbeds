@@ -1,0 +1,19 @@
+{
+    "cguid": "1-217b767d-8d6e-6bd1-452a-c531125fd12214",
+    "version": 0.2,
+    "description": "Description of RoomServer",
+    "language": "Javascript",
+    "hypertyType": [],
+    "constraints": {
+      "node": false,
+      "browser": true
+    },
+    "objectName": "RoomServer",
+    "configuration": {},
+    "messageSchemas": "",
+    "dataObjects": [
+      "https://catalogue.hybroker.rethink.ptinovacao.pt/.well-known/dataschema/Communication"
+    ],
+    "signature": "",
+    "accessControlPolicy": "somePolicy"
+  }

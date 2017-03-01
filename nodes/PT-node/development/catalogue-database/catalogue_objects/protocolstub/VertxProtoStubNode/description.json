@@ -1,0 +1,16 @@
+{
+  "cguid": "4-7f874d01-d294-eeb7-35be-c678e9464c471",
+  "version": 0.2,
+  "description": "Description of VertxProtoStubNode",
+  "language": "Javascript",
+  "type": "ProtoStubs",
+  "objectName": "VertxProtoStubNode",
+  "configuration": {
+    "url": "wss://msg-node.localhost:9090/ws"
+  },
+  "messageSchemas": "",
+  "signature": "",
+  "accessControlPolicy": "somePolicy",
+  "constraints": "",
+  "dataObjects": []
+  }
