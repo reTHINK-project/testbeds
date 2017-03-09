@@ -6,10 +6,10 @@
     "type": "ProtoStubs",
     "objectName": "slack.slack.com",
     "configuration": {},
-    "messageSchemas": "",
+    "messageSchemas": [],
     "signature": "",
     "interworking": true,
     "accessControlPolicy": "somePolicy",
-    "constraints": {"browser":true},
+    "constraints": {"browser":true,"windowSandbox":true,"node":false,"mic":true,"camera":true},
     "dataObjects": []
   }
