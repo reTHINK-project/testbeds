@@ -11,6 +11,6 @@
   "messageSchemas": "",
   "signature": "",
   "accessControlPolicy": "somePolicy",
-  "constraints": "",
+  "constraints": {"node": true},
   "dataObjects": []
   }
