@@ -5,7 +5,9 @@
     "description": "Description of IdpProxyStub",
     "objectName": "google.com",
     "configuration": {},
-    "constraints": {},
+    "constraints": {
+      "browser": true
+    },
     "sourcePackageURL": "/sourcePackage",
     "language": "javascript",
     "signature": "",

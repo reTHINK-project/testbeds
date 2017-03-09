@@ -10,7 +10,7 @@
     "configuration": {
       "url": "wss://msg-node.localhost:9090/ws"
     },
-    "constraints": {"browser": true},
+    "constraints": {"browser":true,"windowSandbox":true,"node":false,"mic":true,"camera":true},
     "hypertyCapabilities": [],
     "protocolCapabilities": [],
     "policies": [],

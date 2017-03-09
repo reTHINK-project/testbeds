@@ -10,6 +10,6 @@
     "signature": "",
     "interworking": true,
     "accessControlPolicy": "somePolicy",
-    "constraints": {},
+    "constraints": {"browser":true},
     "dataObjects": []
   }
