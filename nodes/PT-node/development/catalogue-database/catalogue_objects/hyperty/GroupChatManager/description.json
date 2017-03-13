@@ -11,6 +11,6 @@
   "hypertyType": ["chat"],
   "messageSchema": "",
   "configuration": {},
-  "constraints": {},
+  "constraints": {"browser":true,"windowSandbox":true,"node":false,"mic":true,"camera":true},
   "policies": []
 }
