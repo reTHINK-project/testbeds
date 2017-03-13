@@ -103,7 +103,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	   * @param  {ProtoStubDescriptor.ConfigurationDataList} configuration      configuration
 	   */
 	  function MatrixProtoStub(runtimeProtoStubURL, miniBus, configuration) {
-	    var _this = this;
+	    var _this2 = this;
 
 	    _classCallCheck(this, MatrixProtoStub);
 
@@ -114,10 +114,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    this._identity = null;
 	    this._ws = null;
 	    this._bus.addListener('*', function (msg) {
-	      _this._assumeOpen = true;
-	      _this._sendWSMsg(msg);
+	      _this2._assumeOpen = true;
+	      _this2._sendWSMsg(msg);
 	    });
 	    this._assumeOpen = false;
+	    this._sendStatus("created");
 	  }
 
 	  /**
@@ -130,36 +131,57 @@ return /******/ (function(modules) { // webpackBootstrap
 	  _createClass(MatrixProtoStub, [{
 	    key: "connect",
 	    value: function connect(identity) {
-	      var _this2 = this;
+	      var _this3 = this;
 
 	      this._identity = identity;
 	      this._assumeOpen = true;
 
 	      return new Promise(function (resolve, reject) {
 
-	        if (_this2._ws && _this2._ws.readyState === 1) {
-	          resolve(_this2._ws);
+	        if (_this3._ws && _this3._ws.readyState === 1) {
+	          resolve(_this3._ws);
 	          return;
 	        }
 
-	        // create socket to the MN
-	        _this2._ws = new WebSocket(_this2._configuration.messagingnode + "?runtimeURL=" + encodeURIComponent(_this2._runtimeURL));
-	        _this2._ws.onmessage = function (m) {
-	          _this2._onWSMessage(m);
-	        };
-	        _this2._ws.onclose = function () {
-	          _this2._onWSClose();
-	        };
-	        _this2._ws.onerror = function () {
-	          _this2._onWSError();
-	        };
-
-	        _this2._ws.onopen = function () {
-	          _this2._onWSOpen();
-	          // resolve if not rejected
-	          resolve();
-	        };
+	        // connect if not initialized or in CLOSED state
+	        if (!_this3._ws || _this3._ws.readyState === 3) {
+	          _this3._sendStatus("in-progress");
+	          // create socket to the MN
+	          _this3._ws = new WebSocket(_this3._configuration.messagingnode + "?runtimeURL=" + encodeURIComponent(_this3._runtimeURL));
+	          _this3._ws.onmessage = function (m) {
+	            _this3._onWSMessage(m);
+	          };
+	          _this3._ws.onclose = function () {
+	            _this3._onWSClose();
+	          };
+	          _this3._ws.onerror = function () {
+	            _this3._onWSError();
+	          };
+	          _this3._ws.onopen = function () {
+	            _this3._waitReady(function () {
+	              _this3._onWSOpen();
+	              resolve();
+	            });
+	          };
+	        } else if (_this3._ws.readyState === 0) {
+	          // CONNECTING --> wait for CONNECTED
+	          _this3._waitReady(function () {
+	            resolve();
+	          });
+	        }
 	      });
+	    }
+	  }, {
+	    key: "_waitReady",
+	    value: function _waitReady(callback) {
+	      var _this = this;
+	      if (this._ws.readyState === 1) {
+	        callback();
+	      } else {
+	        setTimeout(function () {
+	          _this._waitReady(callback);
+	        });
+	      }
 	    }
 
 	    /**
@@ -195,12 +217,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: "_sendWSMsg",
 	    value: function _sendWSMsg(msg) {
-	      var _this3 = this;
+	      var _this4 = this;
 
+	      console.log("+[MatrixProtoStub] [_sendWSMsg] ", msg);
 	      if (this._filter(msg)) {
-	        if (this._assumeOpen) this.connect().then(function () {
-	          _this3._ws.send(JSON.stringify(msg));
-	        });
+	        if (this._assumeOpen) {
+	          this.connect().then(function () {
+	            // 2017-03-08: adding via header also to outgoing messages
+	            msg.body.via = _this4._runtimeProtoStubURL;
+	            _this4._ws.send(JSON.stringify(msg));
+	          });
+	        }
 	      }
 	    }
 	  }, {
@@ -217,13 +244,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	      if (reason) {
 	        msg.body.desc = reason;
 	      }
-
+	      console.log("+[MatrixProtoStub] [_sendStatus]", msg);
 	      this._bus.postMessage(msg);
 	    }
 	  }, {
 	    key: "_onWSOpen",
 	    value: function _onWSOpen() {
-	      this._sendStatus("connected");
+	      this._sendStatus("live");
 	    }
 
 	    /**
@@ -245,19 +272,22 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: "_onWSMessage",
 	    value: function _onWSMessage(msg) {
-	      this._deliver(JSON.parse(msg.data));
-	      // this._bus.postMessage(JSON.parse(msg.data));
+	      // 2017-03-08: filter also incoming messages for via header
+	      if (this._filter(msg)) {
+	        this._deliver(JSON.parse(msg.data));
+	      }
 	    }
 	  }, {
 	    key: "_onWSClose",
 	    value: function _onWSClose() {
-	      //console.log("+[MatrixProtoStub] [_onWSClose] websocket closed");
+	      console.log("+[MatrixProtoStub] [_onWSClose] websocket closed");
 	      this._sendStatus("disconnected");
 	    }
 	  }, {
 	    key: "_onWSError",
 	    value: function _onWSError(err) {
-	      // console.log("+[MatrixProtoStub] [_onWSError] websocket error: " + err);
+	      console.log("+[MatrixProtoStub] [_onWSError] websocket error: " + err);
+	      this._sendStatus("failed", err);
 	    }
 	  }]);
 
