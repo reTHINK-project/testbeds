@@ -15,5 +15,6 @@
     "protocolCapabilities": [],
     "policies": [],
     "dataObjects": [],
-    "accessControlPolicy": "somePolicy"
+    "accessControlPolicy": "somePolicy",
+    "interworking": false
   }

@@ -11,11 +11,11 @@
   "hypertyType": [
       "steps",
       "battery"
-    ],  
+    ],
   "messageSchema": "",
   "configuration": {
-    
+
   },
-  "constraints": {},
+  "constraints": {"browser":true},
   "policies": []
 }

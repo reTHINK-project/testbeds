@@ -8,9 +8,10 @@
   "configuration": {
     "url": "wss://msg-node.localhost:9090/ws"
   },
-  "messageSchemas": "",
+  "messageSchemas": [],
   "signature": "",
   "accessControlPolicy": "somePolicy",
   "constraints": {"node": true},
-  "dataObjects": []
+  "dataObjects": [],
+  "interworking": false
   }

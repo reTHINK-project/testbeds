@@ -7,12 +7,10 @@
       "audio",
       "video"
     ],
-    "constraints": {
-      "browser": true
-    },
+    "constraints": {"browser":true,"windowSandbox":true,"node":false,"mic":true,"camera":true},
     "objectName": "QBWebRTC",
     "configuration": {},
-    "messageSchemas": "",
+    "messageSchemas": [],
     "dataObjects": [
       "https://catalogue.rethink.quobis.com/.well-known/dataschema/Connection"
     ],
