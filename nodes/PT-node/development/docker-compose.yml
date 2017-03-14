@@ -5,7 +5,7 @@ services:
     container_name: 'msg-node-vertx'
     environment:
       - MSG_NODE_CONFIG=env
-      - NODE_DOMAIN=msg-node.hysmart.rethink.ptinovacao.pt
+      - NODE_DOMAIN=hysmart.rethink.ptinovacao.pt
       - NODE_PORT=9090
       - NODE_REGISTRY_URL=http://172.18.0.4:4567
       - NODE_GLOBAL_REGISTRY_URL=http://130.149.22.133:5002
