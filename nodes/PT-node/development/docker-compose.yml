@@ -80,7 +80,7 @@ services:
       - 'hyperty-database'
 
   'hyperty-database':
-    image: hyperty-database
+    image: 'rethink/dev-hyperty:develop'
     container_name: 'hyperty-database'
     volumes:
       - devHypertyVolume:/opt/reTHINK/dev-hyperty/
