@@ -6,7 +6,7 @@
   "language": "Javascript ECMA6",
   "description": "Hyperty with group chat support",
   "dataObjects": [
-    "https://catalogue.hysmart.rethink.ptinovacao.pt/.well-known/dataschema/Communication"
+    "https://catalogue.rethink-dev.tlabscloud.com/.well-known/dataschema/Communication"
   ],
   "hypertyType": ["chat"],
   "messageSchema": "",

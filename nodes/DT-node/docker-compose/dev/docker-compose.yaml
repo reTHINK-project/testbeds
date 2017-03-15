@@ -16,6 +16,7 @@ services:
 
   'dev-registry-domain':
     image: rethink/registry-domain-server
+    build: /opt/rethink/dev-registry-domain/server
     container_name: 'dev-registry-domain'
     networks:
       - rethink
@@ -34,7 +35,7 @@ services:
     container_name: 'catalogue-broker'
     networks:
       - rethink
-    command: [-host, catalogue-broker, -sourcePackageURLHost, catalogue.rethink-dev.tlabscloud.com, -ch, catalogue-broker]
+    command: [-host, catalogue-broker, -sourcePackageURLHost, catalogue.rethink-dev.tlabscloud.com, -ch, catalogue-broker, -default, protocolstub/MatrixProtoStub]
     expose:
       - '80'
       - '443'
@@ -72,6 +73,18 @@ services:
     # external port that will be used by the reverse proxy 
     ports:
       - '8080:8080'
+
+  'umbrella':
+    build: '/opt/rethink/umbrella/docker'
+    image: 'rethink/umbrella'
+    container_name: 'umbrella'
+    volumes:
+      - /opt/rethink/umbrella:/opt/rethink/umbrella
+    networks:
+      - rethink
+    # external port that will be used by the reverse proxy 
+    ports:
+      - '8081:8080'
 
 networks:
   rethink:
