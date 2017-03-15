@@ -11,6 +11,6 @@
     "hypertyType": ["surveyObserver"],
     "messageSchemas": "",
     "configuration": {},
-    "constraints": {},
+    "constraints": {"browser":true},
     "policies": []
   }

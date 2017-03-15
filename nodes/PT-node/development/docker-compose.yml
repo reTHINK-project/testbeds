@@ -17,7 +17,7 @@ services:
       - '9090'
 
   'domain-registry':
-    image: rethink/registry-domain-server
+    image: 'rethink/registry-domain-server:develop'
     container_name: 'domain-registry'
     networks:
       rethink:
@@ -29,25 +29,26 @@ services:
       - '4568'
       - '4567'
 
-  'catalogue-broker':
-    image: rethink/catalogue-broker
-    container_name: 'catalogue-broker'
-    networks:
-      rethink:
-        ipv4_address: 172.18.0.8
-    hostname: 'catalogue.hysmart.rethink.ptinovacao.pt'
-    command: [-host, 'catalogue.hysmart.rethink.ptinovacao.pt', -default, protocolstub/VertxProtoStub]
-    expose:
-      - '443'
-      - '5683'
-
-  'catalogue-database-ptinovacao':
-    build: "./catalogue-database"
-    container_name: 'catalogue-database-ptinovacao'
-    network_mode: "service:catalogue-broker"
-    command: [-host, catalogue.hysmart.rethink.ptinovacao.pt]
-    depends_on:
-      - 'catalogue-broker'
+  # 'catalogue-broker':
+  #   image: rethink/catalogue-broker
+  #   container_name: 'catalogue-broker'
+  #   networks:
+  #     rethink:
+  #       ipv4_address: 172.18.0.8
+  #   hostname: 'catalogue.localhost'
+  #   command: [-host, 'catalogue.localhost', -default, protocolstub/VertxProtoStub, -default, protocolstub/VertxProtoStubNode]
+  #
+  #   expose:
+  #     - '443'
+  #     - '5683'
+  #
+  # 'catalogue-database-ptinovacao':
+  #   build: "./catalogue-database"
+  #   container_name: 'catalogue-database-ptinovacao'
+  #   network_mode: "service:catalogue-broker"
+  #   command: [-host, catalogue.localhost]
+  #   depends_on:
+  #     - 'catalogue-broker'
 
 #  'global-registry'
 #    build: 'rethink/global-registry'
@@ -69,12 +70,24 @@ services:
       - DOMAIN=hysmart.rethink.ptinovacao.pt
       - HYPERTY_REPO=/tmp/dev-hyperty
     volumes:
-      - ../dev-hyperty:/tmp/dev-hyperty
+      - devHypertyVolume:/tmp/dev-hyperty
     networks:
       rethink:
         ipv4_address: 172.18.0.32
     expose:
       - '443'
+    depends_on:
+      - 'hyperty-database'
+
+  'hyperty-database':
+    image: 'rethink/dev-hyperty:develop'
+    container_name: 'hyperty-database'
+    volumes:
+      - devHypertyVolume:/opt/reTHINK/dev-hyperty/
+
+volumes:
+    devHypertyVolume:
+
 
 networks:
   rethink:

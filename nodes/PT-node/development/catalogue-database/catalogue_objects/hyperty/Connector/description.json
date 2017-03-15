@@ -9,7 +9,7 @@
     "https://catalogue.hybroker.rethink.ptinovacao.pt/.well-known/dataschema/Connection"
   ],
   "hypertyType": ["audio", "video"],
-  "messageSchema": "",
+  "messageSchema": [],
   "configuration": {
     "webrtc": {
       "iceServers": [{
@@ -53,6 +53,6 @@
            }]
     }
   },
-  "constraints": {},
+  "constraints": {"browser":true,"windowSandbox":true,"mic":true,"camera":true},
   "policies": []
 }

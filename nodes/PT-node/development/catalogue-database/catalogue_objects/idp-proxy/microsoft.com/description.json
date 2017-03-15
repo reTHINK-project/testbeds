@@ -1,11 +1,14 @@
 {
-  "cguid": "53512",
-  "version": "1.0",
-  "objectName": "microsoft.com",
-  "description": "Microsoft IDP",
-  "language": "Javascript es2015",
-  "dataObjects": [],
-  "configuration": [],
-  "constraints": [],
-  "messageSchemas": []
+    "cguid": "5-c60b485c-b767-8be0-7f1f-64296e7bff4a1",
+    "type": "IDPProxys",
+    "version": 0.2,
+    "description": "Description of MicrosoftProxyStub",
+    "objectName": "microsoft.com",
+    "configuration": {},
+    "constraints": {},
+    "language": "javascript",
+    "signature": "",
+    "messageSchemas": [],
+    "dataObjects": [],
+    "accessControlPolicy": "somePolicy"
 }

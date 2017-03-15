@@ -9,8 +9,8 @@
         "https://catalogue.hybroker.rethink.ptinovacao.pt/.well-known/dataschema/Communication"
     ],
     "hypertyType": ["chat"],
-    "messageSchemas": "",
-    "configuration": {},
+    "messageSchemas": [],
+    "configuration": {"browser":true},
     "constraints": {},
     "policies": []
   }

@@ -425,7 +425,9 @@ body {
   webkit-tap-highlight-color: #222222;
 }
 #rethink {
-/*  display: none !important;*/
+	position: fixed !important;
+    height: 50% !important; 
+	background: #555555 !important;
 }
 .modal {
   position: fixed;
@@ -530,4 +532,8 @@ body {
 }
 .modal#AcceptCall {
   height: 265px;
+}
+
+.card-content {
+    background-color: #9c9c9c !important;
 }
