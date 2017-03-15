@@ -5,7 +5,7 @@ services:
     container_name: 'msg-node-vertx'
     environment:
       - MSG_NODE_CONFIG=env
-      - NODE_DOMAIN=localhost
+      - NODE_DOMAIN=hysmart.rethink.ptinovacao.pt
       - NODE_PORT=9090
       - NODE_REGISTRY_URL=http://172.18.0.4:4567
       - NODE_GLOBAL_REGISTRY_URL=http://130.149.22.133:5002
@@ -29,26 +29,26 @@ services:
       - '4568'
       - '4567'
 
-  'catalogue-broker':
-    image: rethink/catalogue-broker
-    container_name: 'catalogue-broker'
-    networks:
-      rethink:
-        ipv4_address: 172.18.0.8
-    hostname: 'catalogue.localhost'
-    command: [-host, 'catalogue.localhost', -default, protocolstub/VertxProtoStub, -default, protocolstub/VertxProtoStubNode]
-
-    expose:
-      - '443'
-      - '5683'
-
-  'catalogue-database-ptinovacao':
-    build: "./catalogue-database"
-    container_name: 'catalogue-database-ptinovacao'
-    network_mode: "service:catalogue-broker"
-    command: [-host, catalogue.localhost]
-    depends_on:
-      - 'catalogue-broker'
+  # 'catalogue-broker':
+  #   image: rethink/catalogue-broker
+  #   container_name: 'catalogue-broker'
+  #   networks:
+  #     rethink:
+  #       ipv4_address: 172.18.0.8
+  #   hostname: 'catalogue.localhost'
+  #   command: [-host, 'catalogue.localhost', -default, protocolstub/VertxProtoStub, -default, protocolstub/VertxProtoStubNode]
+  #
+  #   expose:
+  #     - '443'
+  #     - '5683'
+  #
+  # 'catalogue-database-ptinovacao':
+  #   build: "./catalogue-database"
+  #   container_name: 'catalogue-database-ptinovacao'
+  #   network_mode: "service:catalogue-broker"
+  #   command: [-host, catalogue.localhost]
+  #   depends_on:
+  #     - 'catalogue-broker'
 
 #  'global-registry'
 #    build: 'rethink/global-registry'
@@ -66,16 +66,28 @@ services:
     container_name: 'hyperty-toolkit'
     environment:
       - DEVELOPMENT=false
-      - RUNTIME_URL=hyperty-catalogue://catalogue.localhost/.well-known/runtime/Runtime
-      - DOMAIN=localhost
+      - RUNTIME_URL=hyperty-catalogue://catalogue.hysmart.rethink.ptinovacao.pt/.well-known/runtime/Runtime
+      - DOMAIN=hysmart.rethink.ptinovacao.pt
       - HYPERTY_REPO=/tmp/dev-hyperty
     volumes:
-      - ../dev-hyperty:/tmp/dev-hyperty
+      - devHypertyVolume:/tmp/dev-hyperty
     networks:
       rethink:
         ipv4_address: 172.18.0.32
     expose:
       - '443'
+    depends_on:
+      - 'hyperty-database'
+
+  'hyperty-database':
+    image: 'rethink/dev-hyperty:develop'
+    container_name: 'hyperty-database'
+    volumes:
+      - devHypertyVolume:/opt/reTHINK/dev-hyperty/
+
+volumes:
+    devHypertyVolume:
+
 
 networks:
   rethink:

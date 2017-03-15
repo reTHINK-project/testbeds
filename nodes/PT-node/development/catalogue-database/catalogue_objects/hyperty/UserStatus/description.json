@@ -9,8 +9,8 @@
         "https://catalogue.hybroker.rethink.ptinovacao.pt/.well-known/dataschema/Context"
     ],
     "hypertyType": ["userStatus"],
-    "messageSchemas": "",
+    "messageSchemas": [],
     "configuration": {},
-    "constraints": {},
+    "constraints": {"browser":true},
     "policies": []
   }

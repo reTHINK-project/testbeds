@@ -7,10 +7,7 @@
       "audio",
       "video"
     ],
-    "constraints": {
-      "node": false,
-      "browser": true
-    },
+    "constraints": {"node":true},
     "objectName": "NodeHypertyObserver",
     "configuration": {},
     "messageSchemas": "",
