@@ -15,6 +15,7 @@ services:
 
   'dev-registry-domain':
     image: rethink/registry-domain-server
+    build: /opt/rethink/dev-registry-domain/server
     container_name: 'dev-registry-domain'
     networks:
       - rethink
