@@ -1,4 +1,4 @@
-FROM rethink/catalogue-database-rethinkdefault
+FROM rethink/catalogue-database-rethinkdefault:dev
 MAINTAINER vitor-t-silva@telecom.pt
 
 #

@@ -10,7 +10,7 @@
     ],
     "hypertyType": ["chat"],
     "messageSchemas": [],
-    "configuration": {"browser":true},
-    "constraints": {},
+    "configuration": {},
+    "constraints": {"browser":true},
     "policies": []
   }

@@ -5,7 +5,7 @@
     "description": "Description of MicrosoftProxyStub",
     "objectName": "microsoft.com",
     "configuration": {},
-    "constraints": {},
+    "constraints": {"browser":true},
     "language": "javascript",
     "signature": "",
     "messageSchemas": [],

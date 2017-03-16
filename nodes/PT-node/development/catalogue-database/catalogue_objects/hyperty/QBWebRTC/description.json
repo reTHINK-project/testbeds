@@ -7,7 +7,7 @@
       "audio",
       "video"
     ],
-    "constraints": {"browser":true,"windowSandbox":true,"node":false,"mic":true,"camera":true},
+    "constraints": {"browser":true,"windowSandbox":true,"mic":true,"camera":true},
     "objectName": "QBWebRTC",
     "configuration": {},
     "messageSchemas": [],

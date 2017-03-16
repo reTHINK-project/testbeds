@@ -10,6 +10,6 @@
     "signature": "",
     "interworking": true,
     "accessControlPolicy": "somePolicy",
-    "constraints": {"browser":true,"windowSandbox":true,"node":false,"mic":true,"camera":true},
+    "constraints": {"browser":true},
     "dataObjects": []
   }

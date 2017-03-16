@@ -11,7 +11,7 @@
     "messageSchemas": "",
     "signature": "",
     "accessControlPolicy": "somePolicy",
-    "constraints": {},
+    "constraints": {"browser":true},
     "dataObjects": [],
     "interworking": true
 }
