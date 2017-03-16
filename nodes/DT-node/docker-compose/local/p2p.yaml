@@ -1,0 +1,57 @@
+version: '2'
+services:
+#  'vertx':
+#    build: '~/work/git/rethink/playground/dev-msg-node-vertx'
+#    container_name: 'msg-node-vertx-local'
+#    environment:
+#      - MSG_NODE_CONFIG=env
+#      - NODE_DOMAIN=localhost
+#      - NODE_PORT=9090
+#      - NODE_REGISTRY_URL=http://dev-registry-domain:4567
+#      - NODE_GLOBAL_REGISTRY_URL=http://130.149.22.133:5002
+#    networks:
+#      - rethink
+#    ports:
+#      - '9090:9090'
+
+  'nomatrix':
+    image: 'rethink/msg-node-nomatrix'
+    build: '~/work/git/rethink/dev-msg-node-nomatrix'
+    container_name: 'nomatrix'
+    environment:
+      - DOMAIN=localhost
+      - PORT=8001
+      - REGISTRY=http://dev-registry-domain:4567
+      - GLOBALREGISTRY=http://130.149.22.133:5002
+    networks:
+      - rethink
+    ports:
+      - '8001:8001'
+    #volumes:
+    #  - /home/steffen/work/git/rethink/dev-msg-node-nomatrix:/opt/volume/nomatrix
+    #entrypoint: /bin/bash
+
+
+  'registry':
+    image: rethink/registry-domain-server
+    container_name: 'dev-registry-domain'
+    networks:
+      - rethink
+    environment:
+      - STORAGE_TYPE=RAM
+      - EXPIRES=3600
+    expose:
+      - '4568'
+      - '4567'
+    ports:
+      - '4567:4567'
+
+
+networks:
+  rethink:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.18.0.0/16
+          gateway: 172.18.0.1

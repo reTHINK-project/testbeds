@@ -1,7 +1,7 @@
 {
   "cguid": "54001",
   "version": "1.0",
-  "objectName": "default",
+  "objectName": "MatrixProtoStub",
   "description": "This is a default (No)Matrix protocolstub (w:orks for Matrix and NoMatrix MNs)",
   "language": "Javascript ECMA6",
   "dataObjects": [],

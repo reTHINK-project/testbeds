@@ -1,11 +1,15 @@
 {
-  "cguid": "53511",
-  "version": "1.0",
-  "objectName": "google.com",
-  "description": "Google IDP",
-  "language": "Javascript es2015",
-  "dataObjects": [],
-  "configuration": [],
-  "constraints": [],
-  "messageSchemas": []
+    "cguid": "5-f0a2f14b-282b-c954-ff17-1f0ebfb71daf2",
+    "type": "IDPProxys",
+    "version": 0.2,
+    "description": "Description of IdpProxyStub",
+    "objectName": "google.com",
+    "configuration": {},
+    "constraints": {"browser":true,"windowSandbox":true,"node":false,"mic":true,"camera":true},
+    "sourcePackageURL": "/sourcePackage",
+    "language": "javascript",
+    "signature": "",
+    "messageSchemas": [],
+    "dataObjects": [],
+    "accessControlPolicy": "somePolicy"
 }

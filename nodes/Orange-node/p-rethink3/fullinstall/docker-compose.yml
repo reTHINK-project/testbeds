@@ -1,0 +1,28 @@
+version: '2'
+services:
+  'contactapp':
+    build: '../dev-contactapp'
+    container_name: 'contactapp'
+    networks:
+      rethink:
+        ipv4_address: 172.19.0.2
+    expose:
+      - '3000'
+   
+  'mongoContact':
+    image: mongo
+    networks:
+      rethink:
+        ipv4_address: 172.19.0.3
+    ports:
+     - "27017"
+
+
+networks:
+  rethink:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.19.0.0/16
+          gateway: 172.19.0.1

@@ -1,0 +1,121 @@
+version: '2'
+services:
+#  'nomatrix':
+#    image: 'rethink/msg-node-nomatrix'
+#    container_name: 'nomatrix'
+#    environment:
+#      - DOMAIN=${DOMAIN}
+#      - PORT=8001
+#      - REGISTRY=http://dev-registry-domain:4567
+#      - GLOBALREGISTRY=http://130.149.22.133:5002
+#    networks:
+#      - rethink
+#    expose:
+#      - '8001'
+#    #volumes:
+#    #  - /home/steffen/work/git/rethink/dev-msg-node-nomatrix:/opt/volume/nomatrix
+#    #entrypoint: /bin/bash
+
+  'vertx':
+    build: '~/work/git/rethink/playground/dev-msg-node-vertx'
+    container_name: 'msg-node-vertx-local'
+    environment:
+      - MSG_NODE_CONFIG=env
+      - NODE_DOMAIN=localhost
+      - NODE_PORT=9090
+      - NODE_REGISTRY_URL=http://dev-registry-domain:4567
+      - NODE_GLOBAL_REGISTRY_URL=http://130.149.22.133:5002
+    networks:
+      - rethink
+    ports:
+      - '9090:9090'
+
+
+  'dev-registry-domain':
+    image: rethink/registry-domain-server
+    build: '~/work/git/rethink/dev-registry-domain/server'
+    container_name: 'dev-registry-domain'
+    networks:
+      - rethink
+    environment:
+      - STORAGE_TYPE=RAM
+      - EXPIRES=3600
+    expose:
+      - '4568'
+      - '4567'
+
+  'catalogue-broker':
+    image: rethink/catalogue-broker
+    container_name: 'catalogue-broker'
+    networks:
+      - rethink
+    command:
+      - -host
+      - catalogue-broker
+      - -sourcePackageURLHost
+      - catalogue.${DOMAIN}
+      - -ch
+      - catalogue-broker
+      - -default
+      - protocolstub/VertxProtoStub
+    expose:
+      - '80'
+      - '443'
+      - '5683'
+
+  'catalogue-database':
+    image: rethink/catalogue-database
+    container_name: 'catalogue-database'
+    networks:
+      - rethink
+    command:
+      - -sourcePackageURLHost
+      - catalogue.${DOMAIN}
+      - -o
+      - /catalogue-database
+      - -ch
+      - catalogue-database
+      - -h
+      - catalogue-broker/5683
+    depends_on:
+      - 'catalogue-broker'
+    volumes:
+      - ./catalogue_objects:/catalogue-database
+
+  'toolkit':
+    build: '../../docker-files/hyperty-toolkit'
+    image: 'hyperty-toolkit'
+    container_name: 'toolkit'
+    environment:
+      - DEVELOPMENT=false
+      - RUNTIME_URL=hyperty-catalogue://catalogue.${DOMAIN}/.well-known/runtime/Runtime
+      - DOMAIN=${DOMAIN}
+      - HYPERTY_REPO=../hyperty
+    volumes:
+      - ${TOOLKIT_PATH}:/hyperty-toolkit
+      - ${HYPERTY_PATH}:/hyperty
+    networks:
+      - rethink
+    expose:
+      - '80'
+
+  'proxy':
+    build: '../../docker-files/apache2-reverse-proxy-dt-local'
+    image: 'apache2-reverse-proxy-dt'
+    container_name: 'proxy'
+    networks:
+      - rethink
+    ports:
+      - '443:443'
+    volumes:
+      - ../../docker-files/apache2-reverse-proxy-dt-local/keys:/opt/certs
+
+
+networks:
+  rethink:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.18.0.0/16
+          gateway: 172.18.0.1

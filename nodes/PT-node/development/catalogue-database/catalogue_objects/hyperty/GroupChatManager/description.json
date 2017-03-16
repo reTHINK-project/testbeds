@@ -11,6 +11,6 @@
   "hypertyType": ["chat"],
   "messageSchema": "",
   "configuration": {},
-  "constraints": {},
+  "constraints": {"browser":true},
   "policies": []
 }

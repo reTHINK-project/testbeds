@@ -1,0 +1,142 @@
+version: '2'
+services:
+  'nomatrix':
+    image: 'rethink/msg-node-nomatrix'
+    container_name: 'nomatrix'
+    environment:
+      - DOMAIN=call.rethink.orange-labs.fr
+      - PORT=8001
+      - REGISTRY=http://domain-registry-dc:4567
+      - GLOBALREGISTRY=http://130.149.22.133:5002
+    networks:
+      rethink:
+        ipv4_address: 172.18.0.3
+    expose:
+      - '8001'
+
+#  'msg-node-vertx':
+#    image: 'rethink/msg-node-vertx'
+#    container_name: 'msg-node-vertx'
+#    environment:
+#      - MSG_NODE_CONFIG=env
+#      - NODE_DOMAIN=${DOMAIN}
+#      - NODE_PORT=9090
+#      - NODE_REGISTRY_URL=http://domain-registry-dc:4567
+#      - NODE_GLOBAL_REGISTRY_URL=http://130.149.22.133:5002
+#    networks:
+#      rethink:
+#        ipv4_address: 172.18.0.2
+#    expose:
+#      - '443'
+#      - '9090'
+
+#  'msg-node-nodejs':
+#    image: 'msg-node-rethink'
+#    build: "../dev-msg-node-nodejs/"
+#    container_name: 'msg-node-js'
+    # volumes:
+    #     - /path/to/msg-node/repository:/usr/src/app
+#    environment:
+#      - url=${DOMAIN}
+#      - port=9999
+#      - domainRegistryUrl=http://domain-registry-dc:4567
+#      - logLevel=INFO
+#      - redisURL=http://redis:6379
+      # - logDir=/usr/src/app/logs
+      # - useSSL=1
+      # - sslCertificate=/usr/src/app/ssl/myCert.crt
+      # - sslPKey=/usr/src/app/ssl/myCert.key
+#    networks:
+#      rethink:
+#        ipv4_address: 172.18.0.3
+#    expose:
+#      - '9091'
+
+  'domain-registry':
+    image: rethink/registry-domain-server
+    container_name: 'domain-registry-dc'
+    networks:
+      rethink:
+        ipv4_address: 172.18.0.4
+    environment:
+      - STORAGE_TYPE=RAM
+      - EXPIRES=3600
+    expose:
+      - '4568'
+      - '4567'
+
+  'catalogue-broker':
+    image: rethink/catalogue-broker
+    container_name: 'catalogue-broker'
+    network_mode: "host"
+    hostname: 'catalogue.${DOMAIN}'
+    command: [-host, '161.106.2.23', -h, '9011', -hs, '9012', -default, protocolstub/MatrixProtoStub]
+    expose:
+      - '9012'
+      - '5683'
+
+  'catalogue-database':
+    build: "./catalogue-database"
+    container_name: 'catalogue-database'
+    network_mode: "service:catalogue-broker"
+    command: [-h, 'catalogue.${DOMAIN}', -ch, 'catalogue.${DOMAIN}']
+    depends_on:
+      - 'catalogue-broker'
+
+  'oidc-node':
+    build: "../dev-IdPServer/"
+    container_name: 'oidc-idp'
+    networks:
+      rethink:
+        ipv4_address: 172.18.0.10
+    links: 
+      - redis
+    ports:
+      - "8080:8080"
+
+  'redis':
+    image: redis
+    container_name: 'redis'
+    networks:
+      rethink:
+        ipv4_address: 172.18.0.12
+    ports:
+      - "6379"
+
+
+
+#  'global-registry'
+#    build: 'rethink/global-registry'
+#    container_name: 'global-registry'
+#    environment:
+#      - KEY=VALUE
+#    networks:
+#      rethink:
+#        ipv4_address: 172.18.0.16
+#    expose:
+#      - '443'
+
+#  'hyperty-toolkit':
+#    build: '../dev-hyperty-toolkit'
+#    container_name: 'hyperty-toolkit'
+#    environment:
+#      - DEVELOPMENT=false
+#      - RUNTIME_URL=hyperty-catalogue://catalogue.hybroker.rethink.ptinovacao.pt/.well-known/runtime/Runtime
+#      - DOMAIN=hybroker.rethink.ptinovacao.pt
+#      - HYPERTY_REPO=/tmp/dev-hyperty
+#    volumes:
+#      - ../dev-hyperty:/tmp/dev-hyperty
+#    networks:
+#      rethink:
+#        ipv4_address: 172.18.0.32
+#    expose:
+#      - '443'
+
+networks:
+  rethink:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.18.0.0/16
+          gateway: 172.18.0.1

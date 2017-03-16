@@ -1,0 +1,17 @@
+{
+   "cguid": "4-7f874d01-d294-eeb7-35be-c678e9464c475",
+    "version": 0.6,
+    "description": "Description of IMSIWProtoStub",
+    "language": "Javascript",
+    "type": "ProtoStubs",
+    "objectName": "sip.rethink-project.eu",
+    "configuration": {
+      "credential_server": "https://ims.rethink-project.eu/credential"
+    },
+    "messageSchemas": "",
+    "signature": "",
+    "accessControlPolicy": "somePolicy",
+    "constraints": {},
+    "dataObjects": [],
+    "interworking": true
+}

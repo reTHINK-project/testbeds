@@ -1,60 +1,347 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>reThink - Communication</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+        rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic'
+        rel='stylesheet' type='text/css'>
 
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>Hello World</title>
-<p> <b>Welcome to the first Hyperty enabled application example.</b>
-</p>
+    <!-- Plugin CSS -->
+    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <!-- Theme CSS -->
+    <link href="less/creative.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!-- Rethink JS Files -->
+    <script src="./clientBootStrap.js"></script>
 
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+    <script src="./WebRTCHypertyClient.js"></script>
 
-  <script src="https://powercommunication.rethink.orange-labs.fr/.well-known/runtime/rethink.js"></script>
-  <script src="./helloWorldHypertyClient.js"></script>
-
+	<script>
+	// Load the runtime
+	registerDomain().then(function(result)
+	{
+		// if successful load hyperty Connector
+		loadHypertyConnector();
+	}).catch(function(err)
+	{
+	    console.log(err);
+	});
+	</script>
  </head>
-<body>
-  <!--<div class="progress"><div class="indeterminate"></div></div>-->
-	<div>
-	This Example will show you (please click on the link):
-	<ul class="collection">
-		<a onclick="loadRuntime();" class="collection-item">How to load a runtime (proviously deployed on a catalogue server)</a>
-        <a onclick="loadHypertyObs();" class="collection-item">How to load an Observer hyperty (Authentication mandatory)</li>
-            <a onclick="loadHypertyRep();" class="collection-item">How to load a Reporter hyperty (Authentication mandatory)</li>
-		<a onclick="sayHelloToHyperty();"  class="collection-item">How to contact another Hyperty to send HelloWorld Service.</li>
-	</ul>
-	</div>
-      <div class="runtime-panel">
-      </div>
 
-      <div class="hyperty-panel">
-      </div>
+<body id="page-top">
+       <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Start reThink</a>
+            </div>
 
-      <div class="invitation-panel">
-      </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+					<li>
+						<button  class="btn btn-default"  onclick="toggleSettings(event);"><i  class="fa fa-cog fa-1x fa-fw"></i></button>
+					  <div id="navbar" class="collapse navbar-collapse ">
+						<div>
+						  <form class="form-horizontal" role="form" id="settings" style="display:none;" class="settings">
+							<div class="darktext form-group">
+							  <label class="col-sm-1 control-label">Stun</label>
+							  <div class="col-sm-4">
+								<input id="stun" class="form-control" value="stun.l.google.com:19302" placeholder="stun">
+							  </div>
+							  <label class="col-sm-1 control-label">Turn</label>
+							  <div class="col-sm-4">
+								<input id="turn" class="form-control" value="" size="20" placeholder="turn url">
+							  </div>
+							  <label>
+								<input type="checkbox" id="strictice">use strict</label>
+							</div>
+							<div class="darktext form-group">
+							  <label class="col-sm-1 control-label">user</label>
+							  <div class="col-sm-4">
+								<input id="turn_user" class="form-control" value="" size="10" placeholder="">
+							  </div>
+							  <label class="col-sm-1 control-label">pass</label>
+							  <div class="col-sm-4">
+								<input id="turn_pass" class="form-control" value="" size="10" type="password" />
+							  </div>
+							</div>
+							<div class="darktext form-group">
+							  <div class="col-sm-6"></div>
+							  <div class="col-sm-2">
+								<button type="submit" id="saveConfig" class="btn btn-default btn-sm">Save profile</button>
+							  </div>
+							</div>
+						  </form>
+						</div>
+					  </div>
+					</div>					
+					</li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        <!-- /.container-fluid -->
+    </nav>
 
-      <div class="hello-panel">
-      </div>
+    <header>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1 id="homeHeading">Welcome to the reThink communication center</h1>
+                <hr>
+                <p>WebRTC and Hyperty based application </p>
+                <a href="#discover" class="btn btn-primary btn-xl page-scroll">Go...</a>
+            </div>
+        </div>
+    </header>
 
-      <div class="bye-panel">
-      </div>
+    <section id="discover" class="hide">
+         <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h4 class="text-center">Connector Hyperty Loaded, you can now search for a correspondant or enter an Hyperty URL.</h4>
+                    <div class="col-lg-6">
+                        <form>
+                            <div>
+                                <div class="input-field col-lg-11 col-lg-offset-1 ">
+                                    <label for="email" data-error="the email format should be like user@domain.xx">Search by email</label>
+                                    <input placeholder="your friend's email" id="email" required aria-required="true" type="email" class="friend-email validate">
+                                </div>
+                                <div class="input-field col-lg-11 col-lg-offset-1 ">
+                                    <label for="domain">Participant domain</label>
+                                    <input class="input-domain" name="domain" id="domain" type="text">
+                                </div>
+                            </div>
+                            <div>
+                                <div class="input-field searchbtn">
+                                    <button id="gosearch" class="search waves-effect waves-light btn" type="submit">Search</button>
+                                </div>
+                            </div>
 
-      <div class="msg-panel">
-      </div>
+                        </form>
+                    </div>
+                    <div class="input-field col-lg-6">
+                        <label for="hyperty">Participant hyperty</label>
+                        <input id="input-hyperty" name="hyperty" type="text" >
+                    </div>
+                </div>
+                <div class="loader"></div>
 
+                <div class="col s12">
+                    <ul class="collection hide">
+                        <li class="collection-header">
+                            <h4>User Hyperty</h4>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    <div id="call">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <button id="inputCall" class="search waves-effect waves-light btn hide" type="submit">Call</button>
+                </div>
+            </div>
+        </div>
     </div>
-<div>
-<br>
-<p></p>
-Last update 28/06/2016</div>
-<!--  <script src="../vendor/system.js"></script>
-  <script src="../config.js"></script>  -->
-<!--  <script src="./helloReporter.js"></script> -->
+    </section>
+
+   <section>
+  <!-- Begin page content -->
+  <div class="main-content container">
+    <!-- <div class="main-content container-fluid"> -->
+    <div class="row">
+      <!--div class="col-sm-1"></div-->
+      <div id="content" class="content col-sm-12">
+        <div id="info">
+          <div class="hyperty-panel"></div>
+          <div class="send-panel"></div>
+          <div class="invitation-panel"></div>
+        </div>
+        <div id="video" class="row hide">
+          <div class="video-holder col-lg-12">
+            <video id="remoteVideo" class="smallVideo video responsive-video" autoplay poster="img/header.gif" ></video>
+            <video id="localVideo" class="fullVideo my-video responsive-video" muted autoplay poster="img/header.gif" ></video>
+          </div>
+          <div class="col-sm-2">
+            <fieldset class="form-fieldset">
+              <legend>local media</legend>
+              <div class="form-checkbox-set">
+                <label><input type="checkbox" id="local-video" value="1" class="form-checkbox" checked>video</label>
+              </div>
+              <div class="form-checkbox-set">
+                <label><input type="checkbox" id="local-audio" value="1" class="form-checkbox" checked>audio</label>
+              </div>
+            </fieldset>
+            <fieldset class="form-fieldset">
+              <legend>remote media</legend>
+              <div class="form-checkbox-set">
+                <label><input type="checkbox" id="remote-video" value="1" class="form-checkbox" checked>video</label>
+              </div>
+              <div class="form-checkbox-set">
+                <label><input type="checkbox" id="remote-audio" value="1" class="form-checkbox" checked>audio</label>
+              </div>
+              <button id="hangup"  class="btn btn-default btn-sm ">hangup</button>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+      <!--div class="col-sm-1"></div-->
+    </div>
+  </div>
+      </section>
+ 
+    <aside class="bg-dark">
+        <div class="container text-center">
+            <div class="action-panel">
+                <h2>Actions </h2>
+                <div id="actiondown"> </div>
+            </div>
+        </div>
+        <br>
+        <div class="container text-center">
+            <div class="call-to-action">
+                <h2>Console Logs :</h2>
+
+            </div>
+        </div>
+    </aside>
+  
+
+    <!-- Modal Structure -->
+    <div class="modal hide fade" id="AcceptCall">
+        <div class="modal-dialog modal-lg modal-content">
+            <h4>Call Incoming From</h4>
+            <div class="information row" id="modalinfo">
+                <div class="valign-wrapper">
+                    <div class="col-lg-4">
+                        <img src="" alt="" id="avatar" class="col-lg-12 circle">
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="col-lg-12">
+                            <span class="text-right">Name: </span>
+                            <span class="black-text" id="calleeName"></span>
+                        </div>
+                        <div class="col-lg-12">
+                            <span class="text-right">Email: </span>
+                            <span class="black-text" id="calleeUsername"></span>
+                        </div>
+                        <div class="col-lg-12">
+                            <span class="text-right">Locale: </span>
+                            <span class="black-text" id="calleLocale"></span>
+                        </div>
+                        <div class="col-lg-12">
+                            <span class="text-right">UserURL: </span>
+                            <span class="black-text" id="calleUserURL"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button  type="button" id="btn-reject" class="modal-action modal-close waves-effect waves-green btn-reject btn" data-dismiss="modal">Reject</button>
+            <button type="button" id="btn-accept" class="modal-action modal-close waves-effect waves-green btn-accept btn" data-dismiss="modal">Accept</button>
+        </div>
+    </div>
+
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">Let's Get In Touch!</h2>
+                    <hr class="primary">
+                    <p>Ready to start your next project with us? That's great! Give us a call or send us an email and we will
+                        get back to you as soon as possible!</p>
+                </div>
+                <div class="col-lg-4 col-lg-offset-2 text-center">
+                    <i class="fa fa-phone fa-3x sr-contact"></i>
+                    <p>+351 21 4225700</p>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <i class="fa fa-envelope-o fa-3x sr-contact"></i>
+                    <p><a href="mailto:office@rethink-project.eu">office@rethink-project.eu</a></p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">At Your Service</h2>
+                    <hr class="primary">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-diamond text-primary sr-icons"></i>
+                        <h3>Load an Observer hyperty</h3>
+                        <!--<p class="text-muted">Our templates are updated regularly so they don't break.</p>-->
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-paper-plane text-primary sr-icons"></i>
+                        <h3>Open another browser on the same page</h3>
+                        <!--<p class="text-muted">You can use this theme as is, or you can make changes!</p>-->
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-newspaper-o text-primary sr-icons"></i>
+                        <h3>Up to Date</h3>
+                        <!--<p class="text-muted">We update dependencies to keep things fresh.</p>-->
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-heart text-primary sr-icons"></i>
+                        <h3>Made with Love</h3>
+                        <!--<p class="text-muted">You have to make your websites with love these days!</p>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="js/creative.min.js"></script>
+
 </body>
+
 </html>
