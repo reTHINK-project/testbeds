@@ -72,6 +72,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _IdentityFactory = __webpack_require__(179);
 
+	var _IdentityFactory2 = _interopRequireDefault(_IdentityFactory);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -89,7 +91,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    console.log('[SlackProtostub] Constructor Loaded');
 
 	    var _this = this;
-
+	    this._MessageBodyIdentity = _IdentityFactory2.default;
 	    this._subscribedList = [];
 	    this._usersList = [];
 	    this._groupsList = [];
@@ -138,7 +140,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                  console.log('Slack User information: ', userInfo);
 
 	                  // username, userURL, avatar, cn, locale, idp, assertion
-	                  var identity = new _IdentityFactory.MessageBodyIdentity(userInfo.name, 'slack://slack.com/' + userInfo.name + '@slack.com', userInfo.profile.image_192, userInfo.name, '', 'slack.com');
+	                  var identity = new _IdentityFactory2.default(userInfo.name, 'slack://slack.com/' + userInfo.name + '@slack.com', userInfo.profile.image_192, userInfo.name, '', 'slack.com');
 
 	                  _this._subscribe(schemaUrl, msg.from, identity).then(function (result) {
 	                    console.log('[SlackProtostub] subscribe result', result);
@@ -292,7 +294,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          } else {
 
 	            console.log('[SlackProtostub getUserInfo] ', data);
-	            var identity = new _IdentityFactory.MessageBodyIdentity(data.user.name, 'slack://slack.com/' + data.user.name + '@slack.com', data.user.profile.image_192, data.user.name, '', 'slack.com');
+	            var identity = new _IdentityFactory2.default(data.user.name, 'slack://slack.com/' + data.user.name + '@slack.com', data.user.profile.image_192, data.user.name, '', 'slack.com');
 
 	            resolve(identity);
 	          }
