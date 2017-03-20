@@ -9,7 +9,7 @@
     "configuration": {},
     "messageSchemas": [],
     "dataObjects": [
-      "https://catalogue.hybroker.rethink.ptinovacao.pt/.well-known/dataschema/Communication"
+      "https://catalogue.hysmart.rethink.ptinovacao.pt/.well-known/dataschema/Communication"
     ],
     "signature": "",
     "accessControlPolicy": "somePolicy"

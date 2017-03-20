@@ -10,9 +10,9 @@
     "constraints": {"browser":true},
     "objectName": "NodeHypertyObserver",
     "configuration": {},
-    "messageSchemas": "",
+    "messageSchemas": [],
     "dataObjects": [
-      "https://catalogue.localhost/.well-known/dataschema/Connection"
+      "https://catalogue.hysmart.rethink.ptinovacao.pt/.well-known/dataschema/Connection"
     ],
     "signature": "",
     "accessControlPolicy": "somePolicy"

@@ -1,18 +1,18 @@
 {
-    "cguid": "1-217b767d-8d6e-6bd1-452a-c531125fd12210",
+    "cguid": "1-217b767d-8d6e-6bd1-452a-c531125f456789",
     "version": 0.2,
-    "description": "Description of NodeHypertyObserver",
+    "description": "Description of NodeHyperty",
     "language": "Javascript",
     "hypertyType": [
       "audio",
       "video"
     ],
     "constraints": {"node":true},
-    "objectName": "NodeHypertyObserver",
+    "objectName": "NodeHyperty",
     "configuration": {},
-    "messageSchemas": "",
+    "messageSchemas": [],
     "dataObjects": [
-      "https://catalogue.localhost/.well-known/dataschema/Connection"
+      "https://catalogue.hysmart.rethink.ptinovacao.pt/.well-known/dataschema/Connection"
     ],
     "signature": "",
     "accessControlPolicy": "somePolicy"
