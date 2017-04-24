@@ -92,11 +92,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	var VertxProtoStub = function () {
 	  /* private
 	    _continuousOpen: boolean
-	     _runtimeProtoStubURL: string
+	      _runtimeProtoStubURL: string
 	    _bus: MiniBus
 	    _msgCallback: (Message) => void
 	    _config: { url, runtimeURL }
-	     _sock: (WebSocket | SockJS)
+	      _sock: (WebSocket | SockJS)
 	    _reOpen: boolean
 	  */
 
@@ -132,6 +132,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    this._reOpen = false;
 
 	    bus.addListener('*', function (msg) {
+	      console.log('[VertxProtoStub] outgoing message: ', msg);
 	      _this._open(function () {
 	        if (_this._filter(msg)) {
 	          msg.body.via = _this2._runtimeProtoStubURL;
@@ -286,11 +287,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: '_filter',
 	    value: function _filter(msg) {
-	      if (msg.body && msg.body.via === this._runtimeProtoStubURL) {
-	        return false;
-	      }
-
-	      delete msg.body.via;
+	      if (msg.body && msg.body.via === this._runtimeProtoStubURL) return false;
 	      return true;
 	    }
 	  }, {
