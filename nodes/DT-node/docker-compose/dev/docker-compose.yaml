@@ -15,6 +15,7 @@ services:
       - '8001:8001'
 
   'dev-registry-domain':
+    #image: rethink/registry-domain-server:R0.7.0
     image: rethink/registry-domain-server
     build: /opt/rethink/dev-registry-domain/server
     container_name: 'dev-registry-domain'
@@ -35,7 +36,7 @@ services:
     container_name: 'catalogue-broker'
     networks:
       - rethink
-    command: [-host, catalogue-broker, -sourcePackageURLHost, catalogue.rethink-dev.tlabscloud.com, -ch, catalogue-broker, -default, protocolstub/MatrixProtoStub]
+    command: [-host, catalogue-broker, -sourcePackageURLHost, catalogue.rethink-dev.tlabscloud.com, -ch, catalogue-broker, -default, protocolstub/MatrixProtoStub, -default, runtime/Runtime]
     expose:
       - '80'
       - '443'
@@ -66,7 +67,7 @@ services:
       - DOMAIN=rethink-dev.tlabscloud.com
       - HYPERTY_REPO=/hyperty
     volumes:
-      - /opt/rethink/dev-hyperty-toolkit:/hyperty
+      - /opt/rethink/dev-hyperty:/hyperty
       - /opt/rethink/dev-callcenter-app:/hyperty-toolkit
     networks:
       - rethink
