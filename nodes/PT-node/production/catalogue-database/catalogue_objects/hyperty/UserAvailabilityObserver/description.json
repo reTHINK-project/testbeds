@@ -1,14 +1,14 @@
 {
-    "cguid": 10010,
+    "cguid": "1-b6ea41d4-d16a-c5ab-fd65-6305b7a0d5ec21",
     "type": "Context",
     "version": "0.1",
-    "objectName": "Location",
+    "objectName": "UserAvailabilityObserver",
     "language": "Javascript ECMA6",
-    "description": "Hyperty with location support",
+    "description": "Hyperty with support for user presence state diffusion",
     "dataObjects": [
         "https://catalogue.hybroker.rethink.ptinovacao.pt/.well-known/dataschema/Context"
     ],
-    "hypertyType": ["location"],
+    "hypertyType": ["availability_context"],
     "messageSchemas": [],
     "configuration": {},
     "constraints": {"browser":true},

@@ -6,7 +6,7 @@
   "language": "Javascript ECMA6",
   "description": "DT Hyperty with support for WebRTC and peer-to-peer communication",
   "dataObjects": [
-    "https://catalogue.hysmart.rethink.ptinovacao.pt/.well-known/dataschema/Connection"
+    "https://catalogue.hybroker.rethink.ptinovacao.pt/.well-known/dataschema/Connection"
   ],
   "hypertyType": ["audio", "video"],
   "messageSchema": [],
