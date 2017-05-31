@@ -6,11 +6,11 @@
     "language": "Javascript ECMA6",
     "description": "Hyperty with support for user presence state diffusion",
     "dataObjects": [
-        "https://catalogue.hybroker.rethink.ptinovacao.pt/.well-known/dataschema/Context"
+        "https://catalogue.hysmart.rethink.ptinovacao.pt/.well-known/dataschema/Context"
     ],
     "hypertyType": ["userStatus"],
-    "messageSchemas": "",
+    "messageSchemas": [],
     "configuration": {},
-    "constraints": {},
+    "constraints": {"browser":true},
     "policies": []
   }

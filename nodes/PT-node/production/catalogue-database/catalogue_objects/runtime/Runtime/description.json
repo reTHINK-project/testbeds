@@ -1,23 +1,32 @@
 {
-  "cguid": "30002",
-  "runtimeType": "browser",
-  "version": "1.0",
-  "objectName": "Runtime",
-  "description": "This is a hyperty runtime descriptor",
-  "language": "Javascript ECMA6",
-  "hypertyCapabilities": {
-    "mic": true,
-    "camera": true,
-    "sensor": false,
-    "webrtc": true,
-    "ortc": true
-  },
-  "protocolCapabilities": {
-    "http": true,
-    "https": true,
-    "ws": true,
-    "wss": true,
-    "coap": false,
-    "datachannel": false
-  }
+    "cguid": "3-ca749d6f-e4ad-0bb5-3124-de7ec5e753cc0",
+    "type": "Runtimes",
+    "version": 3.0000000000000013,
+    "description": "Description of Runtime",
+    "objectName": "Runtime",
+    "configuration": {},
+    "runtimeType": "browser",
+    "hypertyCapabilities": {
+      "mic": true,
+      "camera": true,
+      "sensor": false,
+      "webrtc": true,
+      "ortc": true
+    },
+    "protocolCapabilities": {
+      "http": true,
+      "https": true,
+      "ws": true,
+      "wss": true,
+      "coap": false,
+      "datachannel": false
+    },
+    "sourcePackageURL": "/sourcePackage",
+    "language": "javascript",
+    "signature": "",
+    "messageSchemas": "",
+    "dataObjects": [],
+    "accessControlPolicy": "somePolicy",
+    "p2pHandlerStub": "",
+    "p2pRequesterStub": ""
 }

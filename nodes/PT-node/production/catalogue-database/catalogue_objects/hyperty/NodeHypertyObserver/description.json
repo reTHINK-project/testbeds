@@ -1,0 +1,19 @@
+{
+    "cguid": "1-217b767d-8d6e-6bd1-452a-c531125fd12210",
+    "version": 0.2,
+    "description": "Description of NodeHypertyObserver",
+    "language": "Javascript",
+    "hypertyType": [
+      "audio",
+      "video"
+    ],
+    "constraints": {"browser":true},
+    "objectName": "NodeHypertyObserver",
+    "configuration": {},
+    "messageSchemas": [],
+    "dataObjects": [
+      "https://catalogue.hysmart.rethink.ptinovacao.pt/.well-known/dataschema/Connection"
+    ],
+    "signature": "",
+    "accessControlPolicy": "somePolicy"
+  }
