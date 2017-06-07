@@ -5,8 +5,8 @@ The Identity Provider (IdP) provides a service that autenticates users, provides
 It also provides IdP-Proxy to the IdModule deployed on the runtime so that this IdModule may interact with the IdP whatever protocol it may use.
 
 Two OpenID Connect-compliant Identity Providers have been customised and deployed for demonstration purpose:
-1. the first one is an OAUTH2/OIDC server with added support for IdP-Proxy, adapted from agmoyano/OpenIDConnect [1];
-2. the second one is adapted from Nat Sakumura PhPOIDC implementation [2].
+1. the first one is an OAuth2/OIDC server with added support for IdP-Proxy, adapted from agmoyano/OpenIDConnect [1];
+2. the second one is adapted from Nat Sakumura phpOIDC implementation [2].
 
 ## Metrics 
 Since IdP is a purely request-based service, the most relevant KPIs would characterize response time, for instance average response time and 9th decile:
@@ -37,7 +37,7 @@ Tests conduced on IdP-Proxy have been conducted using a Firefox platform, and ha
   - max time : 296ms 
   - av time : 214ms 
 
-It should be noted that the time is highly related to the client machine. Also, the length of the salt has a very low influence on the processing time.
+It should be noted that the results are highly related to the client machine. Also, the length of the salt has a very low influence on the processing time.
 
 # References
 
