@@ -21,7 +21,7 @@ No server performance tests are planned.
 
 Conformance tests have been conducted to enable the use of IdP-Proxy according to the IETF specifications of the WebRTC Security architecture [3].
 
-The application IdP-Proxy test is installed with the IdP Server and processes 3 actions: it loads the IdP-Proxy if implemented, generates and validates an Identity assertion if the user is logged on this IdP. An example of the application is accessible  [here](https://oidc-ns.kermit.orange-labs.fr/IdPProxy_test.html).
+The application IdP-Proxy test is installed with the IdP Server and processes 3 actions: it loads the IdP-Proxy if implemented, generates and validates an Identity assertion if the user is logged on this IdP. An example of the application is accessible  et https://auth.rethink2.orange-labs.fr/IdPProxy_test.html.
 Test application for the IdP Proxy:  
 ![test](https://user-images.githubusercontent.com/10738516/27958548-fd585e0e-6323-11e7-9b68-44b400d78b37.png)
 
