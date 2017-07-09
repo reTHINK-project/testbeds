@@ -41,6 +41,21 @@ Tests conduced on IdP-Proxy have been conducted using a Firefox platform, and ha
 
 It should be noted that the results are highly related to the client machine. Also, the length of the salt has a very low influence on the processing time.
 
+Identity parameters negociation tests.
+As described in [Corre et al. paper](https://link.springer.com/chapter/10.1007%2F978-3-319-60131-1_27) We evaluated the possibility to deploy negotiation over ACR and IdP's origin with current WebRTC specications. Our conclusion shows that it is not possible to request ACR to IdP Proxy when calling the generateAssertion function. As a result, the specication would need to
+be updated to support ACR negotiation. In particular: the generateAssertion function could be extended to accept additional parameters, and the IdentityValidationResult could be left open to extensions.
+We implemented our identity parameters negotiation solution on the CS side as it was the simplest solution. As identity negotiation is most useful in scenarios of inter-operable communication services, such services could be acting as the identity recommendation source. This may seems to contradict theWebRTC trust model with untrusted CS. However, in the interoperable scenario, we may want to relax the trust model and consider that a CS may be trusted by its own user. In this situation a CS could be well-suited to provide recommendation and evaluation of the other-peer's authentication.
+This has been inplemented in a simple WebRTC application that uses our IdPProxy.
+Step one: 
+Bob is connecting to his WebRTC Application (https://acor-webrtc.rethink2.orange-labs.fr/) using his identity, and opens a room.
+Step two:
+Alice connects to the same application ans join bob's room. At this stage, they can communicate, but no identity proof have been exchanged.
+Step three:
+Alice claims to Bob an Identity assertion, with a trust level to 2, and a hint to get a subset of accepted IdPs domains.
+Stet four:
+Bob is receiving the claim and sends his identity assertion.
+
+
 # References
 
 [1] agmoyano/OpenIDConnect. Available on GitHub Repository at https://github.com/agmoyano/OpenIDConnect; last accessed June 2016.
