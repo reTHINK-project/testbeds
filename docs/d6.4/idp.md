@@ -16,10 +16,8 @@ Since IdP is a purely request-based service, the most relevant KPIs would charac
 
 However, IdP requests per user should be scarce compared to communication-related exchanges, especially on our testbeds which constitute more of a prototype environment. Moreover, the goal of reTHINK is to let the user choose his/her identity provider, which could thus be Google or Facebook. Therefore, tests limites tho the two provided IdP would not be relevant. Finally, it is not the responsibility of reTHINK to test reference implementation of identity protocols such as OpenID Connect. Indeed, IdPs are peripheral support services and will not be critical in evaluating overall environment performance. As a matter of fact, they are pre-existing (almost 'legacy') platforms whose functionalities are needed within reTHINK project but not results of reTHINK.
 
-## Tests 
-No server performance tests are planned. 
-
-Conformance tests have been conducted to enable the use of IdP-Proxy according to the IETF specifications of the WebRTC Security architecture [3].
+## Performance tests 
+No server performance tests are planned, as IdP servers are Open source project that have been modified to add the IdPProxy feature. This IdP proxy is executed on client side.  
 
 The application IdP-Proxy test is installed with the IdP Server and processes 3 actions: it loads the IdP-Proxy if implemented, generates and validates an Identity assertion if the user is logged on this IdP. An example of the application is accessible  et https://auth.rethink2.orange-labs.fr/IdPProxy_test.html.
 Test application for the IdP Proxy:  
@@ -41,7 +39,8 @@ Tests conduced on IdP-Proxy have been conducted using a Firefox platform, and ha
 
 It should be noted that the results are highly related to the client machine. Also, the length of the salt has a very low influence on the processing time.
 
-Identity parameters negociation tests.
+## Identity parameters negociation tests.
+Conformance tests have been conducted to enable the use of IdP-Proxy according to the IETF specifications of the WebRTC Security architecture [3].
 As described in [Corre et al. paper](https://link.springer.com/chapter/10.1007%2F978-3-319-60131-1_27) We evaluated the possibility to deploy negotiation over ACR and IdP's origin with current WebRTC specications. Our conclusion shows that it is not possible to request ACR to IdP Proxy when calling the generateAssertion function. As a result, the specication would need to
 be updated to support ACR negotiation. In particular: the generateAssertion function could be extended to accept additional parameters, and the IdentityValidationResult could be left open to extensions.
 We implemented our identity parameters negotiation solution on the CS side as it was the simplest solution. As identity negotiation is most useful in scenarios of inter-operable communication services, such services could be acting as the identity recommendation source. This may seems to contradict theWebRTC trust model with untrusted CS. However, in the interoperable scenario, we may want to relax the trust model and consider that a CS may be trusted by its own user. In this situation a CS could be well-suited to provide recommendation and evaluation of the other-peer's authentication.
