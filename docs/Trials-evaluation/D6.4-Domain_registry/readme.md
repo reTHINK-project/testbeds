@@ -3,7 +3,7 @@ The tests described in that document demonstrate the ability of the Domain Regis
 The scalability is provided by the deployment architecture, where the number of nodes processing the requests as well as the number of nodes that make up the database can be adjusted according to the expected load.
 
 In this document, we complement the previous evaluation with new elements. The deployment architecture is still the same, ilustrated in the following Figure:
-[Figure 1 - Deployment architecture](app_db.pdf)
+[Figure 1 - Deployment architecture](https://github.com/reTHINK-project/testbeds/raw/master/docs/Trials-evaluation/D6.3-domain_registry/app_db.pdf)
 
 
 The Domain Registry was deployed on a datacente of the University of Lisbon’s Tagus Park datacenter, using 9 VM with 1vCPU and 2GB
