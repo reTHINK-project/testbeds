@@ -1,3 +1,3 @@
 
 
-pandoc --filter pandoc-citeproc -f markdown -t docx --data-dir=. idp.md -o C:\Projectos\reTHINK\WP6\git\testbeds\docs\d6.4\D6.4-26-idp.docx
+pandoc --filter pandoc-citeproc -f markdown -t docx --data-dir=. https://raw.githubusercontent.com/reTHINK-project/testbeds/master/docs/d6.4/idp.md -o D6.4-26-idp.docx
