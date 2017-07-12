@@ -5,8 +5,8 @@ The Identity Provider (IdP) provides a service that autenticates users, provides
 It also provides IdP-Proxy to the IdModule deployed on the runtime so that this IdModule may interact with the IdP whatever protocol it may use.
 
 Two OpenID Connect-compliant Identity Providers have been customised and deployed for demonstration purpose:
-1. the first one is an OAuth2/OIDC server with added support for IdP-Proxy, adapted from agmoyano/OpenIDConnect [1];
-2. the second one is adapted from Nat Sakumura phpOIDC implementation [2].
+1. the first one is an OAuth2/OIDC server with added support for IdP-Proxy, adapted from [agmoyano/OpenIDConnect](Illustration of a single httperf connection);
+2. the second one is adapted from [Nat Sakumura phpOIDC implementation](https://bitbucket.org/PEOFIAMP/phpoidc).
 
 ### Metrics
 Since IdP is a purely request-based service, the most relevant KPIs would characterize response time, for instance average response time and 9th decile:
@@ -19,11 +19,11 @@ However, IdP requests per user should be scarce compared to communication-relate
 ### Performance tests
 No server performance tests are planned, as IdP servers are Open source project that have been modified to add the IdPProxy feature. This IdP proxy is executed on client side.  
 
-The application IdP-Proxy test is installed with the IdP Server and processes 3 actions: it loads the IdP-Proxy if implemented, generates and validates an Identity assertion if the user is logged on this IdP. An example of the application is accessible  et https://auth.rethink2.orange-labs.fr/IdPProxy_test.html.
+The application IdP-Proxy test is installed with the IdP Server and processes 3 actions: it loads the IdP-Proxy if implemented, generates and validates an Identity assertion if the user is logged on this IdP. An example of the application is accessible  at https://auth.rethink2.orange-labs.fr/IdPProxy_test.html.
 Test application for the IdP Proxy:  
 ![test](https://user-images.githubusercontent.com/10738516/27958548-fd585e0e-6323-11e7-9b68-44b400d78b37.png)
 
-Tests conduced on IdP-Proxy have been conducted using a Firefox platform, and have provided the following results:
+Tests conducted on IdP-Proxy have been conducted using a Firefox platform, and have provided the following results:
 - Javascript IdP-Proxy loading:
   - min time : 4ms
   - max time : 13ms
@@ -42,14 +42,14 @@ It should be noted that the results are highly related to the client machine. Al
 ### Identity parameters negotiation tests.
 
 Conformance tests have been conducted to enable the use of IdP-Proxy according to the IETF specifications of the WebRTC Security architecture [3].  
-As described in [Corre et al. paper](https://link.springer.com/chapter/10.1007%2F978-3-319-60131-1_27) We evaluated the possibility to deploy negotiation over ACR and IdP's origin with current WebRTC specications. Our conclusion shows that it is not possible to request ACR to IdP Proxy when calling the generateAssertion function. As a result, the specication would need to
+As described in [Corre et al. paper](https://link.springer.com/chapter/10.1007%2F978-3-319-60131-1_27) we evaluated the possibility to deploy negotiation over ACR and IdP's origin with current WebRTC specifications. Our conclusion shows that it is not possible to request ACR to IdP Proxy when calling the generateAssertion function. As a result, the specication would need to
 be updated to support ACR negotiation. In particular: the generateAssertion function could be extended to accept additional parameters, and the IdentityValidationResult could be left open to extensions.  
-We implemented our identity parameters negotiation solution on the CS side as it was the simplest solution. As identity negotiation is most useful in scenarios of inter-operable communication services, such services could be acting as the identity recommendation source. This may seems to contradict theWebRTC trust model with untrusted CS. However, in the interoperable scenario, we may want to relax the trust model and consider that a CS may be trusted by its own user. In this situation a CS could be well-suited to provide recommendation and evaluation of the other-peer's authentication.  
-This has been inplemented in a simple WebRTC application that uses our IdPProxy.  
+We implemented our identity parameters negotiation solution on the CS side as it was the simplest solution. As identity negotiation is most useful in scenarios of inter-operable communication services, such services could be acting as the identity recommendation source. This may seems to contradict the WebRTC trust model with untrusted CS. However, in the interoperable scenario, we may want to relax the trust model and consider that a CS may be trusted by its own user. In this situation a CS could be well-suited to provide recommendation and evaluation of the other-peer's authentication.  
+This has been implemented in a simple WebRTC application that uses our IdPProxy.  
 Step one:  
 Bob is connecting to his WebRTC Application (https://acor-webrtc.rethink2.orange-labs.fr/) using his identity, and opens a room.  
 Step two:  
-Alice connects to the same application ans join bob's room. At this stage, they can communicate, but no identity proof have been exchanged.  
+Alice connects to the same application and join bob's room. At this stage, they can communicate, but no identity proof have been exchanged.  
 Step three:  
 Alice claims to Bob an Identity assertion, with a trust level to 2, and a hint to get a subset of accepted IdPs domains.  
 Stet four:  
