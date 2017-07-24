@@ -1,0 +1,9 @@
+{
+  "cguid": "200031",
+  "type": "DataSchema",
+  "version": "1.0",
+  "objectName": "ContextReporter",
+  "description": "ContextReporter DataSchema",
+  "language": "JSON Schema",
+  "accessControlPolicy": "somePolicy"
+}

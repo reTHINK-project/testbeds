@@ -6,7 +6,7 @@
 	"required": ["scheme", "id", "type", "values"],
 	"properties": {
 		"scheme": {
-			"constant": "context"
+			"constant": "context-observer"
 		},
 		"id": {
 			"type": "string"
@@ -44,7 +44,7 @@
 		"tag": {
 			"type": "string"
 		}
-	}, 
+	},
 	"ContextUnit": {
 		"type": "object",
 		"properties": {

@@ -1,0 +1,9 @@
+{
+  "cguid": "200032",
+  "type": "DataSchema",
+  "version": "1.0",
+  "objectName": "ContextObserver",
+  "description": "ContextObserver DataSchema",
+  "language": "JSON Schema",
+  "accessControlPolicy": "somePolicy"
+}
