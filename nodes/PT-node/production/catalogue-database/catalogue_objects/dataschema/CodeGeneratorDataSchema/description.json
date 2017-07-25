@@ -1,0 +1,14 @@
+{
+  "cguid": 1323,
+  "type": "DataSchemas",
+  "version": "0.1",
+  "description": "Description of CodeGeneratorDataSchema",
+  "objectName": "CodeGeneratorDataSchema",
+  "configuration": {},
+  "sourcePackageURL": "/sourcePackage",
+  "language": "JSON-Schema",
+  "signature": "",
+  "messageSchemas": "",
+  "dataObjects": [],
+  "accessControlPolicy": "somePolicy"
+}
