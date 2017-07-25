@@ -28,5 +28,19 @@
     "dataObjects": [],
     "accessControlPolicy": "somePolicy",
     "p2pHandlerStub": "",
-    "p2pRequesterStub": ""
+    "p2pRequesterStub": "",
+    "constraints": {
+      "browser": true,
+      "mic": true,
+      "camera": true,
+      "sensor": false,
+      "webrtc": true,
+      "ortc": true,
+      "http": true,
+      "https": true,
+      "ws": true,
+      "wss": true,
+      "coap": false,
+      "datachannel": false
+    }
 }
