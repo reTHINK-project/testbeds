@@ -8,7 +8,7 @@
     "dataObjects": [
         "https://catalogue.hybroker.rethink.ptinovacao.pt/.well-known/dataschema/Context"
     ],
-    "hypertyType": ["UserAvailabilityReporter"],
+    "hypertyType": ["availability_context"],
     "messageSchemas": [],
     "configuration": {},
     "constraints": {"browser":true},
