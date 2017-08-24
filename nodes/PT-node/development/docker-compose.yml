@@ -1,7 +1,7 @@
 version: '3.2'
 services:
   'msg-node-vertx':
-    image: 'rethink/msg-node-vertx:develop'
+    image: 'rethink/msg-node-vertx:latest'
     container_name: 'msg-node-vertx'
     environment:
       - MSG_NODE_CONFIG=env
@@ -20,38 +20,38 @@ services:
       - '9090'
 
   'domain-registry':
-    image: 'rethink/registry-domain-server:develop'
+    image: 'rethink/registry-domain-server:latest'
     container_name: 'domain-registry'
     networks:
       rethink:
         ipv4_address: 172.18.0.4
     environment:
       - STORAGE_TYPE=RAM
-      - EXPIRES=3600
+      - EXPIRES=30
     expose:
       - '4568'
       - '4567'
 
-  'catalogue-broker':
-    image: rethink/catalogue-broker
-    container_name: 'catalogue-broker'
-    networks:
-      rethink:
-        ipv4_address: 172.18.0.8
-    hostname: 'catalogue.hysmart.rethink.ptinovacao.pt'
-    command: [-host, 'catalogue.hysmart.rethink.ptinovacao.pt', -default, protocolstub/VertxProtoStub, -default, protocolstub/VertxProtoStubNode]
+#  'catalogue-broker':
+#    image: rethink/catalogue-broker
+#    container_name: 'catalogue-broker'
+#    networks:
+#      rethink:
+#        ipv4_address: 172.18.0.8
+#    hostname: 'catalogue.hysmart.rethink.ptinovacao.pt'
+#    command: [-host, 'catalogue.hysmart.rethink.ptinovacao.pt', -default, protocolstub/VertxProtoStub, -default, protocolstub/VertxProtoStubNode]
 
-    expose:
-      - '443'
-      - '5683'
+#    expose:
+#      - '443'
+#      - '5683'
 
-  'catalogue-database-ptinovacao':
-    build: "./catalogue-database"
-    container_name: 'catalogue-database-ptinovacao'
-    network_mode: "service:catalogue-broker"
-    command: [-host, catalogue.hysmart.rethink.ptinovacao.pt]
-    depends_on:
-      - 'catalogue-broker'
+#  'catalogue-database-ptinovacao':
+#    build: "./catalogue-database"
+#    container_name: 'catalogue-database-ptinovacao'
+#    network_mode: "service:catalogue-broker"
+#    command: [-host, catalogue.hysmart.rethink.ptinovacao.pt]
+#    depends_on:
+#      - 'catalogue-broker'
 
 #  'global-registry'
 #    build: 'rethink/global-registry'
@@ -65,7 +65,7 @@ services:
 #      - '443'
 
   'hyperty-toolkit':
-          # image: vitormtsilva/dev-hyperty-toolkit:develop
+#   image: vitormtsilva/dev-hyperty-toolkit:develop
     build: '../dev-hyperty-toolkit'
     container_name: 'hyperty-toolkit'
     environment:
