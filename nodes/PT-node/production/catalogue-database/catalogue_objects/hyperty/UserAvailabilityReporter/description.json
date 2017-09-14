@@ -10,7 +10,7 @@
     ],
     "hypertyType": ["availability_context"],
     "messageSchemas": [],
-    "configuration": {},
+    "configuration": { "expires": 30 },
     "constraints": {"browser":true},
     "policies": []
   }
