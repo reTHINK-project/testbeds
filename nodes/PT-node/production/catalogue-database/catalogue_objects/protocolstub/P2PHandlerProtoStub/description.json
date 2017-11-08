@@ -1,0 +1,42 @@
+{
+    "version": "1.20",
+    "description": "P2P Handler Protostub ",
+    "language": "javascript",
+    "cguid": "4456240d0c888e2293cdc568a7224b7c0",
+    "type": "ProtoStubs",
+    "constraints": {
+      "windowSandbox": true
+    },
+    "objectName": "P2PHandlerProtoStub",
+    "configuration": {
+      "iceServers": [
+        {
+          "urls": "turn:numb.viagenie.ca",
+          "credential": "zJcH3erd9cUv5Zh",
+          "username": "luis-t-duarte@telecom.pt"
+        },
+        {
+          "urls": [
+            "stun:stun.voiparound.com",
+            "stun:stun.voipbuster.com",
+            "stun:stun.voipstunt.com",
+            "stun:stun.voxgratia.org",
+            "stun:stun.ekiga.net",
+            "stun:stun.schlund.de",
+            "stun:stun.iptel.org",
+            "stun:stun.l.google.com:19302",
+            "stun:stun1.l.google.com:19302",
+            "stun:stun.ideasip.com",
+            "stun:stun4.l.google.com:19302",
+            "stun:stun2.l.google.com:19302",
+            "stun:stun3.l.google.com:19302"
+          ]
+        }
+      ],
+      "iceTransportPolicy": "all"
+    },
+    "messageSchemas": "",
+    "dataObjects": [],
+    "signature": "",
+    "accessControlPolicy": "somePolicy"
+}
