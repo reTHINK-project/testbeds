@@ -11,6 +11,6 @@
   "hypertyType": ["audio", "video"],
   "messageSchema": [],
   "configuration": {},
-  "constraints": {"browser":true,"windowSandbox":true,"mic":true,"camera":true},
+  "constraints": {"browser":true,"mic":true,"camera":true},
   "policies": []
 }

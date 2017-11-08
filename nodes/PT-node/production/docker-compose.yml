@@ -26,9 +26,9 @@ services:
       rethink:
         ipv4_address: 172.18.0.4
     environment:
-      - STORAGE_TYPE=CASSANDRA
+      - STORAGE_TYPE=RAM
       - EXPIRES=30
-      - CONTACT_POINTS_IPS=192.168.89.95,192.168.89.96
+#     - CONTACT_POINTS_IPS=192.168.89.95,192.168.89.96
     expose:
       - '4568'
       - '4567'

@@ -37,6 +37,6 @@
       ],
       iceTransportPolicy: "all"
   },
-  "constraints": {"browser":true,"mic":true,"camera":true},
+  "constraints": {"browser":true},
   "policies": []
 }
