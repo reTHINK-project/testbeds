@@ -1,7 +1,7 @@
 version: '2'
 services:
   'msg-node-vertx':
-    image: 'rethink/msg-node-vertx:master'
+    image: 'rethinkaltice/dev-msg-node-vertx:latest'
     container_name: 'msg-node-vertx'
     environment:
       - MSG_NODE_CONFIG=env
@@ -20,7 +20,7 @@ services:
       - '9090'
 
   'domain-registry':
-    image: 'rethinkaltice/dev-registry-domain:remove-expires-limit'
+    image: 'rethinkaltice/dev-registry-domain:latest'
     container_name: 'domain-registry'
     networks:
       rethink:
@@ -28,6 +28,7 @@ services:
     environment:
       - STORAGE_TYPE=RAM
       - EXPIRES=30
+      - EXPIRES_MAX=3600
 #     - CONTACT_POINTS_IPS=192.168.89.95,192.168.89.96
     expose:
       - '4568'
@@ -66,7 +67,7 @@ services:
 #      - '443'
 
   'hyperty-toolkit':
-    image: vitormtsilva/dev-hyperty-toolkit:latest
+    image: vitormtsilva/dev-hyperty-toolkit:develop
     container_name: 'hyperty-toolkit'
     environment:
       - DEVELOPMENT=false
@@ -75,7 +76,10 @@ services:
       - HYPERTY_REPO=/tmp/dev-hyperty
       - INDEX_URL=https://hybroker.rethink.ptinovacao.pt/.well-known/runtime/index.html
       - SANDBOX_URL=https://hybroker.rethink.ptinovacao.pt/.well-known/runtime/sandbox.html
-    entrypoint: npm run start:browser
+      - HYPERTY_TEMPLATES_PATH=examples
+      - HYPERTY_SOURCECODE_PATH=src
+      - HYPERTY_INCLUDES=connector, group-chat-manager, user-availability, hello-world, node-hyperty, node-hyperty-observer
+    entrypoint: 'npm run start:prod'
     volumes:
       - devHypertyVolume:/tmp/dev-hyperty
     networks:
@@ -93,7 +97,7 @@ services:
       - devHypertyVolume:/opt/reTHINK/dev-hyperty/
 
   'rethink-app':
-    build: '../../../../dev-smart-contextual-assistance-app/rethink/'
+    build: '../../../../dev-smart-contextual-assistance-app/'
     container_name: 'rethink-app'
     networks:
       rethink:
