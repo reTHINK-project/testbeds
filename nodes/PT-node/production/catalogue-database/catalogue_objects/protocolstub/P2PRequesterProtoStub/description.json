@@ -6,7 +6,7 @@
   "objectName": "P2PRequesterProtoStub",
   "language": "javascript",
   "signature": "",
-  "messageSchemas": "",
+  "messageSchemas": [],
   "configuration": {
     "iceServers": [
       {

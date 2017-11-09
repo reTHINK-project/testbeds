@@ -6,7 +6,7 @@
   "objectName": "P2PHandlerProtoStub",
   "language": "javascript",
   "signature": "",
-  "messageSchemas": "",
+  "messageSchemas": [],
   "configuration": {
     "iceServers": [
       {
