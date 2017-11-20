@@ -1,0 +1,16 @@
+{
+  "cguid": "13519",
+  "type": "Communicator",
+  "version": "1.0",
+  "objectName": "DTWebRTC",
+  "language": "Javascript ECMA6",
+  "description": "DT Hyperty with support for WebRTC and peer-to-peer communication",
+  "dataObjects": [
+    "https://catalogue.hybroker.rethink.ptinovacao.pt/.well-known/dataschema/Connection"
+  ],
+  "hypertyType": ["audio", "video"],
+  "messageSchema": [],
+  "configuration": {},
+  "constraints": {"browser":true,"mic":true,"camera":true},
+  "policies": []
+}
