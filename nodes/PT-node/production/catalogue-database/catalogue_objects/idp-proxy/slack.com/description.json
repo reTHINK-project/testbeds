@@ -1,14 +1,16 @@
 {
     "cguid": "5-c60b485c-b767-8be0-7f1f-64296e7bff4a3",
+    "type": 2,
     "version": 0.7,
     "description": "Description of SlackProxyStub",
-    "language": "Javascript",
-    "type": 2,
-    "constraints":{"browser":true},
-    "interworking": true,
     "objectName": "slack.com",
     "configuration": {},
-    "messageSchemas": [],
+    "constraints":{"browser":true},
+    "sourcePackageURL": "/sourcePackage",
+    "language": "Javascript",
     "signature": "",
-    "dataObjects": []
+    "messageSchemas": [],
+    "dataObjects": [],
+    "accessControlPolicy": "somePolicy",
+    "interworking": true
 }
