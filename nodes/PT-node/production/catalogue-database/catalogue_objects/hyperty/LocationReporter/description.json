@@ -8,7 +8,7 @@
     "dataObjects": [
         "https://catalogue.hybroker.rethink.ptinovacao.pt/.well-known/dataschema/Context"
     ],
-    "hypertyType": ["location"],
+    "hypertyType": ["location-context"],
     "messageSchemas": [],
     "configuration": {},
     "constraints": {"browser":true},
