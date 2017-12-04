@@ -1,0 +1,15 @@
+{
+    "cguid": "5-f0a2f14b-282b-c954-ff17-1f0ebfb71321",
+    "type": "IDPProxys",
+    "version": 0.70,
+    "description": "IDPProxy for node idp",
+    "objectName": "nodejs-idp",
+    "configuration": {},
+    "constraints": {"browser":true},
+    "sourcePackageURL": "/sourcePackage",
+    "language": "javascript",
+    "signature": "",
+    "messageSchemas": [],
+    "dataObjects": [],
+    "accessControlPolicy": "somePolicy"
+}
