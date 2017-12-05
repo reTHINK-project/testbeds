@@ -1,7 +1,7 @@
 {
   "cguid": 1323,
   "type": "DataSchemas",
-  "version": "0.1",
+  "version": "0.2",
   "description": "Description of CodeGeneratorDataSchema",
   "objectName": "CodeGeneratorDataSchema",
   "configuration": {},

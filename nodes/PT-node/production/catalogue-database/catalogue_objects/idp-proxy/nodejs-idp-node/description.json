@@ -1,7 +1,7 @@
 {
     "cguid": "5-f0a2f14b-282b-c954-ff17-1f0ebfb1112342",
     "type": "IDPProxys",
-    "version": 0.70,
+    "version": 0.8,
     "description": "IDPProxy for node idp",
     "objectName": "nodejs-idp",
     "configuration": {},

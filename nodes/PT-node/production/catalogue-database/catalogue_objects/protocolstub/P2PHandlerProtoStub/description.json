@@ -1,7 +1,7 @@
 {
   "cguid": "4456240d0c888e2293cdc568a7224b7c0",
   "type": "ProtoStubs",
-  "version": "1.20",
+  "version": "1.21",
   "description": "P2P Handler Protostub ",
   "objectName": "P2PHandlerProtoStub",
   "language": "javascript",

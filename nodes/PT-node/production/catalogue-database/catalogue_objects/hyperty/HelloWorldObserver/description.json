@@ -1,7 +1,7 @@
 {
   "cguid": "10004",
   "hypertyType": "COMMUNICATOR",
-  "version": "1.0",
+  "version": "1.1",
   "objectName": "HelloWorldObserver",
   "description": "This is an example hyperty that is written in an external file and contains a source package",
   "language": "Javascript ECMA6",
