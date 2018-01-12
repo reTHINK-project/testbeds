@@ -1,7 +1,7 @@
 {
   "cguid": "13511",
   "type": "Communicator",
-  "version": "1.1",
+  "version": "2",
   "objectName": "Connector",
   "language": "Javascript ECMA6",
   "description": "Hyperty with support for WebRTC and peer-to-peer communication",

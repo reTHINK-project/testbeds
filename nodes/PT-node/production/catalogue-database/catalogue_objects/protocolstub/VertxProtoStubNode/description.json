@@ -1,12 +1,12 @@
 {
   "cguid": "4-7f874d01-d294-eeb7-35be-c678e9464c471",
-  "version": 0.3,
+  "version": 2,
   "description": "Description of VertxProtoStubNode",
   "language": "Javascript",
   "type": "ProtoStubs",
   "objectName": "VertxProtoStubNode",
   "configuration": {
-    "url": "wss://msg-node.hysmart.rethink.ptinovacao.pt/ws"
+    "url": "wss://msg-node.hybroker.rethink.ptinovacao.pt/ws"
   },
   "messageSchemas": [],
   "signature": "",

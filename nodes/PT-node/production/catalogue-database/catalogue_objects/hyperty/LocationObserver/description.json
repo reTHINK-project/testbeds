@@ -1,7 +1,7 @@
 {
     "cguid": 100101,
     "type": "Context",
-    "version": "0.2",
+    "version": "2",
     "objectName": "LocationObserver",
     "language": "Javascript ECMA6",
     "description": "Hyperty with location support",
