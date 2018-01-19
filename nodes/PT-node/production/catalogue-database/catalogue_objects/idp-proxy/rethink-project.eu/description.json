@@ -4,7 +4,7 @@
     "description": "Description of IMSIWProxyStub",
     "language": "Javascript",
     "type": "IDPProxys",
-    "constraints": {"browser":true},
+    "constraints": {"browser":true, "onlyAccessToken": true},
     "interworking": true,
     "objectName": "rethink-project.eu",
     "configuration": {},

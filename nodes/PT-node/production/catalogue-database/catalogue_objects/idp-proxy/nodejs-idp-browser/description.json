@@ -5,7 +5,7 @@
     "description": "IDPProxy for node idp",
     "objectName": "nodejs-idp",
     "configuration": {},
-    "constraints": {"browser":true},
+    "constraints": {"browser":true, "onlyIdAssertionValidation": true},
     "sourcePackageURL": "/sourcePackage",
     "language": "javascript",
     "signature": "",
