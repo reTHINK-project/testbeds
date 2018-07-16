@@ -1,0 +1,16 @@
+{
+    "cguid": "165f8fbf54c0c3002e220a53c5a440190",
+    "type": "Context",
+    "version": "3",
+    "objectName": "Wallet",
+    "language": "Javascript ECMA6",
+    "description": "Hyperty with support for user presence state diffusion",
+    "dataObjects": [
+        "https://catalogue.hybroker.rethink.ptinovacao.pt/.well-known/dataschema/Wallet"
+    ],
+    "hypertyType": ["user_activity_context"],
+    "messageSchemas": [],
+    "configuration": {},
+    "constraints": {"browser":true},
+    "policies": []
+  }

@@ -1,7 +1,7 @@
 {
     "cguid": "1-b6ea41d4-d16a-c5ab-fd65-6305b7a0d5ec21",
     "type": "Context",
-    "version": "2",
+    "version": "3",
     "objectName": "UserAvailabilityObserver",
     "language": "Javascript ECMA6",
     "description": "Hyperty with support for user presence state diffusion",

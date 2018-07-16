@@ -1,0 +1,57 @@
+{
+    "cguid": "46c0d57ffd1f5fe7888e6ba971acb4e79",
+    "type": "ProtoStubs",
+    "version": "3",
+    "description": "Description of VertxAppProtoStub",
+    "objectName": "sharing-cities-dsm",
+    "language": "javascript",
+    "signature": "",
+    "messageSchemas": [],
+    "configuration": {
+      "url": "https://vertx-runtime.hysmart.rethink.ptinovacao.pt/eventbus",
+      "vertxbus_ping_interval": 10000,
+      "host": "sharing-cities-dsm",
+      "domain": "hysmart.rethink.ptinovacao.pt",
+      "streams": [
+        {
+          "stream": "data://sharing-cities-dsm/bonus",
+          "resources": [
+            "resources"
+          ],
+          "id": "bonus-data",
+          "name": "bonus-data DSM"
+        },
+        {
+          "stream": "data://sharing-cities-dsm/shops",
+          "resources": [
+            "resources"
+          ],
+          "id": "shops-data",
+          "name": "shops-data DSM"
+        },
+        {
+          "stream": "data://sharing-cities-dsm/elearning",
+          "resources": [
+            "resources"
+          ],
+          "id": "elearning-data",
+          "name": "elearning-data DSM"
+        }
+      ],
+      "publicWallets": {
+        "identity": {
+          "userProfile": {
+            "guid": "user-guid://public-wallets",
+            "userURL": "user://public-wallets"
+          }
+        }
+      }
+    },
+    "constraints": {"browser":true},
+    "hypertyCapabilities": [],
+    "protocolCapabilities": [],
+    "policies": [],
+    "dataObjects": [],
+    "accessControlPolicy": "somePolicy",
+    "interworking": true
+  }

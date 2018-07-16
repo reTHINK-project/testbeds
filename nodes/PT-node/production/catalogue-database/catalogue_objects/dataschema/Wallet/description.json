@@ -1,0 +1,14 @@
+{
+  "cguid": 1,
+  "type": "DataSchemas",
+  "version": "3",
+  "description": "Description of Wallet DataSchema",
+  "objectName": "Wallet",
+  "configuration": {},
+  "sourcePackageURL": "/sourcePackage",
+  "language": "JSON-Schema",
+  "signature": "",
+  "messageSchemas": "",
+  "dataObjects": [],
+  "accessControlPolicy": "somePolicy"
+}

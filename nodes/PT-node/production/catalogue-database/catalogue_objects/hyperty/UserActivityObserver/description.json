@@ -1,0 +1,20 @@
+{
+    "cguid": "165f8fbf54c0c3002e220a53c5a440190",
+    "type": "Context",
+    "version": "3",
+    "objectName": "UserActivityObserver",
+    "language": "Javascript ECMA6",
+    "description": "Hyperty with support for user presence state diffusion",
+    "dataObjects": [
+        "https://catalogue.hybroker.rethink.ptinovacao.pt/.well-known/dataschema/Context"
+    ],
+    "hypertyType": ["user_activity_context"],
+    "messageSchemas": [],
+    "configuration": {
+      "discoveryProviders": [
+        "fitness.google.com"
+      ]
+},
+    "constraints": {"browser":true},
+    "policies": []
+  }

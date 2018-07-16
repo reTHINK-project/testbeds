@@ -1,0 +1,17 @@
+{
+  "cguid": "1945c3d0bc732fb302e4bbe5fa1c77289",
+  "type": "Communicator",
+  "version": "3",
+  "objectName": "DeviceManager",
+  "language": "Javascript ECMA6",
+  "description": "Hyperty with support for smartIOT Integration",
+  "dataObjects": [
+    "https://catalogue.hybroker.rethink.ptinovacao.pt/.well-known/dataschema/Context"
+  ],
+  "hypertyType": ["location-context"],
+  "messageSchema": [],
+  "configuration": {
+  },
+  "constraints": {"browser":true},
+  "policies": []
+}

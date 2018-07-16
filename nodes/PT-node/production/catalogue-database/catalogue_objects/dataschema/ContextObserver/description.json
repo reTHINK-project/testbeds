@@ -1,7 +1,7 @@
 {
   "cguid": "200032",
   "type": "DataSchema",
-  "version": "2",
+  "version": "3",
   "objectName": "ContextObserver",
   "description": "ContextObserver DataSchema",
   "language": "JSON Schema",

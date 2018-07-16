@@ -1,7 +1,7 @@
 {
   "cguid": "20004",
   "type": "DataSchema",
-  "version": "2",
+  "version": "3",
   "objectName": "HypertyResource",
   "description": "Hyperty Resource Data Schema",
   "language": "JSON Schema",

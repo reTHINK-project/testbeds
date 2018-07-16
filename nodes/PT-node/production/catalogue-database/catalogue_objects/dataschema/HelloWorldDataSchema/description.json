@@ -1,7 +1,7 @@
 {
   "cguid": 1,
   "type": "DataSchemas",
-  "version": "2",
+  "version": "3",
   "description": "Description of HelloWorldDataSchema",
   "objectName": "HelloWorldDataSchema",
   "configuration": {},

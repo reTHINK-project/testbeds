@@ -1,7 +1,7 @@
 {
   "cguid": "20002",
   "type": "DataSchema",
-  "version": "2",
+  "version": "3",
   "objectName": "Connection",
   "description": "Connection dataschema",
   "language": "JSON Schema",

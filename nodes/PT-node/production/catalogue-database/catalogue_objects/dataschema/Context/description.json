@@ -1,7 +1,7 @@
 {
   "cguid": "20003",
   "type": "DataSchema",
-  "version": "2",
+  "version": "3",
   "objectName": "Context",
   "description": "Context DataSchema",
   "language": "JSON Schema",
