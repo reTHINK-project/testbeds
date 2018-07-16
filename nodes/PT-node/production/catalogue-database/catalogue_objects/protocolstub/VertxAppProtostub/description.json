@@ -1,7 +1,7 @@
 {
     "cguid": "46c0d57ffd1f5fe7888e6ba971acb4e79",
     "type": "ProtoStubs",
-    "version": "3",
+    "version": "3.1",
     "description": "Description of VertxAppProtoStub",
     "objectName": "sharing-cities-dsm",
     "language": "javascript",

@@ -1,9 +1,9 @@
 {
   "cguid": 1,
   "type": "DataSchemas",
-  "version": "3",
+  "version": "3.1",
   "description": "Description of Wallet DataSchema",
-  "objectName": "Wallet",
+  "objectName": "WalletData",
   "configuration": {},
   "sourcePackageURL": "/sourcePackage",
   "language": "JSON-Schema",

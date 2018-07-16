@@ -1,7 +1,7 @@
 {
 	"$schema": "http://json-schema.org/draft-04/schema#",
 
-	"id": "Wallet",
+	"id": "WalletData",
 	"type": "object",
 	"required": ["scheme", "address", "status", "identity", "created", "balance", "transactions"],
 	"properties": {
