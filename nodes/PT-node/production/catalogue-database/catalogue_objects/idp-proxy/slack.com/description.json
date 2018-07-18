@@ -1,7 +1,7 @@
 {
     "cguid": "5-c60b485c-b767-8be0-7f1f-64296e7bff4a3",
-    "type": 2,
-    "version": 2,
+    "type": "IDPProxys",
+    "version": "2.1",
     "description": "Description of SlackProxyStub",
     "objectName": "slack.com",
     "configuration": {},
