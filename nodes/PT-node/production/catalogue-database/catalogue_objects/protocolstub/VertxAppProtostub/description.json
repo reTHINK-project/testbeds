@@ -8,7 +8,7 @@
     "signature": "",
     "messageSchemas": [],
     "configuration": {
-      "url": "https://vertx-runtime.hysmart.rethink.ptinovacao.pt/eventbus",
+      "url": "https://vertx-runtime.hybroker.rethink.ptinovacao.pt/eventbus",
       "vertxbus_ping_interval": 10000,
       "host": "sharing-cities-dsm",
       "domain": "hysmart.rethink.ptinovacao.pt",
