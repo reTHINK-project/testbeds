@@ -1,7 +1,7 @@
 {
     "cguid": "46c0d57ffd1f5fe7888e6ba971acb4e79",
     "type": "ProtoStubs",
-    "version": "3.3",
+    "version": "3.4",
     "description": "Description of VertxAppProtoStub",
     "objectName": "sharing-cities-dsm",
     "language": "javascript",
@@ -11,7 +11,7 @@
       "url": "https://vertx-runtime.hybroker.rethink.ptinovacao.pt/eventbus",
       "vertxbus_ping_interval": 10000,
       "host": "sharing-cities-dsm",
-      "domain": "hysmart.rethink.ptinovacao.pt",
+      "domain": "hybroker.rethink.ptinovacao.pt",
       "streams": [
         {
           "stream": "data://sharing-cities-dsm/bonus",
