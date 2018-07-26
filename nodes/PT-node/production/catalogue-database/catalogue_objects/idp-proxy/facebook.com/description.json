@@ -1,7 +1,7 @@
 {
     "cguid": "5-f0a2f14b-282b-c954-ff17-1f0ebfb71daf2",
     "type": "IDPProxys",
-    "version": "2.1",
+    "version": "3.5",
     "description": "Description of of IDPProxy for facebook",
     "objectName": "facebook.com",
     "configuration": {},
