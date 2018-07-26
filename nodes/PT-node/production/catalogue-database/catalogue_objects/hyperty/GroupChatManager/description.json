@@ -1,7 +1,7 @@
 {
   "cguid": "10002",
   "type": "Communicator",
-  "version": "3",
+  "version": "3.5",
   "objectName": "GroupChatManager",
   "language": "Javascript ECMA6",
   "description": "Hyperty with group chat support",

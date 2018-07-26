@@ -1,7 +1,7 @@
 {
   "cguid": "13519",
   "type": "Communicator",
-  "version": "3",
+  "version": "3.5",
   "objectName": "DTWebRTC",
   "language": "Javascript ECMA6",
   "description": "DT Hyperty with support for WebRTC and peer-to-peer communication",

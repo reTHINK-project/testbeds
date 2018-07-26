@@ -1,6 +1,6 @@
 {
     "cguid": "1-217b767d-8d6e-6bd1-452a-c531125fd12210",
-    "version": 3,
+    "version": "3.5",
     "description": "Description of NodeHypertyObserver",
     "language": "Javascript",
     "hypertyType": [
