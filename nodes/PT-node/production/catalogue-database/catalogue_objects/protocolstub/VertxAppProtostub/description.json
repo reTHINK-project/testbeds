@@ -1,7 +1,7 @@
 {
     "cguid": "46c0d57ffd1f5fe7888e6ba971acb4e79",
     "type": "ProtoStubs",
-    "version": "3.5",
+    "version": "3.6",
     "description": "Description of VertxAppProtoStub",
     "objectName": "sharing-cities-dsm",
     "language": "javascript",
@@ -13,30 +13,6 @@
       "host": "sharing-cities-dsm",
       "domain": "hybroker.rethink.ptinovacao.pt",
       "streams": [
-        {
-          "stream": "data://sharing-cities-dsm/bonus",
-          "resources": [
-            "resources"
-          ],
-          "id": "bonus-data",
-          "name": "bonus-data DSM"
-        },
-        {
-          "stream": "data://sharing-cities-dsm/shops",
-          "resources": [
-            "resources"
-          ],
-          "id": "shops-data",
-          "name": "shops-data DSM"
-        },
-        {
-          "stream": "data://sharing-cities-dsm/elearning",
-          "resources": [
-            "resources"
-          ],
-          "id": "elearning-data",
-          "name": "elearning-data DSM"
-        }
       ],
       "publicWallets": {
         "identity": {
