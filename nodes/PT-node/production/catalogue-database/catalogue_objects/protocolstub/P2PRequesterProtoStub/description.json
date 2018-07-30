@@ -1,7 +1,7 @@
 {
   "cguid": "4bcb9977c1c46c13278273a67b5fe7aab",
   "type": "ProtoStubs",
-  "version": "3.5",
+  "version": "3.7",
   "description": "P2P Requester Protostub ",
   "objectName": "P2PRequesterProtoStub",
   "language": "javascript",
