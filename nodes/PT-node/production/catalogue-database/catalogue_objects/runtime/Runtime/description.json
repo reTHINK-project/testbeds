@@ -27,8 +27,8 @@
     "messageSchemas": "",
     "dataObjects": [],
     "accessControlPolicy": "somePolicy",
-    "p2pHandlerStub": "hyperty-catalogue://catalogue.hybroker.rethink.ptinovacao.pt/.well-known/protocolstub/P2PHandlerProtoStub",
-    "p2pRequesterStub": "hyperty-catalogue://catalogue.hybroker.rethink.ptinovacao.pt/.well-known/protocolstub/P2PRequesterProtoStub",
+    "p2pHandlerStub": "",
+    "p2pRequesterStub": "",
     "constraints": {
       "browser": true,
       "mic": true,
