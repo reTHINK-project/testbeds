@@ -1,14 +1,14 @@
 {
     "cguid": "46c0d57ffd1f5fe7888e6ba971acb4e79",
     "type": "ProtoStubs",
-    "version": "3.8",
+    "version": "3.9",
     "description": "Description of VertxAppProtoStub",
     "objectName": "fitness.google.com",
     "language": "javascript",
     "signature": "",
     "messageSchemas": [],
     "configuration": {
-      "sessions_query_interval": 60000,
+      "sessions_query_interval": 300000,
       "domain": "hybroker.rethink.ptinovacao.pt"
     },
     "constraints": {"browser":true},

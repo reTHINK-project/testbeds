@@ -1,7 +1,7 @@
 {
   "cguid": "1cee6e15ea36a1fbb953c7c723b2a7294",
   "type": "Communicator",
-  "version": "3.7",
+  "version": "3.9",
   "objectName": "ElearningPlayer",
   "language": "Javascript ECMA6",
   "description": "Hyperty ElearningPlayer",
