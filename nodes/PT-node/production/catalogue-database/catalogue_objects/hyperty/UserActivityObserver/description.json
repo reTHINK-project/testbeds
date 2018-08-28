@@ -1,7 +1,7 @@
 {
     "cguid": "165f8fbf54c0c3002e220a53c5a440190",
     "type": "Context",
-    "version": "3.9",
+    "version": "4",
     "objectName": "UserActivityObserver",
     "language": "Javascript ECMA6",
     "description": "Hyperty with support for user presence state diffusion",

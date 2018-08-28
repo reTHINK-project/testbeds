@@ -1,7 +1,7 @@
 {
     "cguid": "5-f0a2f14b-282b-c954-ff17-1f0ebfb71daf2",
     "type": "IDPProxys",
-    "version": "3.9",
+    "version": "4",
     "description": "Description of IdpProxyStub",
     "objectName": "google.com",
     "configuration": {},
