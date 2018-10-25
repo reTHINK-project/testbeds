@@ -1,7 +1,7 @@
 {
     "cguid": "5-f0a2f14b-282b-c954-ff17-43232321-1232",
     "type": "IDPProxys",
-    "version": "4",
+    "version": "5",
     "description": "IDPProxy for EDP Distribuição IDP",
     "objectName": "edpdistribuicao.pt",
     "configuration": {},

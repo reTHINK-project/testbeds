@@ -1,7 +1,7 @@
 {
   "cguid": "1945c3d0bc732fb302e4bbe5fa1c77289",
   "type": "Communicator",
-  "version": "4",
+  "version": "5",
   "objectName": "DeviceManager",
   "language": "Javascript ECMA6",
   "description": "Hyperty with support for smartIOT Integration",

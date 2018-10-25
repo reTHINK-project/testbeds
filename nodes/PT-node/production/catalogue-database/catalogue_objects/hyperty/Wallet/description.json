@@ -1,7 +1,7 @@
 {
     "cguid": "165f8fbf54c0c3002e220a53c5a440190",
     "type": "Context",
-    "version": "4.1",
+    "version": "5",
     "objectName": "Wallet",
     "language": "Javascript ECMA6",
     "description": "Hyperty with support for user presence state diffusion",

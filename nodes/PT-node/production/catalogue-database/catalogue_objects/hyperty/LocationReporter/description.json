@@ -1,7 +1,7 @@
 {
     "cguid": 10010,
     "type": "Context",
-    "version": "4",
+    "version": "5",
     "objectName": "LocationReporter",
     "language": "Javascript ECMA6",
     "description": "Hyperty with location support",
