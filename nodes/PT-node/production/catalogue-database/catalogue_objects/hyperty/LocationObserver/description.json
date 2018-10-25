@@ -10,7 +10,10 @@
     ],
     "hypertyType": ["location-context"],
     "messageSchemas": [],
-    "configuration": {},
+    "configuration": {
+      "domain_registration": false,
+      "domain_routing": false
+    },
     "constraints": {"browser":true},
     "policies": []
   }

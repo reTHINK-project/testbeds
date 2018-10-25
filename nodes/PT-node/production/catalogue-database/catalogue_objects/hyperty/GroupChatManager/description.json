@@ -10,7 +10,10 @@
   ],
   "hypertyType": ["chat"],
   "messageSchema": "",
-  "configuration": {},
+  "configuration": {
+    "backup": true,
+    "heartBeat": 60
+  },
   "constraints": {"browser":true},
   "policies": []
 }

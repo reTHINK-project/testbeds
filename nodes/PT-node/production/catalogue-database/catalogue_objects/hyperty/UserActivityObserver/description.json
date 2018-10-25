@@ -13,7 +13,9 @@
     "configuration": {
       "discoveryProviders": [
         "fitness.google.com"
-      ]
+      ],
+      "domain_registration": false,
+      "domain_routing": false
 },
     "constraints": {"browser":true},
     "policies": []

@@ -1,0 +1,16 @@
+{
+    "cguid": "165f8fbf54c0dsadasdas",
+    "type": "Context",
+    "version": "4.1",
+    "objectName": "SimpleChat",
+    "language": "Javascript ECMA6",
+    "description": "Hyperty with support for user presence state diffusion",
+    "dataObjects": [
+        "https://catalogue.hybroker.rethink.ptinovacao.pt/.well-known/dataschema/Communication"
+    ],
+    "hypertyType": ["chat"],
+    "messageSchemas": [],
+    "configuration": {},
+    "constraints": {"browser":true},
+    "policies": []
+  }
