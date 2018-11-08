@@ -1,7 +1,7 @@
 {
     "cguid": "165f8fbf54c0dsadasdas",
     "type": "Context",
-    "version": "5",
+    "version": "6",
     "objectName": "SimpleChat",
     "language": "Javascript ECMA6",
     "description": "Hyperty with support for user presence state diffusion",
@@ -10,7 +10,12 @@
     ],
     "hypertyType": ["chat"],
     "messageSchemas": [],
-    "configuration": {},
+    "configuration": {
+      "backup": false,
+      "heartBeat": 60,
+      "offline": "hyperty://sharing-cities-dsm/offline-sub-mgr"
+
+    },
     "constraints": {"browser":true},
     "policies": []
   }
