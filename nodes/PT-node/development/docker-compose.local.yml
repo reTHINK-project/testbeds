@@ -1,7 +1,7 @@
-version: '2'
+version: '3'
 services:
   'msg-node-vertx-local':
-    image: 'rethink/msg-node-vertx:develop'
+    image: 'rethinkaltice/dev-msg-node-vertx:latest'
     container_name: 'msg-node-vertx-local'
     environment:
       - MSG_NODE_CONFIG=env
@@ -20,7 +20,7 @@ services:
       - '9090'
 
   'domain-registry-local':
-    image: 'rethink/registry-domain-server:develop'
+    image: 'rethinkaltice/dev-registry-domain:latest'
     container_name: 'domain-registry-local'
     networks:
       rethink-local:
@@ -32,6 +32,7 @@ services:
       - '4568'
       - '4567'
 
+
 networks:
   rethink-local:
     driver: bridge
@@ -39,4 +40,4 @@ networks:
       driver: default
       config:
         - subnet: 172.19.0.0/16
-          gateway: 172.19.0.1
+
