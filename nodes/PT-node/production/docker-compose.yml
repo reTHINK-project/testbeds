@@ -97,16 +97,16 @@ services:
 #    volumes:
 #      - devHypertyVolume:/opt/reTHINK/dev-hyperty/
 
-  'rethink-app':
-    build: '../../../../dev-smart-contextual-assistance-app/'
-    container_name: 'rethink-app'
-#    entrypoint: 'npm run server'
-    networks:
-      rethink:
-        ipv4_address: 172.20.0.16
-    expose:
-      - '443'
-      - '8080'
+#  'rethink-app':
+#    build: '../../../../dev-smart-contextual-assistance-app/'
+#    container_name: 'rethink-app'
+#
+#    networks:
+#      rethink:
+#        ipv4_address: 172.20.0.16
+#    expose:
+#      - '443'
+#      - '8080'
 
 
   'hyperty-toolkit':
@@ -121,7 +121,7 @@ services:
       - PROTOSTUB_REPO=/home/dev-protostubs
       - INDEX_URL=https://hybroker.rethink.ptinovacao.pt/.well-known/runtime/index.html
       - SANDBOX_URL=https://hybroker.rethink.ptinovacao.pt/.well-known/runtime/sandbox.html
-      - HYPERTY_INCLUDES=connector, group-chat-manager, user-availability, hello-world, node-hyperty, node-hyperty-observer, location, dtwebrtc
+      - HYPERTY_INCLUDES=connector, group-chat-manager, user-availability, hello-world, node-hyperty, node-hyperty-observer, location, dtwebrtc, simple-chat, learning, device-manager
     volumes:
       - ../dev-hyperty:/home/dev-hyperty
       - ../dev-protostubs:/home/dev-protostubs
@@ -149,8 +149,13 @@ services:
 
 
   'dev-java-hyperty':
-    image: 'rethinkaltice/dev-java-hyperty:develop'
+    image: 'rethinkaltice/dev-java-hyperty:fromdevelop'
     container_name: "dev-java-hyperty"
+    environment:
+      - MONGOHOSTS=172.20.0.64
+      - MONGOPORTS=27017
+      - MONGO_CLUSTER=NO
+
     networks:
       rethink:
         ipv4_address: 172.20.0.128
@@ -158,8 +163,30 @@ services:
       - '443'
       - '9091'
 
+  mongodbfirst:
+    image: mongo:latest
+    container_name: "mongodbfirst"
+    volumes:
+      - ./m1:/data
+    ports:
+      - "192.168.89.95:27017:27017"
+      - "127.0.0.1:27017:27017"
+    command: mongod --smallfiles --replSet testeMongo
+    networks:
+      rethink:
+        ipv4_address: 172.20.0.65
 
-
+  portainer_container:
+    image: portainer/portainer
+    container_name: "portainer_container"
+    ports:
+      - "192.168.89.95:9000:9000"
+      - "127.0.0.1:9000:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      rethink:
+        ipv4_address: 172.20.0.5
 
 
 volumes:
