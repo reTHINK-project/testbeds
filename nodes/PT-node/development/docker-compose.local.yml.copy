@@ -1,0 +1,44 @@
+version: '2'
+services:
+  'msg-node-vertx-local':
+    image: 'rethinkaltice/dev-msg-node-vertx:develop'
+
+    container_name: 'msg-node-vertx-local'
+    environment:
+      - MSG_NODE_CONFIG=env
+      - NODE_DOMAIN=localhost
+      - NODE_PORT=9090
+      - NODE_REGISTRY_URL=http://172.19.0.4:4567
+      - NODE_GLOBAL_REGISTRY_URL=http://citysdk.tecnico.ulisboa.pt:5002
+      - NODE_REGISTRY_RETRIES=2
+      - NODE_REGISTRY_SSL=false
+      - NODE_REGISTRY_OWN_CERTIFICATES=false
+    networks:
+      rethink-local:
+        ipv4_address: 172.19.0.2
+    expose:
+      - '443'
+      - '9090'
+
+  'domain-registry-local':
+    image: 'rethinkaltice/dev-registry-domain:develop'
+    container_name: 'domain-registry-local'
+    networks:
+      rethink-local:
+        ipv4_address: 172.19.0.4
+    environment:
+      - STORAGE_TYPE=RAM
+      - EXPIRES=30
+      - EXPIRES_MAX=3600
+    expose:
+      - '4568'
+      - '4567'
+
+networks:
+  rethink-local:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.19.0.0/16
+          gateway: 172.19.0.1

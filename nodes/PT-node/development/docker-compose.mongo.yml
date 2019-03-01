@@ -1,0 +1,18 @@
+version: '2'
+services:
+
+    mongodbfirst:
+        image: mongo:latest
+        container_name: "mongodbfirst"
+        volumes:
+                - ./m1:/data
+        ports:
+            - "127.0.0.1:27017:27017"
+            - "192.168.89.96:27017:27017"
+        command: mongod --smallfiles --replSet testeMongo
+
+    portainer_container:
+        image: portainer/portainer
+        container_name: "portainer_container"
+        ports:
+            - "192.168.89.96:9000:9000"

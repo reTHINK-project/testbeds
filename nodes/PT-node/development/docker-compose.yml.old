@@ -1,0 +1,141 @@
+version: '3.2'
+services:
+  'msg-node-vertx':
+    image: 'rethink/msg-node-vertx:develop'
+    container_name: 'msg-node-vertx'
+    environment:
+      - MSG_NODE_CONFIG=env
+      - NODE_DOMAIN=hysmart.rethink.ptinovacao.pt
+      - NODE_PORT=9090
+      - NODE_REGISTRY_URL=http://172.18.0.4:4567
+      - NODE_GLOBAL_REGISTRY_URL=http://130.149.22.133:5002
+      - NODE_REGISTRY_RETRIES=2
+      - NODE_REGISTRY_SSL=false
+      - NODE_REGISTRY_OWN_CERTIFICATES=false
+    networks:
+      rethink:
+        ipv4_address: 172.18.0.2
+    expose:
+      - '443'
+      - '9090'
+
+  'domain-registry':
+    image: 'rethinkaltice/dev-registry-domain:develop'
+    container_name: 'domain-registry'
+    networks:
+      rethink:
+        ipv4_address: 172.18.0.4
+    environment:
+      - STORAGE_TYPE=RAM
+#      - STORAGE_TYPE=CASSANDRA
+#      - CONTACT_POINTS_IPS=192.168.89.96,192.168.89.95
+#      - CONTACT_POINTS_IPS=192.168.89.96
+      - EXPIRES=20
+      - EXPIRES_MAX=3600
+    expose:
+      - '4568'
+      - '4567'
+
+#  'catalogue-broker':
+#    image: rethink/catalogue-broker
+#    container_name: 'catalogue-broker'
+#    networks:
+#      rethink:
+#        ipv4_address: 172.18.0.8
+#    hostname: 'catalogue.hysmart.rethink.ptinovacao.pt'
+#    command: [-host, 'catalogue.hysmart.rethink.ptinovacao.pt', -default, protocolstub/VertxProtoStub, -default, protocolstub/VertxProtoStubNode]
+
+#    expose:
+#      - '443'
+#      - '5683'
+
+#  'catalogue-database-ptinovacao':
+#    build: "./catalogue-database"
+#    container_name: 'catalogue-database-ptinovacao'
+#    network_mode: "service:catalogue-broker"
+#    command: [-host, catalogue.hysmart.rethink.ptinovacao.pt]
+#    depends_on:
+#      - 'catalogue-broker'
+
+#  'global-registry'
+#    build: 'rethink/global-registry'
+#    container_name: 'global-registry'
+#    environment:
+#      - KEY=VALUE
+#    networks:
+#      rethink:
+#        ipv4_address: 172.18.0.16
+#    expose:
+#      - '443'
+
+  'hyperty-toolkit':
+          # image: vitormtsilva/dev-hyperty-toolkit:develop
+    build: '../dev-hyperty-toolkit'
+    container_name: 'hyperty-toolkit'
+    environment:
+      - DEVELOPMENT=false
+      - RUNTIME_URL=hyperty-catalogue://catalogue.hysmart.rethink.ptinovacao.pt/.well-known/runtime/Runtime
+      - DOMAIN=hysmart.rethink.ptinovacao.pt
+      - HYPERTY_REPO=/home/dev-hyperty
+      - PROTOSTUB_REPO=/home/dev-protostubs
+      - INDEX_URL=https://hysmart.rethink.ptinovacao.pt/.well-known/runtime/index.html
+      - SANDBOX_URL=https://hysmart.rethink.ptinovacao.pt/.well-known/runtime/sandbox.html
+      - HYPERTY_INCLUDES=connector, group-chat-manager, user-availability, hello-world, location, dtwebrtc, wallet, user-activity, learning, device-manager
+
+    volumes:
+      - ../dev-hyperty:/home/dev-hyperty
+      - ../dev-protostubs:/home/dev-protostubs
+    networks:
+      rethink:
+        ipv4_address: 172.18.0.32
+    expose:
+      - '443'
+    entrypoint: 'npm run start:prod'
+
+  mongodb:
+    image: mongo:latest
+    container_name: "mongodb"
+    environment:
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+    volumes:
+      - ./data/db:/data/db
+    networks:
+      rethink:
+        ipv4_address: 172.18.0.64
+    expose:
+      - '27017'
+
+#  mongodbsec:
+#    image: mongo:latest
+#    container_name: "mongodbsec"
+#    environment:
+#      - MONGO_DATA_DIR=/sec/db
+#      - MONGO_LOG_DIR=/dev/null
+#    volumes:
+#      - ./sec/db:/sec/db
+#    networks:
+#      rethink:
+#        ipv4_address: 172.18.0.65
+#    expose:
+#      - '27017'
+
+  'dev-java-hyperty':
+    image: 'rethinkaltice/dev-java-hyperty:develop'
+    container_name: "dev-java-hyperty"
+    environment:
+      - MONGOHOST=172.18.0.64
+    networks:
+      rethink:
+        ipv4_address: 172.18.0.128
+    expose:
+      - '443'
+      - '9091'
+
+networks:
+  rethink:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.18.0.0/16

@@ -80,7 +80,7 @@ services:
                 ipv4_address: 172.18.0.32
         expose:
             - '443'
-        entrypoint: 'npm run start:prod'
+        entrypoint: 'npm run start:dev'
 
     dev-java-hyperty:
         image: 'rethinkaltice/dev-java-hyperty:develop'
@@ -89,12 +89,30 @@ services:
             - MONGOHOSTS=192.168.89.95,192.168.89.96
             - MONGOPORTS=27017,27017
             - MONGO_CLUSTER=YES
+            - LOG_LEVEL=DEBUG
+            - SCHEDULE_MINUTE=45
+            - SCHEDULE_HOUR=14
+            - SIOT_POC=https://vertx-runtime.hysmart.rethink.ptinovacao.pt/requestpub
         networks:
             rethink:
                 ipv4_address: 172.18.0.128
         expose:
             - '443'
             - '9091'
+
+    dev-push-server:
+        image: 'rethinkaltice/dev-push-server:latest'
+        container_name: 'dev-push-server'
+        environment:
+            - MONGO_HOSTS=mongodb://192.168.89.95:27017/test
+            - NODE_PORT=3002
+            - SUBSCRIPTION_COLLECTION=subscription
+            - NOTIFICATION_COLLECTION=notification
+        networks:
+            rethink:
+                ipv4_address: 172.18.0.130
+        expose:
+            - '3002'
 
 networks:
   rethink:
