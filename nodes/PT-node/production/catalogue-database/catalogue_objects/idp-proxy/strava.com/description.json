@@ -1,0 +1,16 @@
+{
+    "cguid": "5-f0a2f14dsdsad2-c954-ff17-3123123fdsfsd2",
+    "type": "IDPProxys",
+    "version": "7",
+    "description": "IDPProxy for Strava athletes plataform",
+    "objectName": "strava.com",
+    "configuration": {},
+    "constraints": {"browser":true},
+    "sourcePackageURL": "/sourcePackage",
+    "language": "javascript",
+    "signature": "",
+    "messageSchemas": [],
+    "dataObjects": [],
+    "accessControlPolicy": "somePolicy",
+    "interworking": true
+}
