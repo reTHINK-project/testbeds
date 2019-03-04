@@ -1,7 +1,7 @@
 {
     "cguid": "5-f0a2f14dsdsad2-c954-ff17-31231231232",
     "type": "IDPProxys",
-    "version": "7",
+    "version": "7.1",
     "description": "IDPProxy for Mobie",
     "objectName": "mobie.pt",
     "configuration": {},
