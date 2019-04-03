@@ -8,7 +8,7 @@
     "signature": "",
     "messageSchemas": [],
     "configuration": {
-      "url": "wss://msg-node.hybroker.rethink.ptinovacao.pt/ws"
+      "url": "wss://msg-node.rethink.alticelabs.com/ws"
     },
     "constraints": {"browser":true},
     "hypertyCapabilities": [],

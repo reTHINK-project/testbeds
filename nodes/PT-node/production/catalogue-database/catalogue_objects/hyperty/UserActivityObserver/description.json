@@ -6,7 +6,7 @@
     "language": "Javascript ECMA6",
     "description": "Hyperty with support for user presence state diffusion",
     "dataObjects": [
-        "https://catalogue.hybroker.rethink.ptinovacao.pt/.well-known/dataschema/Context"
+        "https://catalogue.rethink.alticelabs.com/.well-known/dataschema/Context"
     ],
     "hypertyType": ["user_activity_context"],
     "messageSchemas": [],

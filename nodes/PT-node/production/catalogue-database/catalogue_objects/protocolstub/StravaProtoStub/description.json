@@ -7,7 +7,7 @@
     "objectName": "fitness.strava.com",
     "configuration": {
       "sessions_query_interval": 300000,
-      "domain": "hybroker.rethink.ptinovacao.pt"
+      "domain": "rethink.alticelabs.com"
     },
     "messageSchemas": [],
     "signature": "",

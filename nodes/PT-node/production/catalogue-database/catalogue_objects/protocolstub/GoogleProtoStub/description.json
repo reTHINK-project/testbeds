@@ -9,7 +9,7 @@
     "messageSchemas": [],
     "configuration": {
       "sessions_query_interval": 300000,
-      "domain": "hybroker.rethink.ptinovacao.pt"
+      "domain": "rethink.alticelabs.com"
     },
     "constraints": {"browser":true},
     "hypertyCapabilities": [],

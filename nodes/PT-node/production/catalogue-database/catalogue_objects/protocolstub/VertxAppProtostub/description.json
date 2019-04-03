@@ -8,10 +8,10 @@
     "signature": "",
     "messageSchemas": [],
     "configuration": {
-      "url": "https://vertx-runtime.hybroker.rethink.ptinovacao.pt/eventbus",
+      "url": "https://vertx-runtime.rethink.alticelabs.com/eventbus",
       "vertxbus_ping_interval": 10000,
       "host": "sharing-cities-dsm",
-      "domain": "hybroker.rethink.ptinovacao.pt",
+      "domain": "rethink.alticelabs.com",
       "streams": [
       ],
       "publicWallets": {
