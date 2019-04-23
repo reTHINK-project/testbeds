@@ -1,7 +1,7 @@
 {
     "cguid": 40001,
     "type": "ProtoStubs",
-    "version": "2",
+    "version": "2.1",
     "description": "Description of VertxProtoStub",
     "objectName": "VertxProtoStub",
     "language": "javascript",
