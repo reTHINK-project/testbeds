@@ -51,7 +51,7 @@ services:
     build: "./catalogue-database"
     container_name: 'catalogue-database-ptinovacao'
     network_mode: "service:catalogue-broker"
-    command: [-host, catalogue.rethink.alticelabs.com]
+    command: [-host, 'catalogue.rethink.alticelabs.com']
     depends_on:
       - 'catalogue-broker'
 
