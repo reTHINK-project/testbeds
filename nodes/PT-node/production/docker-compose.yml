@@ -130,7 +130,7 @@ services:
         ipv4_address: 172.20.0.32
     expose:
       - '443'
-    entrypoint: 'npm run start:browser'
+    entrypoint: 'npm run start:dev'
 
 
   mongodb:
@@ -139,6 +139,9 @@ services:
     environment:
       - MONGO_DATA_DIR=/data/db
       - MONGO_LOG_DIR=/dev/null
+#    ports:
+#      - "192.168.89.95:9000:9000"
+#      - "127.0.0.1:9000:9000"
     volumes:
       - ./data/db:/data/db
     networks:
@@ -149,13 +152,17 @@ services:
 
 
   'dev-java-hyperty':
-    image: 'rethinkaltice/dev-java-hyperty:fromdevelop'
+    image: 'rethinkaltice/dev-java-hyperty:develop'
+#    image: 'rethinkaltice/dev-java-hyperty:develop'
     container_name: "dev-java-hyperty"
     environment:
       - MONGOHOSTS=172.20.0.64
       - MONGOPORTS=27017
       - MONGO_CLUSTER=NO
-
+      - LOG_LEVEL=INFO
+      - SCHEDULE_MINUTE=0
+      - SCHEDULE_HOUR=2
+      - SIOT_POC=https://vertx-runtime.hybroker.rethink.ptinovacao.pt/requestpub
     networks:
       rethink:
         ipv4_address: 172.20.0.128
@@ -171,7 +178,7 @@ services:
     ports:
       - "192.168.89.95:27017:27017"
       - "127.0.0.1:27017:27017"
-    command: mongod --smallfiles --replSet testeMongo
+#    command: mongod --smallfiles --replSet testeMongo
     networks:
       rethink:
         ipv4_address: 172.20.0.65
@@ -187,6 +194,21 @@ services:
     networks:
       rethink:
         ipv4_address: 172.20.0.5
+
+  dev-push-server:
+    image: 'rethinkaltice/dev-push-server:latest'
+    container_name: 'dev-push-server'
+    environment:
+      - MONGO_HOSTS=mongodb://192.168.89.95:27017/test
+      - NODE_PORT=3002
+      - SUBSCRIPTION_COLLECTION=subscriptionprod
+      - NOTIFICATION_COLLECTION=notificationprod
+    networks:
+      rethink:
+        ipv4_address: 172.20.0.130
+    expose:
+      - '3002'
+
 
 
 volumes:

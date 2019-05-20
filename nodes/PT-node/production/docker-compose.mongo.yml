@@ -1,0 +1,13 @@
+version: '2'
+services:
+
+    mongodbfirst:
+        image: mongo:latest
+        container_name: "mongodbfirst"
+        volumes:
+                - ./m1:/data
+        ports:
+            - "192.168.89.95:27017:27017"
+            - "127.0.0.1:27017:27017"
+        command: mongod --smallfiles --replSet testeMongo
+
