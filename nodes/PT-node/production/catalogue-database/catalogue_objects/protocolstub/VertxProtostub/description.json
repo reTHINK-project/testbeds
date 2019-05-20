@@ -1,14 +1,15 @@
 {
     "cguid": 40001,
     "type": "ProtoStubs",
-    "version": "2",
+    "version": "2.5",
     "description": "Description of VertxProtoStub",
     "objectName": "VertxProtoStub",
     "language": "javascript",
     "signature": "",
     "messageSchemas": [],
     "configuration": {
-      "url": "wss://msg-node.hybroker.rethink.ptinovacao.pt/ws"
+      "url": "wss://msg-node.rethink.alticelabs.com/ws",
+      "maxBuffer":1000000
     },
     "constraints": {"browser":true},
     "hypertyCapabilities": [],

@@ -6,7 +6,7 @@
   "type": "ProtoStubs",
   "objectName": "VertxProtoStubNode",
   "configuration": {
-    "url": "wss://msg-node.hybroker.rethink.ptinovacao.pt/ws"
+    "url": "wss://msg-node.rethink.alticelabs.com/ws"
   },
   "messageSchemas": [],
   "signature": "",
