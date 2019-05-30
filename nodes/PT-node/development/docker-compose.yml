@@ -1,37 +1,40 @@
 version: '2'
 services:
 
-    mongodbfirst:
+    mongodb:
         image: mongo:latest
-        container_name: "mongodbfirst"
+        container_name: "mongodb"
         volumes:
                 - ./m1:/data
-        ports:
-            - "192.168.89.96:27017:27017"
-            - "127.0.0.1:27017:27017"
-        command: mongod --smallfiles --replSet testeMongo
+#        ports:
+#            - "192.168.89.96:27017:27017"
+#            - "127.0.0.1:27017:27017"
+#        command: mongod --smallfiles --replSet testeMongo
         networks:
             rethink:
                 ipv4_address: 172.18.0.3
+        expose:
+            - '27017'
 
-    portainer_container:
-        image: portainer/portainer
-        container_name: "portainer_container"
-        ports:
-            - "192.168.89.96:9000:9000"
-            - "127.0.0.1:9000:9000"
-        volumes:
-            - /var/run/docker.sock:/var/run/docker.sock
-        networks:
-            rethink:
-                ipv4_address: 172.18.0.5
+
+#    portainer_container:
+#        image: portainer/portainer
+#        container_name: "portainer_container"
+#        ports:
+#            - "192.168.89.96:9000:9000"
+#            - "127.0.0.1:9000:9000"
+#        volumes:
+#            - /var/run/docker.sock:/var/run/docker.sock
+#        networks:
+#            rethink:
+#                ipv4_address: 172.18.0.5
 
     msg-node-vertx:
         image: rethinkaltice/dev-msg-node-vertx:latest
         container_name: 'msg-node-vertx'
         environment:
             - MSG_NODE_CONFIG=env
-            - NODE_DOMAIN=hysmart.rethink.ptinovacao.pt
+            - NODE_DOMAIN=rethink-dev.alticelabs.com
             - NODE_PORT=9090
             - NODE_REGISTRY_URL=http://172.18.0.4:4567
             - NODE_GLOBAL_REGISTRY_URL=http://130.149.22.133:5002
@@ -64,12 +67,12 @@ services:
         container_name: 'hyperty-toolkit'
         environment:
             - DEVELOPMENT=false
-            - RUNTIME_URL=hyperty-catalogue://catalogue.hysmart.rethink.ptinovacao.pt/.well-known/runtime/Runtime
-            - DOMAIN=hysmart.rethink.ptinovacao.pt
+            - RUNTIME_URL=hyperty-catalogue://catalogue.rethink-dev.alticelabs.com/.well-known/runtime/Runtime
+            - DOMAIN=rethink-dev.alticelabs.com
             - HYPERTY_REPO=/home/dev-hyperty
             - PROTOSTUB_REPO=/home/dev-protostubs
-            - INDEX_URL=https://hysmart.rethink.ptinovacao.pt/.well-known/runtime/index.html
-            - SANDBOX_URL=https://hysmart.rethink.ptinovacao.pt/.well-known/runtime/sandbox.html
+            - INDEX_URL=https://rethink-dev.alticelabs.com/.well-known/runtime/index.html
+            - SANDBOX_URL=https://rethink-dev.alticelabs.com/.well-known/runtime/sandbox.html
             - HYPERTY_INCLUDES=connector, group-chat-manager, user-availability, hello-world, location, dtwebrtc, wallet, user-activity, learning, device-manager, simple-chat
 
         volumes:
@@ -86,13 +89,14 @@ services:
         image: 'rethinkaltice/dev-java-hyperty:develop'
         container_name: "dev-java-hyperty"
         environment:
-            - MONGOHOSTS=192.168.89.95,192.168.89.96
-            - MONGOPORTS=27017,27017
-            - MONGO_CLUSTER=YES
+            - MONGOHOSTS=172.18.0.3
+            - MONGOPORTS=27017
+            - MONGO_CLUSTER=NO
             - LOG_LEVEL=DEBUG
             - SCHEDULE_MINUTE=45
             - SCHEDULE_HOUR=14
-            - SIOT_POC=https://vertx-runtime.hysmart.rethink.ptinovacao.pt/requestpub
+            - SIOT_POC=https://vertx-runtime.rethink-dev.alticelabs.com/requestpub
+            - CHALLENGE_EXPIRE=1559037600000
         networks:
             rethink:
                 ipv4_address: 172.18.0.128
@@ -100,14 +104,42 @@ services:
             - '443'
             - '9091'
 
+    portainer_container:
+        image: portainer/portainer
+        container_name: "portainer_container"
+        ports:
+            - "192.168.89.90:9000:9000"
+            - "127.0.0.1:9000:9000"
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+        networks:
+            rethink:
+                ipv4_address: 172.18.0.5
+
+#
+#    dev-push-server:
+#        image: 'rethinkaltice/dev-push-server:latest'
+#        container_name: 'dev-push-server'
+#        environment:
+#            - MONGO_HOSTS=mongodb://192.168.89.95:27017/test
+#            - NODE_PORT=3002
+#            - SUBSCRIPTION_COLLECTION=subscription
+#            - NOTIFICATION_COLLECTION=notification
+#        networks:
+#            rethink:
+#                ipv4_address: 172.18.0.130
+#        expose:
+#            - '3002'
+#
+
     dev-push-server:
         image: 'rethinkaltice/dev-push-server:latest'
         container_name: 'dev-push-server'
         environment:
-            - MONGO_HOSTS=mongodb://192.168.89.95:27017/test
+            - MONGO_HOSTS=mongodb://172.18.0.3:27017/test
             - NODE_PORT=3002
-            - SUBSCRIPTION_COLLECTION=subscription
-            - NOTIFICATION_COLLECTION=notification
+            - SUBSCRIPTION_COLLECTION=subscriptionprod
+            - NOTIFICATION_COLLECTION=notificationprod
         networks:
             rethink:
                 ipv4_address: 172.18.0.130
