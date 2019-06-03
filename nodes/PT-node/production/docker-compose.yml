@@ -154,10 +154,11 @@ services:
       - MONGOHOSTS=172.20.0.64
       - MONGOPORTS=27017
       - MONGO_CLUSTER=NO
-      - LOG_LEVEL=DEBUG
+      - LOG_LEVEL=INFO
       - SCHEDULE_MINUTE=0
       - SCHEDULE_HOUR=2
       - SIOT_POC=https://vertx-runtime.rethink.alticelabs.com/requestpub
+      - CHALLENGE_EXPIRE=1559257200000
     networks:
       rethink:
         ipv4_address: 172.20.0.128
